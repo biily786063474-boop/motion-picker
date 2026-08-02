@@ -1,4 +1,21 @@
 {
+  "name": "reactbits-local",
+  "private": true,
+  "description": "ReactBits 本地资产库：139 个组件源码 + prompt 镜像 + 可视化选型台",
+  "scripts": {
+    "dev": "vite --port 5180 --strictPort",
+    "build": "vite build",
+    "sync": "bash scripts/fetch-repo.sh && node scripts/build-prompts.mjs",
+    "check:deps": "node scripts/check-deps.mjs",
+    "check:controls": "node scripts/audit-controls.mjs",
+    "verify:site": "node scripts/verify-against-site.mjs",
+    "verify:playground": "node scripts/verify-playground.mjs",
+    "verify:remount": "node scripts/verify-remount.mjs",
+    "sweep": "node scripts/sweep-all.mjs --shots",
+    "sweep:offline": "node scripts/sweep-all.mjs --offline --shots",
+    "check:blank": "node scripts/detect-blank.mjs",
+    "check:network": "node scripts/check-network.mjs"
+  },
   "dependencies": {
     "@babel/parser": "^8.0.4",
     "@gsap/react": "^2.1.2",
