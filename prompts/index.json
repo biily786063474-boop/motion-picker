@@ -221,7 +221,17 @@
       "prompt": "Animations/AnimatedContent-TS-TW.md",
       "bytes": 5808,
       "props": 18,
-      "source": "src/ts-tailwind/Animations/AnimatedContent/AnimatedContent.tsx"
+      "source": "src/ts-tailwind/Animations/AnimatedContent/AnimatedContent.tsx",
+      "localPath": "components/Animations/AnimatedContent.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Antigravity",
@@ -234,7 +244,18 @@
       "prompt": "Animations/Antigravity-TS-TW.md",
       "bytes": 8075,
       "props": 15,
-      "source": "src/ts-tailwind/Animations/Antigravity/Antigravity.tsx"
+      "source": "src/ts-tailwind/Animations/Antigravity/Antigravity.tsx",
+      "localPath": "components/Animations/Antigravity.tsx",
+      "realDeps": [
+        "@react-three/fiber",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "BlobCursor",
@@ -246,7 +267,17 @@
       "prompt": "Animations/BlobCursor-TS-TW.md",
       "bytes": 6853,
       "props": 20,
-      "source": "src/ts-tailwind/Animations/BlobCursor/BlobCursor.tsx"
+      "source": "src/ts-tailwind/Animations/BlobCursor/BlobCursor.tsx",
+      "localPath": "components/Animations/BlobCursor.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ClickSpark",
@@ -256,7 +287,15 @@
       "prompt": "Animations/ClickSpark-TS-TW.md",
       "bytes": 5565,
       "props": 8,
-      "source": "src/ts-tailwind/Animations/ClickSpark/ClickSpark.tsx"
+      "source": "src/ts-tailwind/Animations/ClickSpark/ClickSpark.tsx",
+      "localPath": "components/Animations/ClickSpark.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Crosshair",
@@ -268,7 +307,17 @@
       "prompt": "Animations/Crosshair-TS-TW.md",
       "bytes": 7601,
       "props": 2,
-      "source": "src/ts-tailwind/Animations/Crosshair/Crosshair.tsx"
+      "source": "src/ts-tailwind/Animations/Crosshair/Crosshair.tsx",
+      "localPath": "components/Animations/Crosshair.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Cubes",
@@ -280,7 +329,17 @@
       "prompt": "Animations/Cubes-TS-TW.md",
       "bytes": 14860,
       "props": 14,
-      "source": "src/ts-tailwind/Animations/Cubes/Cubes.tsx"
+      "source": "src/ts-tailwind/Animations/Cubes/Cubes.tsx",
+      "localPath": "components/Animations/Cubes.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "CursorGrid",
@@ -290,7 +349,15 @@
       "prompt": "Animations/CursorGrid-TS-TW.md",
       "bytes": 12201,
       "props": 14,
-      "source": "src/ts-tailwind/Animations/CursorGrid/CursorGrid.tsx"
+      "source": "src/ts-tailwind/Animations/CursorGrid/CursorGrid.tsx",
+      "localPath": "components/Animations/CursorGrid.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ElectricBorder",
@@ -300,7 +367,15 @@
       "prompt": "Animations/ElectricBorder-TS-TW.md",
       "bytes": 12050,
       "props": 7,
-      "source": "src/ts-tailwind/Animations/ElectricBorder/ElectricBorder.tsx"
+      "source": "src/ts-tailwind/Animations/ElectricBorder/ElectricBorder.tsx",
+      "localPath": "components/Animations/ElectricBorder.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "FadeContent",
@@ -310,7 +385,17 @@
       "prompt": "Animations/FadeContent-TS-TW.md",
       "bytes": 4550,
       "props": 11,
-      "source": "src/ts-tailwind/Animations/FadeContent/FadeContent.tsx"
+      "source": "src/ts-tailwind/Animations/FadeContent/FadeContent.tsx",
+      "localPath": "components/Animations/FadeContent.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "GhostCursor",
@@ -322,7 +407,17 @@
       "prompt": "Animations/GhostCursor-TS-TW.md",
       "bytes": 20156,
       "props": 17,
-      "source": "src/ts-tailwind/Animations/GhostCursor/GhostCursor.tsx"
+      "source": "src/ts-tailwind/Animations/GhostCursor/GhostCursor.tsx",
+      "localPath": "components/Animations/GhostCursor.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "GlareHover",
@@ -332,7 +427,15 @@
       "prompt": "Animations/GlareHover-TS-TW.md",
       "bytes": 4976,
       "props": 14,
-      "source": "src/ts-tailwind/Animations/GlareHover/GlareHover.tsx"
+      "source": "src/ts-tailwind/Animations/GlareHover/GlareHover.tsx",
+      "localPath": "components/Animations/GlareHover.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "GradualBlur",
@@ -344,7 +447,15 @@
       "prompt": "Animations/GradualBlur-TS-TW.md",
       "bytes": 12787,
       "props": 19,
-      "source": "src/ts-tailwind/Animations/GradualBlur/GradualBlur.tsx"
+      "source": "src/ts-tailwind/Animations/GradualBlur/GradualBlur.tsx",
+      "localPath": "components/Animations/GradualBlur.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ImageTrail",
@@ -356,7 +467,17 @@
       "prompt": "Animations/ImageTrail-TS-TW.md",
       "bytes": 39559,
       "props": 2,
-      "source": "src/ts-tailwind/Animations/ImageTrail/ImageTrail.tsx"
+      "source": "src/ts-tailwind/Animations/ImageTrail/ImageTrail.tsx",
+      "localPath": "components/Animations/ImageTrail.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "LaserFlow",
@@ -368,7 +489,17 @@
       "prompt": "Animations/LaserFlow-TS-TW.md",
       "bytes": 25720,
       "props": 18,
-      "source": "src/ts-tailwind/Animations/LaserFlow/LaserFlow.tsx"
+      "source": "src/ts-tailwind/Animations/LaserFlow/LaserFlow.tsx",
+      "localPath": "components/Animations/LaserFlow.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "LogoLoop",
@@ -378,7 +509,15 @@
       "prompt": "Animations/LogoLoop-TS-TW.md",
       "bytes": 19736,
       "props": 14,
-      "source": "src/ts-tailwind/Animations/LogoLoop/LogoLoop.tsx"
+      "source": "src/ts-tailwind/Animations/LogoLoop/LogoLoop.tsx",
+      "localPath": "components/Animations/LogoLoop.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "MagicRings",
@@ -388,7 +527,17 @@
       "prompt": "Animations/MagicRings-TS-TW.md",
       "bytes": 11390,
       "props": 21,
-      "source": "src/ts-tailwind/Animations/MagicRings/MagicRings.tsx"
+      "source": "src/ts-tailwind/Animations/MagicRings/MagicRings.tsx",
+      "localPath": "components/Animations/MagicRings.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Magnet",
@@ -398,7 +547,15 @@
       "prompt": "Animations/Magnet-TS-TW.md",
       "bytes": 4106,
       "props": 8,
-      "source": "src/ts-tailwind/Animations/Magnet/Magnet.tsx"
+      "source": "src/ts-tailwind/Animations/Magnet/Magnet.tsx",
+      "localPath": "components/Animations/Magnet.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "MagnetLines",
@@ -408,7 +565,15 @@
       "prompt": "Animations/MagnetLines-TS-TW.md",
       "bytes": 4146,
       "props": 9,
-      "source": "src/ts-tailwind/Animations/MagnetLines/MagnetLines.tsx"
+      "source": "src/ts-tailwind/Animations/MagnetLines/MagnetLines.tsx",
+      "localPath": "components/Animations/MagnetLines.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "MetaBalls",
@@ -420,7 +585,17 @@
       "prompt": "Animations/MetaBalls-TS-TW.md",
       "bytes": 11017,
       "props": 10,
-      "source": "src/ts-tailwind/Animations/MetaBalls/MetaBalls.tsx"
+      "source": "src/ts-tailwind/Animations/MetaBalls/MetaBalls.tsx",
+      "localPath": "components/Animations/MetaBalls.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "MetallicPaint",
@@ -430,7 +605,15 @@
       "prompt": "Animations/MetallicPaint-TS-TW.md",
       "bytes": 20047,
       "props": 21,
-      "source": "src/ts-tailwind/Animations/MetallicPaint/MetallicPaint.tsx"
+      "source": "src/ts-tailwind/Animations/MetallicPaint/MetallicPaint.tsx",
+      "localPath": "components/Animations/MetallicPaint.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Noise",
@@ -440,7 +623,15 @@
       "prompt": "Animations/Noise-TS-TW.md",
       "bytes": 3344,
       "props": 5,
-      "source": "src/ts-tailwind/Animations/Noise/Noise.tsx"
+      "source": "src/ts-tailwind/Animations/Noise/Noise.tsx",
+      "localPath": "components/Animations/Noise.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "OrbitImages",
@@ -452,7 +643,17 @@
       "prompt": "Animations/OrbitImages-TS-TW.md",
       "bytes": 13258,
       "props": 25,
-      "source": "src/ts-tailwind/Animations/OrbitImages/OrbitImages.tsx"
+      "source": "src/ts-tailwind/Animations/OrbitImages/OrbitImages.tsx",
+      "localPath": "components/Animations/OrbitImages.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "PixelTrail",
@@ -466,7 +667,19 @@
       "prompt": "Animations/PixelTrail-TS-TW.md",
       "bytes": 6259,
       "props": 6,
-      "source": "src/ts-tailwind/Animations/PixelTrail/PixelTrail.tsx"
+      "source": "src/ts-tailwind/Animations/PixelTrail/PixelTrail.tsx",
+      "localPath": "components/Animations/PixelTrail.tsx",
+      "realDeps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "PixelTransition",
@@ -478,7 +691,17 @@
       "prompt": "Animations/PixelTransition-TS-TW.md",
       "bytes": 6653,
       "props": 9,
-      "source": "src/ts-tailwind/Animations/PixelTransition/PixelTransition.tsx"
+      "source": "src/ts-tailwind/Animations/PixelTransition/PixelTransition.tsx",
+      "localPath": "components/Animations/PixelTransition.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Ribbons",
@@ -490,7 +713,17 @@
       "prompt": "Animations/Ribbons-TS-TW.md",
       "bytes": 10197,
       "props": 12,
-      "source": "src/ts-tailwind/Animations/Ribbons/Ribbons.tsx"
+      "source": "src/ts-tailwind/Animations/Ribbons/Ribbons.tsx",
+      "localPath": "components/Animations/Ribbons.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ShapeBlur",
@@ -502,7 +735,17 @@
       "prompt": "Animations/ShapeBlur-TS-TW.md",
       "bytes": 9242,
       "props": 7,
-      "source": "src/ts-tailwind/Animations/ShapeBlur/ShapeBlur.tsx"
+      "source": "src/ts-tailwind/Animations/ShapeBlur/ShapeBlur.tsx",
+      "localPath": "components/Animations/ShapeBlur.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "SplashCursor",
@@ -512,7 +755,15 @@
       "prompt": "Animations/SplashCursor-TS-TW.md",
       "bytes": 43325,
       "props": 15,
-      "source": "src/ts-tailwind/Animations/SplashCursor/SplashCursor.tsx"
+      "source": "src/ts-tailwind/Animations/SplashCursor/SplashCursor.tsx",
+      "localPath": "components/Animations/SplashCursor.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "StarBorder",
@@ -522,7 +773,15 @@
       "prompt": "Animations/StarBorder-TS-TW.md",
       "bytes": 3551,
       "props": 5,
-      "source": "src/ts-tailwind/Animations/StarBorder/StarBorder.tsx"
+      "source": "src/ts-tailwind/Animations/StarBorder/StarBorder.tsx",
+      "localPath": "components/Animations/StarBorder.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "StickerPeel",
@@ -532,7 +791,17 @@
       "prompt": "Animations/StickerPeel-TS-TW.md",
       "bytes": 14882,
       "props": 12,
-      "source": "src/ts-tailwind/Animations/StickerPeel/StickerPeel.tsx"
+      "source": "src/ts-tailwind/Animations/StickerPeel/StickerPeel.tsx",
+      "localPath": "components/Animations/StickerPeel.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Strands",
@@ -544,7 +813,17 @@
       "prompt": "Animations/Strands-TS-TW.md",
       "bytes": 13750,
       "props": 18,
-      "source": "src/ts-tailwind/Animations/Strands/Strands.tsx"
+      "source": "src/ts-tailwind/Animations/Strands/Strands.tsx",
+      "localPath": "components/Animations/Strands.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "TargetCursor",
@@ -556,7 +835,17 @@
       "prompt": "Animations/TargetCursor-TS-TW.md",
       "bytes": 17012,
       "props": 7,
-      "source": "src/ts-tailwind/Animations/TargetCursor/TargetCursor.tsx"
+      "source": "src/ts-tailwind/Animations/TargetCursor/TargetCursor.tsx",
+      "localPath": "components/Animations/TargetCursor.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Aurora",
@@ -568,7 +857,17 @@
       "prompt": "Backgrounds/Aurora-TS-TW.md",
       "bytes": 7088,
       "props": 4,
-      "source": "src/ts-tailwind/Backgrounds/Aurora/Aurora.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Aurora/Aurora.tsx",
+      "localPath": "components/Backgrounds/Aurora.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Balatro",
@@ -580,7 +879,17 @@
       "prompt": "Backgrounds/Balatro-TS-TW.md",
       "bytes": 8394,
       "props": 13,
-      "source": "src/ts-tailwind/Backgrounds/Balatro/Balatro.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Balatro/Balatro.tsx",
+      "localPath": "components/Backgrounds/Balatro.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Ballpit",
@@ -592,7 +901,18 @@
       "prompt": "Backgrounds/Ballpit-TS-TW.md",
       "bytes": 30659,
       "props": 16,
-      "source": "src/ts-tailwind/Backgrounds/Ballpit/Ballpit.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Ballpit/Ballpit.tsx",
+      "localPath": "components/Backgrounds/Ballpit.tsx",
+      "realDeps": [
+        "gsap",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Beams",
@@ -606,7 +926,19 @@
       "prompt": "Backgrounds/Beams-TS-TW.md",
       "bytes": 13755,
       "props": 8,
-      "source": "src/ts-tailwind/Backgrounds/Beams/Beams.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Beams/Beams.tsx",
+      "localPath": "components/Backgrounds/Beams.tsx",
+      "realDeps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ColorBends",
@@ -618,7 +950,17 @@
       "prompt": "Backgrounds/ColorBends-TS-TW.md",
       "bytes": 13402,
       "props": 16,
-      "source": "src/ts-tailwind/Backgrounds/ColorBends/ColorBends.tsx"
+      "source": "src/ts-tailwind/Backgrounds/ColorBends/ColorBends.tsx",
+      "localPath": "components/Backgrounds/ColorBends.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "DarkVeil",
@@ -630,7 +972,17 @@
       "prompt": "Backgrounds/DarkVeil-TS-TW.md",
       "bytes": 13388,
       "props": 7,
-      "source": "src/ts-tailwind/Backgrounds/DarkVeil/DarkVeil.tsx"
+      "source": "src/ts-tailwind/Backgrounds/DarkVeil/DarkVeil.tsx",
+      "localPath": "components/Backgrounds/DarkVeil.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Dither",
@@ -645,7 +997,20 @@
       "prompt": "Backgrounds/Dither-TS-TW.md",
       "bytes": 12243,
       "props": 9,
-      "source": "src/ts-tailwind/Backgrounds/Dither/Dither.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Dither/Dither.tsx",
+      "localPath": "components/Backgrounds/Dither.tsx",
+      "realDeps": [
+        "@react-three/fiber",
+        "@react-three/postprocessing",
+        "postprocessing",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "DotField",
@@ -655,7 +1020,15 @@
       "prompt": "Backgrounds/DotField-TS-TW.md",
       "bytes": 10828,
       "props": 12,
-      "source": "src/ts-tailwind/Backgrounds/DotField/DotField.tsx"
+      "source": "src/ts-tailwind/Backgrounds/DotField/DotField.tsx",
+      "localPath": "components/Backgrounds/DotField.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "DotGrid",
@@ -667,7 +1040,17 @@
       "prompt": "Backgrounds/DotGrid-TS-TW.md",
       "bytes": 10443,
       "props": 13,
-      "source": "src/ts-tailwind/Backgrounds/DotGrid/DotGrid.tsx"
+      "source": "src/ts-tailwind/Backgrounds/DotGrid/DotGrid.tsx",
+      "localPath": "components/Backgrounds/DotGrid.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "EvilEye",
@@ -679,7 +1062,17 @@
       "prompt": "Backgrounds/EvilEye-TS-TW.md",
       "bytes": 10295,
       "props": 10,
-      "source": "src/ts-tailwind/Backgrounds/EvilEye/EvilEye.tsx"
+      "source": "src/ts-tailwind/Backgrounds/EvilEye/EvilEye.tsx",
+      "localPath": "components/Backgrounds/EvilEye.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "FaultyTerminal",
@@ -691,7 +1084,17 @@
       "prompt": "Backgrounds/FaultyTerminal-TS-TW.md",
       "bytes": 14109,
       "props": 19,
-      "source": "src/ts-tailwind/Backgrounds/FaultyTerminal/FaultyTerminal.tsx"
+      "source": "src/ts-tailwind/Backgrounds/FaultyTerminal/FaultyTerminal.tsx",
+      "localPath": "components/Backgrounds/FaultyTerminal.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Ferrofluid",
@@ -703,7 +1106,17 @@
       "prompt": "Backgrounds/Ferrofluid-TS-TW.md",
       "bytes": 14589,
       "props": 21,
-      "source": "src/ts-tailwind/Backgrounds/Ferrofluid/Ferrofluid.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Ferrofluid/Ferrofluid.tsx",
+      "localPath": "components/Backgrounds/Ferrofluid.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "FloatingLines",
@@ -715,7 +1128,17 @@
       "prompt": "Backgrounds/FloatingLines-TS-TW.md",
       "bytes": 17275,
       "props": 15,
-      "source": "src/ts-tailwind/Backgrounds/FloatingLines/FloatingLines.tsx"
+      "source": "src/ts-tailwind/Backgrounds/FloatingLines/FloatingLines.tsx",
+      "localPath": "components/Backgrounds/FloatingLines.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Galaxy",
@@ -727,7 +1150,17 @@
       "prompt": "Backgrounds/Galaxy-TS-TW.md",
       "bytes": 12940,
       "props": 16,
-      "source": "src/ts-tailwind/Backgrounds/Galaxy/Galaxy.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Galaxy/Galaxy.tsx",
+      "localPath": "components/Backgrounds/Galaxy.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "GradientBlinds",
@@ -739,7 +1172,17 @@
       "prompt": "Backgrounds/GradientBlinds-TS-TW.md",
       "bytes": 14868,
       "props": 16,
-      "source": "src/ts-tailwind/Backgrounds/GradientBlinds/GradientBlinds.tsx"
+      "source": "src/ts-tailwind/Backgrounds/GradientBlinds/GradientBlinds.tsx",
+      "localPath": "components/Backgrounds/GradientBlinds.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Grainient",
@@ -751,7 +1194,17 @@
       "prompt": "Backgrounds/Grainient-TS-TW.md",
       "bytes": 13149,
       "props": 23,
-      "source": "src/ts-tailwind/Backgrounds/Grainient/Grainient.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Grainient/Grainient.tsx",
+      "localPath": "components/Backgrounds/Grainient.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "GridDistortion",
@@ -763,7 +1216,17 @@
       "prompt": "Backgrounds/GridDistortion-TS-TW.md",
       "bytes": 9474,
       "props": 6,
-      "source": "src/ts-tailwind/Backgrounds/GridDistortion/GridDistortion.tsx"
+      "source": "src/ts-tailwind/Backgrounds/GridDistortion/GridDistortion.tsx",
+      "localPath": "components/Backgrounds/GridDistortion.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "GridMotion",
@@ -775,7 +1238,17 @@
       "prompt": "Backgrounds/GridMotion-TS-TW.md",
       "bytes": 6261,
       "props": 2,
-      "source": "src/ts-tailwind/Backgrounds/GridMotion/GridMotion.tsx"
+      "source": "src/ts-tailwind/Backgrounds/GridMotion/GridMotion.tsx",
+      "localPath": "components/Backgrounds/GridMotion.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "GridScan",
@@ -788,7 +1261,21 @@
       "prompt": "Backgrounds/GridScan-TS-TW.md",
       "bytes": 33327,
       "props": 28,
-      "source": "src/ts-tailwind/Backgrounds/GridScan/GridScan.tsx"
+      "source": "src/ts-tailwind/Backgrounds/GridScan/GridScan.tsx",
+      "localPath": "components/Backgrounds/GridScan.tsx",
+      "realDeps": [
+        "face-api.js",
+        "postprocessing",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js@0.22.2/weights"
+      ],
+      "namedExportOnly": true,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Hyperspeed",
@@ -801,7 +1288,18 @@
       "prompt": "Backgrounds/Hyperspeed-TS-TW.md",
       "bytes": 42320,
       "props": 1,
-      "source": "src/ts-tailwind/Backgrounds/Hyperspeed/Hyperspeed.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Hyperspeed/Hyperspeed.tsx",
+      "localPath": "components/Backgrounds/Hyperspeed.tsx",
+      "realDeps": [
+        "postprocessing",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Iridescence",
@@ -813,7 +1311,17 @@
       "prompt": "Backgrounds/Iridescence-TS-TW.md",
       "bytes": 4885,
       "props": 4,
-      "source": "src/ts-tailwind/Backgrounds/Iridescence/Iridescence.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Iridescence/Iridescence.tsx",
+      "localPath": "components/Backgrounds/Iridescence.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "LetterGlitch",
@@ -823,7 +1331,15 @@
       "prompt": "Backgrounds/LetterGlitch-TS-TW.md",
       "bytes": 8310,
       "props": 6,
-      "source": "src/ts-tailwind/Backgrounds/LetterGlitch/LetterGlitch.tsx"
+      "source": "src/ts-tailwind/Backgrounds/LetterGlitch/LetterGlitch.tsx",
+      "localPath": "components/Backgrounds/LetterGlitch.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Lightfall",
@@ -835,7 +1351,17 @@
       "prompt": "Backgrounds/Lightfall-TS-TW.md",
       "bytes": 14219,
       "props": 20,
-      "source": "src/ts-tailwind/Backgrounds/Lightfall/Lightfall.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Lightfall/Lightfall.tsx",
+      "localPath": "components/Backgrounds/Lightfall.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Lightning",
@@ -845,7 +1371,15 @@
       "prompt": "Backgrounds/Lightning-TS-TW.md",
       "bytes": 7484,
       "props": 5,
-      "source": "src/ts-tailwind/Backgrounds/Lightning/Lightning.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Lightning/Lightning.tsx",
+      "localPath": "components/Backgrounds/Lightning.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "LightPillar",
@@ -857,7 +1391,17 @@
       "prompt": "Backgrounds/LightPillar-TS-TW.md",
       "bytes": 18267,
       "props": 13,
-      "source": "src/ts-tailwind/Backgrounds/LightPillar/LightPillar.tsx"
+      "source": "src/ts-tailwind/Backgrounds/LightPillar/LightPillar.tsx",
+      "localPath": "components/Backgrounds/LightPillar.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "LightRays",
@@ -869,7 +1413,17 @@
       "prompt": "Backgrounds/LightRays-TS-TW.md",
       "bytes": 15288,
       "props": 13,
-      "source": "src/ts-tailwind/Backgrounds/LightRays/LightRays.tsx"
+      "source": "src/ts-tailwind/Backgrounds/LightRays/LightRays.tsx",
+      "localPath": "components/Backgrounds/LightRays.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "LineWaves",
@@ -881,7 +1435,17 @@
       "prompt": "Backgrounds/LineWaves-TS-TW.md",
       "bytes": 10205,
       "props": 13,
-      "source": "src/ts-tailwind/Backgrounds/LineWaves/LineWaves.tsx"
+      "source": "src/ts-tailwind/Backgrounds/LineWaves/LineWaves.tsx",
+      "localPath": "components/Backgrounds/LineWaves.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "LiquidChrome",
@@ -893,7 +1457,17 @@
       "prompt": "Backgrounds/LiquidChrome-TS-TW.md",
       "bytes": 6937,
       "props": 6,
-      "source": "src/ts-tailwind/Backgrounds/LiquidChrome/LiquidChrome.tsx"
+      "source": "src/ts-tailwind/Backgrounds/LiquidChrome/LiquidChrome.tsx",
+      "localPath": "components/Backgrounds/LiquidChrome.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "LiquidEther",
@@ -905,7 +1479,17 @@
       "prompt": "Backgrounds/LiquidEther-TS-TW.md",
       "bytes": 43997,
       "props": 19,
-      "source": "src/ts-tailwind/Backgrounds/LiquidEther/LiquidEther.tsx"
+      "source": "src/ts-tailwind/Backgrounds/LiquidEther/LiquidEther.tsx",
+      "localPath": "components/Backgrounds/LiquidEther.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Orb",
@@ -917,7 +1501,17 @@
       "prompt": "Backgrounds/Orb-TS-TW.md",
       "bytes": 12061,
       "props": 5,
-      "source": "src/ts-tailwind/Backgrounds/Orb/Orb.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Orb/Orb.tsx",
+      "localPath": "components/Backgrounds/Orb.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Particles",
@@ -929,7 +1523,17 @@
       "prompt": "Backgrounds/Particles-TS-TW.md",
       "bytes": 9545,
       "props": 12,
-      "source": "src/ts-tailwind/Backgrounds/Particles/Particles.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Particles/Particles.tsx",
+      "localPath": "components/Backgrounds/Particles.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "PixelBlast",
@@ -942,7 +1546,18 @@
       "prompt": "Backgrounds/PixelBlast-TS-TW.md",
       "bytes": 25422,
       "props": 18,
-      "source": "src/ts-tailwind/Backgrounds/PixelBlast/PixelBlast.tsx"
+      "source": "src/ts-tailwind/Backgrounds/PixelBlast/PixelBlast.tsx",
+      "localPath": "components/Backgrounds/PixelBlast.tsx",
+      "realDeps": [
+        "postprocessing",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "PixelSnow",
@@ -954,7 +1569,17 @@
       "prompt": "Backgrounds/PixelSnow-TS-TW.md",
       "bytes": 13489,
       "props": 14,
-      "source": "src/ts-tailwind/Backgrounds/PixelSnow/PixelSnow.tsx"
+      "source": "src/ts-tailwind/Backgrounds/PixelSnow/PixelSnow.tsx",
+      "localPath": "components/Backgrounds/PixelSnow.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Plasma",
@@ -966,7 +1591,17 @@
       "prompt": "Backgrounds/Plasma-TS-TW.md",
       "bytes": 12979,
       "props": 10,
-      "source": "src/ts-tailwind/Backgrounds/Plasma/Plasma.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Plasma/Plasma.tsx",
+      "localPath": "components/Backgrounds/Plasma.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "PlasmaWave",
@@ -978,7 +1613,17 @@
       "prompt": "Backgrounds/PlasmaWave-TS-TW.md",
       "bytes": 8324,
       "props": 10,
-      "source": "src/ts-tailwind/Backgrounds/PlasmaWave/PlasmaWave.tsx"
+      "source": "src/ts-tailwind/Backgrounds/PlasmaWave/PlasmaWave.tsx",
+      "localPath": "components/Backgrounds/PlasmaWave.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Prism",
@@ -990,7 +1635,17 @@
       "prompt": "Backgrounds/Prism-TS-TW.md",
       "bytes": 15387,
       "props": 15,
-      "source": "src/ts-tailwind/Backgrounds/Prism/Prism.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Prism/Prism.tsx",
+      "localPath": "components/Backgrounds/Prism.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "PrismaticBurst",
@@ -1002,7 +1657,17 @@
       "prompt": "Backgrounds/PrismaticBurst-TS-TW.md",
       "bytes": 16428,
       "props": 10,
-      "source": "src/ts-tailwind/Backgrounds/PrismaticBurst/PrismaticBurst.tsx"
+      "source": "src/ts-tailwind/Backgrounds/PrismaticBurst/PrismaticBurst.tsx",
+      "localPath": "components/Backgrounds/PrismaticBurst.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Radar",
@@ -1014,7 +1679,17 @@
       "prompt": "Backgrounds/Radar-TS-TW.md",
       "bytes": 8811,
       "props": 15,
-      "source": "src/ts-tailwind/Backgrounds/Radar/Radar.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Radar/Radar.tsx",
+      "localPath": "components/Backgrounds/Radar.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "RippleGrid",
@@ -1026,7 +1701,17 @@
       "prompt": "Backgrounds/RippleGrid-TS-TW.md",
       "bytes": 11564,
       "props": 12,
-      "source": "src/ts-tailwind/Backgrounds/RippleGrid/RippleGrid.tsx"
+      "source": "src/ts-tailwind/Backgrounds/RippleGrid/RippleGrid.tsx",
+      "localPath": "components/Backgrounds/RippleGrid.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ShapeGrid",
@@ -1036,7 +1721,15 @@
       "prompt": "Backgrounds/ShapeGrid-TS-TW.md",
       "bytes": 16473,
       "props": 7,
-      "source": "src/ts-tailwind/Backgrounds/ShapeGrid/ShapeGrid.tsx"
+      "source": "src/ts-tailwind/Backgrounds/ShapeGrid/ShapeGrid.tsx",
+      "localPath": "components/Backgrounds/ShapeGrid.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "SideRays",
@@ -1048,7 +1741,17 @@
       "prompt": "Backgrounds/SideRays-TS-TW.md",
       "bytes": 11097,
       "props": 12,
-      "source": "src/ts-tailwind/Backgrounds/SideRays/SideRays.tsx"
+      "source": "src/ts-tailwind/Backgrounds/SideRays/SideRays.tsx",
+      "localPath": "components/Backgrounds/SideRays.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Silk",
@@ -1058,7 +1761,18 @@
       "prompt": "Backgrounds/Silk-TS-TW.md",
       "bytes": 5563,
       "props": 5,
-      "source": "src/ts-tailwind/Backgrounds/Silk/Silk.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Silk/Silk.tsx",
+      "localPath": "components/Backgrounds/Silk.tsx",
+      "realDeps": [
+        "@react-three/fiber",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "SoftAurora",
@@ -1070,7 +1784,17 @@
       "prompt": "Backgrounds/SoftAurora-TS-TW.md",
       "bytes": 10593,
       "props": 14,
-      "source": "src/ts-tailwind/Backgrounds/SoftAurora/SoftAurora.tsx"
+      "source": "src/ts-tailwind/Backgrounds/SoftAurora/SoftAurora.tsx",
+      "localPath": "components/Backgrounds/SoftAurora.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Threads",
@@ -1082,7 +1806,17 @@
       "prompt": "Backgrounds/Threads-TS-TW.md",
       "bytes": 10079,
       "props": 4,
-      "source": "src/ts-tailwind/Backgrounds/Threads/Threads.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Threads/Threads.tsx",
+      "localPath": "components/Backgrounds/Threads.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Waves",
@@ -1092,7 +1826,15 @@
       "prompt": "Backgrounds/Waves-TS-TW.md",
       "bytes": 13718,
       "props": 13,
-      "source": "src/ts-tailwind/Backgrounds/Waves/Waves.tsx"
+      "source": "src/ts-tailwind/Backgrounds/Waves/Waves.tsx",
+      "localPath": "components/Backgrounds/Waves.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "AnimatedList",
@@ -1104,7 +1846,17 @@
       "prompt": "Components/AnimatedList-TS-TW.md",
       "bytes": 8194,
       "props": 8,
-      "source": "src/ts-tailwind/Components/AnimatedList/AnimatedList.tsx"
+      "source": "src/ts-tailwind/Components/AnimatedList/AnimatedList.tsx",
+      "localPath": "components/Components/AnimatedList.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "BorderGlow",
@@ -1114,7 +1866,15 @@
       "prompt": "Components/BorderGlow-TS-TW.md",
       "bytes": 12481,
       "props": 11,
-      "source": "src/ts-tailwind/Components/BorderGlow/BorderGlow.tsx"
+      "source": "src/ts-tailwind/Components/BorderGlow/BorderGlow.tsx",
+      "localPath": "components/Components/BorderGlow.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "BounceCards",
@@ -1126,7 +1886,17 @@
       "prompt": "Components/BounceCards-TS-TW.md",
       "bytes": 6538,
       "props": 9,
-      "source": "src/ts-tailwind/Components/BounceCards/BounceCards.tsx"
+      "source": "src/ts-tailwind/Components/BounceCards/BounceCards.tsx",
+      "localPath": "components/Components/BounceCards.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "BubbleMenu",
@@ -1138,7 +1908,17 @@
       "prompt": "Components/BubbleMenu-TS-TW.md",
       "bytes": 15506,
       "props": 12,
-      "source": "src/ts-tailwind/Components/BubbleMenu/BubbleMenu.tsx"
+      "source": "src/ts-tailwind/Components/BubbleMenu/BubbleMenu.tsx",
+      "localPath": "components/Components/BubbleMenu.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "CardNav",
@@ -1150,7 +1930,18 @@
       "prompt": "Components/CardNav-TS-TW.md",
       "bytes": 10646,
       "props": 9,
-      "source": "src/ts-tailwind/Components/CardNav/CardNav.tsx"
+      "source": "src/ts-tailwind/Components/CardNav/CardNav.tsx",
+      "localPath": "components/Components/CardNav.tsx",
+      "realDeps": [
+        "gsap",
+        "react-icons"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "CardSwap",
@@ -1162,7 +1953,17 @@
       "prompt": "Components/CardSwap-TS-TW.md",
       "bytes": 7905,
       "props": 10,
-      "source": "src/ts-tailwind/Components/CardSwap/CardSwap.tsx"
+      "source": "src/ts-tailwind/Components/CardSwap/CardSwap.tsx",
+      "localPath": "components/Components/CardSwap.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Carousel",
@@ -1174,7 +1975,18 @@
       "prompt": "Components/Carousel-TS-TW.md",
       "bytes": 11342,
       "props": 7,
-      "source": "src/ts-tailwind/Components/Carousel/Carousel.tsx"
+      "source": "src/ts-tailwind/Components/Carousel/Carousel.tsx",
+      "localPath": "components/Components/Carousel.tsx",
+      "realDeps": [
+        "motion",
+        "react-icons"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ChromaGrid",
@@ -1186,7 +1998,28 @@
       "prompt": "Components/ChromaGrid-TS-TW.md",
       "bytes": 9677,
       "props": 6,
-      "source": "src/ts-tailwind/Components/ChromaGrid/ChromaGrid.tsx"
+      "source": "src/ts-tailwind/Components/ChromaGrid/ChromaGrid.tsx",
+      "localPath": "components/Components/ChromaGrid.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://i.pravatar.cc/300?img=8",
+        "https://i.pravatar.cc/300?img=11",
+        "https://linkedin.com/in/",
+        "https://i.pravatar.cc/300?img=3",
+        "https://dribbble.com/",
+        "https://i.pravatar.cc/300?img=16",
+        "https://kaggle.com/",
+        "https://i.pravatar.cc/300?img=25",
+        "https://i.pravatar.cc/300?img=60",
+        "https://aws.amazon.com/"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "CircularGallery",
@@ -1198,7 +2031,31 @@
       "prompt": "Components/CircularGallery-TS-TW.md",
       "bytes": 27341,
       "props": 8,
-      "source": "src/ts-tailwind/Components/CircularGallery/CircularGallery.tsx"
+      "source": "src/ts-tailwind/Components/CircularGallery/CircularGallery.tsx",
+      "localPath": "components/Components/CircularGallery.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap",
+        "https://picsum.photos/seed/1/800/600?grayscale",
+        "https://picsum.photos/seed/2/800/600?grayscale",
+        "https://picsum.photos/seed/3/800/600?grayscale",
+        "https://picsum.photos/seed/4/800/600?grayscale",
+        "https://picsum.photos/seed/5/800/600?grayscale",
+        "https://picsum.photos/seed/16/800/600?grayscale",
+        "https://picsum.photos/seed/17/800/600?grayscale",
+        "https://picsum.photos/seed/8/800/600?grayscale",
+        "https://picsum.photos/seed/9/800/600?grayscale",
+        "https://picsum.photos/seed/10/800/600?grayscale",
+        "https://picsum.photos/seed/21/800/600?grayscale",
+        "https://picsum.photos/seed/12/800/600?grayscale"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Counter",
@@ -1210,7 +2067,17 @@
       "prompt": "Components/Counter-TS-TW.md",
       "bytes": 7775,
       "props": 17,
-      "source": "src/ts-tailwind/Components/Counter/Counter.tsx"
+      "source": "src/ts-tailwind/Components/Counter/Counter.tsx",
+      "localPath": "components/Components/Counter.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "CurvedInput",
@@ -1220,7 +2087,15 @@
       "prompt": "Components/CurvedInput-TS-TW.md",
       "bytes": 23534,
       "props": 30,
-      "source": "src/ts-tailwind/Components/CurvedInput/CurvedInput.tsx"
+      "source": "src/ts-tailwind/Components/CurvedInput/CurvedInput.tsx",
+      "localPath": "components/Components/CurvedInput.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "DecayCard",
@@ -1232,7 +2107,19 @@
       "prompt": "Components/DecayCard-TS-TW.md",
       "bytes": 7225,
       "props": 9,
-      "source": "src/ts-tailwind/Components/DecayCard/DecayCard.tsx"
+      "source": "src/ts-tailwind/Components/DecayCard/DecayCard.tsx",
+      "localPath": "components/Components/DecayCard.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://picsum.photos/300/400?grayscale"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Dock",
@@ -1244,7 +2131,17 @@
       "prompt": "Components/Dock-TS-TW.md",
       "bytes": 7493,
       "props": 8,
-      "source": "src/ts-tailwind/Components/Dock/Dock.tsx"
+      "source": "src/ts-tailwind/Components/Dock/Dock.tsx",
+      "localPath": "components/Components/Dock.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "DomeGallery",
@@ -1256,7 +2153,25 @@
       "prompt": "Components/DomeGallery-TS-TW.md",
       "bytes": 36153,
       "props": 17,
-      "source": "src/ts-tailwind/Components/DomeGallery/DomeGallery.tsx"
+      "source": "src/ts-tailwind/Components/DomeGallery/DomeGallery.tsx",
+      "localPath": "components/Components/DomeGallery.tsx",
+      "realDeps": [
+        "@use-gesture/react"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://images.unsplash.com/photo-1755331039789-7e5680e26e8f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1755569309049-98410b94f66d?q=80&w=772&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1755497595318-7e5e3523854f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1755353985163-c2a0fe5ac3d8?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1745965976680-d00be7dc0377?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1752588975228-21f44630bb3c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://pbs.twimg.com/media/Gyla7NnXMAAXSo_?format=jpg&name=large"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ElasticSlider",
@@ -1268,7 +2183,17 @@
       "prompt": "Components/ElasticSlider-TS-TW.md",
       "bytes": 8125,
       "props": 8,
-      "source": "src/ts-tailwind/Components/ElasticSlider/ElasticSlider.tsx"
+      "source": "src/ts-tailwind/Components/ElasticSlider/ElasticSlider.tsx",
+      "localPath": "components/Components/ElasticSlider.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "FlowingMenu",
@@ -1280,7 +2205,17 @@
       "prompt": "Components/FlowingMenu-TS-TW.md",
       "bytes": 7900,
       "props": 7,
-      "source": "src/ts-tailwind/Components/FlowingMenu/FlowingMenu.tsx"
+      "source": "src/ts-tailwind/Components/FlowingMenu/FlowingMenu.tsx",
+      "localPath": "components/Components/FlowingMenu.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "FluidGlass",
@@ -1295,7 +2230,27 @@
       "prompt": "Components/FluidGlass-TS-TW.md",
       "bytes": 11205,
       "props": 4,
-      "source": "src/ts-tailwind/Components/FluidGlass/FluidGlass.tsx"
+      "source": "src/ts-tailwind/Components/FluidGlass/FluidGlass.tsx",
+      "localPath": "components/Components/FluidGlass.tsx",
+      "realDeps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "maath",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [
+        "/assets/3d/lens.glb",
+        "/assets/3d/cube.glb",
+        "/assets/3d/bar.glb",
+        "/assets/demo/cs1.webp",
+        "/assets/demo/cs2.webp",
+        "/assets/demo/cs3.webp"
+      ],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": true
     },
     {
       "name": "FlyingPosters",
@@ -1307,7 +2262,17 @@
       "prompt": "Components/FlyingPosters-TS-TW.md",
       "bytes": 17333,
       "props": 7,
-      "source": "src/ts-tailwind/Components/FlyingPosters/FlyingPosters.tsx"
+      "source": "src/ts-tailwind/Components/FlyingPosters/FlyingPosters.tsx",
+      "localPath": "components/Components/FlyingPosters.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Folder",
@@ -1317,7 +2282,15 @@
       "prompt": "Components/Folder-TS-TW.md",
       "bytes": 7427,
       "props": 4,
-      "source": "src/ts-tailwind/Components/Folder/Folder.tsx"
+      "source": "src/ts-tailwind/Components/Folder/Folder.tsx",
+      "localPath": "components/Components/Folder.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "GlassIcons",
@@ -1327,7 +2300,15 @@
       "prompt": "Components/GlassIcons-TS-TW.md",
       "bytes": 4636,
       "props": 2,
-      "source": "src/ts-tailwind/Components/GlassIcons/GlassIcons.tsx"
+      "source": "src/ts-tailwind/Components/GlassIcons/GlassIcons.tsx",
+      "localPath": "components/Components/GlassIcons.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "GlassSurface",
@@ -1337,7 +2318,15 @@
       "prompt": "Components/GlassSurface-TS-TW.md",
       "bytes": 15098,
       "props": 20,
-      "source": "src/ts-tailwind/Components/GlassSurface/GlassSurface.tsx"
+      "source": "src/ts-tailwind/Components/GlassSurface/GlassSurface.tsx",
+      "localPath": "components/Components/GlassSurface.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "GooeyNav",
@@ -1347,7 +2336,15 @@
       "prompt": "Components/GooeyNav-TS-TW.md",
       "bytes": 12890,
       "props": 8,
-      "source": "src/ts-tailwind/Components/GooeyNav/GooeyNav.tsx"
+      "source": "src/ts-tailwind/Components/GooeyNav/GooeyNav.tsx",
+      "localPath": "components/Components/GooeyNav.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "InfiniteMenu",
@@ -1359,7 +2356,20 @@
       "prompt": "Components/InfiniteMenu-TS-TW.md",
       "bytes": 35958,
       "props": 2,
-      "source": "src/ts-tailwind/Components/InfiniteMenu/InfiniteMenu.tsx"
+      "source": "src/ts-tailwind/Components/InfiniteMenu/InfiniteMenu.tsx",
+      "localPath": "components/Components/InfiniteMenu.tsx",
+      "realDeps": [
+        "gl-matrix"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://picsum.photos/900/900?grayscale",
+        "https://google.com/"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Lanyard",
@@ -1375,7 +2385,24 @@
       "prompt": "Components/Lanyard-TS-TW.md",
       "bytes": 15432,
       "props": 9,
-      "source": "src/ts-tailwind/Components/Lanyard/Lanyard.tsx"
+      "source": "src/ts-tailwind/Components/Lanyard/Lanyard.tsx",
+      "localPath": "components/Components/Lanyard.tsx",
+      "realDeps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "@react-three/rapier",
+        "meshline",
+        "three"
+      ],
+      "assets": [
+        "./card.glb",
+        "./lanyard.png"
+      ],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": true
     },
     {
       "name": "LineSidebar",
@@ -1385,7 +2412,15 @@
       "prompt": "Components/LineSidebar-TS-TW.md",
       "bytes": 10331,
       "props": 19,
-      "source": "src/ts-tailwind/Components/LineSidebar/LineSidebar.tsx"
+      "source": "src/ts-tailwind/Components/LineSidebar/LineSidebar.tsx",
+      "localPath": "components/Components/LineSidebar.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "MagicBento",
@@ -1397,7 +2432,17 @@
       "prompt": "Components/MagicBento-TS-TW.md",
       "bytes": 28373,
       "props": 11,
-      "source": "src/ts-tailwind/Components/MagicBento/MagicBento.tsx"
+      "source": "src/ts-tailwind/Components/MagicBento/MagicBento.tsx",
+      "localPath": "components/Components/MagicBento.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Masonry",
@@ -1409,7 +2454,17 @@
       "prompt": "Components/Masonry-TS-TW.md",
       "bytes": 9329,
       "props": 9,
-      "source": "src/ts-tailwind/Components/Masonry/Masonry.tsx"
+      "source": "src/ts-tailwind/Components/Masonry/Masonry.tsx",
+      "localPath": "components/Components/Masonry.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ModelViewer",
@@ -1423,7 +2478,19 @@
       "prompt": "Components/ModelViewer-TS-TW.md",
       "bytes": 18923,
       "props": 26,
-      "source": "src/ts-tailwind/Components/ModelViewer/ModelViewer.tsx"
+      "source": "src/ts-tailwind/Components/ModelViewer/ModelViewer.tsx",
+      "localPath": "components/Components/ModelViewer.tsx",
+      "realDeps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": true
     },
     {
       "name": "OptionWheel",
@@ -1433,7 +2500,15 @@
       "prompt": "Components/OptionWheel-TS-TW.md",
       "bytes": 14110,
       "props": 20,
-      "source": "src/ts-tailwind/Components/OptionWheel/OptionWheel.tsx"
+      "source": "src/ts-tailwind/Components/OptionWheel/OptionWheel.tsx",
+      "localPath": "components/Components/OptionWheel.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "PillNav",
@@ -1445,7 +2520,18 @@
       "prompt": "Components/PillNav-TS-TW.md",
       "bytes": 17610,
       "props": 12,
-      "source": "src/ts-tailwind/Components/PillNav/PillNav.tsx"
+      "source": "src/ts-tailwind/Components/PillNav/PillNav.tsx",
+      "localPath": "components/Components/PillNav.tsx",
+      "realDeps": [
+        "gsap",
+        "react-router-dom"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "PixelCard",
@@ -1455,7 +2541,15 @@
       "prompt": "Components/PixelCard-TS-TW.md",
       "bytes": 9555,
       "props": 8,
-      "source": "src/ts-tailwind/Components/PixelCard/PixelCard.tsx"
+      "source": "src/ts-tailwind/Components/PixelCard/PixelCard.tsx",
+      "localPath": "components/Components/PixelCard.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ProfileCard",
@@ -1465,7 +2559,15 @@
       "prompt": "Components/ProfileCard-TS-TW.md",
       "bytes": 25808,
       "props": 19,
-      "source": "src/ts-tailwind/Components/ProfileCard/ProfileCard.tsx"
+      "source": "src/ts-tailwind/Components/ProfileCard/ProfileCard.tsx",
+      "localPath": "components/Components/ProfileCard.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ReflectiveCard",
@@ -1477,7 +2579,17 @@
       "prompt": "Components/ReflectiveCard-TS-TW.md",
       "bytes": 9094,
       "props": 10,
-      "source": "src/ts-tailwind/Components/ReflectiveCard/ReflectiveCard.tsx"
+      "source": "src/ts-tailwind/Components/ReflectiveCard/ReflectiveCard.tsx",
+      "localPath": "components/Components/ReflectiveCard.tsx",
+      "realDeps": [
+        "lucide-react"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ScrollStack",
@@ -1489,7 +2601,17 @@
       "prompt": "Components/ScrollStack-TS-TW.md",
       "bytes": 13089,
       "props": 13,
-      "source": "src/ts-tailwind/Components/ScrollStack/ScrollStack.tsx"
+      "source": "src/ts-tailwind/Components/ScrollStack/ScrollStack.tsx",
+      "localPath": "components/Components/ScrollStack.tsx",
+      "realDeps": [
+        "lenis"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "SpecularButton",
@@ -1501,7 +2623,17 @@
       "prompt": "Components/SpecularButton-TS-TW.md",
       "bytes": 12754,
       "props": 21,
-      "source": "src/ts-tailwind/Components/SpecularButton/SpecularButton.tsx"
+      "source": "src/ts-tailwind/Components/SpecularButton/SpecularButton.tsx",
+      "localPath": "components/Components/SpecularButton.tsx",
+      "realDeps": [
+        "ogl"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "SpotlightCard",
@@ -1511,7 +2643,15 @@
       "prompt": "Components/SpotlightCard-TS-TW.md",
       "bytes": 2963,
       "props": 2,
-      "source": "src/ts-tailwind/Components/SpotlightCard/SpotlightCard.tsx"
+      "source": "src/ts-tailwind/Components/SpotlightCard/SpotlightCard.tsx",
+      "localPath": "components/Components/SpotlightCard.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Stack",
@@ -1523,7 +2663,22 @@
       "prompt": "Components/Stack-TS-TW.md",
       "bytes": 8206,
       "props": 8,
-      "source": "src/ts-tailwind/Components/Stack/Stack.tsx"
+      "source": "src/ts-tailwind/Components/Stack/Stack.tsx",
+      "localPath": "components/Components/Stack.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format",
+        "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format",
+        "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format",
+        "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "StaggeredMenu",
@@ -1535,7 +2690,19 @@
       "prompt": "Components/StaggeredMenu-TS-TW.md",
       "bytes": 27795,
       "props": 15,
-      "source": "src/ts-tailwind/Components/StaggeredMenu/StaggeredMenu.tsx"
+      "source": "src/ts-tailwind/Components/StaggeredMenu/StaggeredMenu.tsx",
+      "localPath": "components/Components/StaggeredMenu.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [
+        "/src/assets/logos/reactbits-gh-white.svg"
+      ],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "Stepper",
@@ -1547,7 +2714,17 @@
       "prompt": "Components/Stepper-TS-TW.md",
       "bytes": 12801,
       "props": 14,
-      "source": "src/ts-tailwind/Components/Stepper/Stepper.tsx"
+      "source": "src/ts-tailwind/Components/Stepper/Stepper.tsx",
+      "localPath": "components/Components/Stepper.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "TiltedCard",
@@ -1559,7 +2736,17 @@
       "prompt": "Components/TiltedCard-TS-TW.md",
       "bytes": 6460,
       "props": 13,
-      "source": "src/ts-tailwind/Components/TiltedCard/TiltedCard.tsx"
+      "source": "src/ts-tailwind/Components/TiltedCard/TiltedCard.tsx",
+      "localPath": "components/Components/TiltedCard.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "ASCIIText",
@@ -1571,7 +2758,19 @@
       "prompt": "TextAnimations/ASCIIText-TS-TW.md",
       "bytes": 19006,
       "props": 7,
-      "source": "src/ts-tailwind/TextAnimations/ASCIIText/ASCIIText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/ASCIIText/ASCIIText.tsx",
+      "localPath": "components/TextAnimations/ASCIIText.tsx",
+      "realDeps": [
+        "three"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "BlurText",
@@ -1583,7 +2782,17 @@
       "prompt": "TextAnimations/BlurText-TS-TW.md",
       "bytes": 5271,
       "props": 8,
-      "source": "src/ts-tailwind/TextAnimations/BlurText/BlurText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/BlurText/BlurText.tsx",
+      "localPath": "components/TextAnimations/BlurText.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "CircularText",
@@ -1595,7 +2804,17 @@
       "prompt": "TextAnimations/CircularText-TS-TW.md",
       "bytes": 4673,
       "props": 4,
-      "source": "src/ts-tailwind/TextAnimations/CircularText/CircularText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/CircularText/CircularText.tsx",
+      "localPath": "components/TextAnimations/CircularText.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "CountUp",
@@ -1607,7 +2826,17 @@
       "prompt": "TextAnimations/CountUp-TS-TW.md",
       "bytes": 4863,
       "props": 10,
-      "source": "src/ts-tailwind/TextAnimations/CountUp/CountUp.tsx"
+      "source": "src/ts-tailwind/TextAnimations/CountUp/CountUp.tsx",
+      "localPath": "components/TextAnimations/CountUp.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "CurvedLoop",
@@ -1617,7 +2846,15 @@
       "prompt": "TextAnimations/CurvedLoop-TS-TW.md",
       "bytes": 6274,
       "props": 6,
-      "source": "src/ts-tailwind/TextAnimations/CurvedLoop/CurvedLoop.tsx"
+      "source": "src/ts-tailwind/TextAnimations/CurvedLoop/CurvedLoop.tsx",
+      "localPath": "components/TextAnimations/CurvedLoop.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "DecryptedText",
@@ -1629,7 +2866,17 @@
       "prompt": "TextAnimations/DecryptedText-TS-TW.md",
       "bytes": 14356,
       "props": 11,
-      "source": "src/ts-tailwind/TextAnimations/DecryptedText/DecryptedText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/DecryptedText/DecryptedText.tsx",
+      "localPath": "components/TextAnimations/DecryptedText.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "FallingText",
@@ -1641,7 +2888,17 @@
       "prompt": "TextAnimations/FallingText-TS-TW.md",
       "bytes": 8013,
       "props": 10,
-      "source": "src/ts-tailwind/TextAnimations/FallingText/FallingText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/FallingText/FallingText.tsx",
+      "localPath": "components/TextAnimations/FallingText.tsx",
+      "realDeps": [
+        "matter-js"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "FuzzyText",
@@ -1651,7 +2908,15 @@
       "prompt": "TextAnimations/FuzzyText-TS-TW.md",
       "bytes": 13283,
       "props": 19,
-      "source": "src/ts-tailwind/TextAnimations/FuzzyText/FuzzyText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/FuzzyText/FuzzyText.tsx",
+      "localPath": "components/TextAnimations/FuzzyText.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "GlitchText",
@@ -1661,7 +2926,15 @@
       "prompt": "TextAnimations/GlitchText-TS-TW.md",
       "bytes": 5335,
       "props": 5,
-      "source": "src/ts-tailwind/TextAnimations/GlitchText/GlitchText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/GlitchText/GlitchText.tsx",
+      "localPath": "components/TextAnimations/GlitchText.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "GradientText",
@@ -1671,7 +2944,17 @@
       "prompt": "TextAnimations/GradientText-TS-TW.md",
       "bytes": 5750,
       "props": 8,
-      "source": "src/ts-tailwind/TextAnimations/GradientText/GradientText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/GradientText/GradientText.tsx",
+      "localPath": "components/TextAnimations/GradientText.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "RotatingText",
@@ -1683,7 +2966,17 @@
       "prompt": "TextAnimations/RotatingText-TS-TW.md",
       "bytes": 10470,
       "props": 17,
-      "source": "src/ts-tailwind/TextAnimations/RotatingText/RotatingText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/RotatingText/RotatingText.tsx",
+      "localPath": "components/TextAnimations/RotatingText.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "ScrambledText",
@@ -1695,7 +2988,17 @@
       "prompt": "TextAnimations/ScrambledText-TS-TW.md",
       "bytes": 3913,
       "props": 7,
-      "source": "src/ts-tailwind/TextAnimations/ScrambledText/ScrambledText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/ScrambledText/ScrambledText.tsx",
+      "localPath": "components/TextAnimations/ScrambledText.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "ScrollFloat",
@@ -1707,7 +3010,17 @@
       "prompt": "TextAnimations/ScrollFloat-TS-TW.md",
       "bytes": 4038,
       "props": 9,
-      "source": "src/ts-tailwind/TextAnimations/ScrollFloat/ScrollFloat.tsx"
+      "source": "src/ts-tailwind/TextAnimations/ScrollFloat/ScrollFloat.tsx",
+      "localPath": "components/TextAnimations/ScrollFloat.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "ScrollReveal",
@@ -1719,7 +3032,17 @@
       "prompt": "TextAnimations/ScrollReveal-TS-TW.md",
       "bytes": 5277,
       "props": 10,
-      "source": "src/ts-tailwind/TextAnimations/ScrollReveal/ScrollReveal.tsx"
+      "source": "src/ts-tailwind/TextAnimations/ScrollReveal/ScrollReveal.tsx",
+      "localPath": "components/TextAnimations/ScrollReveal.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "ScrollVelocity",
@@ -1731,7 +3054,17 @@
       "prompt": "TextAnimations/ScrollVelocity-TS-TW.md",
       "bytes": 7026,
       "props": 12,
-      "source": "src/ts-tailwind/TextAnimations/ScrollVelocity/ScrollVelocity.tsx"
+      "source": "src/ts-tailwind/TextAnimations/ScrollVelocity/ScrollVelocity.tsx",
+      "localPath": "components/TextAnimations/ScrollVelocity.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "ShinyText",
@@ -1743,7 +3076,17 @@
       "prompt": "TextAnimations/ShinyText-TS-TW.md",
       "bytes": 5758,
       "props": 11,
-      "source": "src/ts-tailwind/TextAnimations/ShinyText/ShinyText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/ShinyText/ShinyText.tsx",
+      "localPath": "components/TextAnimations/ShinyText.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "Shuffle",
@@ -1756,7 +3099,18 @@
       "prompt": "TextAnimations/Shuffle-TS-TW.md",
       "bytes": 17004,
       "props": 23,
-      "source": "src/ts-tailwind/TextAnimations/Shuffle/Shuffle.tsx"
+      "source": "src/ts-tailwind/TextAnimations/Shuffle/Shuffle.tsx",
+      "localPath": "components/TextAnimations/Shuffle.tsx",
+      "realDeps": [
+        "@gsap/react",
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "SplitText",
@@ -1769,7 +3123,18 @@
       "prompt": "TextAnimations/SplitText-TS-TW.md",
       "bytes": 7436,
       "props": 13,
-      "source": "src/ts-tailwind/TextAnimations/SplitText/SplitText.tsx"
+      "source": "src/ts-tailwind/TextAnimations/SplitText/SplitText.tsx",
+      "localPath": "components/TextAnimations/SplitText.tsx",
+      "realDeps": [
+        "@gsap/react",
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "TextCursor",
@@ -1781,7 +3146,17 @@
       "prompt": "TextAnimations/TextCursor-TS-TW.md",
       "bytes": 6670,
       "props": 7,
-      "source": "src/ts-tailwind/TextAnimations/TextCursor/TextCursor.tsx"
+      "source": "src/ts-tailwind/TextAnimations/TextCursor/TextCursor.tsx",
+      "localPath": "components/TextAnimations/TextCursor.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "TextPressure",
@@ -1791,7 +3166,17 @@
       "prompt": "TextAnimations/TextPressure-TS-TW.md",
       "bytes": 9526,
       "props": 14,
-      "source": "src/ts-tailwind/TextAnimations/TextPressure/TextPressure.tsx"
+      "source": "src/ts-tailwind/TextAnimations/TextPressure/TextPressure.tsx",
+      "localPath": "components/TextAnimations/TextPressure.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [
+        "https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap"
+      ],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "TextType",
@@ -1803,7 +3188,17 @@
       "prompt": "TextAnimations/TextType-TS-TW.md",
       "bytes": 7808,
       "props": 18,
-      "source": "src/ts-tailwind/TextAnimations/TextType/TextType.tsx"
+      "source": "src/ts-tailwind/TextAnimations/TextType/TextType.tsx",
+      "localPath": "components/TextAnimations/TextType.tsx",
+      "realDeps": [
+        "gsap"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     },
     {
       "name": "TrueFocus",
@@ -1815,7 +3210,17 @@
       "prompt": "TextAnimations/TrueFocus-TS-TW.md",
       "bytes": 6681,
       "props": 8,
-      "source": "src/ts-tailwind/TextAnimations/TrueFocus/TrueFocus.tsx"
+      "source": "src/ts-tailwind/TextAnimations/TrueFocus/TrueFocus.tsx",
+      "localPath": "components/TextAnimations/TrueFocus.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": true,
+      "usesGLTF": false
     },
     {
       "name": "VariableProximity",
@@ -1827,7 +3232,17 @@
       "prompt": "TextAnimations/VariableProximity-TS-TW.md",
       "bytes": 8024,
       "props": 6,
-      "source": "src/ts-tailwind/TextAnimations/VariableProximity/VariableProximity.tsx"
+      "source": "src/ts-tailwind/TextAnimations/VariableProximity/VariableProximity.tsx",
+      "localPath": "components/TextAnimations/VariableProximity.tsx",
+      "realDeps": [
+        "motion"
+      ],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false
     }
   ]
 }

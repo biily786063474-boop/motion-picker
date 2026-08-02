@@ -195,9 +195,9 @@ const result = await addComponent({
 
 | 任务 | 状态 | 备注 |
 |---|---|---|
-| T1 git 化 | 待办 | |
-| T2 package.json scripts | 待办 | |
-| T3 管线原子写 | 待办 | |
+| T1 git 化 | ✅ | `.git` 6.7M，tag `upstream-b9158ac` |
+| T2 package.json scripts | ✅ | `npm run dev` → 200 |
+| T3 管线原子写 | ✅ | 失败路径实测校验和不变；对账 3/3 一致 |
 | T4 resolve.mjs | 待办 | |
 | T5 index.json 字段 | 待办 | |
 | T6 add-core.mjs | 待办 | |
