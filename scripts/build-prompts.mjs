@@ -20,9 +20,58 @@ const getArg = (flag, dflt) => {
   return i >= 0 ? argv[i + 1] : dflt;
 };
 const REPO = path.resolve(ROOT, getArg('--repo', '.cache/react-bits-main'));
-const OUT = path.resolve(ROOT, getArg('--out', 'prompts'));
-const COMPONENTS_OUT = path.resolve(ROOT, getArg('--components-out', 'components'));
-const PUBLIC_OUT = path.resolve(ROOT, getArg('--public-out', 'public'));
+
+/**
+ * 原子写：先全部生成到暂存区，全成功了再一次性替换掉真实目录。
+ *
+ * 之前是边跑边就地覆写 139 个文件、从不删除上游已移除的组件、失败退出还在写完之后。
+ * 上游改过之后重跑一次，只要有一个组件解析失败，得到的就是一棵
+ * 「一半新一半旧、还混着已下架组件残留」的树，而且分不清哪处是上游改的、哪处是自己动的。
+ */
+const FINAL_OUT = path.resolve(ROOT, getArg('--out', 'prompts'));
+const FINAL_COMPONENTS = path.resolve(ROOT, getArg('--components-out', 'components'));
+const FINAL_PUBLIC = path.resolve(ROOT, getArg('--public-out', 'public'));
+
+const STAGE = path.resolve(ROOT, '.tmp-build');
+fs.rmSync(STAGE, { recursive: true, force: true });
+const OUT = path.join(STAGE, 'prompts');
+const COMPONENTS_OUT = path.join(STAGE, 'components');
+const PUBLIC_OUT = path.join(STAGE, 'public');
+fs.mkdirSync(OUT, { recursive: true });
+fs.mkdirSync(COMPONENTS_OUT, { recursive: true });
+
+/** 整目录替换：新的就位后旧的才删，中途失败回滚 */
+function atomicReplaceDir(from, to) {
+  if (!fs.existsSync(from)) return;
+  const backup = `${to}.old-${process.pid}`;
+  fs.rmSync(backup, { recursive: true, force: true });
+  const hadOld = fs.existsSync(to);
+  if (hadOld) fs.renameSync(to, backup);
+  try {
+    fs.mkdirSync(path.dirname(to), { recursive: true });
+    fs.renameSync(from, to);
+    fs.rmSync(backup, { recursive: true, force: true });
+  } catch (e) {
+    if (hadOld && fs.existsSync(backup)) fs.renameSync(backup, to);
+    throw e;
+  }
+}
+
+/** public/ 里还有手工放的东西（draco 解码器），只能逐文件覆盖，不能整目录换掉 */
+function mergeDir(from, to) {
+  if (!fs.existsSync(from)) return;
+  for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
+    const src = path.join(from, entry.name);
+    const dst = path.join(to, entry.name);
+    if (entry.isDirectory()) {
+      fs.mkdirSync(dst, { recursive: true });
+      mergeDir(src, dst);
+    } else {
+      fs.mkdirSync(path.dirname(dst), { recursive: true });
+      fs.copyFileSync(src, dst);
+    }
+  }
+}
 const SRC = path.join(REPO, 'src');
 
 const LANG = 'TS';
@@ -659,8 +708,27 @@ console.log(
   `总字节 ${(results.reduce((s, r) => s + r.bytes, 0) / 1024 / 1024).toFixed(2)} MB，` +
     `平均 ${Math.round(results.reduce((s, r) => s + r.bytes, 0) / results.length / 1024)} KB`
 );
+
+// 有任何一个组件没生成出来，就一个字节都不落盘 —— 宁可这次白跑，也不要留下一棵半新半旧的树
 if (failures.length) {
-  console.error(`\n失败 ${failures.length} 个：`);
+  console.error(`\n失败 ${failures.length} 个，暂存区已丢弃，${path.basename(FINAL_OUT)}/ 与 ${path.basename(FINAL_COMPONENTS)}/ 未被改动：`);
   for (const f of failures) console.error(`  ${f.file}\n    ${f.error}`);
+  fs.rmSync(STAGE, { recursive: true, force: true });
   process.exit(1);
 }
+
+// 全部成功，才把暂存区换上去。整目录替换顺带解决了「上游删掉的组件残留在本地」的问题。
+const before = fs.existsSync(FINAL_COMPONENTS)
+  ? new Set(fs.readdirSync(FINAL_COMPONENTS, { recursive: true }).filter(f => String(f).endsWith('.tsx')))
+  : new Set();
+
+atomicReplaceDir(OUT, FINAL_OUT);
+atomicReplaceDir(COMPONENTS_OUT, FINAL_COMPONENTS);
+mergeDir(PUBLIC_OUT, FINAL_PUBLIC);
+fs.rmSync(STAGE, { recursive: true, force: true });
+
+const after = new Set(fs.readdirSync(FINAL_COMPONENTS, { recursive: true }).filter(f => String(f).endsWith('.tsx')));
+const removed = [...before].filter(f => !after.has(f));
+const added = [...after].filter(f => !before.has(f));
+if (added.length) console.log(`新增组件 ${added.length} 个：${added.map(f => path.basename(String(f), '.tsx')).join(', ')}`);
+if (removed.length) console.log(`上游已移除、本地同步删除 ${removed.length} 个：${removed.map(f => path.basename(String(f), '.tsx')).join(', ')}`);
