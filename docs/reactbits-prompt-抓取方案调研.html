@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReactBits「Copy Prompt」全量抓取 · 方案调研</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:#0a0a0a;color:#f5f5f5;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.86);
+  backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid #262626}
+.navwrap{max-width:1080px;margin:0 auto;padding:11px 24px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.navbrand{font-size:12.5px;color:#525252;letter-spacing:.06em;margin-right:8px;white-space:nowrap}
+nav a{font-size:12.5px;color:#a3a3a3;text-decoration:none;padding:5px 10px;border-radius:8px;
+  transition:color .15s,background-color .15s;white-space:nowrap}
+nav a:hover{color:#f5f5f5;background:#1c1c1c}
+main{max-width:1080px;margin:0 auto;padding:0 24px 120px}
+header.hero{padding:76px 0 48px;border-bottom:1px solid #1f1f1f;margin-bottom:56px}
+.eyebrow{display:inline-block;font-size:11.5px;letter-spacing:.16em;color:#737373;
+  border:1px solid #2e2e2e;border-radius:999px;padding:5px 13px;margin-bottom:22px}
+h1{font-size:38px;line-height:1.25;margin:0 0 18px;letter-spacing:-.02em;font-weight:600}
+.lede{font-size:16.5px;color:#a3a3a3;max-width:660px;margin:0 0 30px;line-height:1.8}
+.meta{display:flex;gap:26px;flex-wrap:wrap;font-size:12.5px;color:#525252}
+.meta b{color:#d4d4d4;font-weight:500}
+section{margin-bottom:76px;scroll-margin-top:76px}
+h2{font-size:12px;letter-spacing:.15em;color:#737373;font-weight:600;text-transform:uppercase;margin:0 0 10px}
+h2+.sectitle{font-size:25px;font-weight:600;margin:0 0 12px;letter-spacing:-.01em;line-height:1.35}
+.secnote{color:#a3a3a3;margin:0 0 30px;max-width:720px;font-size:14.5px}
+h3{font-size:17px;font-weight:600;margin:38px 0 14px}
+h4{font-size:14.5px;font-weight:600;margin:24px 0 10px;color:#e5e5e5}
+p{margin:0 0 14px}
+.card{background:rgba(23,23,23,.5);border:1px solid #262626;border-radius:14px;padding:24px 26px;margin-bottom:18px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
+.verdict{border-left:2px solid #34d399;background:rgba(16,185,129,.05);border-radius:0 14px 14px 0;padding:20px 24px;margin:22px 0}
+.dissent{border-left:2px solid #fb7185;background:rgba(244,63,94,.05);border-radius:0 14px 14px 0;padding:20px 24px;margin:22px 0}
+.warn{border-left:2px solid #fbbf24;background:rgba(245,158,11,.05);border-radius:0 14px 14px 0;padding:20px 24px;margin:22px 0}
+.vlabel{font-size:11px;letter-spacing:.14em;font-weight:600;margin-bottom:8px}
+.verdict .vlabel{color:#6ee7b7}.dissent .vlabel{color:#fda4af}.warn .vlabel{color:#fcd34d}
+.stat{background:rgba(23,23,23,.5);border:1px solid #262626;border-radius:14px;padding:20px}
+.stat .num{font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:6px}
+.stat .lab{font-size:12.5px;color:#737373;line-height:1.5}
+.n-em{color:#6ee7b7}.n-am{color:#fcd34d}.n-sk{color:#7dd3fc}.n-ro{color:#fda4af}.n-vi{color:#c4b5fd}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid #262626;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+th{text-align:left;padding:12px 16px;background:#141414;color:#a3a3a3;font-weight:500;
+  font-size:12px;letter-spacing:.05em;border-bottom:1px solid #262626;white-space:nowrap}
+td{padding:12px 16px;border-bottom:1px solid #1f1f1f;color:#d4d4d4;vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr{transition:background-color .15s}
+tbody tr:hover{background:rgba(255,255,255,.018)}
+td b,th b{color:#f5f5f5;font-weight:600}
+.b{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:6px;font-weight:500;white-space:nowrap;line-height:1.6}
+.b-em{background:rgba(16,185,129,.14);color:#6ee7b7}
+.b-am{background:rgba(245,158,11,.14);color:#fcd34d}
+.b-sk{background:rgba(14,165,233,.14);color:#7dd3fc}
+.b-ro{background:rgba(244,63,94,.14);color:#fda4af}
+.b-vi{background:rgba(139,92,246,.14);color:#c4b5fd}
+.b-gy{background:#1f1f1f;color:#a3a3a3}
+code{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;font-size:12.5px;
+  background:#171717;border:1px solid #262626;padding:1.5px 6px;border-radius:5px;color:#e5e5e5}
+pre{background:#111;border:1px solid #262626;border-radius:12px;padding:20px 22px;overflow-x:auto;
+  font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;font-size:12.5px;
+  line-height:1.85;color:#d4d4d4;margin:16px 0}
+pre code{background:none;border:none;padding:0;font-size:inherit}
+.flow{color:#6ee7b7}.dim{color:#525252}.hi{color:#fcd34d}
+ul,ol{margin:0 0 14px;padding-left:20px}
+li{margin-bottom:7px;color:#d4d4d4}
+li::marker{color:#525252}
+.clean{list-style:none;padding-left:0}
+.clean li{padding-left:22px;position:relative}
+.clean li::before{content:"→";position:absolute;left:0;color:#525252}
+.tl{border-left:1px solid #262626;padding-left:24px;margin:20px 0 20px 6px}
+.tl .it{position:relative;padding-bottom:22px}
+.tl .it::before{content:"";position:absolute;left:-29px;top:7px;width:7px;height:7px;
+  border-radius:50%;background:#404040;border:2px solid #0a0a0a}
+.tl .it.on::before{background:#34d399}
+.tl .tm{font-size:11.5px;color:#737373;letter-spacing:.05em;margin-bottom:3px}
+.tl .tt{font-size:14.5px;font-weight:500;margin-bottom:3px}
+.tl .td{font-size:13px;color:#a3a3a3}
+.dcode{background:#111;border:1px solid #2e2e2e;border-radius:12px;padding:18px 20px;margin:20px 0}
+.dcode .dlabel{font-size:11px;letter-spacing:.14em;color:#737373;margin-bottom:10px}
+.dcode .dcmd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;color:#fcd34d;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dcode button{background:#1f1f1f;border:1px solid #2e2e2e;color:#a3a3a3;font-size:12px;
+  padding:5px 12px;border-radius:8px;cursor:pointer;transition:color .15s,border-color .15s}
+.dcode button:hover{color:#f5f5f5;border-color:#525252}
+hr{border:none;border-top:1px solid #1f1f1f;margin:44px 0}
+footer{border-top:1px solid #1f1f1f;padding:34px 0 0;color:#525252;font-size:12.5px;line-height:1.9}
+@media (max-width:640px){
+  h1{font-size:29px}
+  header.hero{padding:48px 0 34px}
+  main{padding:0 18px 80px}
+  .navwrap{padding:10px 18px}
+  .card{padding:20px}
+  section{margin-bottom:56px}
+}
+</style>
+</head>
+<body>
+<nav><div class="navwrap">
+  <span class="navbrand">REACTBITS PROMPT 抓取</span>
+  <a href="#结论">结论</a>
+  <a href="#原理">原理拆解</a>
+  <a href="#方案">四方案对比</a>
+  <a href="#推荐">推荐方案</a>
+  <a href="#风险">风险与边界</a>
+  <a href="#下一步">下一步</a>
+</div></nav>
+
+<main>
+<header class="hero">
+  <span class="eyebrow">调研文档 · V1 · 仅设计不实现</span>
+  <h1>能不能把 ReactBits 全站效果的<br>「Copy Prompt」内容全抓下来？</h1>
+  <p class="lede">能，而且不需要爬网页、不需要开浏览器、不需要碰剪贴板。<code>Copy Prompt</code> 是纯前端在本地拼字符串，没有任何后端接口——把拼字符串的那段逻辑在本地重跑一遍就行。</p>
+  <div class="meta">
+    <span>日期 <b>2026-07-31</b></span>
+    <span>目标站 <b>reactbits.dev</b></span>
+    <span>组件量 <b>139 个 × 4 变体</b></span>
+    <span>关键证据 <b>TabsLayout.jsx:63</b></span>
+  </div>
+</header>
+
+<section id="结论">
+  <h2>VERDICT</h2>
+  <div class="sectitle">结论：走「离线复刻」，不要走「浏览器抓剪贴板」</div>
+  <p class="secnote">四条路都验证过可行性，推荐 A。B 作为省事的降级选项，C 只当校验用，D 是「不落库」的另一种活法。</p>
+
+  <div class="verdict">
+    <div class="vlabel">裁 决</div>
+    <p style="margin:0"><b>方案 A · 离线复刻 buildPrompt</b>：克隆 <code>DavidHDev/react-bits</code>，用 Node 脚本把 <code>TabsLayout.jsx</code> 里那个 <code>buildPrompt()</code> 函数原样搬过来，喂入仓库里现成的 <code>codeObject</code> 与 <code>propData</code>，批量吐出 139 个（或 556 个变体）prompt 文件。字节级等价于点按钮拿到的内容，一次跑完约几十秒，无反爬、无速率限制、可复现、可 diff。</p>
+  </div>
+
+  <div class="grid g4" style="margin-top:24px">
+    <div class="stat"><div class="num n-em">139</div><div class="lab">组件总数<br>背景45 / 组件40 / 动画31 / 文字23</div></div>
+    <div class="stat"><div class="num n-sk">556</div><div class="lab">变体总数<br>JS-CSS / JS-TW / TS-CSS / TS-TW</div></div>
+    <div class="stat"><div class="num n-am">0</div><div class="lab">需要发起的<br>prompt 相关网络请求</div></div>
+    <div class="stat"><div class="num n-vi">139/139</div><div class="lab">demo 文件里 propData<br>写法完全一致</div></div>
+  </div>
+</section>
+
+<section id="原理">
+  <h2>HOW IT WORKS</h2>
+  <div class="sectitle">原理拆解：那段 prompt 到底是从哪来的</div>
+  <p class="secnote">这一节是全篇的地基。搞清楚它，就知道为什么「抓剪贴板」是绕远路。</p>
+
+  <p>reactbits.dev 是一个 Vite + React 的纯静态 SPA（Cloudflare 托管）。点 <b>Copy Prompt</b> 时发生的事，全部在浏览器内存里完成：</p>
+
+<pre><code><span class="dim"># src/components/common/TabsLayout.jsx</span>
+handleCopyPrompt()
+  <span class="flow">├─</span> codeObject   <span class="dim">← src/constants/code/&lt;类目&gt;/&lt;名&gt;Code.js（构建时 ?raw 内联进 bundle）</span>
+  <span class="flow">├─</span> propData     <span class="dim">← src/demo/&lt;类目&gt;/&lt;名&gt;Demo.jsx 里的 propData 数组</span>
+  <span class="flow">├─</span> lang/style   <span class="dim">← 右上角 JS/TS · CSS/Tailwind 开关</span>
+  <span class="flow">├─</span> injectPropsIntoCode()  <span class="hi">← 把你在预览区调过的参数塞回 usage 示例</span>
+  <span class="flow">└─</span> buildPrompt() → navigator.clipboard.writeText(...)
+       <span class="dim">纯字符串拼接，零 fetch，零后端</span></code></pre>
+
+  <h3>buildPrompt 的输出骨架</h3>
+  <p>固定七段，顺序恒定，来源明确：</p>
+  <div class="tw"><table>
+    <thead><tr><th>段落</th><th>内容</th><th>数据来源</th></tr></thead>
+    <tbody>
+      <tr><td><b>标题</b></td><td><code>## Integrate the &lt;Orb /&gt; component from React Bits</code></td><td>路由 subcategory 转 PascalCase</td></tr>
+      <tr><td><b>Variant</b></td><td>JavaScript + CSS / TypeScript + Tailwind …</td><td><code>getActiveCode()</code> 按开关选</td></tr>
+      <tr><td><b>Dependencies</b></td><td>如 <code>ogl</code>、<code>gsap</code>、<code>three</code></td><td><code>codeObject.dependencies</code></td></tr>
+      <tr><td><b>Usage Example</b></td><td>jsx 代码块</td><td><code>codeObject.usage</code>（+ 当前 props 注入）</td></tr>
+      <tr><td><b>Props 表</b></td><td>markdown 四列表：名 / 类型 / 默认 / 说明</td><td><code>propData</code>（demo 文件）</td></tr>
+      <tr><td><b>Full Component Source</b></td><td>整个组件源码，10KB 量级</td><td><code>code / tailwind / tsCode / tsTailwind</code></td></tr>
+      <tr><td><b>Component CSS + 集成步骤</b></td><td>CSS 变体才有；末尾 4~5 条固定指令</td><td><code>codeObject.css</code> + 硬编码模板</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="warn">
+    <div class="vlabel">一个必须知道的细节</div>
+    <p style="margin:0"><code>injectPropsIntoCode()</code> 只在你<b>手动改过预览区参数</b>时才改写 usage。默认状态下拿到的 prompt 与 <code>codeObject.usage</code> 原文一致——这意味着离线复刻在默认态下能做到<b>字节级相同</b>，不是「近似」。</p>
+  </div>
+</section>
+
+<section id="方案">
+  <h2>OPTIONS</h2>
+  <div class="sectitle">四个方案与取舍</div>
+  <p class="secnote">按「保真度 × 成本 × 抗改版能力」三轴排。没有一个方案在所有轴上都赢，选哪个取决于你要拿这批 prompt 干什么。</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>方案</th><th>做法</th><th>保真度</th><th>Props 表</th><th>成本</th><th>抗站点改版</th><th>产出</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>A 离线复刻</b><br><span class="b b-em">推荐</span></td>
+        <td>克隆仓库 + Node 脚本重跑 buildPrompt</td>
+        <td><span class="b b-em">字节级等价</span></td>
+        <td><span class="b b-em">完整</span></td>
+        <td>脚本约 150 行，跑一次 &lt;1 分钟</td>
+        <td><span class="b b-am">中</span>（跟的是仓库结构，不是站点 DOM）</td>
+        <td>556 个 .md，可全变体</td>
+      </tr>
+      <tr>
+        <td><b>B registry 拼装</b></td>
+        <td>直接拉 <code>reactbits.dev/r/*.json</code>（jsrepo / shadcn 注册表，556 个文件公开可取）</td>
+        <td><span class="b b-am">约 80%</span></td>
+        <td><span class="b b-ro">缺</span></td>
+        <td>最低，一个 curl 循环</td>
+        <td><span class="b b-em">高</span>（这是对外契约接口）</td>
+        <td>源码 + 依赖，无 props / 无 usage</td>
+      </tr>
+      <tr>
+        <td><b>C 浏览器自动化</b></td>
+        <td>Playwright 逐页点 Copy Prompt，读剪贴板</td>
+        <td><span class="b b-em">100%</span>（定义上就是它）</td>
+        <td><span class="b b-em">完整</span></td>
+        <td>139 页 × 4 变体 = 556 次交互，需授权剪贴板权限、处理 WebGL 预览卡顿</td>
+        <td><span class="b b-ro">低</span>（改个按钮就崩）</td>
+        <td>同 A，但慢两个数量级</td>
+      </tr>
+      <tr>
+        <td><b>D 不落库</b></td>
+        <td>官方 MCP（<code>npx shadcn@latest mcp init</code>）或直接喂 <code>reactbits.dev/llms.txt</code>（24KB 全组件索引）</td>
+        <td>—</td>
+        <td>按需</td>
+        <td>近乎为零</td>
+        <td><span class="b b-em">高</span></td>
+        <td>没有本地库，用时现取</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h3>取舍说明</h3>
+  <ul class="clean">
+    <li><b>A vs C</b>：C 是「正确定义」，A 是「等价实现」。C 唯一的优势是不依赖我对源码的阅读正确——所以正确用法是<b>用 C 抽检 3~5 个组件去校验 A 的输出</b>，而不是用 C 跑全量。</li>
+    <li><b>A vs B</b>：B 拿的是官方对外接口，长期最稳，但 registry JSON 里<b>只有文件内容，没有 props 表、没有 usage 示例、没有集成指令</b>——而这三样恰恰是 prompt 相对于「裸源码」的全部增量价值。B 单独用会退化成「代码搬运」。</li>
+    <li><b>A vs D</b>：如果目的只是「写代码时让 AI 用上这些效果」，D 才是正解，根本不需要抓。A 的价值在于<b>离线可检索的资产库</b>——能 grep、能按依赖分类、能做自己的选型索引、站点挂了也在。这就是「资产收集」目录该有的形态。</li>
+    <li><b>A+B 混合</b>：用 A 的 propData / usage / 集成指令 + B 的源码，能让源码部分永远跟线上一致而不必重新克隆 47MB 仓库。代价是多一层拼装逻辑，收益不大，<b>不建议第一版就做</b>。</li>
+  </ul>
+
+  <div class="dissent">
+    <div class="vlabel">保留的反对意见</div>
+    <p style="margin:0 0 8px"><b>「A 是二次实现，会跟官方漂移」</b>——这是对的。<code>buildPrompt()</code> 是站点内部函数，作者随时可以改模板措辞、加段落、换 props 表格式，而你的脚本不会自动知道。</p>
+    <p style="margin:0">应对不是放弃 A，而是：① 脚本里记下复刻自哪个 commit；② 每次重跑前 <code>git log</code> 看 <code>TabsLayout.jsx</code> 有没有动；③ 保留 C 的抽检脚本作为「对账工具」。<b>把漂移变成可检测的，而不是假装不存在。</b></p>
+  </div>
+</section>
+
+<section id="推荐">
+  <h2>RECOMMENDED</h2>
+  <div class="sectitle">方案 A 的管线设计</div>
+  <p class="secnote">下面是给「工匠」角色的实现说明书，不是代码。四步，每步的输入输出都已验证存在。</p>
+
+  <div class="tl">
+    <div class="it on">
+      <div class="tm">STEP 1 · 取料</div>
+      <div class="tt">克隆仓库到本地缓存目录</div>
+      <div class="td"><code>codeload.github.com/DavidHDev/react-bits/tar.gz/refs/heads/main</code>，47MB，含 4 套变体源码。记下 commit SHA 写进产物元数据。</div>
+    </div>
+    <div class="it on">
+      <div class="tm">STEP 2 · 解析 codeObject</div>
+      <div class="tt">139 个 <code>src/constants/code/*/*.js</code></div>
+      <div class="td">每个文件形如 <code>import code from '@content/…/Orb.jsx?raw'</code> 加 <code>export const orb = {…}</code>。<b>不要用 esbuild 直接跑它</b>（<code>?raw</code> 是 Vite 专属语法）——按 import 语句解析出别名路径，直接从 <code>src/content | tailwind | ts-default | ts-tailwind</code> 读对应文件即可。<code>usage</code> / <code>dependencies</code> 是模板字符串，正则或轻量 AST 都能取。</div>
+    </div>
+    <div class="it on">
+      <div class="tm">STEP 3 · 解析 propData</div>
+      <div class="tt">139 个 <code>src/demo/*/*Demo.jsx</code></div>
+      <div class="td">已核实：<b>139/139 全部写作 <code>&lt;PropTable data={propData} /&gt;</code>，且 propData 都是 <code>useMemo(() =&gt; [ …字面量数组… ], [])</code></b>。用 <code>@babel/parser</code> 取 AST 抓那个 ArrayExpression 最稳；纯正则也能过，但遇到描述里带反引号或大括号会脆。这是全流程唯一有技术风险的一步。</div>
+    </div>
+    <div class="it on">
+      <div class="tm">STEP 4 · 复刻 buildPrompt 并落盘</div>
+      <div class="tt">照抄 <code>TabsLayout.jsx:63-118</code></div>
+      <div class="td">连空行和 <code>---</code> 分隔符都照抄，包括那个「有 CSS 时步骤编号 3/4/5、没 CSS 时 3/4」的分支。输出到 <code>prompts/&lt;类目&gt;/&lt;组件&gt;-&lt;LANG&gt;-&lt;STYLE&gt;.md</code>。</div>
+    </div>
+  </div>
+
+  <h3>产物结构建议</h3>
+<pre><code>docs/
+  reactbits-prompt-抓取方案调研.html   <span class="dim">← 本文件</span>
+prompts/
+  index.json          <span class="dim">← 139 条：名称 / 类目 / 依赖 / 站点 URL / prompt 路径 / 字节数</span>
+  Backgrounds/
+    Orb-TS-TW.md
+    ...
+  Components/  Animations/  TextAnimations/
+.meta.json            <span class="dim">← 源 commit SHA、抓取时间、脚本版本</span></code></pre>
+
+  <h4>变体策略：先只出一套</h4>
+  <p>556 个文件里有大量重复（同一组件的 4 个变体，差异只在源码块）。建议 <b>第一版只生成 TS-TW 一套（139 个，约 1.6MB）</b>，需要别的变体时再补——4 套全出约 6.5MB，索引和去重成本都上来了，收益却只在「你恰好用 JS+CSS」的场景。</p>
+
+  <div class="warn">
+    <div class="vlabel">体量提醒</div>
+    <p style="margin:0">单个 prompt 平均 11~14KB，约 <b>3~4k tokens</b>。整套 139 个约 50 万 tokens，<b>不可能整体塞进上下文</b>。所以 <code>index.json</code> 不是可选项，是必需品——检索靠索引，命中后才读具体那一个 .md。</p>
+  </div>
+</section>
+
+<section id="风险">
+  <h2>RISKS</h2>
+  <div class="sectitle">风险与边界</div>
+  <p class="secnote">合规、技术、维护三类，都有明确应对。</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4 style="margin-top:0">许可证 <span class="b b-em">低风险</span></h4>
+      <p style="margin:0">react-bits 是 MIT 开源，组件本就设计为 copy-paste 使用，仓库里明确提供 CLI 安装与 <code>llms.txt</code> 供 AI 消费。做本地资产库属于预期用法。<b>但要保留原始版权声明、别去掉出处</b>；这批产物是自用素材库，不要当自己的作品对外分发。</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">技术风险点 <span class="b b-am">1 处</span></h4>
+      <p style="margin:0">只有 STEP 3 的 propData 解析可能翻车（描述文字里的特殊字符）。<b>验收标准：139 个文件全部解析出非空数组，任何一个为空都算失败，不许静默跳过。</b></p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">网络 <span class="b b-am">注意</span></h4>
+      <p style="margin:0">本机 Clash TUN 全局接管。47MB tarball 下载若卡住，先按代理排障套路查链路，别怀疑 GitHub。本次调研中该下载走通了（47MB 正常完成）。</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">维护 <span class="b b-sk">季度</span></h4>
+      <p style="margin:0">react-bits 更新频繁（139 个组件仍在增长）。脚本设计成<b>幂等可重跑</b>，靠 <code>.meta.json</code> 的 commit SHA 判断是否需要重跑，重跑后 diff 就能看出上游加了什么组件。</p>
+    </div>
+  </div>
+
+  <h3>明确不做的事</h3>
+  <ul class="clean">
+    <li>不做全站 HTML 爬取——SPA 渲染，爬到的是空壳，纯属浪费。</li>
+    <li>不做剪贴板监听或劫持——没必要，且脏。</li>
+    <li>不为「更保真」而上 Playwright 跑全量——556 次带 WebGL 预览的页面交互，跑一小时换来和 A 一样的结果。</li>
+  </ul>
+</section>
+
+<section id="下一步">
+  <h2>NEXT</h2>
+  <div class="sectitle">下一步</div>
+  <p class="secnote">本轮只出方案，不动手。要实现请另开会话切「工匠」角色。</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>待办</th><th>归属</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>确认方案（A / B / C / D，或 A 但只出某个变体）</td><td><span class="b b-am">你</span></td></tr>
+      <tr><td>2</td><td>写抓取脚本（4 步管线，约 150 行 Node）</td><td><span class="b b-sk">工匠</span></td></tr>
+      <tr><td>3</td><td>用 Playwright 抽检 3 个组件（Orb / SplitText / MagicBento）比对字节差异</td><td><span class="b b-sk">工匠</span></td></tr>
+      <tr><td>4</td><td>生成 <code>index.json</code> 检索索引，按依赖分类（ogl / three / gsap / 无依赖）</td><td><span class="b b-sk">工匠</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="warn">
+    <div class="vlabel">角色边界</div>
+    <p style="margin:0">本轮是调研与架构设计，未写任何脚本、未生成任何 prompt 文件。<b>要动手实现，请开新会话切「工匠」角色</b>，把本文件路径带过去即可。</p>
+  </div>
+
+  <div class="dcode">
+    <div class="dlabel">复制这条粘回对话</div>
+    <div class="dcmd">
+      <span id="cmd">/pick A · 只出 TS-TW 一套</span>
+      <button onclick="navigator.clipboard.writeText(document.getElementById('cmd').textContent);this.textContent='已复制'">复制</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  证据来源：<code>github.com/DavidHDev/react-bits@main</code> —— <code>src/components/common/TabsLayout.jsx:63-118</code>（buildPrompt）、<code>src/components/code/CodeExample.jsx</code>（injectPropsIntoCode）、<code>src/constants/code/**</code>（139 个 codeObject）、<code>src/demo/**</code>（139 个 propData）、<code>public/r/*.json</code>（556 个 registry）、<code>reactbits.dev/llms.txt</code>（24KB 组件索引）。<br>
+  本文件：<code>docs/reactbits-prompt-抓取方案调研.html</code> · 2026-07-31 · 调研轮次，未产生业务代码改动。
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,1199 @@
+{
+  "AnimatedContent": {
+    "previewProps": {
+      "distance": 120,
+      "direction": "vertical",
+      "duration": 1.2,
+      "scale": 0.85,
+      "delay": 0.3,
+      "initialOpacity": 0,
+      "animateOpacity": true,
+      "ease": "power3.out",
+      "threshold": 0.1
+    },
+    "childrenKind": "card",
+    "note": "源码第130-132行 children 被原样塞进一个 ref 的 <div> 里，没有 typeof children === 'string' 之类的字符串处理，也没有包 <p>/<span>，所以给 JSX 块（含 h3）完全安全；动画（useEffect 里 gsap.set + tl.to）作用于 wrapper 整体——y 轴位移 distance、scale、opacity 一起变，children 就是\"被搬运的视觉主体\"。当前截图是一段透明背景的纯文字，位移 100px 和 scale 变化没有边缘和背景作参照，肉眼几乎读不出来（而且是 ScrollTrigger once:true 的一次性入场，错过就没了）。换成有背景/边框的 card，滑入、缩放、淡入三条轨迹才有实体轮廓可看；同时把 duration 拉到 1.2、scale 起点压到 0.85、加 0.3s delay，让打开页面时来得及看清。"
+  },
+  "Ballpit": {
+    "previewProps": {
+      "count": 100,
+      "gravity": 0.01,
+      "friction": 0.9975,
+      "wallBounce": 0.95,
+      "followCursor": true,
+      "colors": [
+        5384191,
+        16752636,
+        11640559
+      ],
+      "minSize": 0.5,
+      "maxSize": 1,
+      "maxVelocity": 0.15
+    },
+    "frameHeight": 420,
+    "note": "所有配置项在 XConfig 里都有默认值，不会崩；但返回的是 <canvas className=\"w-full h-full\">，父容器没高度就是 0 高白屏，所以判 needs-frame。另外源码默认 colors: [0,0,0]（setColors 里 length>1 就生效）会渲染出全黑球，几乎看不见效果，故传 colors 为十进制色值数组（0x5227FF/0xFF9FFC/0xB19EEF）；这些额外 prop 通过 {...props} 直接进 createBallpit 的 config，不会漏到 DOM。"
+  },
+  "BorderGlow": {
+    "previewProps": {
+      "animated": true,
+      "glowColor": "40 80 80",
+      "backgroundColor": "#120F17",
+      "borderRadius": 28,
+      "glowRadius": 40,
+      "glowIntensity": 1,
+      "coneSpread": 25,
+      "colors": [
+        "#c084fc",
+        "#f472b6",
+        "#38bdf8"
+      ]
+    },
+    "childrenKind": "slab",
+    "note": "children 类型上可选，但最后 <div className=\"flex flex-col ...\">{children}</div> 没有 fallback，不给内容整张卡就是 0 高度、什么都看不到，所以判 needs-children（slab：卡片式内容块）。另外 isVisible = isHovered || sweepActive，默认 animated=false 时不 hover 完全无发光，所以预览传 animated: true 让挂载时自动扫一圈。colors 会被 buildMeshGradients 按 COLOR_MAP 取索引，给 3 个即可。"
+  },
+  "BounceCards": {
+    "previewProps": {
+      "images": [
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%235227FF'/%3E%3Ccircle cx='200' cy='200' r='90' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%2306B6D4'/%3E%3Crect x='100' y='100' width='200' height='200' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23FF4D8D'/%3E%3Cpolygon points='200,80 330,320 70,320' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23F59E0B'/%3E%3Ccircle cx='140' cy='140' r='70' fill='%23ffffff' fill-opacity='0.9'/%3E%3Ccircle cx='270' cy='270' r='70' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%2322C55E'/%3E%3Crect x='60' y='170' width='280' height='60' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E"
+      ],
+      "containerWidth": 600,
+      "containerHeight": 300,
+      "animationDelay": 0.4,
+      "animationStagger": 0.08,
+      "enableHover": true
+    },
+    "frameHeight": 360,
+    "note": "images 默认 []，images.map 直接渲染出空容器，什么都看不到。给 5 张正好对上默认的 5 条 transformStyles（±170px 位移），containerWidth 放到 600 才不会被裁掉两侧卡片；enableHover 打开才能看到推挤动效。"
+  },
+  "BubbleMenu": {
+    "previewProps": {
+      "logo": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='120'%20height='32'%3E%3Ctext%20x='0'%20y='24'%20font-family='sans-serif'%20font-size='22'%20font-weight='700'%20fill='%23111111'%3EBubble%3C/text%3E%3C/svg%3E",
+      "menuBg": "#ffffff",
+      "menuContentColor": "#111111",
+      "items": [
+        {
+          "label": "首页",
+          "href": "#",
+          "ariaLabel": "首页",
+          "rotation": -8,
+          "hoverStyles": {
+            "bgColor": "#3b82f6",
+            "textColor": "#ffffff"
+          }
+        },
+        {
+          "label": "关于",
+          "href": "#",
+          "ariaLabel": "关于",
+          "rotation": 8,
+          "hoverStyles": {
+            "bgColor": "#10b981",
+            "textColor": "#ffffff"
+          }
+        },
+        {
+          "label": "作品",
+          "href": "#",
+          "ariaLabel": "作品",
+          "rotation": 8,
+          "hoverStyles": {
+            "bgColor": "#f59e0b",
+            "textColor": "#ffffff"
+          }
+        },
+        {
+          "label": "博客",
+          "href": "#",
+          "ariaLabel": "博客",
+          "rotation": -8,
+          "hoverStyles": {
+            "bgColor": "#ef4444",
+            "textColor": "#ffffff"
+          }
+        },
+        {
+          "label": "联系",
+          "href": "#",
+          "ariaLabel": "联系",
+          "rotation": 8,
+          "hoverStyles": {
+            "bgColor": "#8b5cf6",
+            "textColor": "#ffffff"
+          }
+        }
+      ],
+      "useFixedPosition": false
+    },
+    "frameHeight": 520,
+    "note": "BubbleMenuProps 里根本没有 children 字段（第16-29行），组件全部内容来自自有数据源：logo（ReactNode|string，第269-273行 string 时渲染成 <img src>）和 items（未传时用 DEFAULT_ITEMS 五个气泡，第31-67、90行）。传 children 会被 React 直接丢弃，什么也看不到。截图里之所以\"没内容\"是因为 logo 没传导致左侧白胶囊空着，且菜单默认关闭（showOverlay 初始 false，第84、318行），气泡列表要点右上角汉堡按钮才展开——所以修法是给 logo 一个可见的 data-URI 图标，而不是给 children。"
+  },
+  "CardNav": {
+    "previewProps": {
+      "logo": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='28'%3E%3Crect width='96' height='28' rx='6' fill='%23120F17'/%3E%3Ctext x='48' y='19' font-size='13' fill='%23ffffff' text-anchor='middle' font-family='sans-serif'%3ECardNav%3C/text%3E%3C/svg%3E",
+      "logoAlt": "品牌 Logo",
+      "baseColor": "#fff",
+      "menuColor": "#000",
+      "buttonBgColor": "#111111",
+      "buttonTextColor": "#ffffff",
+      "items": [
+        {
+          "label": "关于",
+          "bgColor": "#0D0716",
+          "textColor": "#fff",
+          "links": [
+            {
+              "label": "公司",
+              "href": "#company",
+              "ariaLabel": "关于公司"
+            },
+            {
+              "label": "团队",
+              "href": "#careers",
+              "ariaLabel": "关于团队"
+            }
+          ]
+        },
+        {
+          "label": "项目",
+          "bgColor": "#170D27",
+          "textColor": "#fff",
+          "links": [
+            {
+              "label": "精选案例",
+              "href": "#featured",
+              "ariaLabel": "精选案例"
+            },
+            {
+              "label": "全部作品",
+              "href": "#projects",
+              "ariaLabel": "全部作品"
+            }
+          ]
+        },
+        {
+          "label": "联系",
+          "bgColor": "#271E37",
+          "textColor": "#fff",
+          "links": [
+            {
+              "label": "邮件",
+              "href": "#email",
+              "ariaLabel": "发邮件"
+            },
+            {
+              "label": "微信",
+              "href": "#wechat",
+              "ariaLabel": "加微信"
+            }
+          ]
+        }
+      ]
+    },
+    "frameHeight": 380,
+    "note": "logo（img src）和 items 都没有默认值；items 结构是 {label,bgColor,textColor,links:[{label,href,ariaLabel}]}，只取前 3 项（slice(0,3)），不传就只剩一条 60px 空导航条。容器 absolute + 展开高度 260px，预览框需 relative 且 ≥360px 才能看到展开动画；react-icons 已装，GoArrowUpRight 图标可正常渲染。"
+  },
+  "CardSwap": {
+    "previewProps": {
+      "width": 420,
+      "height": 300,
+      "delay": 4000
+    },
+    "childrenKind": "cards",
+    "frameHeight": 520,
+    "note": "children 是必需的：refs 由 Children.toArray(children) 生成，useEffect 里 placeNow(r.current!) 直接解引用，没有子元素就没有卡片、少于 2 个不触发 swap。默认 500x400 在 520 高的舞台里（容器 absolute bottom-0 right-0 再 translate 20%）会掉出去大半，缩到 420x300、delay 4000 更好看。注意 registry 里 CHILDREN_KIND.cards 目前是 <CardStack />（一个函数组件元素），Children.toArray 只数到 1 个 child，且 cloneElement 把 ref 传给没有 forwardRef 的函数组件会拿到 null——建议改成数组形式（如 CardStack() 或直接铺 3 个 div），否则这个组件仍然动不起来。"
+  },
+  "ChromaGrid": {
+    "previewProps": {
+      "items": [
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27400%27%20height=%27400%27%3E%3Crect%20width=%27400%27%20height=%27400%27%20fill=%27%235227FF%27/%3E%3Ctext%20x=%27200%27%20y=%27231%27%20font-size=%27150%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3EA%3C/text%3E%3C/svg%3E",
+          "title": "林知远",
+          "subtitle": "全栈工程师",
+          "handle": "@zhiyuan",
+          "location": "上海",
+          "borderColor": "#5227FF",
+          "gradient": "linear-gradient(145deg,#5227FF,#000)"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27400%27%20height=%27400%27%3E%3Crect%20width=%27400%27%20height=%27400%27%20fill=%27%2310B981%27/%3E%3Ctext%20x=%27200%27%20y=%27231%27%20font-size=%27150%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3EB%3C/text%3E%3C/svg%3E",
+          "title": "陈默",
+          "subtitle": "运维工程师",
+          "handle": "@chenmo",
+          "location": "深圳",
+          "borderColor": "#10B981",
+          "gradient": "linear-gradient(210deg,#10B981,#000)"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27400%27%20height=%27400%27%3E%3Crect%20width=%27400%27%20height=%27400%27%20fill=%27%23F59E0B%27/%3E%3Ctext%20x=%27200%27%20y=%27231%27%20font-size=%27150%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3EC%3C/text%3E%3C/svg%3E",
+          "title": "苏晴",
+          "subtitle": "交互设计师",
+          "handle": "@suqing",
+          "location": "杭州",
+          "borderColor": "#F59E0B",
+          "gradient": "linear-gradient(165deg,#F59E0B,#000)"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27400%27%20height=%27400%27%3E%3Crect%20width=%27400%27%20height=%27400%27%20fill=%27%23EF4444%27/%3E%3Ctext%20x=%27200%27%20y=%27231%27%20font-size=%27150%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3ED%3C/text%3E%3C/svg%3E",
+          "title": "王野",
+          "subtitle": "数据科学家",
+          "handle": "@wangye",
+          "location": "北京",
+          "borderColor": "#EF4444",
+          "gradient": "linear-gradient(195deg,#EF4444,#000)"
+        }
+      ]
+    },
+    "frameHeight": 640,
+    "note": "items 可选且组件内有 demo 兜底，但 demo 的头像全是 i.pravatar.cc 外链，离线时是一片破图，所以必须换成内联 SVG。字段按源码：image/title/subtitle/handle/location/borderColor/gradient/url；url 我故意不给——源码里点卡片会 window.open 新开标签页。根节点是 w-full h-full，容器必须有确定高度，否则灰度遮罩层塌成 0 高。"
+  },
+  "CircularGallery": {
+    "previewProps": {
+      "items": [
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27800%27%20height=%27600%27%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27%235227FF%27/%3E%3Ctext%20x=%27400%27%20y=%27348%27%20font-size=%27200%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E1%3C/text%3E%3C/svg%3E",
+          "text": "Bridge"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27800%27%20height=%27600%27%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27%2310B981%27/%3E%3Ctext%20x=%27400%27%20y=%27348%27%20font-size=%27200%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E2%3C/text%3E%3C/svg%3E",
+          "text": "Waterfall"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27800%27%20height=%27600%27%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27%23F59E0B%27/%3E%3Ctext%20x=%27400%27%20y=%27348%27%20font-size=%27200%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E3%3C/text%3E%3C/svg%3E",
+          "text": "Desk Setup"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27800%27%20height=%27600%27%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27%23EF4444%27/%3E%3Ctext%20x=%27400%27%20y=%27348%27%20font-size=%27200%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E4%3C/text%3E%3C/svg%3E",
+          "text": "Santorini"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27800%27%20height=%27600%27%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27%2306B6D4%27/%3E%3Ctext%20x=%27400%27%20y=%27348%27%20font-size=%27200%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E5%3C/text%3E%3C/svg%3E",
+          "text": "Coastline"
+        }
+      ],
+      "font": "bold 30px sans-serif",
+      "bend": 3,
+      "borderRadius": 0.05
+    },
+    "frameHeight": 520,
+    "note": "两处外网依赖必须堵掉：默认 items 全是 picsum.photos 外链；默认 font 'bold 30px Figtree' 会触发 resolveFont 去 fetch fonts.googleapis.com（离线时报错并 console.error）。把 font 换成 'bold 30px sans-serif' 后 effectiveUrl 为 null，走纯本地分支。items 字段就两个：{image, text}，text 是画进 canvas 纹理的标题。图片走 WebGL 纹理且 img.crossOrigin='anonymous'，data URI 不受同源污染影响。容器 w-full h-full，高度为 0 时 WebGL viewport 也是 0，什么都看不到。"
+  },
+  "Counter": {
+    "previewProps": {
+      "value": 1234,
+      "fontSize": 64,
+      "gap": 8,
+      "textColor": "#ffffff",
+      "fontWeight": 700,
+      "gradientFrom": "#0b0b0f",
+      "gradientTo": "transparent"
+    },
+    "frameHeight": 180,
+    "note": "value 是唯一无默认值的必需 prop，且组件的 places 默认值直接对 value 求 [...value.toString()]，不传会抛错；fontSize 默认 100 太大，调到 64 便于预览，gradientFrom 改成深色以贴合暗色底。"
+  },
+  "CurvedInput": {
+    "note": "CurvedInputProps 里根本没有 children（只有 value/placeholder/buttonText/icon 等），组件自己用 SVG textPath 把 placeholder、输入值和按钮文字画在弧线上，传 children 会被 React 直接丢弃；截图里弯曲的输入框、邮件图标、光标和 Get Started 按钮都已完整可见，无需任何 children。"
+  },
+  "DecayCard": {
+    "previewProps": {
+      "image": "/assets/demo/cs1.webp"
+    },
+    "note": "效果主体是组件自己的 image prop（DecayCard.tsx:152-160，<image href={image} filter=\"url(#imgFilter)\"> 被 feTurbulence+feDisplacementMap 随鼠标位移扭曲），children 只落在 163-165 行那个 absolute bottom-left 的装饰性大标题 div 里（first-line:text-[6rem] / text-[2.5rem] font-black），不参与任何效果；塞默认 Slab 或长句 text 会以 6rem 字号溢出 300×400 卡片并糊住图片，所以给 none。截图全黑只有占位文字，是因为默认 image 指向 picsum.photos 远端图，离线取不到 → 必须用 extraProps 换成本地 /assets/demo/cs1.webp（public 下已有），扭曲效果才有实体可打。"
+  },
+  "DecryptedText": {
+    "previewProps": {
+      "text": "解密文字效果 Decrypted",
+      "speed": 60,
+      "maxIterations": 12,
+      "sequential": true,
+      "revealDirection": "start",
+      "animateOn": "view",
+      "clickMode": "once",
+      "className": "text-xl",
+      "encryptedClassName": "text-xl opacity-70"
+    },
+    "note": "text 无默认值，源码里 text.split('')、text.length 到处用，不传直接崩；另外源码默认 animateOn='hover'，选型台里不悬停就完全看不到动画，所以显式给 'view' 让它进视口自动播。"
+  },
+  "Dither": {
+    "frameHeight": 600,
+    "note": "9 个 prop 全部有默认值（waveColor 默认 [0.5,0.5,0.5]），不传即可渲染灰色抖动波纹；只是 Canvas 用 className=\"w-full h-full\"，必须由外层给出高度，否则渲染成 0 高空白。"
+  },
+  "Dock": {
+    "previewProps": {
+      "items": [
+        {
+          "icon": "🏠",
+          "label": "首页"
+        },
+        {
+          "icon": "🔍",
+          "label": "搜索"
+        },
+        {
+          "icon": "📁",
+          "label": "文件"
+        },
+        {
+          "icon": "⚙️",
+          "label": "设置"
+        },
+        {
+          "icon": "✉️",
+          "label": "消息"
+        }
+      ],
+      "panelHeight": 68,
+      "baseItemSize": 50,
+      "magnification": 70,
+      "distance": 200
+    },
+    "frameHeight": 300,
+    "note": "items 无默认值且直接 items.map，不传立刻崩；元素结构是 {icon: ReactNode, label: ReactNode, onClick}——icon/label 用字符串（emoji + 中文）就是合法 ReactNode，onClick 是回调故意不给（源码里 onClick?.() 可选调用，缺省安全）。外层高度会从 panelHeight 撑到 dockHeight(256)，内层是 absolute bottom-2，预览框必须 relative 且 ≥280px 否则 dock 会跑到框外。"
+  },
+  "DomeGallery": {
+    "previewProps": {
+      "images": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%235227FF'/%3E%3Ccircle cx='200' cy='200' r='90' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "alt": "紫色圆"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%2306B6D4'/%3E%3Crect x='100' y='100' width='200' height='200' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "alt": "青色方"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23FF4D8D'/%3E%3Cpolygon points='200,80 330,320 70,320' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "alt": "粉色三角"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23F59E0B'/%3E%3Ccircle cx='140' cy='140' r='70' fill='%23ffffff' fill-opacity='0.9'/%3E%3Ccircle cx='270' cy='270' r='70' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "alt": "橙色双圆"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%2322C55E'/%3E%3Crect x='60' y='170' width='280' height='60' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "alt": "绿色横条"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%233B82F6'/%3E%3Cpolygon points='200,60 340,200 200,340 60,200' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "alt": "蓝色菱形"
+        }
+      ],
+      "fit": 0.8,
+      "segments": 34,
+      "grayscale": false,
+      "maxVerticalRotationDeg": 5
+    },
+    "frameHeight": 600,
+    "note": "images 虽有默认值，但 DEFAULT_IMAGES 全是 unsplash / pbs.twimg 外链，离线时整个球面是灰底破图。ImageItem 支持 string 或 {src, alt}，这里用对象形式（alt 会被写进 data-alt 并用于放大层）。6 张会被 buildItems 平铺到 segments×5 个格子上循环填充。组件 w-full h-full 且 minRadius 默认 600，预览容器需要足够高度。grayscale 关掉才看得出配色。"
+  },
+  "ElectricBorder": {
+    "childrenKind": "slab",
+    "note": "源码第 334 行 children 被原样放进 `<div className=\"relative rounded-[inherit] z-[1]\">{children}</div>`，不做字符串拆分也不包 p/span，所以可以安全给块级 JSX；而电光边框是靠 containerRef 的 getBoundingClientRect（第 193 行）沿 children 撑出的圆角矩形绘制的——children 决定了整个效果的尺寸和形状，必须是有实际宽高、有内边距的内容块。截图里效果其实画出来了（紫色电弧边框清晰可见），问题是里面那句\"把鼠标移进来试试\"是误导：这个组件根本没有 hover 逻辑，是常驻动画；且纯文字让框内显得空。改成带标题副标题的 slab 能撑住尺寸、填满框内、并去掉错误的 hover 暗示。不用 card 是因为卡片自带的背景+描边会和电光边框叠成双层边，反而削弱主体效果。"
+  },
+  "FadeContent": {
+    "previewProps": {
+      "blur": true,
+      "duration": 1200,
+      "initialOpacity": 0,
+      "threshold": 0.1
+    },
+    "childrenKind": "card",
+    "note": "源码只把 children 原样塞进 `<div ref={ref}>{children}</div>`（第102-106行），不做 typeof string 判断、不 split、不包 p/span，所以给任意 JSX 都安全；效果是 gsap 对这个 wrapper 做 autoAlpha 0→1 + filter blur(10px)→blur(0px)（第56-85行），children 就是被施加淡入/去模糊的视觉主体。当前截图里是一行细文字，淡入本身是瞬态的、静态图完全看不出，而 blur 打在细文字上也几乎读不出来——换成有背景块面和边缘的卡片，模糊消散和整体浮现才有参照物。同时开 blur:true 并把 duration 拉到 1200ms，让过程能被肉眼捕捉。"
+  },
+  "FloatingLines": {
+    "previewProps": {
+      "enabledWaves": [
+        "top",
+        "middle",
+        "bottom"
+      ],
+      "lineCount": [
+        10,
+        15,
+        20
+      ],
+      "lineDistance": [
+        8,
+        6,
+        4
+      ],
+      "linesGradient": [
+        "#e945f5",
+        "#7b6cff",
+        "#2f4ba2"
+      ],
+      "animationSpeed": 1,
+      "interactive": true,
+      "bendRadius": 5,
+      "bendStrength": -0.5,
+      "mouseDamping": 0.05,
+      "parallax": true,
+      "parallaxStrength": 0.2,
+      "mixBlendMode": "normal"
+    },
+    "frameHeight": 600,
+    "note": "默认 mixBlendMode='screen'，白底预览会被整片洗白看不见，故改 'normal'。lineCount/lineDistance 是按 enabledWaves 的下标取值（getLineCount 用 enabledWaves.indexOf），所以数组长度要和 enabledWaves 对齐；linesGradient 是 hex 字符串数组，最多 8 个（MAX_GRADIENT_STOPS），传了它就走渐变线条、不再画内置蓝粉背景。wavePosition 类 prop 结构为 {x,y,rotate}，有内部 fallback 可不传。"
+  },
+  "FlowingMenu": {
+    "previewProps": {
+      "speed": 15,
+      "bgColor": "#120F17",
+      "textColor": "#ffffff",
+      "marqueeBgColor": "#ffffff",
+      "marqueeTextColor": "#120F17",
+      "borderColor": "#ffffff",
+      "items": [
+        {
+          "link": "#home",
+          "text": "首页",
+          "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMTAwJz48cmVjdCB3aWR0aD0nMjAwJyBoZWlnaHQ9JzEwMCcgZmlsbD0nIzUyMjdGRicvPjxjaXJjbGUgY3g9JzEwMCcgY3k9JzUwJyByPScyOCcgZmlsbD0nI0ZGRDg0RCcvPjwvc3ZnPg=="
+        },
+        {
+          "link": "#about",
+          "text": "关于",
+          "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMTAwJz48cmVjdCB3aWR0aD0nMjAwJyBoZWlnaHQ9JzEwMCcgZmlsbD0nI0ZGNkI2QicvPjxyZWN0IHg9JzYwJyB5PScyNScgd2lkdGg9JzgwJyBoZWlnaHQ9JzUwJyBmaWxsPScjRkZGRkZGJy8+PC9zdmc+"
+        },
+        {
+          "link": "#work",
+          "text": "作品",
+          "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMTAwJz48cmVjdCB3aWR0aD0nMjAwJyBoZWlnaHQ9JzEwMCcgZmlsbD0nIzEwQjk4MScvPjxwb2x5Z29uIHBvaW50cz0nMTAwLDIwIDE0MCw4MCA2MCw4MCcgZmlsbD0nIzA1MkUyMicvPjwvc3ZnPg=="
+        },
+        {
+          "link": "#contact",
+          "text": "联系",
+          "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMTAwJz48cmVjdCB3aWR0aD0nMjAwJyBoZWlnaHQ9JzEwMCcgZmlsbD0nIzBFQTVFOScvPjxyZWN0IHg9JzIwJyB5PScyMCcgd2lkdGg9JzE2MCcgaGVpZ2h0PSc2MCcgcng9JzMwJyBmaWxsPScjMEIyOTQyJy8+PC9zdmc+"
+        }
+      ]
+    },
+    "frameHeight": 420,
+    "note": "items 默认 []，不传就渲染成一整块空底色；结构是 {link,text,image}，image 被塞进 backgroundImage:url(${image})，所以必须用 base64 形式的 data URI（百分号编码里的空格和引号会把无引号 url() 解析破坏）。组件是 w-full h-full + flex-1 平分，预览框必须有明确高度（约 400px）才看得到 hover 跑马灯。"
+  },
+  "Folder": {
+    "previewProps": {
+      "items": [
+        "📄",
+        "🖼️",
+        "🎬"
+      ],
+      "color": "#5227FF",
+      "size": 1
+    },
+    "frameHeight": 260,
+    "note": "FolderProps 只有 color/size/items/className，源码里根本没有 children 这个 prop，也从未引用过 —— 传进去会被完全丢弃（第 3-8 行接口、第 28 行解构）。它的视觉主体是自己画的：第 121-148 行把 items 补齐到 3 个渲染成三张纸（{item} 在第 145 行），第 149-168 行两片折页做 skew(±15deg) scaleY(0.6) 的开合动画，点击 handleClick 切换 open，纸张扇开并跟随鼠标位移。所以 children 给 none，改用 extraProps 的 items 往三张纸里塞可见内容（用 emoji 避免继承预览台的浅色字体在白纸上看不见）。截图里效果其实是\"跑出去了\"而不是没有：三张白纸已扇开但被容器顶部裁掉，纸面全白无内容，需要预览台给足垂直空间（约 260px 高不够，建议 320px 以上并让折页居中偏下）。"
+  },
+  "FuzzyText": {
+    "previewProps": {
+      "fontSize": 64,
+      "fontWeight": 900,
+      "color": "#ffffff",
+      "baseIntensity": 0.22,
+      "hoverIntensity": 0.6,
+      "enableHover": true
+    },
+    "childrenKind": "text",
+    "note": "源码 86 行 `const text = React.Children.toArray(children).join('')` 把 children 直接拼成字符串画进 canvas，只接受纯文本；当前截图正是塞了 JSX 元素导致画出 \"[object Object]\"，必须给一段短纯文字，并把默认的 clamp(2rem,8vw,8rem) 收成固定 64px 以免中文撑爆画布。"
+  },
+  "GlareHover": {
+    "previewProps": {
+      "width": "420px",
+      "height": "260px",
+      "background": "linear-gradient(135deg,#151922 0%,#0b0d12 100%)",
+      "borderRadius": "16px",
+      "borderColor": "#2a2f3a",
+      "glareColor": "#ffffff",
+      "glareOpacity": 0.45,
+      "glareSize": 300
+    },
+    "childrenKind": "card",
+    "note": "源码里 children 在第 103 行原样渲染进 `relative grid place-items-center overflow-hidden border` 的容器，和第 102 行那个 `position:absolute; inset:0` 的扫光 overlay 是兄弟节点——没有任何 `typeof children === 'string'` / split / 包 `<p>` 的处理，所以可以安全传 JSX，且 children 正是扫光要划过的视觉主体。截图确认当前是一个 500×500 纯黑空盒子里两行细字，白色斜向扫光划过去时下方没有任何实体表面，效果等于看不见；换成有背景质感、有标题正文的卡片，光带扫过卡面才有明暗对比。同时用 extraProps 把默认 500×500 收成 420×260 并给容器一个深色渐变底和可见边框，避免盒子在近黑页面上没边界。"
+  },
+  "GlassIcons": {
+    "previewProps": {
+      "items": [
+        {
+          "icon": "📁",
+          "color": "blue",
+          "label": "文件"
+        },
+        {
+          "icon": "📚",
+          "color": "purple",
+          "label": "书籍"
+        },
+        {
+          "icon": "❤",
+          "color": "red",
+          "label": "健康"
+        },
+        {
+          "icon": "☁",
+          "color": "indigo",
+          "label": "天气"
+        },
+        {
+          "icon": "✎",
+          "color": "orange",
+          "label": "笔记"
+        },
+        {
+          "icon": "▦",
+          "color": "green",
+          "label": "统计"
+        }
+      ]
+    },
+    "frameHeight": 460,
+    "note": "items 必填无默认，不传直接 items.map 崩。类型标注是 icon: React.ReactElement，但源码里只是 {item.icon} 原样渲染，所以传字符串（emoji/符号）React 照样渲染得出来，正好绕开 previewProps 不能放 JSX 的限制。color 只有 blue/purple/red/indigo/orange/green 六个键命中内置渐变表，其余值会被当作原始 CSS background 直接用。label 默认透明，hover 才淡入，所以预览容器底部要留出空间（label 是 top-full 定位在按钮下方）。"
+  },
+  "GlassSurface": {
+    "previewProps": {
+      "width": 320,
+      "height": 150,
+      "borderRadius": 32,
+      "backgroundOpacity": 0.12,
+      "saturation": 1.6,
+      "blur": 11,
+      "displace": 8,
+      "brightness": 60,
+      "opacity": 0.9,
+      "distortionScale": -180,
+      "className": "text-lg font-semibold text-white"
+    },
+    "childrenKind": "button-label",
+    "note": "源码里 children 只在最后被塞进 `<div class=\"w-full h-full flex items-center justify-center p-2 z-10\">{children}</div>`（372-374 行）——它不是被施加效果的主体，效果是容器自身的 `backdrop-filter: url(#glass-filter) saturate()`（239 行），作用于「背后的背景」而不是 children。所以 children 只能是玻璃面板上的一行短标签，给卡片/图片反而会盖住玻璃本体。当前默认 200×80 的胶囊里塞了带 h3+p 的 Slab，截图里标题「把鼠标移进来试试」直接溢出到胶囊左右两侧、副标题折成两行，玻璃的边缘光和折射全被文字压死。extraProps 把面板放大到 320×150 并给一点 backgroundOpacity/饱和度，让边缘高光和折射看得见。补充给预览台：Components 类目 frame 背景是纯色 #060010，backdrop-filter 没有任何东西可折射——这个组件的 frame 最好换成带渐变/图片的彩色背景，否则再怎么调 props 也只是一块灰胶囊。"
+  },
+  "GlitchText": {
+    "previewProps": {
+      "speed": 0.5,
+      "enableShadows": true,
+      "enableOnHover": false
+    },
+    "childrenKind": "text",
+    "note": "源码里 children 的类型签名就是 string，且被同时用在 `data-text={children}`（::before/::after 靠 `content: attr(data-text)` 复制出红/青两层错位副本）和节点内文本上；传 JSX 时 data-text 会被字符串化成 \"[object Object]\"——截图里显示的正是巨大的「[object Object]」，故障层复制的也是这串垃圾文本，完全看不出是文字故障效果。所以必须给一段短的纯文本（字号是 clamp(2rem,10vw,8rem)，建议 6-8 字符内的大写英文如 \"GLITCH\"，中文/长句会撑爆容器）。enableOnHover 默认 false，静态截图即可看到 RGB 错位动画，不需要 hover。"
+  },
+  "GooeyNav": {
+    "previewProps": {
+      "items": [
+        {
+          "label": "首页",
+          "href": "#"
+        },
+        {
+          "label": "作品",
+          "href": "#"
+        },
+        {
+          "label": "关于",
+          "href": "#"
+        },
+        {
+          "label": "联系",
+          "href": "#"
+        }
+      ],
+      "particleCount": 15,
+      "initialActiveIndex": 0
+    },
+    "frameHeight": 160,
+    "note": "items 必填无默认，不传就在 items.map 崩。字段严格是 {label, href} —— label 渲染成文字，href 落到 <a>，源码 handleClick 没有 preventDefault，所以只能给 '#'。文字和粒子都是白色、且 .effect.filter 用 mix-blend-mode: lighten，预览容器必须是深色背景，浅色底上等于隐形（这是它「看起来渲染不出来」的真实原因，不是数据问题）。组件还会注入全局 <style> 改 :root 和 li/.particle 等裸选择器，同页多实例会互相覆盖。"
+  },
+  "GradientBlinds": {
+    "previewProps": {
+      "gradientColors": [
+        "#FF9FFC",
+        "#5227FF"
+      ],
+      "angle": 20,
+      "noise": 0.3,
+      "blindCount": 16,
+      "blindMinWidth": 60,
+      "spotlightRadius": 0.5,
+      "mouseDampening": 0.15,
+      "shineDirection": "left",
+      "mixBlendMode": "normal"
+    },
+    "frameHeight": 400,
+    "note": "prepStops 对 gradientColors 有 fallback（['#FF9FFC','#5227FF']），不传也不崩；根节点是 w-full h-full 的 div + ResizeObserver 测尺寸，父容器无高度则 setSize(w,0) 全空白，所以 needs-frame。注意 props.json 的 previewDefaults 写的是 color1/color2，源码里根本没有这两个 prop，真实入参是 gradientColors: string[]，已按源码修正。mixBlendMode 默认 'lighten' 会和预览容器背景混色，改成 'normal' 才能看清本体。"
+  },
+  "GradientText": {
+    "previewProps": {
+      "className": "text-5xl font-bold",
+      "animationSpeed": 3,
+      "showBorder": true
+    },
+    "childrenKind": "text",
+    "note": "源码 120-125 行把 children 直接塞进 `className=\"inline-block relative z-2 text-transparent bg-clip-text\"` 的 motion.div，渐变是靠 background-clip:text + text-transparent 裁到字形上的，所以 children 必须是没有自带颜色的纯文本；当前预览给的是带 h3(白字)+p(灰字) 的双行块，子元素自己的 text 颜色覆盖了 transparent 裁切，截图里两行字就是普通白灰色、完全看不出渐变流动（外层 max-w-fit 也被撑成整块）。改成一段短文本并放大字号后，流光渐变才在字形内可见。"
+  },
+  "GridDistortion": {
+    "previewProps": {
+      "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='600'%20height='400'%3E%3Crect%20width='600'%20height='400'%20fill='%23111118'/%3E%3Crect%20x='0'%20y='0'%20width='200'%20height='200'%20fill='%235227FF'/%3E%3Crect%20x='200'%20y='0'%20width='200'%20height='200'%20fill='%23FF9FFC'/%3E%3Crect%20x='400'%20y='0'%20width='200'%20height='200'%20fill='%23B19EEF'/%3E%3Crect%20x='0'%20y='200'%20width='200'%20height='200'%20fill='%2300D8FF'/%3E%3Crect%20x='200'%20y='200'%20width='200'%20height='200'%20fill='%2327FF64'/%3E%3Crect%20x='400'%20y='200'%20width='200'%20height='200'%20fill='%23FFD166'/%3E%3C/svg%3E",
+      "grid": 20,
+      "mouse": 0.15,
+      "strength": 0.2,
+      "relaxation": 0.9
+    },
+    "frameHeight": 400,
+    "note": "imageSrc 是唯一没有默认值的 prop，源码用 THREE.TextureLoader().load(imageSrc) 加载，加载失败/不传时 uTexture 一直是 null，画面全空（只有透明 clearColor）。用带显式 width/height 的内联 SVG data URI，六块高对比色块能清楚看到鼠标划过时的网格扭曲。容器是 width/height:100%，预览框必须有确定高度。"
+  },
+  "GridMotion": {
+    "frameHeight": 640,
+    "note": "items 默认 []，源码里 items.length===0 时回落到 defaultItems（Item 1..28），不传能正常渲染。**故意不传 items**：源码固定渲染 4x7=28 格并按 combinedItems[rowIndex*7+itemIndex] 取值，只给 3~6 条会让其余 22 格变成空白，比默认更难看。另外图片分支的判断是 typeof content==='string' && content.startsWith('http')，data URI 不以 http 开头会被当文本原样打印，所以离线场景下没法用内联 SVG 图。真正的问题是尺寸：内部 section 是 h-screen、网格是 150vw/150vh 且 rotate(-15deg)，预览框必须给足高度才看得出横向惯性位移。"
+  },
+  "Hyperspeed": {
+    "frameHeight": 500,
+    "note": "effectOptions 是可选的，源码内部 {...defaultOptions, ...effectOptions} 深合并 colors，不传就是完整的 turbulentDistortion 预设，能正常跑。唯一前提是容器尺寸：根节点只有 w-full h-full，App 构造时读 container.offsetWidth/offsetHeight，为 0 时 tick() 会一直空转等待，所以预览框必须给明确高度。场景背景透明、道路是近黑色，配深色底看效果最好；按住鼠标会加速（onSpeedUp/onSlowDown 是回调，按约定不放进 previewProps）。"
+  },
+  "ImageTrail": {
+    "previewProps": {
+      "items": [
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27190%27%20height%3D%27172%27%3E%3Crect%20width%3D%27190%27%20height%3D%27172%27%20fill%3D%27%23FF6B6B%27%2F%3E%3Ctext%20x%3D%2795%27%20y%3D%27104%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2756%27%20fill%3D%27%23ffffff%27%3E1%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27190%27%20height%3D%27172%27%3E%3Crect%20width%3D%27190%27%20height%3D%27172%27%20fill%3D%27%23FFD166%27%2F%3E%3Ctext%20x%3D%2795%27%20y%3D%27104%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2756%27%20fill%3D%27%23ffffff%27%3E2%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27190%27%20height%3D%27172%27%3E%3Crect%20width%3D%27190%27%20height%3D%27172%27%20fill%3D%27%2306D6A0%27%2F%3E%3Ctext%20x%3D%2795%27%20y%3D%27104%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2756%27%20fill%3D%27%23ffffff%27%3E3%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27190%27%20height%3D%27172%27%3E%3Crect%20width%3D%27190%27%20height%3D%27172%27%20fill%3D%27%23118AB2%27%2F%3E%3Ctext%20x%3D%2795%27%20y%3D%27104%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2756%27%20fill%3D%27%23ffffff%27%3E4%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27190%27%20height%3D%27172%27%3E%3Crect%20width%3D%27190%27%20height%3D%27172%27%20fill%3D%27%238338EC%27%2F%3E%3Ctext%20x%3D%2795%27%20y%3D%27104%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2756%27%20fill%3D%27%23ffffff%27%3E5%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27190%27%20height%3D%27172%27%3E%3Crect%20width%3D%27190%27%20height%3D%27172%27%20fill%3D%27%23FB5607%27%2F%3E%3Ctext%20x%3D%2795%27%20y%3D%27104%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2756%27%20fill%3D%27%23ffffff%27%3E6%3C%2Ftext%3E%3C%2Fsvg%3E"
+      ]
+    },
+    "frameHeight": 420,
+    "note": "items 虽有默认 []，但空数组等于一张图都不渲染，鼠标划过完全没效果（不崩但白板）。items 是 string[]，被塞进内联 style 的 backgroundImage: url(...)，所以 data URI 里的引号必须百分号编码成 %27，否则未加引号的 CSS url() 解析失败。给 6 张 190x172（组件卡片是 190px、aspect 1.1）的纯色编号图，能看清 trail 的先后顺序；需要一块有高度的区域并把鼠标划过去才有动效。"
+  },
+  "InfiniteMenu": {
+    "previewProps": {
+      "items": [
+        {
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' fill='%235227FF'/%3E%3Ccircle cx='256' cy='256' r='140' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "link": "#one",
+          "title": "探索",
+          "description": "拖动球体切换条目"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' fill='%2306B6D4'/%3E%3Crect x='120' y='120' width='272' height='272' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "link": "#two",
+          "title": "组件",
+          "description": "可复用的交互模块"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' fill='%23FF4D8D'/%3E%3Cpolygon points='256,110 410,400 102,400' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "link": "#three",
+          "title": "动效",
+          "description": "平滑的过渡与惯性"
+        },
+        {
+          "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' fill='%23F59E0B'/%3E%3Ccircle cx='180' cy='180' r='80' fill='%23ffffff' fill-opacity='0.9'/%3E%3Ccircle cx='340' cy='340' r='80' fill='%23ffffff' fill-opacity='0.9'/%3E%3C/svg%3E",
+          "link": "#four",
+          "title": "背景",
+          "description": "WebGL 驱动的画面"
+        }
+      ],
+      "scale": 1
+    },
+    "frameHeight": 600,
+    "note": "items 默认是 []，组件会回落到内置 defaultItems，而那条数据的 image 指向 picsum.photos（外网），离线时贴图为空、球面全黑。字段结构从 MenuItem 接口读出：image/link/title/description，image 被 initTexture 里的 new Image() 加载后 drawImage 进图集，所以内联 SVG 必须带显式 width/height。组件是 w-full h-full，预览容器必须有固定高度。"
+  },
+  "LineSidebar": {
+    "frameHeight": 560,
+    "note": "items 有内置 DEFAULT_ITEMS（12 条），其余全部有默认值，鼠标靠近的邻近位移/变色效果不传参就能看出来；只是列表较长，给容器留够高度即可。"
+  },
+  "LogoLoop": {
+    "previewProps": {
+      "logos": [
+        {
+          "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%2740%27%3E%3Crect%20width%3D%27120%27%20height%3D%2740%27%20rx%3D%278%27%20fill%3D%27%235227FF%27%2F%3E%3Ctext%20x%3D%2760%27%20y%3D%2726%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2715%27%20fill%3D%27%23ffffff%27%3EAlpha%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "alt": "Alpha",
+          "title": "Alpha"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%2740%27%3E%3Crect%20width%3D%27120%27%20height%3D%2740%27%20rx%3D%278%27%20fill%3D%27%2300D8FF%27%2F%3E%3Ctext%20x%3D%2760%27%20y%3D%2726%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2715%27%20fill%3D%27%230b0b0b%27%3ENova%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "alt": "Nova",
+          "title": "Nova"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%2740%27%3E%3Crect%20width%3D%27120%27%20height%3D%2740%27%20rx%3D%278%27%20fill%3D%27%23FF9FFC%27%2F%3E%3Ctext%20x%3D%2760%27%20y%3D%2726%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2715%27%20fill%3D%27%230b0b0b%27%3EOrbit%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "alt": "Orbit",
+          "title": "Orbit"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%2740%27%3E%3Crect%20width%3D%27120%27%20height%3D%2740%27%20rx%3D%278%27%20fill%3D%27%23B19EEF%27%2F%3E%3Ctext%20x%3D%2760%27%20y%3D%2726%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2715%27%20fill%3D%27%230b0b0b%27%3EPulse%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "alt": "Pulse",
+          "title": "Pulse"
+        },
+        {
+          "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27120%27%20height%3D%2740%27%3E%3Crect%20width%3D%27120%27%20height%3D%2740%27%20rx%3D%278%27%20fill%3D%27%2334D399%27%2F%3E%3Ctext%20x%3D%2760%27%20y%3D%2726%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2715%27%20fill%3D%27%230b0b0b%27%3EZenith%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "alt": "Zenith",
+          "title": "Zenith"
+        }
+      ],
+      "fadeOut": true,
+      "fadeOutColor": "#0b0b0b",
+      "pauseOnHover": true,
+      "scaleOnHover": true,
+      "speed": 90,
+      "logoHeight": 32
+    },
+    "frameHeight": 160,
+    "note": "LogoLoopProps 里根本没有 children 字段，组件 return 的 JSX 只渲染 logoLists（由 logos 数组经 renderLogoItem/renderItem 生成，源码 403-417、488 行），传进来的 children 会被完全丢弃；截图里跑马灯已经用自带 logos 正常滚动，唯一问题是 fadeOut 的默认色 --logoloop-fadeColorAuto 是 #ffffff（没有 dark class 时不会切到 #0b0b0b），导致左右边缘在暗色预览台上糊出一道白，所以只需补 fadeOutColor 对齐背景，并开 pauseOnHover/scaleOnHover 让悬停效果看得出来。"
+  },
+  "Magnet": {
+    "previewProps": {
+      "padding": 150,
+      "magnetStrength": 2
+    },
+    "childrenKind": "card",
+    "note": "源码里 children 被原样塞进一个 `display:inline-block` 的 wrapper 内层 div（第 79 行），该 div 靠 `transform: translate3d(x,y,0)` 整体朝鼠标位移——children 就是\"被施加位移效果的视觉主体\"，没有任何字符串处理也没有自带数据源，所以必须给一个有边界、有背景的实体块（card），位移才有参照物看得出来；当前截图给的是无边框透明文字，浮在纯黑背景上飘动时既无边界也无对照，看起来像\"没有内容和效果\"。"
+  },
+  "Masonry": {
+    "previewProps": {
+      "items": [
+        {
+          "id": "1",
+          "img": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27600%27%20height=%27800%27%3E%3Crect%20width=%27600%27%20height=%27800%27%20fill=%27%235227FF%27/%3E%3Ctext%20x=%27300%27%20y=%27463%27%20font-size=%27160%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E1%3C/text%3E%3C/svg%3E",
+          "url": "#",
+          "height": 520
+        },
+        {
+          "id": "2",
+          "img": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27600%27%20height=%27600%27%3E%3Crect%20width=%27600%27%20height=%27600%27%20fill=%27%2310B981%27/%3E%3Ctext%20x=%27300%27%20y=%27348%27%20font-size=%27160%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E2%3C/text%3E%3C/svg%3E",
+          "url": "#",
+          "height": 360
+        },
+        {
+          "id": "3",
+          "img": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27600%27%20height=%27900%27%3E%3Crect%20width=%27600%27%20height=%27900%27%20fill=%27%23F59E0B%27/%3E%3Ctext%20x=%27300%27%20y=%27522%27%20font-size=%27160%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E3%3C/text%3E%3C/svg%3E",
+          "url": "#",
+          "height": 700
+        },
+        {
+          "id": "4",
+          "img": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27600%27%20height=%27700%27%3E%3Crect%20width=%27600%27%20height=%27700%27%20fill=%27%23EF4444%27/%3E%3Ctext%20x=%27300%27%20y=%27406%27%20font-size=%27160%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E4%3C/text%3E%3C/svg%3E",
+          "url": "#",
+          "height": 440
+        },
+        {
+          "id": "5",
+          "img": "data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27600%27%20height=%27650%27%3E%3Crect%20width=%27600%27%20height=%27650%27%20fill=%27%2306B6D4%27/%3E%3Ctext%20x=%27300%27%20y=%27377%27%20font-size=%27160%27%20font-family=%27sans-serif%27%20fill=%27white%27%20text-anchor=%27middle%27%3E5%3C/text%3E%3C/svg%3E",
+          "url": "#",
+          "height": 600
+        }
+      ]
+    },
+    "frameHeight": 600,
+    "note": "items 是必填且无默认值，不传直接在 items.map(i => i.img) 崩。字段必须是 {id, img, url, height}：id 用来做 [data-key] 选择器给 GSAP 定位（重复会串动画），height 是布局高度、源码里取 height/2 当实际像素高，url 点击会 window.open 所以给 '#'。img 走 CSS background-image: url(...)，所以 data URI 必须把空格和引号也百分号编码（%20/%27），否则无引号 url() token 解析失败——这是这个组件专有的坑。根节点 w-full h-full 且子项 absolute，容器要有高度。"
+  },
+  "MetallicPaint": {
+    "previewProps": {
+      "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27512%27%20height%3D%27512%27%3E%3Crect%20width%3D%27512%27%20height%3D%27512%27%20fill%3D%27%23ffffff%27%2F%3E%3Ccircle%20cx%3D%27256%27%20cy%3D%27256%27%20r%3D%27210%27%20fill%3D%27%23000000%27%2F%3E%3Ccircle%20cx%3D%27256%27%20cy%3D%27256%27%20r%3D%2796%27%20fill%3D%27%23ffffff%27%2F%3E%3C%2Fsvg%3E"
+    },
+    "frameHeight": 420,
+    "note": "imageSrc 解构无默认值，不传就走不到 uploadTexture，canvas 永远是空的。processImage 会把「接近纯白且不透明」或 alpha<5 的像素判成背景，再对剩下的形状解泊松方程算厚度图，所以示例图必须是白底+实心黑形状（这里是黑圆环：外圆黑、内圆白被判为背景）。尺寸给 512（组件把图缩放到 500~1000 之间），data URI 不会污染 canvas，getImageData 能正常取值；离线可用。"
+  },
+  "ModelViewer": {
+    "previewProps": {
+      "url": "/assets/3d/cube.glb",
+      "environmentPreset": "none",
+      "width": "100%",
+      "height": 420,
+      "autoFrame": true,
+      "defaultZoom": 2,
+      "modelXOffset": 0,
+      "modelYOffset": 0,
+      "ambientIntensity": 0.6,
+      "keyLightIntensity": 1.2,
+      "fillLightIntensity": 0.6,
+      "rimLightIntensity": 0.9,
+      "autoRotate": true,
+      "autoRotateSpeed": 0.5,
+      "showScreenshotButton": true,
+      "fadeIn": false
+    },
+    "frameHeight": 460,
+    "note": "`url` 是唯一没有默认值的必需 prop（ModelViewer.tsx:380 解构里 `url` 后面没有 `=`），而 props.json 的 previewDefaults 里只有一个根本不存在的 `selectedModel: \"toyCar\"`（不在 actualProps 里，是站点 demo 的本地 state），preview-overrides.json 的 ModelViewer 条目也只有 frameHeight + 一条\"跳过\"备注、没给 url。于是 url === undefined，ModelInner 第 130 行 `url.split('.').pop()` 直接抛 Cannot read properties of undefined (reading 'split')（第 407 行 `useGLTF.preload(undefined)` 同样会炸），整个预览块被 error boundary 接住变成截图里的红字。附带第二个坑：previewDefaults 的 `environmentPreset: \"forest\"` 会让 drei 从 node_modules/@react-three/drei/core/useEnvironment.js:8 的 `https://raw.githack.com/pmndrs/drei-assets/.../hdri/` 拉 HDR，离线/headless 下会挂住或再次报错，所以补数据时必须一并改成 \"none\"。"
+  },
+  "OptionWheel": {
+    "frameHeight": 480,
+    "note": "所有 prop 都有默认值（含 12 条 DEFAULT_ITEMS），但根节点是 h-full w-full、选项全部 absolute top-1/2 定位，容器没高度就完全看不见，所以只需要给预览框高度。默认 fontSize 3rem × spacing 1.4 ≈ 67px 行高，480px 大约露出 7 条。文档 previewDefaults 里的 soundUrl 指向 /assets/sounds/click-soft.mp3，本地不一定存在，故不传（默认空字符串时直接跳过播放）。"
+  },
+  "OrbitImages": {
+    "previewProps": {
+      "images": [
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27128%27%20height%3D%27128%27%3E%3Ccircle%20cx%3D%2764%27%20cy%3D%2764%27%20r%3D%2760%27%20fill%3D%27%235227FF%27%2F%3E%3Ctext%20x%3D%2764%27%20y%3D%2782%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2752%27%20fill%3D%27%23ffffff%27%3E1%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27128%27%20height%3D%27128%27%3E%3Ccircle%20cx%3D%2764%27%20cy%3D%2764%27%20r%3D%2760%27%20fill%3D%27%2300D8FF%27%2F%3E%3Ctext%20x%3D%2764%27%20y%3D%2782%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2752%27%20fill%3D%27%230b0b0b%27%3E2%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27128%27%20height%3D%27128%27%3E%3Ccircle%20cx%3D%2764%27%20cy%3D%2764%27%20r%3D%2760%27%20fill%3D%27%23FF9FFC%27%2F%3E%3Ctext%20x%3D%2764%27%20y%3D%2782%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2752%27%20fill%3D%27%230b0b0b%27%3E3%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27128%27%20height%3D%27128%27%3E%3Ccircle%20cx%3D%2764%27%20cy%3D%2764%27%20r%3D%2760%27%20fill%3D%27%2334D399%27%2F%3E%3Ctext%20x%3D%2764%27%20y%3D%2782%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2752%27%20fill%3D%27%230b0b0b%27%3E4%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27128%27%20height%3D%27128%27%3E%3Ccircle%20cx%3D%2764%27%20cy%3D%2764%27%20r%3D%2760%27%20fill%3D%27%23FFD166%27%2F%3E%3Ctext%20x%3D%2764%27%20y%3D%2782%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2752%27%20fill%3D%27%230b0b0b%27%3E5%3C%2Ftext%3E%3C%2Fsvg%3E"
+      ],
+      "responsive": true,
+      "baseWidth": 1400,
+      "radiusX": 560,
+      "radiusY": 200,
+      "radius": 420,
+      "itemSize": 150,
+      "showPath": true,
+      "pathColor": "rgba(140,140,180,0.35)",
+      "duration": 24
+    },
+    "frameHeight": 420,
+    "note": "OrbitImagesProps 里根本没有 children 字段，函数签名解构的也只有 images/shape/centerContent 等具名 prop，传进去的 children 会被静默丢弃；轨道上的元素完全由 images: string[] 映射成 <img> 生成（237-245 行），唯一的 ReactNode 插槽是 centerContent（302-306 行，且只是可选的圆心内容，不是被施加效果的主体）。截图里 5 个彩色编号圆已经沿椭圆轨道排开、showPath 的路径线也可见，说明预览台的 images 数据源已经生效，效果本身看得出来，多塞一段「把鼠标移进来试试」的文字反而是噪音。"
+  },
+  "Particles": {
+    "previewProps": {
+      "particleCount": 260,
+      "particleSpread": 10,
+      "speed": 0.15,
+      "particleColors": [
+        "#5227FF",
+        "#FF9FFC",
+        "#B19EEF"
+      ],
+      "particleBaseSize": 120,
+      "sizeRandomness": 1,
+      "alphaParticles": true,
+      "moveParticlesOnHover": true,
+      "particleHoverFactor": 1,
+      "disableRotation": false
+    },
+    "frameHeight": 600,
+    "note": "particleColors 虽是可选（源码里 palette = particleColors?.length ? particleColors : ['#ffffff'×3]），但默认纯白 + Renderer alpha:true/clearColor 全透明，放在浅色预览底上就完全看不见，所以显式给一组彩色 hex；数组元素是 hex 字符串（hexToRgb 解析），不是对象。容器还需固定高度和深色底。"
+  },
+  "PillNav": {
+    "previewProps": {
+      "logo": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%235227FF'/%3E%3Ccircle cx='20' cy='20' r='10' fill='%23FFD84D'/%3E%3C/svg%3E",
+      "logoAlt": "Logo",
+      "baseColor": "#000000",
+      "pillColor": "#ffffff",
+      "hoveredPillTextColor": "#ffffff",
+      "pillTextColor": "#000000",
+      "activeHref": "#home",
+      "items": [
+        {
+          "label": "首页",
+          "href": "#home",
+          "ariaLabel": "首页"
+        },
+        {
+          "label": "关于",
+          "href": "#about",
+          "ariaLabel": "关于"
+        },
+        {
+          "label": "服务",
+          "href": "#services",
+          "ariaLabel": "服务"
+        },
+        {
+          "label": "联系",
+          "href": "#contact",
+          "ariaLabel": "联系"
+        }
+      ]
+    },
+    "frameHeight": 220,
+    "note": "items 无默认值且直接 items.map，不传当场崩（读 items[0].href 也会炸）；结构是 {label,href,ariaLabel?}。关键：href 必须以 # / http 开头——否则组件会走 react-router 的 <Link>，而 playground 没有 Router 包裹会直接抛错。logo 是 img src，用内联 SVG；nav 是 absolute top-[1em]，预览框要 relative。"
+  },
+  "PixelCard": {
+    "previewProps": {
+      "className": "[&>canvas]:absolute"
+    },
+    "childrenKind": "slab",
+    "note": "源码 286-298 行：children 原样渲染在 canvas 之后（不做字符串处理、不包 <p>，给 JSX 安全），像素动画是画在 canvas 背景上的、children 是浮在上面的卡片内容 —— 所以内容必须透明，给 card/image 那种实心块会把 300×400 的像素场整个盖住，效果反而没了；截图里卡片内一个字都没有，原因是容器 `grid place-items-center` 下 canvas 被 initPixels(201-204) 内联成满容器 400px，children 被挤到第二个隐式行、被 overflow-hidden 裁掉（实测 children 落在 y=401、卡片只有 402 高），故必须配 className 把 canvas 拉出流（实测加 `[&>canvas]:absolute` 后 canvas 仍精确铺满 300×400，slab 居中盖在像素上）。"
+  },
+  "PixelTransition": {
+    "previewProps": {
+      "firstContent": "悬停我 · 第一层内容",
+      "secondContent": "已切换 · 第二层内容",
+      "gridSize": 10,
+      "pixelColor": "#5227FF",
+      "animationStepDuration": 0.4,
+      "aspectRatio": "100%"
+    },
+    "frameHeight": 360,
+    "note": "源码 interface 里根本没有 children，React.FC 拿到的 children 会被直接丢弃——它渲染的是 {firstContent}（141-143 行）和 {secondContent}（145-152 行）两层绝对定位容器，两个 prop 在解构里都没有默认值，不传就是两层全空，悬停只剩一片像素闪一下（截图正是如此：只有 #222 底色 + 蓝色像素方块，没有任何内容）。两个 prop 类型是 ReactNode | string，传纯字符串即可满足 JSON 约束，且两层文案不同才能看出「像素消散后内容被换掉」。"
+  },
+  "PrismaticBurst": {
+    "previewProps": {
+      "animationType": "rotate3d",
+      "intensity": 2,
+      "speed": 0.5,
+      "distort": 1,
+      "paused": false,
+      "rayCount": 24,
+      "hoverDampness": 0.25,
+      "colors": [
+        "#ff007a",
+        "#4d3dff",
+        "#ffffff"
+      ],
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "mixBlendMode": "none"
+    },
+    "frameHeight": 600,
+    "note": "colors 是 hex 字符串数组（逐个 hexToRgb01 写进 1×N 渐变纹理），不传则走内置光谱色也能显示；真正会“看不见”的是 mixBlendMode 默认 'lighten' —— 预览底若是白色，lighten 后整片仍是白。源码对 'none' 有特判（不设 blend），所以显式传 'none'。offset 结构是 {x,y}，可为数字或 '12px' 字符串。"
+  },
+  "ProfileCard": {
+    "previewProps": {
+      "avatarUrl": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='560' viewBox='0 0 400 560'%3E%3Ccircle cx='200' cy='250' r='86' fill='%23ffd9b8'/%3E%3Cpath d='M62 560c0-104 62-176 138-176s138 72 138 176z' fill='%23f2f4ff'/%3E%3Cpath d='M114 250c0-60 38-104 86-104s86 44 86 104c0-26-40-38-86-38s-86 12-86 38z' fill='%232b2340'/%3E%3C/svg%3E",
+      "iconUrl": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%23000000'/%3E%3Ccircle cx='30' cy='30' r='15' fill='%23ffffff'/%3E%3Ccircle cx='90' cy='90' r='15' fill='%23ffffff'/%3E%3Ccircle cx='90' cy='30' r='7' fill='%23909090'/%3E%3Ccircle cx='30' cy='90' r='7' fill='%23909090'/%3E%3C/svg%3E",
+      "name": "林知远",
+      "title": "交互设计师",
+      "handle": "zhiyuan",
+      "status": "在线",
+      "contactText": "联系我",
+      "showUserInfo": true
+    },
+    "frameHeight": 600,
+    "note": "avatarUrl / iconUrl 的\"默认值\"是占位字符串 '<Placeholder for avatar URL>'，不是能用的地址：avatar 加载失败会被 onError 直接 display:none（人像整个没了），iconUrl 更关键——它被拿去当 shine 层的 mask-image（maskMode luminance），mask 图加载失败时整层不显示，全息条纹效果就没了，所以给了一张黑底白点的亮度遮罩 SVG。grainUrl 只写进 --grain 变量、源码里没有任何一层引用，属于死参数，不给。卡片本身是 80svh/最高 540px、宽高比 0.718，frame 给 600 才装得下加上背后的辉光。"
+  },
+  "RotatingText": {
+    "previewProps": {
+      "texts": [
+        "创意",
+        "动效",
+        "交互",
+        "React Bits"
+      ],
+      "rotationInterval": 2000,
+      "staggerDuration": 0.025,
+      "staggerFrom": "last",
+      "splitBy": "characters",
+      "auto": true,
+      "loop": true,
+      "mainClassName": "text-3xl font-semibold"
+    },
+    "note": "texts 无默认值，源码 elements = texts[currentTextIndex] 直接取字符串再 split，不传就是 undefined.split 崩溃；只需要 string[]，给 4 条中英混排能看清逐字轮播效果。"
+  },
+  "ScrambledText": {
+    "childrenKind": "text",
+    "note": "组件在 ScrambledText.tsx:80 把 children 硬包进 `<p>{children}</p>`；而 playground/registry.jsx:114-115 的兜底规则「props 里有 children 就塞 <Slab />」给它注入了 registry.jsx:18-22 定义的 `<div><h3>…</h3><p>…</p></div>`，于是 h3/div/p 全落进了 <p> 内部，触发 \"In HTML, <h3> cannot be a descendant of <p>\"。同时 ScrambledText.tsx:32 的 SplitText 目标是 `rootRef.current.querySelector('p')`，文档序里第一个 p 恰是组件自己那层包裹 p（内部还嵌着块级节点），字符拆分范围变成整块 slab 而非一行文本，效果也不对。preview-overrides.json 里没有 ScrambledText 这一条，所以完全走的兜底。截图里文字是清晰可见的，不是空白问题——只是 demo 内容给错了类型。"
+  },
+  "ScrollFloat": {
+    "previewProps": {
+      "containerClassName": "my-0",
+      "textClassName": "text-4xl font-semibold",
+      "animationDuration": 1,
+      "ease": "back.inOut(2)",
+      "scrollStart": "center bottom+=50%",
+      "scrollEnd": "bottom bottom-=40%",
+      "stagger": 0.03
+    },
+    "childrenKind": "text",
+    "note": "children 必须是**纯字符串**：ScrollFloat.tsx:33 的 `const text = typeof children === 'string' ? children : ''`，不是 string 就整段吞掉。playground/registry.jsx:115 走 `needsChildren` 兜底给了 `<Slab />`（JSX 元素），于是 text=''、splitText=[]，只渲染出 `<h2><span class=\"inline-block …\"></span></h2>` —— 正好是巡检记录的 2 节点 / 0 字符、截图全黑。"
+  },
+  "ScrollReveal": {
+    "previewProps": {
+      "baseOpacity": 0.35,
+      "baseRotation": 4,
+      "enableBlur": true,
+      "blurStrength": 5
+    },
+    "childrenKind": "text",
+    "note": "源码第 35 行 `const text = typeof children === 'string' ? children : ''`——children 只有是纯字符串才有内容，任何 JSX 都会被丢成空串（这正是截图整块纯黑、什么都没有的原因）；随后 `text.split(/(\\s+)/)` 按词拆成 `.word` span，塞进 `<h2><p>` 里做逐词 opacity/blur 滚动揭示，所以必须给一段够长的多词文本（词少了 stagger 0.05 看不出来）；同时 baseOpacity 默认 0.1 且效果绑死 ScrollTrigger，预览台不滚动时文字近乎全透明+模糊，需提高 baseOpacity 才能静态看见。"
+  },
+  "ScrollStack": {
+    "childrenKind": "cards",
+    "note": "源码里 children 被直接塞进滚动容器 .scroll-stack-inner（第341行），组件不碰 children 本身，而是 useLayoutEffect 里 querySelectorAll('.scroll-stack-card') 抓出一批卡片再逐个改 transform（缩放+钉住堆叠）——所以必须给「多个卡片」才有可堆叠的实体，一段文字只会得到现在截图里那种空场景（cardsRef 为空，updateCardTransforms 第104行直接 return，什么都不动）。重要提醒：registry 的 CardStack 用的是 className=\"pg-demo-card\"，不带 scroll-stack-card，选 cards 后仍抓不到卡片；要真看出堆叠效果，预览台得把这 3 张卡包进组件自带的具名导出 ScrollStackItem（或给卡片加上 scroll-stack-card 类），建议在 OVERRIDES 里手写这条。"
+  },
+  "ScrollVelocity": {
+    "previewProps": {
+      "texts": [
+        "Scroll Velocity ✦ ",
+        "React Bits ✦ "
+      ],
+      "velocity": 80,
+      "numCopies": 8,
+      "damping": 50,
+      "stiffness": 400,
+      "className": "text-white"
+    },
+    "frameHeight": 300,
+    "note": "源码里 ScrollVelocityProps 根本没有 children 字段，组件也从不读 props.children——它只 map `texts: React.ReactNode[]`（第158行 `texts.map(...)`），把每个 text 作为 children 传给内部的 VelocityText 去复制 numCopies 份做跑马灯。默认 `texts = []`，所以预览台不传 texts 时 `<section>` 里一个子元素都没有，截图整块纯黑、完全空白正是这个原因。修法是走 extraProps 给 texts（两行会自动一正一反滚动），children 给什么都会被丢弃。"
+  },
+  "ShinyText": {
+    "previewProps": {
+      "text": "Shiny Text 流光文字",
+      "speed": 2,
+      "delay": 0,
+      "color": "#b5b5b5",
+      "shineColor": "#ffffff",
+      "spread": 120,
+      "direction": "left",
+      "yoyo": false,
+      "pauseOnHover": false,
+      "disabled": false,
+      "className": "text-3xl font-semibold"
+    },
+    "note": "text 是唯一必填项（直接作为 motion.span 的 children 渲染），不传就是空白一片；其余全有默认值。默认 color #b5b5b5 是浅灰，配 WebkitTextFillColor:transparent，浅色底上偏淡，给个大字号 className 更容易看出扫光。"
+  },
+  "Shuffle": {
+    "previewProps": {
+      "text": "SHUFFLE TEXT",
+      "tag": "h2",
+      "duration": 0.35,
+      "shuffleTimes": 2,
+      "stagger": 0.03,
+      "shuffleDirection": "right",
+      "ease": "power3.out",
+      "animationMode": "evenodd",
+      "loop": true,
+      "loopDelay": 0.6,
+      "scrambleCharset": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      "triggerOnce": false,
+      "triggerOnHover": true,
+      "textAlign": "center"
+    },
+    "frameHeight": 260,
+    "note": "text 无默认值，源码 useGSAP 里 `if (!ref.current || !text ...) return` 直接跳过初始化，而元素在 ready 之前一直挂 `invisible` 类 —— 不传 text 就是永久空白。另注意它靠 ScrollTrigger onEnter 触发（start 约 top 90%-=100px），预览容器太矮/被裁时可能不进入触发点，所以给了 260px 高度并把 triggerOnce 关掉、loop 打开，保证选型台里持续可见。scrambleCharset 让乱码滚动更明显。"
+  },
+  "Silk": {
+    "frameHeight": 600,
+    "note": "所有 prop（speed/scale/color/noiseIntensity/rotation）都有默认值，不传也能跑；唯一问题是内部直接返回 <Canvas>，父容器没有显式高度时画布高度为 0，看着像空白，所以给固定高度的预览容器。"
+  },
+  "SpecularButton": {
+    "previewProps": {
+      "autoAnimate": true,
+      "size": "md"
+    },
+    "childrenKind": "button-label",
+    "note": "源码 return 的根元素就是 `<button>`，children 被直接塞进 `<span className=\"relative z-[2]\">{children}</span>`，默认值就是字符串 'Get Started'，且 SIZES 给的是 px-10 py-[18px] 这种按钮级内边距——children 就是按钮标签文字。现在塞了带标题+副标题的整块内容，把按钮撑成截图里那个 330×290 的巨大圆角矩形（还在 button 里嵌块级标题，嵌套也不合法），边缘那道 specular 高光完全变成了一圈普通描边，看不出是按钮镜面反光。另外 autoAnimate 默认 false 时高光亮度 bright 只跟随鼠标 proximity 渐入（uIntensity = intensity * bright），静态预览/截图里等于 0，所以额外传 autoAnimate: true 让光带常亮并自动扫转，size 用 md 保持按钮体量。"
+  },
+  "Stack": {
+    "previewProps": {
+      "randomRotation": true,
+      "sendToBackOnClick": true
+    },
+    "frameHeight": 460,
+    "note": "cards 默认是空数组，源码会 fallback 到 4 张 unsplash 外链图（images.unsplash.com），离线状态下全白且会发网络请求，必须覆盖掉。cards 类型是 ReactNode[]，JSON 只能给字符串——字符串是合法 ReactNode，能渲染成 4 层可拖拽的文字卡，交互（拖拽/点击换牌/层叠旋转）都能验证，但没有卡面底色；要好看得在 registry 的 OVERRIDES 里给 JSX（复用 .demo-card 样式）。另外组件根节点是 w-full h-full，在 center 的 stage 里会撑到 900px 宽，建议 OVERRIDES 的 frame 补一个 maxWidth（例如 320）才接近真实用法。 [复核修正：三个 key 都是组件真实的 prop 名（Stack.tsx:63/65/67 解构可见），randomRotation / sendToBackOnClick 是 boolean，完全正确。问题出在 cards：props.json 里它的 type 是 \"ReactNode[]\"，inferControl 第一条分支就把它判成 kind:'unsupported'（实跑验证：{\"kind\":\"unsupported\",\"reason\":\"ReactNode，由预览容器提供内容\"}），而 App.jsx:151 的 liveProps 循环对 unsupported 直接 continue，所以这 4 条中文字符串永远传不到组件，Stack 会静默回落到源码里内置的 4 张 Unsplash 远程图——预览不崩，但示例数据完全无效。另外即使能透传，纯字符串在 rounded-2xl 的 motion.div 里只是裸文字，没有卡片底色，堆叠层次也看不出来；JSON 表达不了 JSX，这条路在当前 harness 里走不通。类型方向上顺带确认：map 回调是 cards.map((content, index) => ({ id: index + 1, content }))，从不读 .id/.img，所以反过来给 {id, img} 对象数组才会触发「Objects are not valid as a React child」。corrected 只保留两个真正会生效的 boolean。]"
+  },
+  "StaggeredMenu": {
+    "previewProps": {
+      "isFixed": false,
+      "position": "right",
+      "displaySocials": true,
+      "displayItemNumbering": true,
+      "colors": [
+        "#B497CF",
+        "#5227FF"
+      ],
+      "accentColor": "#5227FF",
+      "menuButtonColor": "#ffffff",
+      "openMenuButtonColor": "#000000",
+      "logoUrl": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='24'%3E%3Crect width='110' height='24' rx='4' fill='%235227FF'/%3E%3Ctext x='55' y='17' font-family='sans-serif' font-size='13' fill='%23ffffff' text-anchor='middle'%3EDEMO%3C/text%3E%3C/svg%3E",
+      "items": [
+        {
+          "label": "首页",
+          "ariaLabel": "前往首页",
+          "link": "#home"
+        },
+        {
+          "label": "作品",
+          "ariaLabel": "查看作品",
+          "link": "#work"
+        },
+        {
+          "label": "关于",
+          "ariaLabel": "关于我们",
+          "link": "#about"
+        },
+        {
+          "label": "联系",
+          "ariaLabel": "联系我们",
+          "link": "#contact"
+        }
+      ],
+      "socialItems": [
+        {
+          "label": "GitHub",
+          "link": "#github"
+        },
+        {
+          "label": "X",
+          "link": "#x"
+        },
+        {
+          "label": "小红书",
+          "link": "#xhs"
+        }
+      ]
+    },
+    "frameHeight": 600,
+    "note": "items 为空时只渲染占位的「No items」，socialItems 为空时整块社交区不渲染，所以要给数据；字段结构从源码读出：items 是 {label, ariaLabel, link}（用的是 it.link 不是 href），socialItems 是 {label, link}。isFixed 在类型里是必填，必须显式传 false，否则会 fixed 铺满整屏盖住选型台。logoUrl 默认指向仓库内 /src/assets 路径，预览里会裂图，换成内联 SVG data URI。组件用 w-full h-full + 绝对定位面板，需要给容器高度。"
+  },
+  "Stepper": {
+    "previewProps": {
+      "backButtonText": "上一步",
+      "nextButtonText": "下一步"
+    },
+    "childrenKind": "cards",
+    "frameHeight": 460,
+    "note": "children 是必需的：stepsArray = Children.toArray(children)，不传则 totalSteps=0、currentStep(1) > 0 触发 isCompleted，内容区高度动画到 0、底部按钮整块不渲染，只剩一个空壳。给 3 个 children 正好构成 3 步，能看到步骤圆点、连接线与左右滑动切换。回调 onStepChange/onFinalStepCompleted 有默认空函数，不用传。"
+  },
+  "StickerPeel": {
+    "previewProps": {
+      "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27220%27%20height%3D%27220%27%3E%3Ccircle%20cx%3D%27110%27%20cy%3D%27110%27%20r%3D%27104%27%20fill%3D%27%235227FF%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%2710%27%2F%3E%3Ctext%20x%3D%27110%27%20y%3D%27126%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2742%27%20fill%3D%27%23ffffff%27%3EPEEL%3C%2Ftext%3E%3C%2Fsvg%3E"
+    },
+    "frameHeight": 360,
+    "note": "imageSrc 无默认值，三层 img（正面/阴影/翻起的背面）都直接用它，不传就是三个碎图。另外根节点是 absolute，Draggable 的 bounds 取的是 parentNode —— 预览容器必须是 relative 且有明确宽高，否则贴纸定位和拖拽边界都会错乱。示例用 220x220 圆形贴纸 SVG，配默认 width=200 正好；悬停看撕角、按住可拖。"
+  },
+  "TextType": {
+    "previewProps": {
+      "text": [
+        "笔纵画板 · 节点式 AI 创作工作台",
+        "把想法连成一条流水线",
+        "打字 · 停顿 · 回删 · 循环"
+      ],
+      "as": "div",
+      "typingSpeed": 70,
+      "initialDelay": 200,
+      "pauseDuration": 1400,
+      "deletingSpeed": 35,
+      "loop": true,
+      "showCursor": true,
+      "cursorCharacter": "|",
+      "cursorBlinkDuration": 0.5,
+      "textColors": [
+        "#ffffff",
+        "#7c5cff",
+        "#4ade80"
+      ],
+      "className": "text-2xl font-semibold",
+      "startOnVisible": false,
+      "style": {
+        "fontSize": "28px",
+        "fontWeight": 600,
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "note": "源码里 children 从头到尾没被使用：渲染内容来自必填的 text prop（string | string[]），createElement 的第 3/4 个参数写死为 displayedText 的 span 和光标 span，会覆盖 ...props 里透传的 children，所以塞任何 children 都不显示。要看出打字机效果必须给 text 一个多句数组（才能看到打字→停顿→删除→换句的完整循环），当前截图只是单句打完后的静止一帧，看不出任何动效。"
+  },
+  "TiltedCard": {
+    "previewProps": {
+      "imageSrc": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235227FF'/%3E%3Cstop offset='1' stop-color='%2300D8FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='300' fill='url(%23g)'/%3E%3Ccircle cx='150' cy='120' r='46' fill='%23ffffff' fill-opacity='0.85'/%3E%3Ctext x='150' y='230' font-family='sans-serif' font-size='26' fill='%23ffffff' text-anchor='middle'%3ETilted Card%3C/text%3E%3C/svg%3E",
+      "altText": "内联 SVG 示例图",
+      "captionText": "跟随光标的提示条",
+      "containerHeight": "320px",
+      "containerWidth": "320px",
+      "imageHeight": "300px",
+      "imageWidth": "300px",
+      "showMobileWarning": false,
+      "scaleOnHover": 1.1,
+      "rotateAmplitude": 14
+    },
+    "frameHeight": 380,
+    "note": "源码里 TiltedCardProps 根本没有 children（只有 imageSrc/altText/captionText/overlayContent 等），函数签名解构的也全是具名 prop，塞任何 children 都会被丢弃；被施加倾斜效果的视觉主体是 motion.img 的 imageSrc（无默认值，不传就是碎图），tooltip 文字走 captionText，浮层走 overlayContent+displayOverlayContent（ReactNode，JSON 表达不了故不给）。截图显示预览台已按 preview-overrides.json 传入 300x300 内联 SVG 渐变图和「跟随光标的提示条」，卡片实体与 tooltip 都在，倾斜/缩放本身是 hover 才触发、静态截图看不到属正常。"
+  },
+  "VariableProximity": {
+    "previewProps": {
+      "label": "Hover me! Variable Proximity",
+      "fromFontVariationSettings": "'wght' 400, 'opsz' 9",
+      "toFontVariationSettings": "'wght' 1000, 'opsz' 40",
+      "radius": 100,
+      "falloff": "linear",
+      "className": "text-3xl"
+    },
+    "note": "崩在 VariableProximity.tsx:81 —— useMemo 里的 parseSettings 对 `fromFontVariationSettings.split(',')` 求值，而这个 prop 在解构（第 59-70 行）里没有默认值，props.json 的 previewDefaults 又只给了 radius / falloff，preview-overrides.json 里也没有 VariableProximity 这一条，所以它是 undefined，第一次渲染就抛 \"Cannot read properties of undefined (reading 'split')\"。同一批必需但无默认值的 prop 还有 toFontVariationSettings（第 90 行）和 label（第 156 行 `label.split(' ')`），补一个不补另两个还会接着崩。containerRef 虽然类型上也是必需的，但源码里全是 `containerRef?.current` 的可选链保护（第 21、116 行），不传不会崩——只是 useAnimationFrame 会提前 return，playground 里悬停无法驱动字重变化，属于预览环境的固有限制，不影响静态可见性。截图确认当前渲染区只有红色报错文案，没有任何组件内容。"
+  }
+}

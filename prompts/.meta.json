@@ -1,0 +1,12 @@
+{
+  "source": "https://github.com/DavidHDev/react-bits",
+  "commit": "b9158acb37e7bdfd6c5bc5894da1826fe1d05a6b",
+  "commitDate": "2026-07-30T08:39:17Z",
+  "fetchedAt": "2026-07-31T11:21:01.863Z",
+  "generatedAt": "2026-08-01T07:02:28.055Z",
+  "script": "scripts/build-prompts.mjs",
+  "scriptVersion": 1,
+  "replicatedFrom": "src/components/common/TabsLayout.jsx buildPrompt()",
+  "variant": "TS-TW",
+  "license": "MIT (react-bits) — 本地自用素材库，保留原始出处"
+}

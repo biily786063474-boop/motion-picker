@@ -1,0 +1,1833 @@
+{
+  "variant": "TS-TW",
+  "total": 139,
+  "byCategory": {
+    "Animations": 31,
+    "Backgrounds": 45,
+    "Components": 40,
+    "TextAnimations": 23
+  },
+  "byDependency": {
+    "gsap": [
+      "AnimatedContent",
+      "BlobCursor",
+      "Crosshair",
+      "Cubes",
+      "ImageTrail",
+      "PixelTransition",
+      "TargetCursor",
+      "DotGrid",
+      "GridMotion",
+      "BounceCards",
+      "BubbleMenu",
+      "CardNav",
+      "CardSwap",
+      "ChromaGrid",
+      "DecayCard",
+      "FlowingMenu",
+      "MagicBento",
+      "Masonry",
+      "PillNav",
+      "StaggeredMenu",
+      "ScrambledText",
+      "ScrollFloat",
+      "ScrollReveal",
+      "Shuffle",
+      "SplitText",
+      "TextType"
+    ],
+    "three": [
+      "Antigravity",
+      "GhostCursor",
+      "LaserFlow",
+      "PixelTrail",
+      "ShapeBlur",
+      "Ballpit",
+      "Beams",
+      "ColorBends",
+      "Dither",
+      "FloatingLines",
+      "GridDistortion",
+      "GridScan",
+      "Hyperspeed",
+      "LightPillar",
+      "LiquidEther",
+      "PixelBlast",
+      "PixelSnow",
+      "FluidGlass",
+      "Lanyard",
+      "ModelViewer",
+      "ASCIIText"
+    ],
+    "@react-three/fiber": [
+      "Antigravity",
+      "PixelTrail",
+      "Beams",
+      "Dither",
+      "FluidGlass",
+      "Lanyard",
+      "ModelViewer"
+    ],
+    "(无依赖)": [
+      "ClickSpark",
+      "CursorGrid",
+      "ElectricBorder",
+      "FadeContent",
+      "GlareHover",
+      "LogoLoop",
+      "MagicRings",
+      "Magnet",
+      "MagnetLines",
+      "MetallicPaint",
+      "Noise",
+      "SplashCursor",
+      "StarBorder",
+      "StickerPeel",
+      "DotField",
+      "LetterGlitch",
+      "Lightning",
+      "ShapeGrid",
+      "Silk",
+      "Waves",
+      "BorderGlow",
+      "CurvedInput",
+      "Folder",
+      "GlassIcons",
+      "GlassSurface",
+      "GooeyNav",
+      "LineSidebar",
+      "OptionWheel",
+      "PixelCard",
+      "ProfileCard",
+      "SpotlightCard",
+      "CurvedLoop",
+      "FuzzyText",
+      "GlitchText",
+      "GradientText",
+      "TextPressure"
+    ],
+    "mathjs": [
+      "GradualBlur"
+    ],
+    "ogl": [
+      "MetaBalls",
+      "Ribbons",
+      "Strands",
+      "Aurora",
+      "Balatro",
+      "DarkVeil",
+      "EvilEye",
+      "FaultyTerminal",
+      "Ferrofluid",
+      "Galaxy",
+      "GradientBlinds",
+      "Grainient",
+      "Iridescence",
+      "Lightfall",
+      "LightRays",
+      "LineWaves",
+      "LiquidChrome",
+      "Orb",
+      "Particles",
+      "Plasma",
+      "PlasmaWave",
+      "Prism",
+      "PrismaticBurst",
+      "Radar",
+      "RippleGrid",
+      "SideRays",
+      "SoftAurora",
+      "Threads",
+      "CircularGallery",
+      "FlyingPosters",
+      "SpecularButton"
+    ],
+    "motion": [
+      "OrbitImages",
+      "AnimatedList",
+      "Carousel",
+      "Counter",
+      "Dock",
+      "ElasticSlider",
+      "Stack",
+      "Stepper",
+      "TiltedCard",
+      "BlurText",
+      "CircularText",
+      "CountUp",
+      "DecryptedText",
+      "RotatingText",
+      "ScrollVelocity",
+      "ShinyText",
+      "TextCursor",
+      "TrueFocus",
+      "VariableProximity"
+    ],
+    "@react-three/drei": [
+      "PixelTrail",
+      "Beams",
+      "FluidGlass",
+      "Lanyard",
+      "ModelViewer"
+    ],
+    "postprocessing": [
+      "Dither",
+      "Hyperspeed",
+      "PixelBlast"
+    ],
+    "@react-three/postprocessing": [
+      "Dither"
+    ],
+    "face-api.js": [
+      "GridScan"
+    ],
+    "@use-gesture/react": [
+      "DomeGallery"
+    ],
+    "maath": [
+      "FluidGlass"
+    ],
+    "gl-matrix": [
+      "InfiniteMenu"
+    ],
+    "meshline": [
+      "Lanyard"
+    ],
+    "@react-three/rapier": [
+      "Lanyard"
+    ],
+    "lucide-react": [
+      "ReflectiveCard"
+    ],
+    "lenis": [
+      "ScrollStack"
+    ],
+    "matter-js": [
+      "FallingText"
+    ],
+    "@gsap/react": [
+      "Shuffle",
+      "SplitText"
+    ]
+  },
+  "components": [
+    {
+      "name": "AnimatedContent",
+      "category": "Animations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/animations/animated-content",
+      "prompt": "Animations/AnimatedContent-TS-TW.md",
+      "bytes": 5808,
+      "props": 18,
+      "source": "src/ts-tailwind/Animations/AnimatedContent/AnimatedContent.tsx"
+    },
+    {
+      "name": "Antigravity",
+      "category": "Animations",
+      "dependencies": [
+        "three",
+        "@react-three/fiber"
+      ],
+      "url": "https://reactbits.dev/animations/antigravity",
+      "prompt": "Animations/Antigravity-TS-TW.md",
+      "bytes": 8075,
+      "props": 15,
+      "source": "src/ts-tailwind/Animations/Antigravity/Antigravity.tsx"
+    },
+    {
+      "name": "BlobCursor",
+      "category": "Animations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/animations/blob-cursor",
+      "prompt": "Animations/BlobCursor-TS-TW.md",
+      "bytes": 6853,
+      "props": 20,
+      "source": "src/ts-tailwind/Animations/BlobCursor/BlobCursor.tsx"
+    },
+    {
+      "name": "ClickSpark",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/click-spark",
+      "prompt": "Animations/ClickSpark-TS-TW.md",
+      "bytes": 5565,
+      "props": 8,
+      "source": "src/ts-tailwind/Animations/ClickSpark/ClickSpark.tsx"
+    },
+    {
+      "name": "Crosshair",
+      "category": "Animations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/animations/crosshair",
+      "prompt": "Animations/Crosshair-TS-TW.md",
+      "bytes": 7601,
+      "props": 2,
+      "source": "src/ts-tailwind/Animations/Crosshair/Crosshair.tsx"
+    },
+    {
+      "name": "Cubes",
+      "category": "Animations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/animations/cubes",
+      "prompt": "Animations/Cubes-TS-TW.md",
+      "bytes": 14860,
+      "props": 14,
+      "source": "src/ts-tailwind/Animations/Cubes/Cubes.tsx"
+    },
+    {
+      "name": "CursorGrid",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/cursor-grid",
+      "prompt": "Animations/CursorGrid-TS-TW.md",
+      "bytes": 12201,
+      "props": 14,
+      "source": "src/ts-tailwind/Animations/CursorGrid/CursorGrid.tsx"
+    },
+    {
+      "name": "ElectricBorder",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/electric-border",
+      "prompt": "Animations/ElectricBorder-TS-TW.md",
+      "bytes": 12050,
+      "props": 7,
+      "source": "src/ts-tailwind/Animations/ElectricBorder/ElectricBorder.tsx"
+    },
+    {
+      "name": "FadeContent",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/fade-content",
+      "prompt": "Animations/FadeContent-TS-TW.md",
+      "bytes": 4550,
+      "props": 11,
+      "source": "src/ts-tailwind/Animations/FadeContent/FadeContent.tsx"
+    },
+    {
+      "name": "GhostCursor",
+      "category": "Animations",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/animations/ghost-cursor",
+      "prompt": "Animations/GhostCursor-TS-TW.md",
+      "bytes": 20156,
+      "props": 17,
+      "source": "src/ts-tailwind/Animations/GhostCursor/GhostCursor.tsx"
+    },
+    {
+      "name": "GlareHover",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/glare-hover",
+      "prompt": "Animations/GlareHover-TS-TW.md",
+      "bytes": 4976,
+      "props": 14,
+      "source": "src/ts-tailwind/Animations/GlareHover/GlareHover.tsx"
+    },
+    {
+      "name": "GradualBlur",
+      "category": "Animations",
+      "dependencies": [
+        "mathjs"
+      ],
+      "url": "https://reactbits.dev/animations/gradual-blur",
+      "prompt": "Animations/GradualBlur-TS-TW.md",
+      "bytes": 12787,
+      "props": 19,
+      "source": "src/ts-tailwind/Animations/GradualBlur/GradualBlur.tsx"
+    },
+    {
+      "name": "ImageTrail",
+      "category": "Animations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/animations/image-trail",
+      "prompt": "Animations/ImageTrail-TS-TW.md",
+      "bytes": 39559,
+      "props": 2,
+      "source": "src/ts-tailwind/Animations/ImageTrail/ImageTrail.tsx"
+    },
+    {
+      "name": "LaserFlow",
+      "category": "Animations",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/animations/laser-flow",
+      "prompt": "Animations/LaserFlow-TS-TW.md",
+      "bytes": 25720,
+      "props": 18,
+      "source": "src/ts-tailwind/Animations/LaserFlow/LaserFlow.tsx"
+    },
+    {
+      "name": "LogoLoop",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/logo-loop",
+      "prompt": "Animations/LogoLoop-TS-TW.md",
+      "bytes": 19736,
+      "props": 14,
+      "source": "src/ts-tailwind/Animations/LogoLoop/LogoLoop.tsx"
+    },
+    {
+      "name": "MagicRings",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/magic-rings",
+      "prompt": "Animations/MagicRings-TS-TW.md",
+      "bytes": 11390,
+      "props": 21,
+      "source": "src/ts-tailwind/Animations/MagicRings/MagicRings.tsx"
+    },
+    {
+      "name": "Magnet",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/magnet",
+      "prompt": "Animations/Magnet-TS-TW.md",
+      "bytes": 4106,
+      "props": 8,
+      "source": "src/ts-tailwind/Animations/Magnet/Magnet.tsx"
+    },
+    {
+      "name": "MagnetLines",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/magnet-lines",
+      "prompt": "Animations/MagnetLines-TS-TW.md",
+      "bytes": 4146,
+      "props": 9,
+      "source": "src/ts-tailwind/Animations/MagnetLines/MagnetLines.tsx"
+    },
+    {
+      "name": "MetaBalls",
+      "category": "Animations",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/animations/meta-balls",
+      "prompt": "Animations/MetaBalls-TS-TW.md",
+      "bytes": 11017,
+      "props": 10,
+      "source": "src/ts-tailwind/Animations/MetaBalls/MetaBalls.tsx"
+    },
+    {
+      "name": "MetallicPaint",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/metallic-paint",
+      "prompt": "Animations/MetallicPaint-TS-TW.md",
+      "bytes": 20047,
+      "props": 21,
+      "source": "src/ts-tailwind/Animations/MetallicPaint/MetallicPaint.tsx"
+    },
+    {
+      "name": "Noise",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/noise",
+      "prompt": "Animations/Noise-TS-TW.md",
+      "bytes": 3344,
+      "props": 5,
+      "source": "src/ts-tailwind/Animations/Noise/Noise.tsx"
+    },
+    {
+      "name": "OrbitImages",
+      "category": "Animations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/animations/orbit-images",
+      "prompt": "Animations/OrbitImages-TS-TW.md",
+      "bytes": 13258,
+      "props": 25,
+      "source": "src/ts-tailwind/Animations/OrbitImages/OrbitImages.tsx"
+    },
+    {
+      "name": "PixelTrail",
+      "category": "Animations",
+      "dependencies": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "url": "https://reactbits.dev/animations/pixel-trail",
+      "prompt": "Animations/PixelTrail-TS-TW.md",
+      "bytes": 6259,
+      "props": 6,
+      "source": "src/ts-tailwind/Animations/PixelTrail/PixelTrail.tsx"
+    },
+    {
+      "name": "PixelTransition",
+      "category": "Animations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/animations/pixel-transition",
+      "prompt": "Animations/PixelTransition-TS-TW.md",
+      "bytes": 6653,
+      "props": 9,
+      "source": "src/ts-tailwind/Animations/PixelTransition/PixelTransition.tsx"
+    },
+    {
+      "name": "Ribbons",
+      "category": "Animations",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/animations/ribbons",
+      "prompt": "Animations/Ribbons-TS-TW.md",
+      "bytes": 10197,
+      "props": 12,
+      "source": "src/ts-tailwind/Animations/Ribbons/Ribbons.tsx"
+    },
+    {
+      "name": "ShapeBlur",
+      "category": "Animations",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/animations/shape-blur",
+      "prompt": "Animations/ShapeBlur-TS-TW.md",
+      "bytes": 9242,
+      "props": 7,
+      "source": "src/ts-tailwind/Animations/ShapeBlur/ShapeBlur.tsx"
+    },
+    {
+      "name": "SplashCursor",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/splash-cursor",
+      "prompt": "Animations/SplashCursor-TS-TW.md",
+      "bytes": 43325,
+      "props": 15,
+      "source": "src/ts-tailwind/Animations/SplashCursor/SplashCursor.tsx"
+    },
+    {
+      "name": "StarBorder",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/star-border",
+      "prompt": "Animations/StarBorder-TS-TW.md",
+      "bytes": 3551,
+      "props": 5,
+      "source": "src/ts-tailwind/Animations/StarBorder/StarBorder.tsx"
+    },
+    {
+      "name": "StickerPeel",
+      "category": "Animations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/animations/sticker-peel",
+      "prompt": "Animations/StickerPeel-TS-TW.md",
+      "bytes": 14882,
+      "props": 12,
+      "source": "src/ts-tailwind/Animations/StickerPeel/StickerPeel.tsx"
+    },
+    {
+      "name": "Strands",
+      "category": "Animations",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/animations/strands",
+      "prompt": "Animations/Strands-TS-TW.md",
+      "bytes": 13750,
+      "props": 18,
+      "source": "src/ts-tailwind/Animations/Strands/Strands.tsx"
+    },
+    {
+      "name": "TargetCursor",
+      "category": "Animations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/animations/target-cursor",
+      "prompt": "Animations/TargetCursor-TS-TW.md",
+      "bytes": 17012,
+      "props": 7,
+      "source": "src/ts-tailwind/Animations/TargetCursor/TargetCursor.tsx"
+    },
+    {
+      "name": "Aurora",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/aurora",
+      "prompt": "Backgrounds/Aurora-TS-TW.md",
+      "bytes": 7088,
+      "props": 4,
+      "source": "src/ts-tailwind/Backgrounds/Aurora/Aurora.tsx"
+    },
+    {
+      "name": "Balatro",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/balatro",
+      "prompt": "Backgrounds/Balatro-TS-TW.md",
+      "bytes": 8394,
+      "props": 13,
+      "source": "src/ts-tailwind/Backgrounds/Balatro/Balatro.tsx"
+    },
+    {
+      "name": "Ballpit",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/backgrounds/ballpit",
+      "prompt": "Backgrounds/Ballpit-TS-TW.md",
+      "bytes": 30659,
+      "props": 16,
+      "source": "src/ts-tailwind/Backgrounds/Ballpit/Ballpit.tsx"
+    },
+    {
+      "name": "Beams",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "url": "https://reactbits.dev/backgrounds/beams",
+      "prompt": "Backgrounds/Beams-TS-TW.md",
+      "bytes": 13755,
+      "props": 8,
+      "source": "src/ts-tailwind/Backgrounds/Beams/Beams.tsx"
+    },
+    {
+      "name": "ColorBends",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/backgrounds/color-bends",
+      "prompt": "Backgrounds/ColorBends-TS-TW.md",
+      "bytes": 13402,
+      "props": 16,
+      "source": "src/ts-tailwind/Backgrounds/ColorBends/ColorBends.tsx"
+    },
+    {
+      "name": "DarkVeil",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/dark-veil",
+      "prompt": "Backgrounds/DarkVeil-TS-TW.md",
+      "bytes": 13388,
+      "props": 7,
+      "source": "src/ts-tailwind/Backgrounds/DarkVeil/DarkVeil.tsx"
+    },
+    {
+      "name": "Dither",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three",
+        "postprocessing",
+        "@react-three/fiber",
+        "@react-three/postprocessing"
+      ],
+      "url": "https://reactbits.dev/backgrounds/dither",
+      "prompt": "Backgrounds/Dither-TS-TW.md",
+      "bytes": 12243,
+      "props": 9,
+      "source": "src/ts-tailwind/Backgrounds/Dither/Dither.tsx"
+    },
+    {
+      "name": "DotField",
+      "category": "Backgrounds",
+      "dependencies": [],
+      "url": "https://reactbits.dev/backgrounds/dot-field",
+      "prompt": "Backgrounds/DotField-TS-TW.md",
+      "bytes": 10828,
+      "props": 12,
+      "source": "src/ts-tailwind/Backgrounds/DotField/DotField.tsx"
+    },
+    {
+      "name": "DotGrid",
+      "category": "Backgrounds",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/backgrounds/dot-grid",
+      "prompt": "Backgrounds/DotGrid-TS-TW.md",
+      "bytes": 10443,
+      "props": 13,
+      "source": "src/ts-tailwind/Backgrounds/DotGrid/DotGrid.tsx"
+    },
+    {
+      "name": "EvilEye",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/evil-eye",
+      "prompt": "Backgrounds/EvilEye-TS-TW.md",
+      "bytes": 10295,
+      "props": 10,
+      "source": "src/ts-tailwind/Backgrounds/EvilEye/EvilEye.tsx"
+    },
+    {
+      "name": "FaultyTerminal",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/faulty-terminal",
+      "prompt": "Backgrounds/FaultyTerminal-TS-TW.md",
+      "bytes": 14109,
+      "props": 19,
+      "source": "src/ts-tailwind/Backgrounds/FaultyTerminal/FaultyTerminal.tsx"
+    },
+    {
+      "name": "Ferrofluid",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/ferrofluid",
+      "prompt": "Backgrounds/Ferrofluid-TS-TW.md",
+      "bytes": 14589,
+      "props": 21,
+      "source": "src/ts-tailwind/Backgrounds/Ferrofluid/Ferrofluid.tsx"
+    },
+    {
+      "name": "FloatingLines",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/backgrounds/floating-lines",
+      "prompt": "Backgrounds/FloatingLines-TS-TW.md",
+      "bytes": 17275,
+      "props": 15,
+      "source": "src/ts-tailwind/Backgrounds/FloatingLines/FloatingLines.tsx"
+    },
+    {
+      "name": "Galaxy",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/galaxy",
+      "prompt": "Backgrounds/Galaxy-TS-TW.md",
+      "bytes": 12940,
+      "props": 16,
+      "source": "src/ts-tailwind/Backgrounds/Galaxy/Galaxy.tsx"
+    },
+    {
+      "name": "GradientBlinds",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/gradient-blinds",
+      "prompt": "Backgrounds/GradientBlinds-TS-TW.md",
+      "bytes": 14868,
+      "props": 16,
+      "source": "src/ts-tailwind/Backgrounds/GradientBlinds/GradientBlinds.tsx"
+    },
+    {
+      "name": "Grainient",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/grainient",
+      "prompt": "Backgrounds/Grainient-TS-TW.md",
+      "bytes": 13149,
+      "props": 23,
+      "source": "src/ts-tailwind/Backgrounds/Grainient/Grainient.tsx"
+    },
+    {
+      "name": "GridDistortion",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/backgrounds/grid-distortion",
+      "prompt": "Backgrounds/GridDistortion-TS-TW.md",
+      "bytes": 9474,
+      "props": 6,
+      "source": "src/ts-tailwind/Backgrounds/GridDistortion/GridDistortion.tsx"
+    },
+    {
+      "name": "GridMotion",
+      "category": "Backgrounds",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/backgrounds/grid-motion",
+      "prompt": "Backgrounds/GridMotion-TS-TW.md",
+      "bytes": 6261,
+      "props": 2,
+      "source": "src/ts-tailwind/Backgrounds/GridMotion/GridMotion.tsx"
+    },
+    {
+      "name": "GridScan",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three",
+        "face-api.js"
+      ],
+      "url": "https://reactbits.dev/backgrounds/grid-scan",
+      "prompt": "Backgrounds/GridScan-TS-TW.md",
+      "bytes": 33327,
+      "props": 28,
+      "source": "src/ts-tailwind/Backgrounds/GridScan/GridScan.tsx"
+    },
+    {
+      "name": "Hyperspeed",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three",
+        "postprocessing"
+      ],
+      "url": "https://reactbits.dev/backgrounds/hyperspeed",
+      "prompt": "Backgrounds/Hyperspeed-TS-TW.md",
+      "bytes": 42320,
+      "props": 1,
+      "source": "src/ts-tailwind/Backgrounds/Hyperspeed/Hyperspeed.tsx"
+    },
+    {
+      "name": "Iridescence",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/iridescence",
+      "prompt": "Backgrounds/Iridescence-TS-TW.md",
+      "bytes": 4885,
+      "props": 4,
+      "source": "src/ts-tailwind/Backgrounds/Iridescence/Iridescence.tsx"
+    },
+    {
+      "name": "LetterGlitch",
+      "category": "Backgrounds",
+      "dependencies": [],
+      "url": "https://reactbits.dev/backgrounds/letter-glitch",
+      "prompt": "Backgrounds/LetterGlitch-TS-TW.md",
+      "bytes": 8310,
+      "props": 6,
+      "source": "src/ts-tailwind/Backgrounds/LetterGlitch/LetterGlitch.tsx"
+    },
+    {
+      "name": "Lightfall",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/lightfall",
+      "prompt": "Backgrounds/Lightfall-TS-TW.md",
+      "bytes": 14219,
+      "props": 20,
+      "source": "src/ts-tailwind/Backgrounds/Lightfall/Lightfall.tsx"
+    },
+    {
+      "name": "Lightning",
+      "category": "Backgrounds",
+      "dependencies": [],
+      "url": "https://reactbits.dev/backgrounds/lightning",
+      "prompt": "Backgrounds/Lightning-TS-TW.md",
+      "bytes": 7484,
+      "props": 5,
+      "source": "src/ts-tailwind/Backgrounds/Lightning/Lightning.tsx"
+    },
+    {
+      "name": "LightPillar",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/backgrounds/light-pillar",
+      "prompt": "Backgrounds/LightPillar-TS-TW.md",
+      "bytes": 18267,
+      "props": 13,
+      "source": "src/ts-tailwind/Backgrounds/LightPillar/LightPillar.tsx"
+    },
+    {
+      "name": "LightRays",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/light-rays",
+      "prompt": "Backgrounds/LightRays-TS-TW.md",
+      "bytes": 15288,
+      "props": 13,
+      "source": "src/ts-tailwind/Backgrounds/LightRays/LightRays.tsx"
+    },
+    {
+      "name": "LineWaves",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/line-waves",
+      "prompt": "Backgrounds/LineWaves-TS-TW.md",
+      "bytes": 10205,
+      "props": 13,
+      "source": "src/ts-tailwind/Backgrounds/LineWaves/LineWaves.tsx"
+    },
+    {
+      "name": "LiquidChrome",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/liquid-chrome",
+      "prompt": "Backgrounds/LiquidChrome-TS-TW.md",
+      "bytes": 6937,
+      "props": 6,
+      "source": "src/ts-tailwind/Backgrounds/LiquidChrome/LiquidChrome.tsx"
+    },
+    {
+      "name": "LiquidEther",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/backgrounds/liquid-ether",
+      "prompt": "Backgrounds/LiquidEther-TS-TW.md",
+      "bytes": 43997,
+      "props": 19,
+      "source": "src/ts-tailwind/Backgrounds/LiquidEther/LiquidEther.tsx"
+    },
+    {
+      "name": "Orb",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/orb",
+      "prompt": "Backgrounds/Orb-TS-TW.md",
+      "bytes": 12061,
+      "props": 5,
+      "source": "src/ts-tailwind/Backgrounds/Orb/Orb.tsx"
+    },
+    {
+      "name": "Particles",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/particles",
+      "prompt": "Backgrounds/Particles-TS-TW.md",
+      "bytes": 9545,
+      "props": 12,
+      "source": "src/ts-tailwind/Backgrounds/Particles/Particles.tsx"
+    },
+    {
+      "name": "PixelBlast",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three",
+        "postprocessing"
+      ],
+      "url": "https://reactbits.dev/backgrounds/pixel-blast",
+      "prompt": "Backgrounds/PixelBlast-TS-TW.md",
+      "bytes": 25422,
+      "props": 18,
+      "source": "src/ts-tailwind/Backgrounds/PixelBlast/PixelBlast.tsx"
+    },
+    {
+      "name": "PixelSnow",
+      "category": "Backgrounds",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/backgrounds/pixel-snow",
+      "prompt": "Backgrounds/PixelSnow-TS-TW.md",
+      "bytes": 13489,
+      "props": 14,
+      "source": "src/ts-tailwind/Backgrounds/PixelSnow/PixelSnow.tsx"
+    },
+    {
+      "name": "Plasma",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/plasma",
+      "prompt": "Backgrounds/Plasma-TS-TW.md",
+      "bytes": 12979,
+      "props": 10,
+      "source": "src/ts-tailwind/Backgrounds/Plasma/Plasma.tsx"
+    },
+    {
+      "name": "PlasmaWave",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/plasma-wave",
+      "prompt": "Backgrounds/PlasmaWave-TS-TW.md",
+      "bytes": 8324,
+      "props": 10,
+      "source": "src/ts-tailwind/Backgrounds/PlasmaWave/PlasmaWave.tsx"
+    },
+    {
+      "name": "Prism",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/prism",
+      "prompt": "Backgrounds/Prism-TS-TW.md",
+      "bytes": 15387,
+      "props": 15,
+      "source": "src/ts-tailwind/Backgrounds/Prism/Prism.tsx"
+    },
+    {
+      "name": "PrismaticBurst",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/prismatic-burst",
+      "prompt": "Backgrounds/PrismaticBurst-TS-TW.md",
+      "bytes": 16428,
+      "props": 10,
+      "source": "src/ts-tailwind/Backgrounds/PrismaticBurst/PrismaticBurst.tsx"
+    },
+    {
+      "name": "Radar",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/radar",
+      "prompt": "Backgrounds/Radar-TS-TW.md",
+      "bytes": 8811,
+      "props": 15,
+      "source": "src/ts-tailwind/Backgrounds/Radar/Radar.tsx"
+    },
+    {
+      "name": "RippleGrid",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/ripple-grid",
+      "prompt": "Backgrounds/RippleGrid-TS-TW.md",
+      "bytes": 11564,
+      "props": 12,
+      "source": "src/ts-tailwind/Backgrounds/RippleGrid/RippleGrid.tsx"
+    },
+    {
+      "name": "ShapeGrid",
+      "category": "Backgrounds",
+      "dependencies": [],
+      "url": "https://reactbits.dev/backgrounds/shape-grid",
+      "prompt": "Backgrounds/ShapeGrid-TS-TW.md",
+      "bytes": 16473,
+      "props": 7,
+      "source": "src/ts-tailwind/Backgrounds/ShapeGrid/ShapeGrid.tsx"
+    },
+    {
+      "name": "SideRays",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/side-rays",
+      "prompt": "Backgrounds/SideRays-TS-TW.md",
+      "bytes": 11097,
+      "props": 12,
+      "source": "src/ts-tailwind/Backgrounds/SideRays/SideRays.tsx"
+    },
+    {
+      "name": "Silk",
+      "category": "Backgrounds",
+      "dependencies": [],
+      "url": "https://reactbits.dev/backgrounds/silk",
+      "prompt": "Backgrounds/Silk-TS-TW.md",
+      "bytes": 5563,
+      "props": 5,
+      "source": "src/ts-tailwind/Backgrounds/Silk/Silk.tsx"
+    },
+    {
+      "name": "SoftAurora",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/soft-aurora",
+      "prompt": "Backgrounds/SoftAurora-TS-TW.md",
+      "bytes": 10593,
+      "props": 14,
+      "source": "src/ts-tailwind/Backgrounds/SoftAurora/SoftAurora.tsx"
+    },
+    {
+      "name": "Threads",
+      "category": "Backgrounds",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/backgrounds/threads",
+      "prompt": "Backgrounds/Threads-TS-TW.md",
+      "bytes": 10079,
+      "props": 4,
+      "source": "src/ts-tailwind/Backgrounds/Threads/Threads.tsx"
+    },
+    {
+      "name": "Waves",
+      "category": "Backgrounds",
+      "dependencies": [],
+      "url": "https://reactbits.dev/backgrounds/waves",
+      "prompt": "Backgrounds/Waves-TS-TW.md",
+      "bytes": 13718,
+      "props": 13,
+      "source": "src/ts-tailwind/Backgrounds/Waves/Waves.tsx"
+    },
+    {
+      "name": "AnimatedList",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/animated-list",
+      "prompt": "Components/AnimatedList-TS-TW.md",
+      "bytes": 8194,
+      "props": 8,
+      "source": "src/ts-tailwind/Components/AnimatedList/AnimatedList.tsx"
+    },
+    {
+      "name": "BorderGlow",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/border-glow",
+      "prompt": "Components/BorderGlow-TS-TW.md",
+      "bytes": 12481,
+      "props": 11,
+      "source": "src/ts-tailwind/Components/BorderGlow/BorderGlow.tsx"
+    },
+    {
+      "name": "BounceCards",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/bounce-cards",
+      "prompt": "Components/BounceCards-TS-TW.md",
+      "bytes": 6538,
+      "props": 9,
+      "source": "src/ts-tailwind/Components/BounceCards/BounceCards.tsx"
+    },
+    {
+      "name": "BubbleMenu",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/bubble-menu",
+      "prompt": "Components/BubbleMenu-TS-TW.md",
+      "bytes": 15506,
+      "props": 12,
+      "source": "src/ts-tailwind/Components/BubbleMenu/BubbleMenu.tsx"
+    },
+    {
+      "name": "CardNav",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/card-nav",
+      "prompt": "Components/CardNav-TS-TW.md",
+      "bytes": 10646,
+      "props": 9,
+      "source": "src/ts-tailwind/Components/CardNav/CardNav.tsx"
+    },
+    {
+      "name": "CardSwap",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/card-swap",
+      "prompt": "Components/CardSwap-TS-TW.md",
+      "bytes": 7905,
+      "props": 10,
+      "source": "src/ts-tailwind/Components/CardSwap/CardSwap.tsx"
+    },
+    {
+      "name": "Carousel",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/carousel",
+      "prompt": "Components/Carousel-TS-TW.md",
+      "bytes": 11342,
+      "props": 7,
+      "source": "src/ts-tailwind/Components/Carousel/Carousel.tsx"
+    },
+    {
+      "name": "ChromaGrid",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/chroma-grid",
+      "prompt": "Components/ChromaGrid-TS-TW.md",
+      "bytes": 9677,
+      "props": 6,
+      "source": "src/ts-tailwind/Components/ChromaGrid/ChromaGrid.tsx"
+    },
+    {
+      "name": "CircularGallery",
+      "category": "Components",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/components/circular-gallery",
+      "prompt": "Components/CircularGallery-TS-TW.md",
+      "bytes": 27341,
+      "props": 8,
+      "source": "src/ts-tailwind/Components/CircularGallery/CircularGallery.tsx"
+    },
+    {
+      "name": "Counter",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/counter",
+      "prompt": "Components/Counter-TS-TW.md",
+      "bytes": 7775,
+      "props": 17,
+      "source": "src/ts-tailwind/Components/Counter/Counter.tsx"
+    },
+    {
+      "name": "CurvedInput",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/curved-input",
+      "prompt": "Components/CurvedInput-TS-TW.md",
+      "bytes": 23534,
+      "props": 30,
+      "source": "src/ts-tailwind/Components/CurvedInput/CurvedInput.tsx"
+    },
+    {
+      "name": "DecayCard",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/decay-card",
+      "prompt": "Components/DecayCard-TS-TW.md",
+      "bytes": 7225,
+      "props": 9,
+      "source": "src/ts-tailwind/Components/DecayCard/DecayCard.tsx"
+    },
+    {
+      "name": "Dock",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/dock",
+      "prompt": "Components/Dock-TS-TW.md",
+      "bytes": 7493,
+      "props": 8,
+      "source": "src/ts-tailwind/Components/Dock/Dock.tsx"
+    },
+    {
+      "name": "DomeGallery",
+      "category": "Components",
+      "dependencies": [
+        "@use-gesture/react"
+      ],
+      "url": "https://reactbits.dev/components/dome-gallery",
+      "prompt": "Components/DomeGallery-TS-TW.md",
+      "bytes": 36153,
+      "props": 17,
+      "source": "src/ts-tailwind/Components/DomeGallery/DomeGallery.tsx"
+    },
+    {
+      "name": "ElasticSlider",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/elastic-slider",
+      "prompt": "Components/ElasticSlider-TS-TW.md",
+      "bytes": 8125,
+      "props": 8,
+      "source": "src/ts-tailwind/Components/ElasticSlider/ElasticSlider.tsx"
+    },
+    {
+      "name": "FlowingMenu",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/flowing-menu",
+      "prompt": "Components/FlowingMenu-TS-TW.md",
+      "bytes": 7900,
+      "props": 7,
+      "source": "src/ts-tailwind/Components/FlowingMenu/FlowingMenu.tsx"
+    },
+    {
+      "name": "FluidGlass",
+      "category": "Components",
+      "dependencies": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei",
+        "maath"
+      ],
+      "url": "https://reactbits.dev/components/fluid-glass",
+      "prompt": "Components/FluidGlass-TS-TW.md",
+      "bytes": 11205,
+      "props": 4,
+      "source": "src/ts-tailwind/Components/FluidGlass/FluidGlass.tsx"
+    },
+    {
+      "name": "FlyingPosters",
+      "category": "Components",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/components/flying-posters",
+      "prompt": "Components/FlyingPosters-TS-TW.md",
+      "bytes": 17333,
+      "props": 7,
+      "source": "src/ts-tailwind/Components/FlyingPosters/FlyingPosters.tsx"
+    },
+    {
+      "name": "Folder",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/folder",
+      "prompt": "Components/Folder-TS-TW.md",
+      "bytes": 7427,
+      "props": 4,
+      "source": "src/ts-tailwind/Components/Folder/Folder.tsx"
+    },
+    {
+      "name": "GlassIcons",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/glass-icons",
+      "prompt": "Components/GlassIcons-TS-TW.md",
+      "bytes": 4636,
+      "props": 2,
+      "source": "src/ts-tailwind/Components/GlassIcons/GlassIcons.tsx"
+    },
+    {
+      "name": "GlassSurface",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/glass-surface",
+      "prompt": "Components/GlassSurface-TS-TW.md",
+      "bytes": 15098,
+      "props": 20,
+      "source": "src/ts-tailwind/Components/GlassSurface/GlassSurface.tsx"
+    },
+    {
+      "name": "GooeyNav",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/gooey-nav",
+      "prompt": "Components/GooeyNav-TS-TW.md",
+      "bytes": 12890,
+      "props": 8,
+      "source": "src/ts-tailwind/Components/GooeyNav/GooeyNav.tsx"
+    },
+    {
+      "name": "InfiniteMenu",
+      "category": "Components",
+      "dependencies": [
+        "gl-matrix"
+      ],
+      "url": "https://reactbits.dev/components/infinite-menu",
+      "prompt": "Components/InfiniteMenu-TS-TW.md",
+      "bytes": 35958,
+      "props": 2,
+      "source": "src/ts-tailwind/Components/InfiniteMenu/InfiniteMenu.tsx"
+    },
+    {
+      "name": "Lanyard",
+      "category": "Components",
+      "dependencies": [
+        "three",
+        "meshline",
+        "@react-three/fiber",
+        "@react-three/drei",
+        "@react-three/rapier"
+      ],
+      "url": "https://reactbits.dev/components/lanyard",
+      "prompt": "Components/Lanyard-TS-TW.md",
+      "bytes": 15432,
+      "props": 9,
+      "source": "src/ts-tailwind/Components/Lanyard/Lanyard.tsx"
+    },
+    {
+      "name": "LineSidebar",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/line-sidebar",
+      "prompt": "Components/LineSidebar-TS-TW.md",
+      "bytes": 10331,
+      "props": 19,
+      "source": "src/ts-tailwind/Components/LineSidebar/LineSidebar.tsx"
+    },
+    {
+      "name": "MagicBento",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/magic-bento",
+      "prompt": "Components/MagicBento-TS-TW.md",
+      "bytes": 28373,
+      "props": 11,
+      "source": "src/ts-tailwind/Components/MagicBento/MagicBento.tsx"
+    },
+    {
+      "name": "Masonry",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/masonry",
+      "prompt": "Components/Masonry-TS-TW.md",
+      "bytes": 9329,
+      "props": 9,
+      "source": "src/ts-tailwind/Components/Masonry/Masonry.tsx"
+    },
+    {
+      "name": "ModelViewer",
+      "category": "Components",
+      "dependencies": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "url": "https://reactbits.dev/components/model-viewer",
+      "prompt": "Components/ModelViewer-TS-TW.md",
+      "bytes": 18923,
+      "props": 26,
+      "source": "src/ts-tailwind/Components/ModelViewer/ModelViewer.tsx"
+    },
+    {
+      "name": "OptionWheel",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/option-wheel",
+      "prompt": "Components/OptionWheel-TS-TW.md",
+      "bytes": 14110,
+      "props": 20,
+      "source": "src/ts-tailwind/Components/OptionWheel/OptionWheel.tsx"
+    },
+    {
+      "name": "PillNav",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/pill-nav",
+      "prompt": "Components/PillNav-TS-TW.md",
+      "bytes": 17610,
+      "props": 12,
+      "source": "src/ts-tailwind/Components/PillNav/PillNav.tsx"
+    },
+    {
+      "name": "PixelCard",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/pixel-card",
+      "prompt": "Components/PixelCard-TS-TW.md",
+      "bytes": 9555,
+      "props": 8,
+      "source": "src/ts-tailwind/Components/PixelCard/PixelCard.tsx"
+    },
+    {
+      "name": "ProfileCard",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/profile-card",
+      "prompt": "Components/ProfileCard-TS-TW.md",
+      "bytes": 25808,
+      "props": 19,
+      "source": "src/ts-tailwind/Components/ProfileCard/ProfileCard.tsx"
+    },
+    {
+      "name": "ReflectiveCard",
+      "category": "Components",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "url": "https://reactbits.dev/components/reflective-card",
+      "prompt": "Components/ReflectiveCard-TS-TW.md",
+      "bytes": 9094,
+      "props": 10,
+      "source": "src/ts-tailwind/Components/ReflectiveCard/ReflectiveCard.tsx"
+    },
+    {
+      "name": "ScrollStack",
+      "category": "Components",
+      "dependencies": [
+        "lenis"
+      ],
+      "url": "https://reactbits.dev/components/scroll-stack",
+      "prompt": "Components/ScrollStack-TS-TW.md",
+      "bytes": 13089,
+      "props": 13,
+      "source": "src/ts-tailwind/Components/ScrollStack/ScrollStack.tsx"
+    },
+    {
+      "name": "SpecularButton",
+      "category": "Components",
+      "dependencies": [
+        "ogl"
+      ],
+      "url": "https://reactbits.dev/components/specular-button",
+      "prompt": "Components/SpecularButton-TS-TW.md",
+      "bytes": 12754,
+      "props": 21,
+      "source": "src/ts-tailwind/Components/SpecularButton/SpecularButton.tsx"
+    },
+    {
+      "name": "SpotlightCard",
+      "category": "Components",
+      "dependencies": [],
+      "url": "https://reactbits.dev/components/spotlight-card",
+      "prompt": "Components/SpotlightCard-TS-TW.md",
+      "bytes": 2963,
+      "props": 2,
+      "source": "src/ts-tailwind/Components/SpotlightCard/SpotlightCard.tsx"
+    },
+    {
+      "name": "Stack",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/stack",
+      "prompt": "Components/Stack-TS-TW.md",
+      "bytes": 8206,
+      "props": 8,
+      "source": "src/ts-tailwind/Components/Stack/Stack.tsx"
+    },
+    {
+      "name": "StaggeredMenu",
+      "category": "Components",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/components/staggered-menu",
+      "prompt": "Components/StaggeredMenu-TS-TW.md",
+      "bytes": 27795,
+      "props": 15,
+      "source": "src/ts-tailwind/Components/StaggeredMenu/StaggeredMenu.tsx"
+    },
+    {
+      "name": "Stepper",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/stepper",
+      "prompt": "Components/Stepper-TS-TW.md",
+      "bytes": 12801,
+      "props": 14,
+      "source": "src/ts-tailwind/Components/Stepper/Stepper.tsx"
+    },
+    {
+      "name": "TiltedCard",
+      "category": "Components",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/components/tilted-card",
+      "prompt": "Components/TiltedCard-TS-TW.md",
+      "bytes": 6460,
+      "props": 13,
+      "source": "src/ts-tailwind/Components/TiltedCard/TiltedCard.tsx"
+    },
+    {
+      "name": "ASCIIText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "three"
+      ],
+      "url": "https://reactbits.dev/text-animations/ascii-text",
+      "prompt": "TextAnimations/ASCIIText-TS-TW.md",
+      "bytes": 19006,
+      "props": 7,
+      "source": "src/ts-tailwind/TextAnimations/ASCIIText/ASCIIText.tsx"
+    },
+    {
+      "name": "BlurText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/blur-text",
+      "prompt": "TextAnimations/BlurText-TS-TW.md",
+      "bytes": 5271,
+      "props": 8,
+      "source": "src/ts-tailwind/TextAnimations/BlurText/BlurText.tsx"
+    },
+    {
+      "name": "CircularText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/circular-text",
+      "prompt": "TextAnimations/CircularText-TS-TW.md",
+      "bytes": 4673,
+      "props": 4,
+      "source": "src/ts-tailwind/TextAnimations/CircularText/CircularText.tsx"
+    },
+    {
+      "name": "CountUp",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/count-up",
+      "prompt": "TextAnimations/CountUp-TS-TW.md",
+      "bytes": 4863,
+      "props": 10,
+      "source": "src/ts-tailwind/TextAnimations/CountUp/CountUp.tsx"
+    },
+    {
+      "name": "CurvedLoop",
+      "category": "TextAnimations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/text-animations/curved-loop",
+      "prompt": "TextAnimations/CurvedLoop-TS-TW.md",
+      "bytes": 6274,
+      "props": 6,
+      "source": "src/ts-tailwind/TextAnimations/CurvedLoop/CurvedLoop.tsx"
+    },
+    {
+      "name": "DecryptedText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/decrypted-text",
+      "prompt": "TextAnimations/DecryptedText-TS-TW.md",
+      "bytes": 14356,
+      "props": 11,
+      "source": "src/ts-tailwind/TextAnimations/DecryptedText/DecryptedText.tsx"
+    },
+    {
+      "name": "FallingText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "matter-js"
+      ],
+      "url": "https://reactbits.dev/text-animations/falling-text",
+      "prompt": "TextAnimations/FallingText-TS-TW.md",
+      "bytes": 8013,
+      "props": 10,
+      "source": "src/ts-tailwind/TextAnimations/FallingText/FallingText.tsx"
+    },
+    {
+      "name": "FuzzyText",
+      "category": "TextAnimations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/text-animations/fuzzy-text",
+      "prompt": "TextAnimations/FuzzyText-TS-TW.md",
+      "bytes": 13283,
+      "props": 19,
+      "source": "src/ts-tailwind/TextAnimations/FuzzyText/FuzzyText.tsx"
+    },
+    {
+      "name": "GlitchText",
+      "category": "TextAnimations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/text-animations/glitch-text",
+      "prompt": "TextAnimations/GlitchText-TS-TW.md",
+      "bytes": 5335,
+      "props": 5,
+      "source": "src/ts-tailwind/TextAnimations/GlitchText/GlitchText.tsx"
+    },
+    {
+      "name": "GradientText",
+      "category": "TextAnimations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/text-animations/gradient-text",
+      "prompt": "TextAnimations/GradientText-TS-TW.md",
+      "bytes": 5750,
+      "props": 8,
+      "source": "src/ts-tailwind/TextAnimations/GradientText/GradientText.tsx"
+    },
+    {
+      "name": "RotatingText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/rotating-text",
+      "prompt": "TextAnimations/RotatingText-TS-TW.md",
+      "bytes": 10470,
+      "props": 17,
+      "source": "src/ts-tailwind/TextAnimations/RotatingText/RotatingText.tsx"
+    },
+    {
+      "name": "ScrambledText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/text-animations/scrambled-text",
+      "prompt": "TextAnimations/ScrambledText-TS-TW.md",
+      "bytes": 3913,
+      "props": 7,
+      "source": "src/ts-tailwind/TextAnimations/ScrambledText/ScrambledText.tsx"
+    },
+    {
+      "name": "ScrollFloat",
+      "category": "TextAnimations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/text-animations/scroll-float",
+      "prompt": "TextAnimations/ScrollFloat-TS-TW.md",
+      "bytes": 4038,
+      "props": 9,
+      "source": "src/ts-tailwind/TextAnimations/ScrollFloat/ScrollFloat.tsx"
+    },
+    {
+      "name": "ScrollReveal",
+      "category": "TextAnimations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/text-animations/scroll-reveal",
+      "prompt": "TextAnimations/ScrollReveal-TS-TW.md",
+      "bytes": 5277,
+      "props": 10,
+      "source": "src/ts-tailwind/TextAnimations/ScrollReveal/ScrollReveal.tsx"
+    },
+    {
+      "name": "ScrollVelocity",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/scroll-velocity",
+      "prompt": "TextAnimations/ScrollVelocity-TS-TW.md",
+      "bytes": 7026,
+      "props": 12,
+      "source": "src/ts-tailwind/TextAnimations/ScrollVelocity/ScrollVelocity.tsx"
+    },
+    {
+      "name": "ShinyText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/shiny-text",
+      "prompt": "TextAnimations/ShinyText-TS-TW.md",
+      "bytes": 5758,
+      "props": 11,
+      "source": "src/ts-tailwind/TextAnimations/ShinyText/ShinyText.tsx"
+    },
+    {
+      "name": "Shuffle",
+      "category": "TextAnimations",
+      "dependencies": [
+        "gsap",
+        "@gsap/react"
+      ],
+      "url": "https://reactbits.dev/text-animations/shuffle",
+      "prompt": "TextAnimations/Shuffle-TS-TW.md",
+      "bytes": 17004,
+      "props": 23,
+      "source": "src/ts-tailwind/TextAnimations/Shuffle/Shuffle.tsx"
+    },
+    {
+      "name": "SplitText",
+      "category": "TextAnimations",
+      "dependencies": [
+        "gsap",
+        "@gsap/react"
+      ],
+      "url": "https://reactbits.dev/text-animations/split-text",
+      "prompt": "TextAnimations/SplitText-TS-TW.md",
+      "bytes": 7436,
+      "props": 13,
+      "source": "src/ts-tailwind/TextAnimations/SplitText/SplitText.tsx"
+    },
+    {
+      "name": "TextCursor",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/text-cursor",
+      "prompt": "TextAnimations/TextCursor-TS-TW.md",
+      "bytes": 6670,
+      "props": 7,
+      "source": "src/ts-tailwind/TextAnimations/TextCursor/TextCursor.tsx"
+    },
+    {
+      "name": "TextPressure",
+      "category": "TextAnimations",
+      "dependencies": [],
+      "url": "https://reactbits.dev/text-animations/text-pressure",
+      "prompt": "TextAnimations/TextPressure-TS-TW.md",
+      "bytes": 9526,
+      "props": 14,
+      "source": "src/ts-tailwind/TextAnimations/TextPressure/TextPressure.tsx"
+    },
+    {
+      "name": "TextType",
+      "category": "TextAnimations",
+      "dependencies": [
+        "gsap"
+      ],
+      "url": "https://reactbits.dev/text-animations/text-type",
+      "prompt": "TextAnimations/TextType-TS-TW.md",
+      "bytes": 7808,
+      "props": 18,
+      "source": "src/ts-tailwind/TextAnimations/TextType/TextType.tsx"
+    },
+    {
+      "name": "TrueFocus",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/true-focus",
+      "prompt": "TextAnimations/TrueFocus-TS-TW.md",
+      "bytes": 6681,
+      "props": 8,
+      "source": "src/ts-tailwind/TextAnimations/TrueFocus/TrueFocus.tsx"
+    },
+    {
+      "name": "VariableProximity",
+      "category": "TextAnimations",
+      "dependencies": [
+        "motion"
+      ],
+      "url": "https://reactbits.dev/text-animations/variable-proximity",
+      "prompt": "TextAnimations/VariableProximity-TS-TW.md",
+      "bytes": 8024,
+      "props": 6,
+      "source": "src/ts-tailwind/TextAnimations/VariableProximity/VariableProximity.tsx"
+    }
+  ]
+}
