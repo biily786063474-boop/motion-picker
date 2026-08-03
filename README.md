@@ -313,10 +313,29 @@ const r = await addComponent({ name: 'Orb', to: '/abs/path', dryRun: true });
 
 ---
 
+## 加自己的动效
+
+库不只是上游镜像的容器，也能放你自己的组件：
+
+```bash
+mkdir -p custom/Backgrounds/MyEffect      # custom/ 不受 sync 影响
+# 写 MyEffect.tsx + meta.json（照着 custom/Backgrounds/BreathingGrid 抄）
+npm run validate        # 12 条入库标准自动校验
+npm run index:custom    # 合并进索引，CLI 和选型台立刻能看到
+```
+
+参数面板会**从你的 TS interface 自动生成** —— 类型决定用滑块还是取色器，
+成员上方的注释成为提示文字，prop 名的量纲决定滑块范围。
+
+标准见 [docs/组件入库标准.md](docs/组件入库标准.md)，每条规则都能被 `npm run validate` 检查。
+
+---
+
 ## 项目结构
 
 ```
-components/     139 个 .tsx 源码，与上游字节一致
+components/     139 个 .tsx 源码，与上游字节一致（生成物，sync 会整目录替换）
+custom/         你自己的组件（手写，sync 不碰）
 prompts/        139 份集成说明（依赖/用法/props 表/集成步骤）
   index.json    检索索引 + 取用元数据（真实依赖、资源、外链、导出形式）
   props.json    结构化 prop 元数据，选型台的参数面板靠它生成

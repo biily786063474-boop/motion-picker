@@ -1,6 +1,6 @@
 {
   "variant": "TS-TW",
-  "total": 139,
+  "total": 140,
   "byCategory": {
     "Animations": 31,
     "Backgrounds": 45,
@@ -939,6 +939,27 @@
       "namedExportOnly": false,
       "usesTailwind": true,
       "usesGLTF": false
+    },
+    {
+      "name": "BreathingGrid",
+      "category": "Backgrounds",
+      "custom": true,
+      "description": "缓慢呼吸的网格背景，零依赖纯 canvas，适合仪表盘和后台页面打底",
+      "dependencies": [],
+      "url": "自制",
+      "prompt": null,
+      "bytes": 2870,
+      "props": 6,
+      "source": "custom/Backgrounds/BreathingGrid/BreathingGrid.tsx",
+      "localPath": "custom/Backgrounds/BreathingGrid/BreathingGrid.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false,
+      "license": "MIT"
     },
     {
       "name": "ColorBends",
@@ -3244,5 +3265,6 @@
       "usesTailwind": false,
       "usesGLTF": false
     }
-  ]
+  ],
+  "custom": 1
 }

@@ -10,8 +10,15 @@ import { lazy } from 'react';
 import schema from '../prompts/props.json';
 import previewOverrides from './preview-overrides.json';
 
-const componentLoaders = import.meta.glob('../components/**/*.tsx');
-const sourceLoaders = import.meta.glob('../components/**/*.tsx', { query: '?raw', import: 'default' });
+// components/ 是上游镜像（sync 会整目录替换），custom/ 是自有组件（sync 不碰）
+const componentLoaders = {
+  ...import.meta.glob('../components/**/*.tsx'),
+  ...import.meta.glob('../custom/**/*.tsx')
+};
+const sourceLoaders = {
+  ...import.meta.glob('../components/**/*.tsx', { query: '?raw', import: 'default' }),
+  ...import.meta.glob('../custom/**/*.tsx', { query: '?raw', import: 'default' })
+};
 const promptLoaders = import.meta.glob('../prompts/**/*.md', { query: '?raw', import: 'default' });
 
 /**
@@ -171,8 +178,11 @@ const loadComponent = (loader, name) => lazy(() => loader().then(m => ({ default
 
 export const REGISTRY = schema.components
   .map(comp => {
-    const compPath = `../components/${comp.category}/${comp.name}.tsx`;
-    const promptPath = `../prompts/${comp.prompt}`;
+    // 自有组件在 custom/<类目>/<名字>/<名字>.tsx，多一层目录；上游的是 components/<类目>/<名字>.tsx
+    const compPath = comp.custom
+      ? `../custom/${comp.category}/${comp.name}/${comp.name}.tsx`
+      : `../components/${comp.category}/${comp.name}.tsx`;
+    const promptPath = comp.prompt ? `../prompts/${comp.prompt}` : null;
     const loader = componentLoaders[compPath];
     if (!loader) return null;
 
@@ -201,7 +211,7 @@ export const REGISTRY = schema.components
       dependencies: comp.dependencies,
       Component: loadComponent(loader, comp.name),
       loadSource: sourceLoaders[compPath],
-      loadPrompt: promptLoaders[promptPath],
+      loadPrompt: promptPath ? promptLoaders[promptPath] : null,
       frame,
       previewProps,
       children
@@ -213,5 +223,12 @@ export const REGISTRY_MAP = new Map(REGISTRY.map(r => [r.name, r]));
 
 /** 构建时漏掉的组件要能被发现，不能静默少几个 */
 export const MISSING = schema.components
-  .filter(c => !componentLoaders[`../components/${c.category}/${c.name}.tsx`])
+  .filter(
+    c =>
+      !componentLoaders[
+        c.custom
+          ? `../custom/${c.category}/${c.name}/${c.name}.tsx`
+          : `../components/${c.category}/${c.name}.tsx`
+      ]
+  )
   .map(c => c.name);

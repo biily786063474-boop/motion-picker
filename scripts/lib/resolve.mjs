@@ -201,6 +201,95 @@ export function componentProps(source) {
   return null;
 }
 
+/**
+ * 从 TS 类型声明 + 解构默认值里提取参数表（name / type / default / description）。
+ *
+ * 上游组件的这份数据来自站点的 propData（人工维护的文档），自有组件没有那个东西，
+ * 所以直接从代码里推 —— 类型取自 interface/type，默认值取自解构，
+ * 说明取自成员上方的注释。选型台的参数面板就靠这份数据生成。
+ */
+export function extractPropsSchema(source) {
+  const ast = parseSource(source);
+  if (!ast) return null;
+
+  const lines = source.split('\n');
+  /** 取成员声明上方的注释当描述 */
+  const commentAbove = node => {
+    const start = node.loc?.start.line;
+    if (!start) return '';
+    for (let i = start - 2; i >= Math.max(0, start - 4); i--) {
+      const t = (lines[i] || '').trim();
+      if (!t) continue;
+      const m = t.match(/^\/\*\*?\s*(.*?)\s*\*?\/$/) || t.match(/^\/\/\s*(.*)$/) || t.match(/^\*\s*(.*)$/);
+      if (m && m[1] && !m[1].startsWith('@')) return m[1].trim();
+      if (!t.startsWith('*') && !t.startsWith('//') && !t.startsWith('/*')) break;
+    }
+    return '';
+  };
+
+  /** 把类型节点还原成人看的字符串 */
+  const typeText = ann => {
+    if (!ann) return 'any';
+    const t = ann.typeAnnotation || ann;
+    const raw = source.slice(t.start, t.end).replace(/\s+/g, ' ').trim();
+    return raw.length > 60 ? raw.slice(0, 57) + '…' : raw;
+  };
+
+  // 组件参数解构里的默认值
+  const params = componentProps(source);
+  const defaults = new Map();
+  const walkForDefaults = node => {
+    if (!node || typeof node.type !== 'string') return;
+    if (
+      ['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration'].includes(node.type) &&
+      node.params[0]?.type === 'ObjectPattern'
+    ) {
+      for (const p of node.params[0].properties) {
+        if (p.type !== 'ObjectProperty' || p.value?.type !== 'AssignmentPattern') continue;
+        const key = p.key?.name ?? p.key?.value;
+        if (key && !defaults.has(key)) defaults.set(key, source.slice(p.value.right.start, p.value.right.end).trim());
+      }
+    }
+    for (const k of Object.keys(node)) {
+      const c = node[k];
+      if (Array.isArray(c)) c.forEach(walkForDefaults);
+      else if (c && typeof c.type === 'string') walkForDefaults(c);
+    }
+  };
+  walkForDefaults(ast.program);
+
+  // 找 props 的类型声明：优先组件参数的类型注解，其次名字像 XxxProps 的
+  const decls = new Map();
+  for (const node of ast.program.body) {
+    const d = node.type === 'ExportNamedDeclaration' ? node.declaration : node;
+    if (d?.type === 'TSInterfaceDeclaration') decls.set(d.id.name, d.body.body);
+    if (d?.type === 'TSTypeAliasDeclaration' && d.typeAnnotation?.type === 'TSTypeLiteral')
+      decls.set(d.id.name, d.typeAnnotation.members);
+  }
+  let members = null;
+  for (const [name, m] of decls) if (/props$/i.test(name)) members = m;
+  if (!members && decls.size === 1) members = [...decls.values()][0];
+
+  const props = [];
+  if (members) {
+    for (const m of members) {
+      const name = m.key?.name ?? m.key?.value;
+      if (!name) continue;
+      props.push({
+        name,
+        type: typeText(m.typeAnnotation),
+        default: defaults.get(name) ?? '',
+        description: commentAbove(m)
+      });
+    }
+  } else if (params?.keys?.length) {
+    // 没有类型声明，至少把解构出来的 prop 名和默认值给出来
+    for (const name of params.keys)
+      props.push({ name, type: 'any', default: defaults.get(name) ?? '', description: '' });
+  }
+  return props;
+}
+
 /** 有没有 default export —— GridScan 是 139 个里唯一只有具名导出的 */
 export function hasDefaultExport(source) {
   const ast = parseSource(source);

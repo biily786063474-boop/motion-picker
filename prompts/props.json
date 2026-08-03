@@ -1,6 +1,6 @@
 {
   "variant": "TS-TW",
-  "total": 139,
+  "total": 140,
   "note": "props[].default 是组件默认值（来自 propData）；previewDefaults 是站点预览区初始值，两者常不同",
   "components": [
     {
@@ -3869,6 +3869,72 @@
           "type": "number",
           "default": "0",
           "description": "Rotation of the entire beams system in degrees."
+        }
+      ]
+    },
+    {
+      "name": "BreathingGrid",
+      "category": "Backgrounds",
+      "custom": true,
+      "usage": "import BreathingGrid from './BreathingGrid';\n\n<div style={{ position: 'relative', height: 400 }}>\n  <BreathingGrid cellSize={48} duration={6} color=\"#5227FF\" />\n</div>",
+      "dependencies": "",
+      "prompt": null,
+      "source": "custom/Backgrounds/BreathingGrid/BreathingGrid.tsx",
+      "previewDefaults": {
+        "cellSize": 48,
+        "duration": 6,
+        "color": "#5227FF",
+        "minOpacity": 0.08,
+        "maxOpacity": 0.35
+      },
+      "skippedPreviewDefaults": [],
+      "actualProps": [
+        "cellSize",
+        "duration",
+        "color",
+        "minOpacity",
+        "maxOpacity",
+        "className"
+      ],
+      "acceptsRest": false,
+      "restToDOM": false,
+      "phantomProps": [],
+      "props": [
+        {
+          "name": "cellSize",
+          "type": "number",
+          "default": "48",
+          "description": "网格线间距（px）"
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "6",
+          "description": "呼吸一个来回的时长（秒）"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "'#5227FF'",
+          "description": "网格线颜色"
+        },
+        {
+          "name": "minOpacity",
+          "type": "number",
+          "default": "0.08",
+          "description": "最暗时的透明度"
+        },
+        {
+          "name": "maxOpacity",
+          "type": "number",
+          "default": "0.35",
+          "description": "最亮时的透明度"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "附加类名"
         }
       ]
     },

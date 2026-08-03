@@ -29,6 +29,11 @@ jobs:
       - name: 冒烟
         run: node scripts/ci-smoke.mjs
 
+      # custom/ 下的自有组件必须一直满足入库标准，
+      # 否则选型台的参数面板会退化、取用会带上外链
+      - name: 自有组件入库标准
+        run: node scripts/validate-component.mjs
+
   playground-build:
     name: 选型台能否构建
     runs-on: ubuntu-latest
