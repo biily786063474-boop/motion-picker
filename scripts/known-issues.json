@@ -1,0 +1,26 @@
+{
+  "LetterGlitch": {
+    "summary": "卸载时只 cancelAnimationFrame，没清 resize 定时器、也没把 canvas context 置空",
+    "detail": "残留的 rAF 回调在组件卸载后仍会跑一次，此时 canvasRef.current 已是 null，而源码用了非空断言 canvasRef.current!.getBoundingClientRect()，于是抛 'Cannot read properties of null'。这个错误会记到下一个挂载的组件头上，很难查。",
+    "fix": "在 useEffect 的清理函数里补 clearTimeout(resizeTimeout) 并把 context.current 置 null",
+    "foundAt": "2026-08-01"
+  },
+  "GridScan": {
+    "summary": "加载 face-api 模型的 effect 依赖 [modelsPath]，不管 enableWebcam 是不是 false 都会去 CDN 拉权重",
+    "detail": "挂载一次发 10 个请求，改任何参数触发重挂又来一轮。离线时这些请求会挂起很久。",
+    "fix": "传 modelsPath 指向本地不存在的路径让它立刻 404 失败（源码有 try/catch，enableWebcam=false 时本来就用不上模型）",
+    "foundAt": "2026-08-01"
+  },
+  "ASCIIText": {
+    "summary": "源码里硬编码了 @import url(fonts.googleapis.com/...IBM Plex Mono)，并用 document.fonts.load 等它就绪",
+    "detail": "离线时 @import 拿不到，字体永远 ready 不了。",
+    "fix": "在项目 CSS 里加一条 @font-face 把 'IBM Plex Mono' 指向本机等宽字体，document.fonts.load 就能立即命中",
+    "foundAt": "2026-08-01"
+  },
+  "FluidGlass": {
+    "summary": "用了 drei 的 <Text>，底层 troika 会去 CDN 拉 unicode 字体覆盖数据",
+    "detail": "离线时 Suspense 永远不 resolve，组件卡在加载态出不来。troika 在自定义 dataUrl 失败后还会 fallback 回官方 CDN，所以从配置层堵不住。",
+    "fix": "纯离线场景下这个组件不可用；在线环境正常",
+    "foundAt": "2026-08-01"
+  }
+}
