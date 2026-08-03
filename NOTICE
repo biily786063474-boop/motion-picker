@@ -1,0 +1,43 @@
+Motion Picker
+=============
+
+本项目包含来自第三方项目的代码，以下是归属说明。
+
+---
+
+## react-bits
+
+`components/` 目录下的 139 个 .tsx 文件，以及 `prompts/` 下的集成说明，
+全部来自：
+
+    https://github.com/DavidHDev/react-bits
+    Copyright (c) DavidHDev
+    MIT License
+
+`components/` 与上游的 TypeScript + Tailwind 变体**保持字节一致**，未作任何修改。
+`prompts/` 是上游网站「Copy Prompt」功能产物的离线复刻，与线上输出字节级一致。
+
+同步的上游版本记录在 `prompts/.meta.json` 的 commit 字段。
+
+组件被取用到你的项目时（通过 `scripts/add.mjs`），会在文件头自动写入出处：
+组件名、上游仓库地址、commit SHA、许可证、取用日期、原始源码 sha256。
+
+如果这些组件对你有用，请去支持原项目：
+https://github.com/DavidHDev/react-bits
+
+---
+
+## 静态资源
+
+`components/Components/card.glb`、`components/Components/lanyard.png`、
+`public/assets/` 下的模型与图片，同样来自 react-bits 仓库，随组件一起分发。
+
+`public/draco/` 下的 Draco 解码器来自 three.js（MIT，Copyright (c) 2010-2026 three.js authors），
+从 `three` npm 包的 `examples/jsm/libs/draco/` 复制而来。
+
+---
+
+## 本项目自身
+
+选型台（`playground/`）、取用 CLI（`scripts/`）、抓取管线、skill 定义
+由本项目作者编写，以 MIT 发布，见 LICENSE。
