@@ -56,12 +56,36 @@ function useRuntimeError(resetKey) {
 }
 
 /**
- * 在选型台调好手感之后，直接把「拷进项目」那条命令给出来，
- * 省得回去翻 components/ 目录。--dry-run 先看会发生什么（含宿主体检），
- * 确认没问题再去掉它。
+ * 「交给 AI」—— 选型台存在的意义就是这一下。
+ *
+ * 人在这里挑效果、调手感（这件事 AI 做不了，得眼睛看）；
+ * 调完把「我要这个、参数是这样」连同源码路径、真实依赖、宿主兼容性诊断
+ * 一起交回给 LLM，由它按目标项目的技术栈去适配和集成。
  */
-function buildAddCommand(name) {
-  return `node ~/Biily/资产收集/交互动效/scripts/add.mjs ${name} --to <目标目录> --dry-run`;
+function HandoffButton({ name, tunedProps, usage }) {
+  const [state, setState] = useState('');
+
+  const handoff = async () => {
+    setState('...');
+    try {
+      const res = await fetch('/api/selection', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, tunedProps, usage })
+      });
+      const data = await res.json();
+      setState(data.ok ? 'ok' : 'fail');
+    } catch {
+      setState('fail');
+    }
+    setTimeout(() => setState(''), 2600);
+  };
+
+  return (
+    <button className={state === 'ok' ? 'pg-btn pg-btn--ok' : 'pg-btn pg-btn--primary'} onClick={handoff}>
+      {state === 'ok' ? '已交给 AI，回对话继续' : state === 'fail' ? '失败' : state === '...' ? '…' : '✦ 交给 AI'}
+    </button>
+  );
 }
 
 /** 只输出与默认值不同的 prop，跟站点 Copy Prompt 的注入逻辑同一个思路 */
@@ -116,6 +140,23 @@ export default function App() {
   const [selected, setSelected] = useState('Orb');
   const [query, setQuery] = useState('');
   const [overrides, setOverrides] = useState({});
+
+  // 这次选型是给哪个项目做的（由 skill 在启动前写进 .rb-context.json）
+  const [hostCtx, setHostCtx] = useState(null);
+  const [hostWarnings, setHostWarnings] = useState([]);
+  useEffect(() => {
+    fetch('/api/context')
+      .then(r => r.json())
+      .then(setHostCtx)
+      .catch(() => {});
+  }, []);
+  useEffect(() => {
+    if (!hostCtx?.project) return;
+    fetch(`/api/host?project=${encodeURIComponent(hostCtx.project)}&component=${selected}`)
+      .then(r => r.json())
+      .then(d => setHostWarnings(d.warnings || []))
+      .catch(() => setHostWarnings([]));
+  }, [hostCtx, selected]);
 
   const meta = useMemo(() => schema.components.find(c => c.name === selected), [selected]);
   const entry = REGISTRY_MAP.get(selected);
@@ -267,12 +308,30 @@ export default function App() {
             {meta?.category} · {controls.filter(c => c.kind !== 'unsupported').length}/{controls.length} 个参数可调
           </span>
           <div className="pg-stage-actions">
-            <CopyButton label="取用命令" getText={() => buildAddCommand(selected)} />
+            <HandoffButton
+              name={selected}
+              tunedProps={Object.fromEntries(
+                Object.entries(values).filter(([k, v]) => JSON.stringify(v) !== JSON.stringify(defaults[k]))
+              )}
+              usage={buildUsage(selected, values, defaults, controls)}
+            />
             <CopyButton label="复制用法" getText={() => buildUsage(selected, values, defaults, controls)} />
             <CopyButton label="复制源码" getText={() => entry?.loadSource?.()} />
             <CopyButton label="复制 Prompt" getText={() => entry?.loadPrompt?.()} />
           </div>
         </div>
+
+        {/* 选型时就告诉你这个组件在目标项目里能不能用，别等拷进去才发现 */}
+        {hostCtx?.project && hostWarnings.length > 0 && (
+          <div className="pg-host-check">
+            <b>目标项目 {hostCtx.projectName || hostCtx.project}</b>
+            {hostWarnings.map((w, i) => (
+              <div key={i} className="pg-host-check__item" data-level={w.level}>
+                {w.level === 'error' ? '✗' : w.level === 'warn' ? '⚠' : '·'} {w.message}
+              </div>
+            ))}
+          </div>
+        )}
 
         {runtimeError && (
           <div className="pg-runtime-error">

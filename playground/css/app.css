@@ -192,6 +192,42 @@ body {
   font-size: 13px;
 }
 
+.pg-btn--primary {
+  background: linear-gradient(135deg, #5227ff, #7c4dff);
+  border-color: #6b46ff;
+  color: #fff;
+  font-weight: 500;
+}
+.pg-btn--primary:hover {
+  background: linear-gradient(135deg, #5f35ff, #8a5cff);
+}
+
+/* 目标项目的兼容性诊断：选型时就看到，别等拷进去才发现用不了 */
+.pg-host-check {
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--border-primary);
+  background: rgba(82, 39, 255, 0.06);
+  font-size: 11.5px;
+  line-height: 1.7;
+  flex: 0 0 auto;
+}
+.pg-host-check b {
+  color: #c4b5fd;
+  font-weight: 500;
+  margin-right: 10px;
+}
+.pg-host-check__item {
+  color: var(--text-muted);
+  display: inline-block;
+  margin-right: 16px;
+}
+.pg-host-check__item[data-level='error'] {
+  color: #fda4af;
+}
+.pg-host-check__item[data-level='warn'] {
+  color: #fcd34d;
+}
+
 .pg-runtime-error {
   display: flex;
   align-items: center;

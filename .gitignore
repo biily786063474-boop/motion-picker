@@ -3,3 +3,5 @@ node_modules/
 playground/dist/
 .DS_Store
 .tmp-build/
+.rb-selection.json
+.rb-context.json
