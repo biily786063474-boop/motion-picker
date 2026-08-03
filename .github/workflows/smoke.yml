@@ -1,7 +1,8 @@
 name: 冒烟测试
 
-# 验证「陌生人 clone 下来能不能直接用」。
-# 刻意不装 npm 依赖 —— 取用组件本来就不需要，这正是要守住的性质。
+# 两类工具，两种验证方式：
+#   使用者的（add.mjs / doctor.mjs）必须零依赖可用 —— smoke job 刻意不装 npm 依赖
+#   维护者的（validate / index-custom / build-prompts）要做 AST 解析，需要依赖
 on:
   push:
     branches: [main]
@@ -24,15 +25,31 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      # 注意：这里没有 npm install。取用路径必须零依赖可用，
-      # 一旦哪天改坏了这个性质，这个 job 就会红。
-      - name: 冒烟
+      # 注意：这里没有 npm install，是故意的。
+      # 取用路径零依赖可用是这个项目的核心承诺，
+      # 谁哪天让 add.mjs 依赖上第三方包，这 12 个 job 立刻红。
+      - name: 取用路径（零依赖）
         run: node scripts/ci-smoke.mjs
 
-      # custom/ 下的自有组件必须一直满足入库标准，
-      # 否则选型台的参数面板会退化、取用会带上外链
-      - name: 自有组件入库标准
+  standards:
+    name: 自有组件入库标准
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      # validate 要解析 TS 类型推参数表，需要 @babel/parser
+      - run: npm ci --no-audit --no-fund
+      - name: 校验 custom/ 下的组件
         run: node scripts/validate-component.mjs
+      - name: 索引合并是幂等的
+        run: |
+          node scripts/index-custom.mjs
+          node scripts/index-custom.mjs
+          git diff --exit-code prompts/index.json prompts/props.json \
+            || { echo "index-custom 不幂等：跑两次结果不一样"; exit 1; }
 
   playground-build:
     name: 选型台能否构建

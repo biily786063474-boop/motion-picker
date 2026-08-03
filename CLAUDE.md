@@ -80,8 +80,15 @@ workflow 产出 → `collect-overrides.mjs` 汇总。手写特例放 `playground
 没有一行是为某个具体组件写的。如果 `OVERRIDES` 膨胀到几十条，说明默认规则定错了，
 回头改默认规则，不要继续往表里堆。
 
-**取用路径必须零依赖。** 不装 `node_modules` 也能 `add.mjs`——依赖信息预计算进 `index.json`。
-CI 刻意不跑 `npm install` 就是为了守住这条，改坏了立刻红。
+**分清「使用者的工具」和「维护者的工具」。**
+
+| | 谁用 | 能不能依赖第三方包 |
+|---|---|---|
+| `add.mjs` `doctor.mjs` `add-core.mjs` | 使用者（clone 下来就跑） | **不能**，依赖信息预计算进 `index.json` |
+| `validate` `index-custom` `build-prompts` `sweep` | 维护者（在库里干活） | 可以，要做 AST 解析和浏览器自动化 |
+
+CI 的冒烟矩阵刻意不跑 `npm install`，就是守住第一行；维护工具走单独的 job。
+**给 `add.mjs` 加一个 import 就可能破掉这条**——12 个 job 会立刻红。
 
 **核心逻辑与命令行外壳分离。** `lib/add-core.mjs` 是纯函数（不 `console.log`、不 `process.exit`、
 不读 argv），诊断信息都是返回值的一部分，这样它能被 Electron 主进程、eas-term、MCP server 直接 import。
