@@ -191,6 +191,21 @@ const result = await addComponent({
 - ✗ 版本号 / CHANGELOG / 发版流程
 - ✗ 重写 `buildPrompt()`；不为「修正 prompt 里的错误依赖行」去改 `prompts/`（那是上游文档的字节级镜像，正确数据放 `index.json.realDeps`）
 
+## 六·五、冒烟实测发现（比评审预言更严重）
+
+用一个刻意复现 taptv 配置（React 18 + 无 Tailwind）的临时宿主端到端跑了一遍：
+
+**three 生态组件在 React 18 宿主上不是「画面塌」，是根本装不上。**
+`@react-three/fiber` v9.7.0 的 peer 写死 `react >=19 <19.3`，
+`npm i @react-three/fiber` 直接 ERESOLVE 失败。强行 `--legacy-peer-deps` 装进去，
+`<Canvas>` 渲染时抛 `Objects are not valid as a React child`，
+**没有 ErrorBoundary 会把整个 React 树带塌 —— 实测整页全黑，旁边好好的组件也一起没了**。
+
+体检已升级：组件依赖 `@react-three/*` 且宿主 React < 19 → error 级别，给三条出路
+（装 fiber@^8、升宿主 React、或换库里 36 个零依赖组件之一）。
+
+这条直接影响 taptv 能用哪些组件：**139 个里 8 个依赖 @react-three/* 生态，在 taptv 现状下取不了；32 个零依赖的随时可取**。
+
 ## 七、执行记录
 
 | 任务 | 状态 | 备注 |
@@ -198,11 +213,11 @@ const result = await addComponent({
 | T1 git 化 | ✅ | `.git` 6.7M，tag `upstream-b9158ac` |
 | T2 package.json scripts | ✅ | `npm run dev` → 200 |
 | T3 管线原子写 | ✅ | 失败路径实测校验和不变；对账 3/3 一致 |
-| T4 resolve.mjs | 待办 | |
-| T5 index.json 字段 | 待办 | |
-| T6 add-core.mjs | 待办 | |
-| T7 add.mjs | 待办 | |
-| T8 体检警告 | 待办 | |
-| T9 playground 按钮 | 待办 | |
-| T10 taptv 冒烟 | 待办 | |
+| T4 resolve.mjs | ✅ | 删 5300 字符重复实现，产物零差异 |
+| T5 index.json 字段 | ✅ | 8 个字段；realDeps 差异恰好 11 个 |
+| T6 add-core.mjs | ✅ | dry-run 零副作用；覆盖保护、回滚实测 |
+| T7 add.mjs | ✅ | 修了管道截断 bug；--json 87KB 合法 |
+| T8 体检警告 | ✅ | Tailwind/React/r3f/外链/draco/已知问题 6 类 |
+| T9 playground 按钮 | ✅ | 「取用命令」按钮，剪贴板实测 |
+| T10 冒烟 | ✅ | 临时宿主复现 taptv 配置；**taptv 真实集成待你点头** |
 | T11 description（可选） | 待办 | |

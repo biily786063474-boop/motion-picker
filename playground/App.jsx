@@ -55,6 +55,15 @@ function useRuntimeError(resetKey) {
   return [error, () => setError(null)];
 }
 
+/**
+ * 在选型台调好手感之后，直接把「拷进项目」那条命令给出来，
+ * 省得回去翻 components/ 目录。--dry-run 先看会发生什么（含宿主体检），
+ * 确认没问题再去掉它。
+ */
+function buildAddCommand(name) {
+  return `node ~/Biily/资产收集/交互动效/scripts/add.mjs ${name} --to <目标目录> --dry-run`;
+}
+
 /** 只输出与默认值不同的 prop，跟站点 Copy Prompt 的注入逻辑同一个思路 */
 function buildUsage(name, values, defaults, controls) {
   const changed = controls
@@ -258,6 +267,7 @@ export default function App() {
             {meta?.category} · {controls.filter(c => c.kind !== 'unsupported').length}/{controls.length} 个参数可调
           </span>
           <div className="pg-stage-actions">
+            <CopyButton label="取用命令" getText={() => buildAddCommand(selected)} />
             <CopyButton label="复制用法" getText={() => buildUsage(selected, values, defaults, controls)} />
             <CopyButton label="复制源码" getText={() => entry?.loadSource?.()} />
             <CopyButton label="复制 Prompt" getText={() => entry?.loadPrompt?.()} />

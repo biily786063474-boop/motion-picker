@@ -105,9 +105,25 @@ export function inspectHost(comp, projectRoot) {
     });
   }
 
-  // ② React 18 vs 19：有些组件把 ref 当普通 prop 接，那是 React 19 才成立的写法
+  // ② React 版本
   const reactMajor = semverMajor(allDeps.react);
-  if (reactMajor && reactMajor < 19) {
+  const R3F = ['@react-three/fiber', '@react-three/drei', '@react-three/postprocessing', '@react-three/rapier'];
+  const usesR3F = comp.realDeps.filter(d => R3F.includes(d));
+
+  if (reactMajor && reactMajor < 19 && usesR3F.length) {
+    // 实测：@react-three/fiber v9 的 peer 是 react >=19 <19.3，
+    // 在 React 18 宿主上 `npm i @react-three/fiber` 会被 npm 直接拒绝（ERESOLVE）。
+    // 硬装进去的话 <Canvas> 渲染时抛 "Objects are not valid as a React child"，
+    // 而且没有 ErrorBoundary 时会把整个 React 树带塌 —— 实测整页全黑。
+    push('error', 'r3f-needs-react19', `${comp.name} 依赖 ${usesR3F.join(' / ')}，而这套包的当前大版本硬性要求 React 19；宿主是 React ${reactMajor}`, {
+      detail: 'npm 会直接拒绝安装（ERESOLVE）。强行 --legacy-peer-deps 装进去，<Canvas> 渲染时会抛 "Objects are not valid as a React child" 并把整个 React 树带塌',
+      fix: [
+        '装 @react-three/fiber@^8 与配套的 drei@^9（v8 系列支持 React 18）',
+        '或者把宿主升到 React 19',
+        '或者换一个不依赖 three 的组件 —— 库里有 36 个零依赖的'
+      ]
+    });
+  } else if (reactMajor && reactMajor < 19) {
     push('warn', 'react-version', `宿主是 React ${reactMajor}，本库在 React 19 上验证`, {
       detail: '把 ref 当普通 prop 接的组件（ScrollVelocity / GradualBlur 等）在 React 18 里 ref 会被吃掉，props.ref 是 undefined —— 不报错，就是不动'
     });
