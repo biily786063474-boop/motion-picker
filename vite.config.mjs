@@ -8,6 +8,6 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), bridgePlugin()],
   // Lanyard import 了 card.glb，vite 默认不把它当二进制资源，构建会报 "not valid UTF-8"
   assetsInclude: ['**/*.glb', '**/*.gltf', '**/*.hdr'],
-  server: { port: 5180 },
+  server: { port: Number(process.env.PORT) || 5180 },
   build: { outDir: 'playground/dist', emptyOutDir: true }
 });
