@@ -6,6 +6,7 @@
 
 139 个 React 动效组件的本地库 · 可视化挑选调参 · 挑完交给 AI 自动适配集成
 
+[![冒烟测试](https://github.com/biily786063474-boop/motion-picker/actions/workflows/smoke.yml/badge.svg)](https://github.com/biily786063474-boop/motion-picker/actions/workflows/smoke.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)](package.json)
 [![离线可用](https://img.shields.io/badge/离线-可用-brightgreen.svg)](#为什么不是直接让-ai-写)

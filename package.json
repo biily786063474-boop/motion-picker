@@ -16,7 +16,8 @@
     "check:blank": "node scripts/detect-blank.mjs",
     "check:network": "node scripts/check-network.mjs",
     "doctor": "node scripts/doctor.mjs",
-    "postinstall": "node -e \"console.log('\\n选型台依赖已装。取用组件其实不需要这些 —— node scripts/add.mjs --list 直接可用\\n')\""
+    "postinstall": "node -e \"console.log('\\n选型台依赖已装。取用组件其实不需要这些 —— node scripts/add.mjs --list 直接可用\\n')\"",
+    "test": "node scripts/ci-smoke.mjs"
   },
   "dependencies": {
     "@babel/parser": "^8.0.4",
