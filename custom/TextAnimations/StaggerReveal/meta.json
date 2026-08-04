@@ -1,0 +1,51 @@
+{
+  "category": "TextAnimations",
+  "description": "逐字错峰入场，六种错峰次序 × 五种入场姿态，缓动默认带超调",
+  "source": "自制",
+  "license": "MIT",
+  "previewDefaults": {
+    "preset": "rise",
+    "from": "start",
+    "stagger": 0.045,
+    "duration": 0.9,
+    "overshoot": 1,
+    "travel": 1,
+    "onView": true,
+    "threshold": 0.25
+  },
+  "usage": "import StaggerReveal from './StaggerReveal';\n\n<h1 style={{ fontSize: 64 }}>\n  <StaggerReveal text=\"错落有致 才有呼吸感\" preset=\"flip\" from=\"center\" overshoot={1.8} />\n</h1>",
+  "semantic": {
+    "summary": "标题按字符拆开依次落位，每个字冲过终点再弹回来，可从中心或两头起势",
+    "motion": "逐字落位",
+    "mood": [
+      "活泼",
+      "优雅",
+      "科技"
+    ],
+    "palette": [
+      "可定制"
+    ],
+    "intensity": "moderate",
+    "scenes": [
+      "标题",
+      "Hero区",
+      "落地页",
+      "启动页"
+    ],
+    "keywords": [
+      "逐字",
+      "错峰",
+      "错落",
+      "文字入场",
+      "标题动画",
+      "打散",
+      "逐字浮现",
+      "依次出现",
+      "翻转入场",
+      "弹跳文字",
+      "分字",
+      "进场动画"
+    ],
+    "avoid": "大段正文别用，会拆成上百个 span 既卡又碎；拆字后屏幕阅读器会逐字念，组件已附了一份完整文本兜底但别再自己包一层；数字滚动用 CountUp 更合适"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "variant": "TS-TW",
-  "total": 140,
+  "total": 146,
   "note": "props[].default 是组件默认值（来自 propData）；previewDefaults 是站点预览区初始值，两者常不同",
   "components": [
     {
@@ -1039,6 +1039,94 @@
           "type": "string",
           "default": "power2.in",
           "description": "GSAP easing function for the disappearance animation."
+        }
+      ]
+    },
+    {
+      "name": "FluidWarp",
+      "category": "Animations",
+      "custom": true,
+      "usage": "import FluidWarp from './FluidWarp';\n\n<div style={{ position: 'relative', height: 420 }}>\n  <FluidWarp peakStrength={42} elasticity={9}>\n    <YourHero />\n  </FluidWarp>\n</div>",
+      "dependencies": "",
+      "prompt": null,
+      "source": "custom/Animations/FluidWarp/FluidWarp.tsx",
+      "previewDefaults": {
+        "restStrength": 6,
+        "peakStrength": 42,
+        "scale": 0.012,
+        "speed": 0.12,
+        "viscosity": 3.2,
+        "elasticity": 9
+      },
+      "skippedPreviewDefaults": [],
+      "actualProps": [
+        "children",
+        "restStrength",
+        "peakStrength",
+        "scale",
+        "speed",
+        "viscosity",
+        "elasticity",
+        "still",
+        "className"
+      ],
+      "acceptsRest": false,
+      "restToDOM": false,
+      "phantomProps": [],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "",
+          "description": "被扭曲的内容"
+        },
+        {
+          "name": "restStrength",
+          "type": "number",
+          "default": "6",
+          "description": "静止时的扭曲强度（px 位移）。0 = 完全不动"
+        },
+        {
+          "name": "peakStrength",
+          "type": "number",
+          "default": "42",
+          "description": "鼠标划过时能冲到的最大扭曲强度（px 位移）"
+        },
+        {
+          "name": "scale",
+          "type": "number",
+          "default": "0.012",
+          "description": "噪声粗细。越小纹路越大越像水波，越大越像毛玻璃"
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "0.12",
+          "description": "流动速度。0 = 冻住不流"
+        },
+        {
+          "name": "viscosity",
+          "type": "number",
+          "default": "3.2",
+          "description": "鼠标停下后回弹的黏度。越小回弹越慢越糯"
+        },
+        {
+          "name": "elasticity",
+          "type": "number",
+          "default": "9",
+          "description": "回弹时的弹性。越大越夸张，会来回过冲几次"
+        },
+        {
+          "name": "still",
+          "type": "boolean",
+          "default": "false",
+          "description": "关掉鼠标交互，只留自动流动"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "附加类名"
         }
       ]
     },
@@ -2887,6 +2975,102 @@
           "type": "number[]",
           "default": "[0, 0, 0, 0]",
           "description": "An RGBA array specifying the clear color for the renderer."
+        }
+      ]
+    },
+    {
+      "name": "ScrollScenes",
+      "category": "Animations",
+      "custom": true,
+      "usage": "import ScrollScenes from './ScrollScenes';\n\n<ScrollScenes\n  scroller=\"window\"\n  scenes={[\n    { title: '第一屏', subtitle: '说明文字', background: '#101020' },\n    { title: '第二屏', subtitle: '说明文字', background: '#102030' }\n  ]}\n/>",
+      "dependencies": "",
+      "prompt": null,
+      "source": "custom/Animations/ScrollScenes/ScrollScenes.tsx",
+      "previewDefaults": {
+        "scrollPerScene": 1,
+        "overlap": 0.45,
+        "travel": 90,
+        "minScale": 0.86,
+        "blur": 14,
+        "overshoot": 1.7,
+        "stagger": 0.14
+      },
+      "skippedPreviewDefaults": [],
+      "actualProps": [
+        "scenes",
+        "scrollPerScene",
+        "overlap",
+        "travel",
+        "minScale",
+        "blur",
+        "overshoot",
+        "stagger",
+        "scroller",
+        "className"
+      ],
+      "acceptsRest": false,
+      "restToDOM": false,
+      "phantomProps": [],
+      "props": [
+        {
+          "name": "scenes",
+          "type": "ScrollScene[]",
+          "default": "DEFAULT_SCENES",
+          "description": "场景列表。不传就用内置的三屏示例"
+        },
+        {
+          "name": "scrollPerScene",
+          "type": "number",
+          "default": "1",
+          "description": "每个场景占多少屏滚动距离。越大切得越慢越从容"
+        },
+        {
+          "name": "overlap",
+          "type": "number",
+          "default": "0.45",
+          "description": "相邻场景的交叠程度。0 = 走完一个才开始下一个，1 = 一直在交叉"
+        },
+        {
+          "name": "travel",
+          "type": "number",
+          "default": "90",
+          "description": "进出时的位移幅度（px）"
+        },
+        {
+          "name": "minScale",
+          "type": "number",
+          "default": "0.86",
+          "description": "进出时缩到多小"
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": "14",
+          "description": "离场虚化强度（px），0 = 不虚化"
+        },
+        {
+          "name": "overshoot",
+          "type": "number",
+          "default": "1.7",
+          "description": "超调力度。越大越夸张，会冲过终点再弹回来"
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.14",
+          "description": "场景内三级元素的错峰量。0 = 一起到位"
+        },
+        {
+          "name": "scroller",
+          "type": "'self' | 'window'",
+          "default": "'self'",
+          "description": "滚动源：self = 组件自带滚动容器；window = 跟随页面滚动"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "附加类名"
         }
       ]
     },
@@ -11824,6 +12008,126 @@
       ]
     },
     {
+      "name": "RingCarousel",
+      "category": "Components",
+      "custom": true,
+      "usage": "import RingCarousel from './RingCarousel';\n\n<div style={{ height: '100vh' }}>\n  <RingCarousel\n    items={[{ title: '01', subtitle: '产品' }, { title: '02', subtitle: '方案' }]}\n    damping={9}\n  />\n</div>",
+      "dependencies": "",
+      "prompt": null,
+      "source": "custom/Components/RingCarousel/RingCarousel.tsx",
+      "previewDefaults": {
+        "cardWidth": 200,
+        "cardHeight": 268,
+        "radiusScale": 1.55,
+        "perspective": 1100,
+        "tilt": -6,
+        "scrollLength": 3,
+        "stiffness": 90,
+        "damping": 9,
+        "stagger": 0.12,
+        "backDim": 0.32
+      },
+      "skippedPreviewDefaults": [],
+      "actualProps": [
+        "items",
+        "cardWidth",
+        "cardHeight",
+        "radiusScale",
+        "perspective",
+        "tilt",
+        "scrollLength",
+        "stiffness",
+        "damping",
+        "stagger",
+        "backDim",
+        "scroller",
+        "className"
+      ],
+      "acceptsRest": false,
+      "restToDOM": false,
+      "phantomProps": [],
+      "props": [
+        {
+          "name": "items",
+          "type": "RingCarouselItem[]",
+          "default": "DEFAULT_ITEMS",
+          "description": "卡片列表。不传就用内置的 8 张示例"
+        },
+        {
+          "name": "cardWidth",
+          "type": "number",
+          "default": "200",
+          "description": "卡片宽度（px）"
+        },
+        {
+          "name": "cardHeight",
+          "type": "number",
+          "default": "268",
+          "description": "卡片高度（px）"
+        },
+        {
+          "name": "radiusScale",
+          "type": "number",
+          "default": "1.55",
+          "description": "环的半径倍率。1 = 卡片刚好首尾相接，越大环越松"
+        },
+        {
+          "name": "perspective",
+          "type": "number",
+          "default": "1100",
+          "description": "透视距离（px）。越小透视越强、纵深越夸张"
+        },
+        {
+          "name": "tilt",
+          "type": "number",
+          "default": "-6",
+          "description": "整体俯仰角（度），负值是从上往下看"
+        },
+        {
+          "name": "scrollLength",
+          "type": "number",
+          "default": "3",
+          "description": "滚动一整圈需要几屏"
+        },
+        {
+          "name": "stiffness",
+          "type": "number",
+          "default": "90",
+          "description": "追随滚动的弹簧刚度。越大跟得越紧"
+        },
+        {
+          "name": "damping",
+          "type": "number",
+          "default": "9",
+          "description": "阻尼。越小越糯、过冲越明显"
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.12",
+          "description": "卡片之间的先后错落量。0 = 整环刚性转动"
+        },
+        {
+          "name": "backDim",
+          "type": "number",
+          "default": "0.32",
+          "description": "背面卡片压暗到多少"
+        },
+        {
+          "name": "scroller",
+          "type": "'self' | 'window'",
+          "default": "'self'",
+          "description": "滚动源：self = 组件自带滚动容器；window = 跟随页面滚动"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "附加类名"
+        }
+      ]
+    },
+    {
       "name": "ScrollStack",
       "category": "Components",
       "usage": "import ScrollStack, { ScrollStackItem } from './ScrollStack'\n\n<ScrollStack>\n  <ScrollStackItem>\n    <h2>Card 1</h2>\n    <p>This is the first card in the stack</p>\n  </ScrollStackItem>\n  <ScrollStackItem>\n    <h2>Card 2</h2>\n    <p>This is the second card in the stack</p>\n  </ScrollStackItem>\n  <ScrollStackItem>\n    <h2>Card 3</h2>\n    <p>This is the third card in the stack</p>\n  </ScrollStackItem>\n</ScrollStack>",
@@ -11935,6 +12239,95 @@
           "type": "function",
           "default": "undefined",
           "description": "Callback function called when the stack animation is complete."
+        }
+      ]
+    },
+    {
+      "name": "SnapSections",
+      "category": "Components",
+      "custom": true,
+      "usage": "import SnapSections from './SnapSections';\n\n<div style={{ height: '100vh' }}>\n  <SnapSections\n    snap=\"spring\"\n    sections={[{ title: '一', subtitle: '说明' }, { title: '二', subtitle: '说明' }]}\n  />\n</div>",
+      "dependencies": "",
+      "prompt": null,
+      "source": "custom/Components/SnapSections/SnapSections.tsx",
+      "previewDefaults": {
+        "snap": "native",
+        "stiffness": 120,
+        "damping": 11,
+        "overshoot": 26,
+        "travel": 70,
+        "minScale": 0.9,
+        "stagger": 0.16
+      },
+      "skippedPreviewDefaults": [],
+      "actualProps": [
+        "sections",
+        "snap",
+        "stiffness",
+        "damping",
+        "overshoot",
+        "travel",
+        "minScale",
+        "stagger",
+        "className"
+      ],
+      "acceptsRest": false,
+      "restToDOM": false,
+      "phantomProps": [],
+      "props": [
+        {
+          "name": "sections",
+          "type": "SnapSection[]",
+          "default": "DEFAULT_SECTIONS",
+          "description": "分屏列表。不传就用内置的四屏示例"
+        },
+        {
+          "name": "snap",
+          "type": "'native' | 'spring'",
+          "default": "'native'",
+          "description": "吸附方式：native = 浏览器原生吸附；spring = 自己弹簧吸附，会过冲"
+        },
+        {
+          "name": "stiffness",
+          "type": "number",
+          "default": "120",
+          "description": "spring 模式下的吸附刚度。越大吸得越快"
+        },
+        {
+          "name": "damping",
+          "type": "number",
+          "default": "11",
+          "description": "spring 模式下的阻尼。越小过冲越明显，能荡好几下"
+        },
+        {
+          "name": "overshoot",
+          "type": "number",
+          "default": "26",
+          "description": "过冲的视觉幅度（px）。0 = 不表现过冲"
+        },
+        {
+          "name": "travel",
+          "type": "number",
+          "default": "70",
+          "description": "内容进出的位移幅度（px）"
+        },
+        {
+          "name": "minScale",
+          "type": "number",
+          "default": "0.9",
+          "description": "离开时缩到多小"
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.16",
+          "description": "分屏内三级元素的错峰量。0 = 一起到位"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "附加类名"
         }
       ]
     },
@@ -12231,6 +12624,134 @@
           "type": "boolean",
           "default": "false",
           "description": "When enabled, autoplay pauses when hovering over the stack."
+        }
+      ]
+    },
+    {
+      "name": "StackTransition",
+      "category": "Components",
+      "custom": true,
+      "usage": "import StackTransition from './StackTransition';\n\n<div style={{ height: '100vh' }}>\n  <StackTransition\n    cards={[{ title: '特性一', body: '说明' }, { title: '特性二', body: '说明' }]}\n  />\n</div>",
+      "dependencies": "",
+      "prompt": null,
+      "source": "custom/Components/StackTransition/StackTransition.tsx",
+      "previewDefaults": {
+        "scrollPerCard": 1,
+        "cardRatio": 0.62,
+        "peek": 22,
+        "scaleStep": 0.055,
+        "liftStep": 14,
+        "tiltStep": 1.2,
+        "dimStep": 0.16,
+        "maxDepth": 4,
+        "travel": 120,
+        "overshoot": 1.7,
+        "radius": 22
+      },
+      "skippedPreviewDefaults": [],
+      "actualProps": [
+        "cards",
+        "scrollPerCard",
+        "cardRatio",
+        "peek",
+        "scaleStep",
+        "liftStep",
+        "tiltStep",
+        "dimStep",
+        "maxDepth",
+        "travel",
+        "overshoot",
+        "radius",
+        "scroller",
+        "className"
+      ],
+      "acceptsRest": false,
+      "restToDOM": false,
+      "phantomProps": [],
+      "props": [
+        {
+          "name": "cards",
+          "type": "StackCard[]",
+          "default": "DEFAULT_CARDS",
+          "description": "卡片列表。不传就用内置的五张示例"
+        },
+        {
+          "name": "scrollPerCard",
+          "type": "number",
+          "default": "1",
+          "description": "每张卡占多少屏滚动距离。越大转场越慢越从容"
+        },
+        {
+          "name": "cardRatio",
+          "type": "number",
+          "default": "0.62",
+          "description": "卡片高度占一屏的比例"
+        },
+        {
+          "name": "peek",
+          "type": "number",
+          "default": "22",
+          "description": "叠起来后每层露出的高度（px）"
+        },
+        {
+          "name": "scaleStep",
+          "type": "number",
+          "default": "0.055",
+          "description": "每被压一层就缩小多少"
+        },
+        {
+          "name": "liftStep",
+          "type": "number",
+          "default": "14",
+          "description": "每被压一层就上移多少（px）"
+        },
+        {
+          "name": "tiltStep",
+          "type": "number",
+          "default": "1.2",
+          "description": "每被压一层就倾斜多少（度），0 = 不倾斜"
+        },
+        {
+          "name": "dimStep",
+          "type": "number",
+          "default": "0.16",
+          "description": "每被压一层压暗多少"
+        },
+        {
+          "name": "maxDepth",
+          "type": "number",
+          "default": "4",
+          "description": "最多显示几层压叠，再往下就不继续缩了"
+        },
+        {
+          "name": "travel",
+          "type": "number",
+          "default": "120",
+          "description": "入场位移幅度（px）"
+        },
+        {
+          "name": "overshoot",
+          "type": "number",
+          "default": "1.7",
+          "description": "超调力度。越大入场时冲过头越明显"
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "22",
+          "description": "卡片圆角（px）"
+        },
+        {
+          "name": "scroller",
+          "type": "'self' | 'window'",
+          "default": "'self'",
+          "description": "滚动源：self = 组件自带滚动容器；window = 跟随页面滚动"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "附加类名"
         }
       ]
     },
@@ -14322,6 +14843,124 @@
           "type": "function",
           "default": "undefined",
           "description": "Callback function when all animations complete."
+        }
+      ]
+    },
+    {
+      "name": "StaggerReveal",
+      "category": "TextAnimations",
+      "custom": true,
+      "usage": "import StaggerReveal from './StaggerReveal';\n\n<h1 style={{ fontSize: 64 }}>\n  <StaggerReveal text=\"错落有致 才有呼吸感\" preset=\"flip\" from=\"center\" overshoot={1.8} />\n</h1>",
+      "dependencies": "",
+      "prompt": null,
+      "source": "custom/TextAnimations/StaggerReveal/StaggerReveal.tsx",
+      "previewDefaults": {
+        "preset": "rise",
+        "from": "start",
+        "stagger": 0.045,
+        "duration": 0.9,
+        "overshoot": 1,
+        "travel": 1,
+        "onView": true,
+        "threshold": 0.25
+      },
+      "skippedPreviewDefaults": [],
+      "actualProps": [
+        "text",
+        "children",
+        "preset",
+        "from",
+        "stagger",
+        "duration",
+        "delay",
+        "overshoot",
+        "travel",
+        "onView",
+        "threshold",
+        "replay",
+        "className"
+      ],
+      "acceptsRest": false,
+      "restToDOM": false,
+      "phantomProps": [],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": "DEFAULT_TEXT",
+          "description": "要展示的文字。也可以直接把字符串当 children 传"
+        },
+        {
+          "name": "children",
+          "type": "string",
+          "default": "",
+          "description": ""
+        },
+        {
+          "name": "preset",
+          "type": "RevealPreset",
+          "default": "'rise'",
+          "description": "入场姿态"
+        },
+        {
+          "name": "from",
+          "type": "StaggerFrom",
+          "default": "'start'",
+          "description": "错峰次序"
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.045",
+          "description": "相邻两个字的间隔（秒）。这是「错落有致」的主旋钮"
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.9",
+          "description": "单个字的动画时长（秒）"
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0",
+          "description": "整体延迟（秒）"
+        },
+        {
+          "name": "overshoot",
+          "type": "number",
+          "default": "1",
+          "description": "超调力度。0 = 平稳落位，1 = 默认，2 = 非常夸张会明显冲过头"
+        },
+        {
+          "name": "travel",
+          "type": "number",
+          "default": "1",
+          "description": "位移幅度，相对字号。1 = 一个字高"
+        },
+        {
+          "name": "onView",
+          "type": "boolean",
+          "default": "true",
+          "description": "滚动进入视口时才播；false = 挂载即播"
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0.25",
+          "description": "触发所需的可见比例 0~1"
+        },
+        {
+          "name": "replay",
+          "type": "boolean",
+          "default": "false",
+          "description": "播完后是否在离开视口时重置，下次再播"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "附加类名"
         }
       ]
     },

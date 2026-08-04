@@ -4,13 +4,13 @@
 
 **给 AI 编程助手配一个「动效选型台」**
 
-139 个 React 动效组件的本地库 · 可视化挑选调参 · 挑完交给 AI 自动适配集成
+146 个 React 动效组件的本地库 · 可视化挑选调参 · 挑完交给 AI 自动适配集成
 
 [![冒烟测试](https://github.com/biily786063474-boop/motion-picker/actions/workflows/smoke.yml/badge.svg)](https://github.com/biily786063474-boop/motion-picker/actions/workflows/smoke.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)](package.json)
 [![离线可用](https://img.shields.io/badge/离线-可用-brightgreen.svg)](#为什么不是直接让-ai-写)
-[![组件](https://img.shields.io/badge/组件-139-purple.svg)](#组件总览)
+[![组件](https://img.shields.io/badge/组件-146-purple.svg)](#组件总览)
 
 <img src="docs/media/workflow.webp" width="880" alt="完整工作流：搜索 → 挑组件 → 调参数 → 交给 AI">
 
@@ -35,7 +35,7 @@ Motion Picker 就是把它们分开：
 | **你** | 在本地选型台里看实时预览、拖参数，调到满意 |
 | **AI** | 拿着「组件源码 + 你调的参数 + 依赖清单 + 兼容性诊断」，按你项目的技术栈适配集成 |
 
-<img src="docs/media/gallery.png" width="100%" alt="139 个组件总览">
+<img src="docs/media/gallery.png" width="100%" alt="组件总览">
 
 ---
 
@@ -63,7 +63,7 @@ AI 判断不了「哪个好看」「参数调到什么程度合适」。选型�
 ### 🔍 组件名没有语义，所以给它们配了语义索引
 
 `Silk` `Balatro` `DarkVeil` `Ferrofluid` `Prism` —— 从名字一个都猜不出长什么样。
-AI 助手拿到「想要个暗色流动的背景」时，面对 139 个这样的名字是抓瞎的。
+AI 助手拿到「想要个暗色流动的背景」时，面对 146 个这样的名字是抓瞎的。
 
 所以每个组件都带一张**中文语义卡片**：长什么样、什么气质、适合什么场景、什么时候**不该用**。
 说人话就能搜：
@@ -92,7 +92,7 @@ $ node scripts/add.mjs --find "暗色流动的背景"
 
 两层信息拼出来的：**客观特征**（作用在哪、被什么触发、用什么画的、吃不吃性能）从源码 AST 推导，
 不会错；**主观语义**（长什么样、什么气质、什么时候别用）由 AI 逐个看巡检截图 + 读源码写出来，
-再抽最难判断的那批（光标类的静态截图必然是黑的）复核一遍，140 个全覆盖。
+再抽最难判断的那批（光标类的静态截图必然是黑的）复核一遍，146 个全覆盖。
 
 **「注意」那行是整张卡片里最值钱的部分** —— 只有踩过才知道的坑：
 
@@ -101,12 +101,38 @@ $ node scripts/add.mjs --find "暗色流动的背景"
 > **Crosshair** · 抖动只在鼠标移入 `<a>` 时触发，且链接在挂载时一次性绑定，后渲染出来的链接不生效
 > **LaserFlow** · `alpha:false` 把画布清成纯黑，会在版面上戳出一块黑矩形，叠不到已有背景图上
 
-需求含糊、或者你想自己判断时，用 `--catalog` 把 140 条压成十几 KB 的精简全表读进上下文，
+需求含糊、或者你想自己判断时，用 `--catalog` 把 146 条压成十几 KB 的精简全表读进上下文，
 自己做语义匹配 —— 那比关键词打分准。`--find` 是给不方便调模型的场合用的。
+
+### 🎬 一套自有的滚动/入场动效，缓动风格统一
+
+上游那 139 个的缓动是各写各的（`SplitText` 用 `power3.out`、`ScrollStack` 靠 lenis），
+凑在一个页面里手感是散的。所以另做了 7 个自有组件，共用一套**夸张缓动语汇**：
+
+| 组件 | 是什么 | 夸张感从哪来 |
+|---|---|---|
+| `ScrollScenes` | 滚动驱动的整屏场景切换 | `easeOutBack` 超调 + 屏内三级错峰 |
+| `StackTransition` | 滚动叠层转场，卡片依次吸顶叠成一摞 | 入场冲过终点再落回 |
+| `SnapSections` | 整屏滚动吸附 | 位置交给原生 snap，过冲由 transform 补偿 |
+| `RingCarousel` | 滚动驱动的 3D 环形轮播 | 角度用弹簧**追**滚动，不是等于滚动 |
+| `StaggerReveal` | 逐字错峰入场 | 6 种错峰次序 × 5 种入场姿态 |
+| `FluidWarp` | 交互式流体扭曲 | 搅动后靠弹簧荡回，会过冲几次 |
+| `BreathingGrid` | 呼吸网格背景 | — |
+
+默认的 `ease-out` 是单调收敛的，冲向终点、减速、停下——数学上无可挑剔，看着像 PPT。
+真实物体会**冲过去一点再荡回来**，这一点超调就是「有劲」和「没劲」的分界：
+
+```
+ease-out       ▁▂▄▆▇███       到点即停
+overshoot      ▁▂▄▆█▇█▇█      冲过头 → 荡回 → 落定
+```
+
+**全部零依赖**，取用就是拷一个文件；滚动类默认自带滚动容器，不接管页面滚动，
+页面上别的滚动动画照常工作。完整曲线表、弹簧参数、错峰次序见 [`docs/缓动规范.md`](docs/缓动规范.md)。
 
 ### 🔧 参数面板是自动生成的，不是手写的
 
-139 个组件共用**一套推断逻辑**，没有一行代码是为某个具体组件写的。1608 个 prop 里 **94.3% 能自动生成控件**——滑块的取值范围从 prop 名的量纲、文档里的 `(0-1)`、默认值的量级三层推出来；下拉的选项从文档描述里挖出来（`Split type: "chars", "words", "lines"`）。
+146 个组件共用**一套推断逻辑**，没有一行代码是为某个具体组件写的。1608 个 prop 里 **94.3% 能自动生成控件**——滑块的取值范围从 prop 名的量纲、文档里的 `(0-1)`、默认值的量级三层推出来；下拉的选项从文档描述里挖出来（`Split type: "chars", "words", "lines"`）。
 
 ### 🩺 拷进项目前先体检
 
@@ -132,7 +158,7 @@ $ node scripts/add.mjs --find "暗色流动的背景"
 
 ### 🔌 离线可用
 
-139 个组件源码 + 静态资源全在本地。取用组件**不需要联网、不需要 `npm install`**——依赖信息已经预计算好了。
+146 个组件源码 + 静态资源全在本地。取用组件**不需要联网、不需要 `npm install`**——依赖信息已经预计算好了。
 
 ---
 
@@ -150,7 +176,7 @@ node ~/motion-picker/scripts/add.mjs --list                      # 看有哪些
 node ~/motion-picker/scripts/add.mjs Orb --to ./src/components   # 拷进项目
 ```
 
-想要可视化选型台（本地预览 139 个组件的实时效果）再装依赖：
+想要可视化选型台（本地预览 146 个组件的实时效果）再装依赖：
 
 ```bash
 cd ~/motion-picker && npm install    # 约 500MB，只影响预览，不影响取用
@@ -176,7 +202,7 @@ node scripts/add.mjs --find "鼠标跟随" --json    # 给程序解析
 node scripts/add.mjs --catalog              # 精简全表（十几 KB），给 LLM 自己做匹配
 
 # 列出组件
-node scripts/add.mjs --list                 # 全部 139 个，按类目分组
+node scripts/add.mjs --list                 # 全部 146 个，按类目分组
 node scripts/add.mjs --list three           # 按关键字/依赖筛
 node scripts/add.mjs --list --no-deps       # 只看零依赖的（32 个）
 node scripts/add.mjs --list --json          # 结构化输出，给程序解析
@@ -277,7 +303,7 @@ alwaysApply: false
 ## 视觉动效
 
 需要背景特效、文字动画、交互效果时，用本地库 `~/motion-picker`
-（139 个 React 组件），不要手写 CSS 动画：
+（146 个 React 组件），不要手写 CSS 动画：
 
 - 检索：`node ~/motion-picker/scripts/add.mjs --find "<用户的原话>"`
 - 全表：`node ~/motion-picker/scripts/add.mjs --catalog`（拿不准时自己读全表判断）
@@ -294,7 +320,7 @@ alwaysApply: false
 ```markdown
 ## 动效组件
 
-需要视觉动效时用 `~/motion-picker`（139 个 React 组件，离线可用）：
+需要视觉动效时用 `~/motion-picker`（146 个 React 组件，离线可用）：
 
     node ~/motion-picker/scripts/add.mjs --find "<用户的原话>"   语义检索
     node ~/motion-picker/scripts/add.mjs --catalog             精简全表，自己判断
@@ -366,7 +392,7 @@ const r = await addComponent({ name: 'Orb', to: '/abs/path', dryRun: true });
 | | AI 手写 CSS/Canvas | 这个库 |
 |---|---|---|
 | 看效果 | 写完才知道，来回改 | **先看再要** |
-| 质量 | 取决于 prompt 和运气 | 139 个成熟组件，上游持续维护 |
+| 质量 | 取决于 prompt 和运气 | 146 个成熟组件，上游持续维护 |
 | 调参 | 说「快一点」「再淡一点」 | 拖滑块实时看 |
 | 依赖 | 常常漏装 | AST 推导，实测比文档准 |
 | 资源 | 忘拷 → 白屏 | 自动跟着走 |

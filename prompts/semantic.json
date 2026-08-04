@@ -1,6 +1,6 @@
 {
-  "total": 140,
-  "annotated": 140,
+  "total": 146,
+  "annotated": 146,
   "note": "客观特征由 build-semantic.mjs 从源码推导；summary/mood/scenes 等语义层来自 semantic-annotations.json（AI 看图标注）",
   "components": [
     {
@@ -662,6 +662,56 @@
         "viewport",
         "added",
         "container"
+      ]
+    },
+    {
+      "name": "FluidWarp",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "svg",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "内容像浸在水里，鼠标划过被搅出流动的褶皱，停手后晃几下才平复",
+      "mood": [
+        "梦幻",
+        "神秘",
+        "优雅"
+      ],
+      "motion": "搅动回弹",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "图片展示"
+      ],
+      "avoid": "CSS filter 只改变视觉不改变命中区域，扭曲后点击位置和看到的位置对不上，表单和按钮别套；Safari 对 HTML 内容的 feDisplacementMap 支持较弱，大面积用会掉帧；正文文字会被拉花",
+      "zh": [
+        "流体扭曲",
+        "液态",
+        "水波",
+        "扭曲",
+        "变形",
+        "置换",
+        "搅动",
+        "融化",
+        "涟漪",
+        "鼠标交互",
+        "包裹容器",
+        "果冻感"
+      ],
+      "en": [
+        "fluid",
+        "warp"
       ]
     },
     {
@@ -1831,6 +1881,59 @@
         "trails",
         "extend",
         "points"
+      ]
+    },
+    {
+      "name": "ScrollScenes",
+      "category": "Animations",
+      "surface": "collection",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "整屏场景随滚动推进依次接替，进出带缩放虚化，屏内文字分三级先后落位",
+      "mood": [
+        "高级",
+        "优雅",
+        "科技"
+      ],
+      "motion": "滚动推进",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍",
+        "启动页"
+      ],
+      "avoid": "祖先元素有 transform 会让 sticky 失效，整个效果直接不动；scroller='window' 时组件要占满视口高度，塞进小容器里进度算不准；内容多的长文页别用，读者没法快速扫读",
+      "zh": [
+        "滚动切换",
+        "场景切换",
+        "整屏切换",
+        "滚动驱动",
+        "分屏",
+        "一屏一屏",
+        "叙事滚动",
+        "滚动动画",
+        "视差",
+        "进场退场",
+        "错峰",
+        "过渡"
+      ],
+      "en": [
+        "scroll",
+        "scenes",
+        "self",
+        "window"
       ]
     },
     {
@@ -8124,6 +8227,59 @@
       ]
     },
     {
+      "name": "RingCarousel",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "卡片沿圆柱面围成一圈，滚动带着整环转动，背面的卡片压暗后退",
+      "mood": [
+        "科技",
+        "未来",
+        "华丽"
+      ],
+      "motion": "环形转动",
+      "palette": [
+        "暗色",
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "产品介绍",
+        "图片展示",
+        "落地页"
+      ],
+      "avoid": "卡片超过十几张时环会挤成一团、正面那张也看不清；需要精确点选某一项的场景别用，卡片一直在转；祖先元素有 transform 会让 sticky 失效",
+      "zh": [
+        "3D轮播",
+        "环形",
+        "圆环",
+        "旋转木马",
+        "圆柱",
+        "转盘",
+        "立体轮播",
+        "滚动驱动",
+        "卡片轮播",
+        "纵深",
+        "透视",
+        "惯性"
+      ],
+      "en": [
+        "ring",
+        "carousel",
+        "self",
+        "window"
+      ]
+    },
+    {
       "name": "ScrollStack",
       "category": "Components",
       "surface": "wrapper",
@@ -8195,6 +8351,59 @@
         "start",
         "stacking",
         "position"
+      ]
+    },
+    {
+      "name": "SnapSections",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "一屏一屏地吸附对齐，松手自动落到整屏，屏内文字按远近分三级进出",
+      "mood": [
+        "高级",
+        "极简",
+        "优雅"
+      ],
+      "motion": "整屏吸附",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "落地页",
+        "产品介绍",
+        "Hero区",
+        "启动页"
+      ],
+      "avoid": "mandatory 吸附会让用户没法停在两屏之间，内容比一屏高的分屏会被截断看不全；spring 模式自己接管吸附，跟浏览器原生滚动手感不同，触控板上偏黏",
+      "zh": [
+        "滚动吸附",
+        "整屏滚动",
+        "分屏",
+        "全屏切换",
+        "吸附对齐",
+        "一屏一屏",
+        "翻页",
+        "snap",
+        "滚动对齐",
+        "过冲",
+        "回弹",
+        "分节"
+      ],
+      "en": [
+        "snap",
+        "sections",
+        "native",
+        "spring"
       ]
     },
     {
@@ -8405,6 +8614,60 @@
         "stiffness",
         "damping",
         "automatically"
+      ]
+    },
+    {
+      "name": "StackTransition",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "卡片随滚动一张张吸到顶部叠成一摞，被压住的逐层缩小倾斜压暗",
+      "mood": [
+        "高级",
+        "科技",
+        "优雅"
+      ],
+      "motion": "叠层吸附",
+      "palette": [
+        "暗色",
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "产品介绍",
+        "落地页",
+        "卡片列表",
+        "Hero区"
+      ],
+      "avoid": "祖先元素有 transform 会让 sticky 失效，卡片会直接平铺；卡片超过六七张时底下几层几乎看不见，不如分成两段；需要快速对比各卡内容时别用",
+      "zh": [
+        "卡片堆叠",
+        "叠层",
+        "层叠",
+        "滚动叠加",
+        "吸附堆叠",
+        "转场",
+        "滚动转场",
+        "特性展示",
+        "卡片吸顶",
+        "纵深",
+        "压叠",
+        "滚动驱动"
+      ],
+      "en": [
+        "stack",
+        "transition",
+        "self",
+        "window"
       ]
     },
     {
@@ -9955,6 +10218,57 @@
         "properties",
         "word",
         "target"
+      ]
+    },
+    {
+      "name": "StaggerReveal",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "scroll"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [],
+      "summary": "标题按字符拆开依次落位，每个字冲过终点再弹回来，可从中心或两头起势",
+      "mood": [
+        "活泼",
+        "优雅",
+        "科技"
+      ],
+      "motion": "逐字落位",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "标题",
+        "Hero区",
+        "落地页",
+        "启动页"
+      ],
+      "avoid": "大段正文别用，会拆成上百个 span 既卡又碎；拆字后屏幕阅读器会逐字念，组件已附了一份完整文本兜底但别再自己包一层；数字滚动用 CountUp 更合适",
+      "zh": [
+        "逐字",
+        "错峰",
+        "错落",
+        "文字入场",
+        "标题动画",
+        "打散",
+        "逐字浮现",
+        "依次出现",
+        "翻转入场",
+        "弹跳文字",
+        "分字",
+        "进场动画"
+      ],
+      "en": [
+        "stagger",
+        "reveal",
+        "children",
+        "false"
       ]
     },
     {

@@ -1,0 +1,51 @@
+{
+  "category": "Components",
+  "description": "整屏滚动吸附，位置交给原生 scroll-snap，过冲感由内层 transform 补偿",
+  "source": "自制",
+  "license": "MIT",
+  "previewDefaults": {
+    "snap": "native",
+    "stiffness": 120,
+    "damping": 11,
+    "overshoot": 26,
+    "travel": 70,
+    "minScale": 0.9,
+    "stagger": 0.16
+  },
+  "usage": "import SnapSections from './SnapSections';\n\n<div style={{ height: '100vh' }}>\n  <SnapSections\n    snap=\"spring\"\n    sections={[{ title: '一', subtitle: '说明' }, { title: '二', subtitle: '说明' }]}\n  />\n</div>",
+  "semantic": {
+    "summary": "一屏一屏地吸附对齐，松手自动落到整屏，屏内文字按远近分三级进出",
+    "motion": "整屏吸附",
+    "mood": [
+      "高级",
+      "极简",
+      "优雅"
+    ],
+    "palette": [
+      "暗色",
+      "可定制"
+    ],
+    "intensity": "moderate",
+    "scenes": [
+      "落地页",
+      "产品介绍",
+      "Hero区",
+      "启动页"
+    ],
+    "keywords": [
+      "滚动吸附",
+      "整屏滚动",
+      "分屏",
+      "全屏切换",
+      "吸附对齐",
+      "一屏一屏",
+      "翻页",
+      "snap",
+      "滚动对齐",
+      "过冲",
+      "回弹",
+      "分节"
+    ],
+    "avoid": "mandatory 吸附会让用户没法停在两屏之间，内容比一屏高的分屏会被截断看不全；spring 模式自己接管吸附，跟浏览器原生滚动手感不同，触控板上偏黏"
+  }
+}

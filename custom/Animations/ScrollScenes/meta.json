@@ -1,0 +1,51 @@
+{
+  "category": "Animations",
+  "description": "滚动驱动的整屏场景切换，场景内标题/副标题/装饰再三级错峰落位",
+  "source": "自制",
+  "license": "MIT",
+  "previewDefaults": {
+    "scrollPerScene": 1,
+    "overlap": 0.45,
+    "travel": 90,
+    "minScale": 0.86,
+    "blur": 14,
+    "overshoot": 1.7,
+    "stagger": 0.14
+  },
+  "usage": "import ScrollScenes from './ScrollScenes';\n\n<ScrollScenes\n  scroller=\"window\"\n  scenes={[\n    { title: '第一屏', subtitle: '说明文字', background: '#101020' },\n    { title: '第二屏', subtitle: '说明文字', background: '#102030' }\n  ]}\n/>",
+  "semantic": {
+    "summary": "整屏场景随滚动推进依次接替，进出带缩放虚化，屏内文字分三级先后落位",
+    "motion": "滚动推进",
+    "mood": [
+      "高级",
+      "优雅",
+      "科技"
+    ],
+    "palette": [
+      "暗色",
+      "可定制"
+    ],
+    "intensity": "bold",
+    "scenes": [
+      "Hero区",
+      "落地页",
+      "产品介绍",
+      "启动页"
+    ],
+    "keywords": [
+      "滚动切换",
+      "场景切换",
+      "整屏切换",
+      "滚动驱动",
+      "分屏",
+      "一屏一屏",
+      "叙事滚动",
+      "滚动动画",
+      "视差",
+      "进场退场",
+      "错峰",
+      "过渡"
+    ],
+    "avoid": "祖先元素有 transform 会让 sticky 失效，整个效果直接不动；scroller='window' 时组件要占满视口高度，塞进小容器里进度算不准；内容多的长文页别用，读者没法快速扫读"
+  }
+}

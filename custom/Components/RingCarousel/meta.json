@@ -1,0 +1,55 @@
+{
+  "category": "Components",
+  "description": "滚动驱动的 3D 环形轮播，角度用弹簧追随滚动，每张卡刚度微差形成错落",
+  "source": "自制",
+  "license": "MIT",
+  "previewDefaults": {
+    "cardWidth": 200,
+    "cardHeight": 268,
+    "radiusScale": 1.55,
+    "perspective": 1100,
+    "tilt": -6,
+    "scrollLength": 3,
+    "stiffness": 90,
+    "damping": 9,
+    "stagger": 0.12,
+    "backDim": 0.32
+  },
+  "usage": "import RingCarousel from './RingCarousel';\n\n<div style={{ height: '100vh' }}>\n  <RingCarousel\n    items={[{ title: '01', subtitle: '产品' }, { title: '02', subtitle: '方案' }]}\n    damping={9}\n  />\n</div>",
+  "semantic": {
+    "summary": "卡片沿圆柱面围成一圈，滚动带着整环转动，背面的卡片压暗后退",
+    "motion": "环形转动",
+    "mood": [
+      "科技",
+      "未来",
+      "华丽"
+    ],
+    "palette": [
+      "暗色",
+      "彩色",
+      "可定制"
+    ],
+    "intensity": "bold",
+    "scenes": [
+      "Hero区",
+      "产品介绍",
+      "图片展示",
+      "落地页"
+    ],
+    "keywords": [
+      "3D轮播",
+      "环形",
+      "圆环",
+      "旋转木马",
+      "圆柱",
+      "转盘",
+      "立体轮播",
+      "滚动驱动",
+      "卡片轮播",
+      "纵深",
+      "透视",
+      "惯性"
+    ],
+    "avoid": "卡片超过十几张时环会挤成一团、正面那张也看不清；需要精确点选某一项的场景别用，卡片一直在转；祖先元素有 transform 会让 sticky 失效"
+  }
+}

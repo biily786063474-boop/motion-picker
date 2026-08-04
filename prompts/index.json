@@ -1,6 +1,6 @@
 {
   "variant": "TS-TW",
-  "total": 140,
+  "total": 146,
   "byCategory": {
     "Animations": 31,
     "Backgrounds": 45,
@@ -398,6 +398,27 @@
       "usesGLTF": false
     },
     {
+      "name": "FluidWarp",
+      "category": "Animations",
+      "custom": true,
+      "description": "把任意内容浸进会流动的介质里，鼠标划过被搅动，停手后靠弹簧荡回静止",
+      "dependencies": [],
+      "url": "自制",
+      "prompt": null,
+      "bytes": 7156,
+      "props": 9,
+      "source": "custom/Animations/FluidWarp/FluidWarp.tsx",
+      "localPath": "custom/Animations/FluidWarp/FluidWarp.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false,
+      "license": "MIT"
+    },
+    {
       "name": "GhostCursor",
       "category": "Animations",
       "dependencies": [
@@ -724,6 +745,27 @@
       "namedExportOnly": false,
       "usesTailwind": true,
       "usesGLTF": false
+    },
+    {
+      "name": "ScrollScenes",
+      "category": "Animations",
+      "custom": true,
+      "description": "滚动驱动的整屏场景切换，场景内标题/副标题/装饰再三级错峰落位",
+      "dependencies": [],
+      "url": "自制",
+      "prompt": null,
+      "bytes": 10643,
+      "props": 10,
+      "source": "custom/Animations/ScrollScenes/ScrollScenes.tsx",
+      "localPath": "custom/Animations/ScrollScenes/ScrollScenes.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false,
+      "license": "MIT"
     },
     {
       "name": "ShapeBlur",
@@ -2613,6 +2655,27 @@
       "usesGLTF": false
     },
     {
+      "name": "RingCarousel",
+      "category": "Components",
+      "custom": true,
+      "description": "滚动驱动的 3D 环形轮播，角度用弹簧追随滚动，每张卡刚度微差形成错落",
+      "dependencies": [],
+      "url": "自制",
+      "prompt": null,
+      "bytes": 9208,
+      "props": 13,
+      "source": "custom/Components/RingCarousel/RingCarousel.tsx",
+      "localPath": "custom/Components/RingCarousel/RingCarousel.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false,
+      "license": "MIT"
+    },
+    {
       "name": "ScrollStack",
       "category": "Components",
       "dependencies": [
@@ -2633,6 +2696,27 @@
       "namedExportOnly": false,
       "usesTailwind": true,
       "usesGLTF": false
+    },
+    {
+      "name": "SnapSections",
+      "category": "Components",
+      "custom": true,
+      "description": "整屏滚动吸附，位置交给原生 scroll-snap，过冲感由内层 transform 补偿",
+      "dependencies": [],
+      "url": "自制",
+      "prompt": null,
+      "bytes": 10064,
+      "props": 9,
+      "source": "custom/Components/SnapSections/SnapSections.tsx",
+      "localPath": "custom/Components/SnapSections/SnapSections.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false,
+      "license": "MIT"
     },
     {
       "name": "SpecularButton",
@@ -2700,6 +2784,27 @@
       "namedExportOnly": false,
       "usesTailwind": true,
       "usesGLTF": false
+    },
+    {
+      "name": "StackTransition",
+      "category": "Components",
+      "custom": true,
+      "description": "滚动叠层转场，卡片依次吸附到顶部叠成一摞，入场带超调，零依赖不接管滚动",
+      "dependencies": [],
+      "url": "自制",
+      "prompt": null,
+      "bytes": 9974,
+      "props": 14,
+      "source": "custom/Components/StackTransition/StackTransition.tsx",
+      "localPath": "custom/Components/StackTransition/StackTransition.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false,
+      "license": "MIT"
     },
     {
       "name": "StaggeredMenu",
@@ -3158,6 +3263,27 @@
       "usesGLTF": false
     },
     {
+      "name": "StaggerReveal",
+      "category": "TextAnimations",
+      "custom": true,
+      "description": "逐字错峰入场，六种错峰次序 × 五种入场姿态，缓动默认带超调",
+      "dependencies": [],
+      "url": "自制",
+      "prompt": null,
+      "bytes": 7848,
+      "props": 13,
+      "source": "custom/TextAnimations/StaggerReveal/StaggerReveal.tsx",
+      "localPath": "custom/TextAnimations/StaggerReveal/StaggerReveal.tsx",
+      "realDeps": [],
+      "assets": [],
+      "publicAssets": [],
+      "remoteUrls": [],
+      "namedExportOnly": false,
+      "usesTailwind": false,
+      "usesGLTF": false,
+      "license": "MIT"
+    },
+    {
       "name": "TextCursor",
       "category": "TextAnimations",
       "dependencies": [
@@ -3266,5 +3392,5 @@
       "usesGLTF": false
     }
   ],
-  "custom": 1
+  "custom": 7
 }

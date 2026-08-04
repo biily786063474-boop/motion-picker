@@ -1,0 +1,56 @@
+{
+  "category": "Components",
+  "description": "滚动叠层转场，卡片依次吸附到顶部叠成一摞，入场带超调，零依赖不接管滚动",
+  "source": "自制",
+  "license": "MIT",
+  "previewDefaults": {
+    "scrollPerCard": 1,
+    "cardRatio": 0.62,
+    "peek": 22,
+    "scaleStep": 0.055,
+    "liftStep": 14,
+    "tiltStep": 1.2,
+    "dimStep": 0.16,
+    "maxDepth": 4,
+    "travel": 120,
+    "overshoot": 1.7,
+    "radius": 22
+  },
+  "usage": "import StackTransition from './StackTransition';\n\n<div style={{ height: '100vh' }}>\n  <StackTransition\n    cards={[{ title: '特性一', body: '说明' }, { title: '特性二', body: '说明' }]}\n  />\n</div>",
+  "semantic": {
+    "summary": "卡片随滚动一张张吸到顶部叠成一摞，被压住的逐层缩小倾斜压暗",
+    "motion": "叠层吸附",
+    "mood": [
+      "高级",
+      "科技",
+      "优雅"
+    ],
+    "palette": [
+      "暗色",
+      "彩色",
+      "可定制"
+    ],
+    "intensity": "moderate",
+    "scenes": [
+      "产品介绍",
+      "落地页",
+      "卡片列表",
+      "Hero区"
+    ],
+    "keywords": [
+      "卡片堆叠",
+      "叠层",
+      "层叠",
+      "滚动叠加",
+      "吸附堆叠",
+      "转场",
+      "滚动转场",
+      "特性展示",
+      "卡片吸顶",
+      "纵深",
+      "压叠",
+      "滚动驱动"
+    ],
+    "avoid": "祖先元素有 transform 会让 sticky 失效，卡片会直接平铺；卡片超过六七张时底下几层几乎看不见，不如分成两段；需要快速对比各卡内容时别用"
+  }
+}
