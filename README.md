@@ -60,6 +60,50 @@ AI 判断不了「哪个好看」「参数调到什么程度合适」。选型�
 </tr>
 </table>
 
+### 🔍 组件名没有语义，所以给它们配了语义索引
+
+`Silk` `Balatro` `DarkVeil` `Ferrofluid` `Prism` —— 从名字一个都猜不出长什么样。
+AI 助手拿到「想要个暗色流动的背景」时，面对 139 个这样的名字是抓瞎的。
+
+所以每个组件都带一张**中文语义卡片**：长什么样、什么气质、适合什么场景、什么时候**不该用**。
+说人话就能搜：
+
+```
+$ node scripts/add.mjs --find "暗色流动的背景"
+
+「暗色流动的背景」→ 3 个候选
+
+  Ferrofluid         近乎全黑的画面上游动着液态金属般的高光丝带，边缘泛白缓慢蠕动
+                     fullscreen-bg · hover/ambient · 重 · ogl
+                     注意：整体几乎全黑，亮色主题或需要明亮氛围的页面不合适
+                     命中：流动 暗色背景 暗色
+
+  LiquidEther        近黑底上紫粉色流体像墨滴入水般缓慢翻卷晕开，光标划过会把颜色搅动开
+                     fullscreen-bg · hover/scroll/ambient · 重 · three
+                     注意：WebGL 流体解算吃 GPU，移动端和低端机慎用；浅色页面上几乎看不见
+                     命中：流动 紫色流动 暗色
+
+  Silk               深蓝紫单色铺满整屏，斜向丝绸褶皱的明暗带极缓慢流动，叠一层静止的细噪点
+                     fullscreen-bg · ambient · 重 · @react-three/fiber three
+                     注意：组件内部直接 return <Canvas>，不吃 children 也不自带高度，
+                           父容器没有显式高度画布就是 0、页面上什么都看不见 …
+                     命中：流动 暗色背景 暗色
+```
+
+两层信息拼出来的：**客观特征**（作用在哪、被什么触发、用什么画的、吃不吃性能）从源码 AST 推导，
+不会错；**主观语义**（长什么样、什么气质、什么时候别用）由 AI 逐个看巡检截图 + 读源码写出来，
+再抽最难判断的那批（光标类的静态截图必然是黑的）复核一遍，140 个全覆盖。
+
+**「注意」那行是整张卡片里最值钱的部分** —— 只有踩过才知道的坑：
+
+> **BlobCursor** · 组件不吃 children，叠上去用时外层容器没有 `pointer-events:none` 会挡住下层点击，表单和后台别用
+> **MetaBalls** · 默认 `enableTransparency=false`，组件会自己刷一层不透明纯黑，浅色页面上整块盖死
+> **Crosshair** · 抖动只在鼠标移入 `<a>` 时触发，且链接在挂载时一次性绑定，后渲染出来的链接不生效
+> **LaserFlow** · `alpha:false` 把画布清成纯黑，会在版面上戳出一块黑矩形，叠不到已有背景图上
+
+需求含糊、或者你想自己判断时，用 `--catalog` 把 140 条压成十几 KB 的精简全表读进上下文，
+自己做语义匹配 —— 那比关键词打分准。`--find` 是给不方便调模型的场合用的。
+
 ### 🔧 参数面板是自动生成的，不是手写的
 
 139 个组件共用**一套推断逻辑**，没有一行代码是为某个具体组件写的。1608 个 prop 里 **94.3% 能自动生成控件**——滑块的取值范围从 prop 名的量纲、文档里的 `(0-1)`、默认值的量级三层推出来；下拉的选项从文档描述里挖出来（`Split type: "chars", "words", "lines"`）。
@@ -124,6 +168,13 @@ node ~/motion-picker/scripts/doctor.mjs
 ## 终端命令
 
 ```bash
+# 按需求描述找组件（语义检索）
+node scripts/add.mjs --find "暗色流动的背景"      # 说人话就行
+node scripts/add.mjs --find "标题逐字浮现"
+node scripts/add.mjs --find "文字动画" --light   # 只要不吃性能的
+node scripts/add.mjs --find "鼠标跟随" --json    # 给程序解析
+node scripts/add.mjs --catalog              # 精简全表（十几 KB），给 LLM 自己做匹配
+
 # 列出组件
 node scripts/add.mjs --list                 # 全部 139 个，按类目分组
 node scripts/add.mjs --list three           # 按关键字/依赖筛
@@ -179,7 +230,9 @@ alwaysApply: false
 
 用户要动效/背景效果/文字动画时，用本地组件库而不是自己写 CSS：
 
-1. `node ~/motion-picker/scripts/add.mjs --list` 看有哪些（139 个）
+1. 按需求检索：`node ~/motion-picker/scripts/add.mjs --find "<用户的原话>"`
+   拿不准就 `--catalog` 把精简全表（十几 KB）读进上下文自己判断。
+   **别从组件名猜效果**，Silk / Balatro / DarkVeil 这些名字没有语义。
 2. 想让用户挑：`cd ~/motion-picker && npm run dev`，让他在 http://localhost:5180 选完点「交给 AI」，
    然后读 `~/motion-picker/.rb-selection.json` 拿他的选择和调好的参数
 3. 取用：`node ~/motion-picker/scripts/add.mjs <组件名> --to <目标目录>`
@@ -193,9 +246,11 @@ alwaysApply: false
 
 ```
 需要动效/背景特效/文字动画时，用本地组件库：
-  查看：node ~/motion-picker/scripts/add.mjs --list
+  检索：node ~/motion-picker/scripts/add.mjs --find "<用户的原话>"
+  全表：node ~/motion-picker/scripts/add.mjs --catalog   （拿不准时读进上下文自己判断）
   取用：node ~/motion-picker/scripts/add.mjs <组件名> --to <目标目录>
   选型台：cd ~/motion-picker && npm run dev
+组件名没有语义（Silk / Balatro / DarkVeil），不要从名字猜效果。
 必须处理 add.mjs 打印的宿主体检警告。详见 ~/motion-picker/skill/SKILL.md
 ```
 
@@ -206,8 +261,10 @@ alwaysApply: false
 ```
 ## 动效组件库
 用户要视觉动效时不要自己写 CSS 动画，用 ~/motion-picker：
-- node ~/motion-picker/scripts/add.mjs --list          列出 139 个组件
+- node ~/motion-picker/scripts/add.mjs --find "<用户的原话>"   按需求语义检索
+- node ~/motion-picker/scripts/add.mjs --catalog       精简全表，自己做匹配
 - node ~/motion-picker/scripts/add.mjs X --to <dir>    拷进项目
+组件名没有语义，别从名字猜效果。
 体检警告必须逐条处理（Tailwind 缺失会静默无样式；React 18 装不了 @react-three/*）。
 完整流程见 ~/motion-picker/skill/SKILL.md
 ```
@@ -222,9 +279,11 @@ alwaysApply: false
 需要背景特效、文字动画、交互效果时，用本地库 `~/motion-picker`
 （139 个 React 组件），不要手写 CSS 动画：
 
-- 列出：`node ~/motion-picker/scripts/add.mjs --list`
+- 检索：`node ~/motion-picker/scripts/add.mjs --find "<用户的原话>"`
+- 全表：`node ~/motion-picker/scripts/add.mjs --catalog`（拿不准时自己读全表判断）
 - 取用：`node ~/motion-picker/scripts/add.mjs <组件名> --to <目标目录>`
 
+组件名没有语义（Silk / Balatro / DarkVeil），不要从名字猜效果。
 取用后必须处理命令打印的宿主兼容性警告。
 ```
 
@@ -237,9 +296,11 @@ alwaysApply: false
 
 需要视觉动效时用 `~/motion-picker`（139 个 React 组件，离线可用）：
 
-    node ~/motion-picker/scripts/add.mjs --list
+    node ~/motion-picker/scripts/add.mjs --find "<用户的原话>"   语义检索
+    node ~/motion-picker/scripts/add.mjs --catalog             精简全表，自己判断
     node ~/motion-picker/scripts/add.mjs <组件名> --to <目标目录>
 
+组件名没有语义（Silk / Balatro / DarkVeil），不要从名字猜效果。
 组件按 React 19 + Tailwind 4 写的，取用命令会打印宿主兼容性诊断，逐条处理。
 完整流程：~/motion-picker/skill/SKILL.md
 ```
@@ -253,8 +314,9 @@ alwaysApply: false
 不认规则文件也没关系，这套东西本质就是几条命令：
 
 ```bash
-node ~/motion-picker/scripts/add.mjs --list --json     # 拿到全部组件的结构化清单
-node ~/motion-picker/scripts/add.mjs <名字> --to <目录> --json   # 取用，拿结构化结果
+node ~/motion-picker/scripts/add.mjs --catalog                   # 全部组件 + 语义卡片（十几 KB）
+node ~/motion-picker/scripts/add.mjs --find "需求描述" --json     # 语义检索，拿排好序的候选
+node ~/motion-picker/scripts/add.mjs <名字> --to <目录> --json    # 取用，拿结构化结果
 ```
 
 `--json` 模式下 stdout 只有 JSON（人类可读信息走 stderr），管道安全。

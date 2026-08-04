@@ -12,7 +12,17 @@
  * 那个模块可以被 Electron 主进程、eas-term、MCP server 直接 import。
  */
 import path from 'node:path';
+import fs from 'node:fs';
 import { addComponent, listComponents, getComponent, LIB_ROOT } from './lib/add-core.mjs';
+import { search, catalog } from './lib/search.mjs';
+
+const loadSemantic = () => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(LIB_ROOT, 'prompts/semantic.json'), 'utf8')).components;
+  } catch {
+    return null;
+  }
+};
 
 const argv = process.argv.slice(2);
 const has = f => argv.includes(f);
@@ -50,6 +60,49 @@ const C = {
   dim: s => `\x1b[2m${s}\x1b[0m`,
   bold: s => `\x1b[1m${s}\x1b[0m`
 };
+
+/* ---------- --find：按需求描述检索 ---------- */
+if (has('--find') || has('-f')) {
+  const q = val('--find') || val('-f') || argv.filter(a => !a.startsWith('-')).join(' ');
+  const items = loadSemantic();
+  if (!items) {
+    say(C.red('没有 prompts/semantic.json，先跑 node scripts/build-semantic.mjs'));
+    await exit(1);
+  }
+  const hits = search(q, items, { limit: Number(val('--limit', '8')), lightOnly: has('--light') });
+  if (JSON_MODE) {
+    await writeOut(JSON.stringify({ query: q, total: hits.length, results: hits }, null, 2) + '\n');
+  } else if (!hits.length) {
+    say(`没找到跟「${q}」匹配的。试试换个说法，或者 --list 看全部。`);
+    const unannotated = items.filter(c => !c.summary).length;
+    if (unannotated > items.length / 2)
+      say(C.dim(`（${unannotated}/${items.length} 个组件还没做语义标注，检索效果会很差）`));
+  } else {
+    say(`\n「${C.bold(q)}」→ ${hits.length} 个候选\n`);
+    for (const h of hits) {
+      say(`  ${C.bold(h.name.padEnd(18))} ${C.dim(h.summary || '(未标注)')}`);
+      const meta = [h.surface, h.triggers?.join('/'), h.heavy ? '重' : '轻', h.deps?.length ? h.deps.join(' ') : '无依赖']
+        .filter(Boolean).join(' · ');
+      say(C.dim(`  ${''.padEnd(18)} ${meta}`));
+      if (h.avoid) say(C.yellow(`  ${''.padEnd(18)} 注意：${h.avoid}`));
+      if (h.matched?.length) say(C.cyan(`  ${''.padEnd(18)} 命中：${h.matched.join(' ')}`));
+      say('');
+    }
+    say(C.dim(`取用：node scripts/add.mjs ${hits[0].name} --to <目标目录>\n`));
+  }
+  await exit(0);
+}
+
+/* ---------- --catalog：给 LLM 读的精简全表 ---------- */
+if (has('--catalog')) {
+  const items = loadSemantic();
+  if (!items) {
+    say(C.red('没有 prompts/semantic.json，先跑 node scripts/build-semantic.mjs'));
+    await exit(1);
+  }
+  await writeOut(JSON.stringify({ total: items.length, components: catalog(items) }, null, 2) + '\n');
+  await exit(0);
+}
 
 /* ---------- --list ---------- */
 if (has('--list') || has('-l')) {

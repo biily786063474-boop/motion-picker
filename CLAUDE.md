@@ -67,7 +67,22 @@ dev server 热更新会让正在跑的巡检拿到中间态，整批结果作废
 双挂载会打死 WebGL context。`Ballpit` 把 React 持有的 canvas 交给 three，
 第二次挂载拿回的是已经 lost 的 context，读 `null.precision` 直接崩。
 
-### 8 · `preview-overrides.json` 是机器生成的
+### 8 · 语义层分两半存，别混在一起
+
+| | 存在哪 | 谁生成 | 重跑管线 |
+|---|---|---|---|
+| 客观特征（作用面/触发/技术/轻重） | 不存，现算 | `lib/traits.mjs` 从 AST 推 | 重算 |
+| 中文语义（长什么样/气质/场景/坑） | `prompts/semantic-annotations.json` | AI 看巡检截图标注 | **保留** |
+
+分开是因为前者能无损重算、后者是一次性投入。合到一起意味着每次 sync 都要重新标注 140 个组件。
+
+`prompts/semantic.json` 是这两层合并出来的**生成物**，改它没用，下次 `npm run semantic` 就没了。
+自有组件的语义写在自己 `meta.json` 的 `semantic` 块里，优先级高于机器标注。
+
+`avoid` 字段（什么时候不该用它）是整张卡片里最值钱的部分 —— 那些只有踩过才知道的坑
+（BlobCursor 会挡住下层点击、MetaBalls 会刷一层不透明黑）。补标注时别省这条。
+
+### 9 · `preview-overrides.json` 是机器生成的
 
 workflow 产出 → `collect-overrides.mjs` 汇总。手写特例放 `playground/registry.jsx` 的 `OVERRIDES`。
 直接改那个 JSON 会被覆盖。
@@ -103,11 +118,12 @@ CI 的冒烟矩阵刻意不跑 `npm install`，就是守住第一行；维护工
 
 | 改了什么 | 跑什么 |
 |---|---|
-| CLI / add-core | `npm test`（12 项冒烟） |
+| CLI / add-core | `npm test`（14 项冒烟） |
 | build-prompts | `node scripts/verify-against-site.mjs` |
 | playground UI | `npm run sweep` + `npm run verify:playground` |
 | inferControl | `npm run check:controls` |
-| 加了自有组件 | `npm run validate` + `npm run index:custom` |
+| 加了自有组件 | `npm run validate` + `npm run index:custom` + `npm run semantic` |
+| traits / 语义标注 | `npm run semantic` + `node scripts/add.mjs --find "<典型需求>"` |
 | 任何东西 | `npm run doctor` |
 
 UI 类改动**必须构建并打开亲眼看**，不要只看编译过了。
@@ -122,5 +138,6 @@ npm test             # 冒烟测试，不装依赖也能跑
 npm run doctor       # 环境体检，三层报告
 npm run sync         # 同步上游（幂等，失败不落盘）
 npm run validate     # 校验 custom/ 下的组件
+npm run semantic     # 重建语义检索索引
 npm run sweep        # 全量巡检 + 截图
 ```

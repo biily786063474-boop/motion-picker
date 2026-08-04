@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite --port ${PORT:-5180}",
     "build": "vite build",
-    "sync": "node scripts/fetch-repo.mjs && node scripts/build-prompts.mjs && node scripts/index-custom.mjs",
+    "sync": "node scripts/fetch-repo.mjs && node scripts/build-prompts.mjs && node scripts/index-custom.mjs && node scripts/build-semantic.mjs",
     "check:deps": "node scripts/check-deps.mjs",
     "check:controls": "node scripts/audit-controls.mjs",
     "verify:site": "node scripts/verify-against-site.mjs",
@@ -19,7 +19,8 @@
     "postinstall": "node -e \"console.log('\\n选型台依赖已装。取用组件其实不需要这些 —— node scripts/add.mjs --list 直接可用\\n')\"",
     "test": "node scripts/ci-smoke.mjs",
     "validate": "node scripts/validate-component.mjs",
-    "index:custom": "node scripts/index-custom.mjs"
+    "index:custom": "node scripts/index-custom.mjs",
+    "semantic": "node scripts/build-semantic.mjs"
   },
   "dependencies": {
     "@babel/parser": "^8.0.4",

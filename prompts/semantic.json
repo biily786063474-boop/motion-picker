@@ -1,0 +1,10330 @@
+{
+  "total": 140,
+  "annotated": 140,
+  "note": "客观特征由 build-semantic.mjs 从源码推导；summary/mood/scenes 等语义层来自 semantic-annotations.json（AI 看图标注）",
+  "components": [
+    {
+      "name": "AnimatedContent",
+      "category": "Animations",
+      "surface": "wrapper",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "内容整块从下方或侧向滑入并淡入，可带轻微缩放，滚动到视口时触发",
+      "mood": [
+        "优雅",
+        "安静",
+        "极简"
+      ],
+      "motion": "滑入淡显",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "落地页",
+        "产品介绍",
+        "卡片列表",
+        "正文"
+      ],
+      "avoid": "长列表逐项套用会显得拖沓，首屏关键信息别靠它延迟露出",
+      "zh": [
+        "入场动画",
+        "滚动进场",
+        "滑入",
+        "上浮",
+        "淡入",
+        "元素出现",
+        "内容动画",
+        "滚动触发",
+        "位移动画",
+        "卡片入场",
+        "进入视口",
+        "渐显"
+      ],
+      "en": [
+        "animated",
+        "content",
+        "scroll",
+        "container",
+        "scrolltrigger",
+        "selector",
+        "htmlelement",
+        "defaults",
+        "main",
+        "auto",
+        "detection",
+        "snap",
+        "not",
+        "provided",
+        "distance",
+        "pixels",
+        "moves",
+        "during",
+        "animation",
+        "direction",
+        "vertical",
+        "horizontal",
+        "reverse",
+        "duration"
+      ]
+    },
+    {
+      "name": "Antigravity",
+      "category": "Animations",
+      "surface": "element",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "@react-three/fiber",
+        "three"
+      ],
+      "summary": "黑底上大量深紫色短胶囊粒子悬浮飘散，随鼠标磁吸聚成环形并波浪起伏",
+      "mood": [
+        "科技",
+        "未来",
+        "神秘"
+      ],
+      "motion": "漂浮聚环",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页"
+      ],
+      "avoid": "依赖 three/R3F 的 WebGL 渲染，移动端低端机发热耗电，文字密集的页面别拿它当底衬",
+      "zh": [
+        "粒子",
+        "粒子特效",
+        "反重力",
+        "漂浮",
+        "悬浮",
+        "磁吸",
+        "鼠标吸引",
+        "环形聚集",
+        "星尘",
+        "光点",
+        "3D粒子",
+        "科技背景"
+      ],
+      "en": [
+        "antigravity",
+        "particles",
+        "radius",
+        "magnetic",
+        "field",
+        "formed",
+        "ring",
+        "speed",
+        "wave",
+        "animation",
+        "intensity",
+        "perfect",
+        "circle",
+        "scale",
+        "multiplier",
+        "how",
+        "fast",
+        "move",
+        "color",
+        "automatically",
+        "animate",
+        "idle",
+        "variance",
+        "particle"
+      ]
+    },
+    {
+      "name": "BlobCursor",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "三个大小不一的蓝紫色圆球跟着鼠标跑，小球领头大球拖后带延迟，边缘互相粘连融成果冻状，鼠标停下就并成一个圆球",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "柔和"
+      ],
+      "motion": "粘稠跟随",
+      "palette": [
+        "紫色系",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "落地页",
+        "Hero区",
+        "启动页",
+        "空状态"
+      ],
+      "avoid": "只监听自己容器内的鼠标/触摸移动，不是全站光标；组件不吃 children，叠上去用时外层容器没有 pointer-events:none，会挡住下层点击，表单和后台别用",
+      "zh": [
+        "鼠标跟随",
+        "光标跟随",
+        "光标特效",
+        "自定义光标",
+        "拖尾",
+        "果冻",
+        "粘稠",
+        "融合",
+        "液态",
+        "圆球",
+        "气泡",
+        "延迟跟随"
+      ],
+      "en": [
+        "blob",
+        "cursor",
+        "shape",
+        "blobs",
+        "background",
+        "color",
+        "how",
+        "many",
+        "trailing",
+        "sizes",
+        "length",
+        "must",
+        "trailcount",
+        "inner",
+        "dots",
+        "dot",
+        "opacity",
+        "box",
+        "shadow",
+        "blur",
+        "radius",
+        "offset",
+        "filter",
+        "multiple"
+      ]
+    },
+    {
+      "name": "ClickSpark",
+      "category": "Animations",
+      "surface": "wrapper",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "点击瞬间在光标处炸开一圈白色放射短线，向外飞散同时变短淡出",
+      "mood": [
+        "活泼",
+        "极简",
+        "俏皮"
+      ],
+      "motion": "点击迸发",
+      "palette": [
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "按钮",
+        "卡片列表",
+        "落地页"
+      ],
+      "avoid": "全站包裹会让每次点击都放烟花，严肃的后台界面容易显吵",
+      "zh": [
+        "点击特效",
+        "点击反馈",
+        "火花",
+        "迸发",
+        "星芒",
+        "放射线",
+        "按钮反馈",
+        "交互反馈",
+        "闪光",
+        "鼠标点击",
+        "点击动画",
+        "微交互"
+      ],
+      "en": [
+        "click",
+        "spark",
+        "color",
+        "line",
+        "initial",
+        "length",
+        "how",
+        "far",
+        "sparks",
+        "travel",
+        "center",
+        "lines",
+        "appear",
+        "animation",
+        "duration",
+        "milliseconds",
+        "easing",
+        "multiplier",
+        "distance",
+        "react",
+        "children",
+        "render"
+      ]
+    },
+    {
+      "name": "Crosshair",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "一横一竖两条 1px 白线缓动跟随鼠标（略带延迟拖尾），十字贯穿全屏；鼠标移到链接上时线条被噪波打碎成乱抖，半秒内复原为直线",
+      "mood": [
+        "极简",
+        "硬核",
+        "冷冽"
+      ],
+      "motion": "十字跟随",
+      "palette": [
+        "黑白",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "落地页",
+        "Hero区",
+        "启动页"
+      ],
+      "avoid": "贯穿全屏的线会切割视线干扰阅读，长文和后台界面不要开；触屏没有 mousemove，效果完全不出现；组件不隐藏系统光标，想让十字取代箭头得自己加 cursor:none；抖动只在鼠标移入 <a> 时触发，且链接在挂载时一次性绑定，后渲染出来的链接不生效",
+      "zh": [
+        "十字准星",
+        "准星",
+        "瞄准",
+        "十字线",
+        "自定义光标",
+        "光标跟随",
+        "鼠标跟随",
+        "光标特效",
+        "全屏十字",
+        "辅助线",
+        "极简光标",
+        "故障抖动"
+      ],
+      "en": [
+        "crosshair",
+        "color",
+        "lines",
+        "container",
+        "ref",
+        "limit",
+        "specific",
+        "null",
+        "active",
+        "entire",
+        "viewport"
+      ]
+    },
+    {
+      "name": "Cubes",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "暗底描边方格阵列，鼠标附近的格子倾斜转出立方体，闲置时自动漫游，点击涟漪扩散",
+      "mood": [
+        "科技",
+        "未来",
+        "极简"
+      ],
+      "motion": "倾斜涟漪",
+      "palette": [
+        "暗色",
+        "单色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "写死 w-1/2 aspect-square，只能是占父容器半宽的正方形，且不接 children、当不了背景衬底；每格 6 个面，网格调到十几就是上千 div，鼠标一动全量 tween 会掉帧。依赖 gsap。",
+      "zh": [
+        "立方体",
+        "3D方块",
+        "方块阵列",
+        "网格",
+        "倾斜",
+        "鼠标跟随",
+        "自动播放",
+        "涟漪",
+        "波纹扩散",
+        "点击反馈",
+        "线框",
+        "几何",
+        "3D网格"
+      ],
+      "en": [
+        "cubes",
+        "size",
+        "grid",
+        "row",
+        "column",
+        "fixed",
+        "cube",
+        "pixels",
+        "not",
+        "provided",
+        "responsive",
+        "maximum",
+        "rotation",
+        "angle",
+        "tilt",
+        "effect",
+        "degrees",
+        "radius",
+        "how",
+        "many",
+        "around",
+        "cursor",
+        "are",
+        "affected"
+      ]
+    },
+    {
+      "name": "CursorGrid",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "静止时画布全空，鼠标移到哪儿才在哪儿凭空亮出一片紫红方格：以光标为中心约 140px 的光晕、越近越亮，描边是渐变发光（边中间最亮、四角发暗），光标离开后停 0.4 秒再花 0.8 秒淡灭，拖出一条格子轨迹；点击射出一圈向外扩散、逐格点亮的脉冲环",
+      "mood": [
+        "科技",
+        "未来",
+        "暗黑"
+      ],
+      "motion": "逐格点亮后延时淡灭",
+      "palette": [
+        "霓虹",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "空状态"
+      ],
+      "avoid": "纯鼠标驱动：不动光标一个像素都不画，触屏只有拖动才有反应，首屏静态截图/录屏演示会是全黑。且组件不接收 children、也没设 pointer-events:none——压在内容上会吃掉点击，垫在内容下面则内容区上方的鼠标事件传不到它、那片区域不会亮，只能当独立的一整层背景用。",
+      "zh": [
+        "网格背景",
+        "格子",
+        "鼠标跟随",
+        "光标跟随",
+        "鼠标经过点亮",
+        "拖尾轨迹",
+        "点击涟漪",
+        "脉冲扩散",
+        "描边网格",
+        "发光网格",
+        "霓虹",
+        "赛博朋克",
+        "交互背景",
+        "canvas",
+        "品红",
+        "紫色",
+        "科技背景"
+      ],
+      "en": [
+        "cursor",
+        "grid",
+        "size",
+        "cell",
+        "pixels",
+        "color",
+        "strokes",
+        "fills",
+        "pulses",
+        "radius",
+        "around",
+        "within",
+        "which",
+        "cells",
+        "light",
+        "curve",
+        "mapping",
+        "distance",
+        "brightness",
+        "how",
+        "long",
+        "milliseconds",
+        "stays",
+        "lit"
+      ]
+    },
+    {
+      "name": "ElectricBorder",
+      "category": "Animations",
+      "surface": "wrapper",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "卡片四周一圈蓝紫色电弧描边，边缘持续扭动闪烁并向外散出辉光",
+      "mood": [
+        "科技",
+        "未来",
+        "华丽"
+      ],
+      "motion": "电弧游走",
+      "palette": [
+        "霓虹",
+        "蓝色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "卡片列表",
+        "按钮",
+        "产品介绍",
+        "Hero区"
+      ],
+      "avoid": "同屏多个一起亮会很吵，正式严肃的界面慎用",
+      "zh": [
+        "发光边框",
+        "电流边框",
+        "闪电",
+        "电弧",
+        "霓虹边框",
+        "卡片描边",
+        "按钮边框",
+        "发光描边",
+        "能量",
+        "高亮边框",
+        "赛博",
+        "抖动边框"
+      ],
+      "en": [
+        "electric",
+        "border",
+        "stroke",
+        "glow",
+        "color",
+        "any",
+        "css",
+        "hex",
+        "rgb",
+        "hsl",
+        "animation",
+        "speed",
+        "multiplier",
+        "higher",
+        "faster",
+        "distortion",
+        "intensity",
+        "more",
+        "chaotic",
+        "radius",
+        "pixels",
+        "path",
+        "classname",
+        "applied"
+      ]
+    },
+    {
+      "name": "FadeContent",
+      "category": "Animations",
+      "surface": "wrapper",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "内容从全透明平滑淡入，可选同时去掉模糊，滚动进入视口时触发，也能定时自动淡出",
+      "mood": [
+        "优雅",
+        "安静",
+        "极简"
+      ],
+      "motion": "淡入渐显",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "落地页",
+        "正文",
+        "卡片列表",
+        "加载中"
+      ],
+      "avoid": "首屏主标题套上会让用户先看到一片空白",
+      "zh": [
+        "淡入",
+        "渐显",
+        "出现动画",
+        "滚动触发",
+        "内容进场",
+        "模糊淡入",
+        "元素出现",
+        "渐隐",
+        "入场动画",
+        "透明度动画",
+        "轻量动效",
+        "零依赖"
+      ],
+      "en": [
+        "fade",
+        "content",
+        "animated",
+        "blur",
+        "effect",
+        "during",
+        "animation",
+        "specifies",
+        "duration",
+        "seconds",
+        "adds",
+        "delay",
+        "before",
+        "triggering",
+        "gsap",
+        "easing",
+        "intersectionobserver",
+        "threshold",
+        "starting",
+        "opacity",
+        "enters",
+        "viewport",
+        "added",
+        "container"
+      ]
+    },
+    {
+      "name": "GhostCursor",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "一团薰衣草淡紫的烟雾跟着鼠标飘，边缘像雾一样散开、带细颗粒和微弱辉光，快划会拖出一道烟带，停手一秒后整团化开消失",
+      "mood": [
+        "神秘",
+        "梦幻",
+        "柔和",
+        "安静"
+      ],
+      "motion": "烟雾拖尾",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页"
+      ],
+      "avoid": "默认 screen 混合靠亮度出效果，浅色背景上几乎看不见，只适合暗底；且全靠鼠标驱动，停手 1 秒就淡到彻底消失，触屏端和静态截图里等于没效果",
+      "zh": [
+        "烟雾拖尾",
+        "鼠标跟随",
+        "鼠标特效",
+        "光标特效",
+        "烟雾",
+        "雾气",
+        "幽灵",
+        "辉光",
+        "光晕",
+        "颗粒感",
+        "拖尾",
+        "暗色氛围"
+      ],
+      "en": [
+        "ghost",
+        "cursor",
+        "css",
+        "container",
+        "inline",
+        "points",
+        "stored",
+        "trail",
+        "longer",
+        "smear",
+        "velocity",
+        "retention",
+        "pointer",
+        "stops",
+        "higher",
+        "make",
+        "glide",
+        "strength",
+        "film",
+        "grain",
+        "post",
+        "processing",
+        "pass",
+        "unrealbloom"
+      ]
+    },
+    {
+      "name": "GlareHover",
+      "category": "Animations",
+      "surface": "wrapper",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [],
+      "summary": "鼠标移入时一道斜向白色高光从元素表面扫过，像光划过玻璃，扫完即隐",
+      "mood": [
+        "优雅",
+        "高级",
+        "科技"
+      ],
+      "motion": "斜向扫过",
+      "palette": [
+        "可定制",
+        "单色",
+        "暗色"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "卡片列表",
+        "按钮",
+        "产品介绍",
+        "图片展示"
+      ],
+      "avoid": "需要持续吸引注意的地方——它只在 hover 瞬间闪一次，静止时完全看不见",
+      "zh": [
+        "扫光",
+        "高光",
+        "光泽",
+        "掠过",
+        "玻璃反光",
+        "卡片悬停",
+        "光带",
+        "闪光",
+        "镜面",
+        "反光",
+        "悬停光效",
+        "光扫过"
+      ],
+      "en": [
+        "glare",
+        "hover",
+        "width",
+        "height",
+        "background",
+        "color",
+        "border",
+        "radius",
+        "content",
+        "display",
+        "inside",
+        "effect",
+        "hex",
+        "format",
+        "opacity",
+        "angle",
+        "degrees",
+        "size",
+        "percentage",
+        "duration",
+        "transition",
+        "milliseconds",
+        "true",
+        "only"
+      ]
+    },
+    {
+      "name": "GradualBlur",
+      "category": "Animations",
+      "surface": "element",
+      "triggers": [
+        "hover",
+        "scroll"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [],
+      "summary": "贴在容器边缘的渐进模糊罩，越靠边越糊，把滚动内容自然虚化淡出",
+      "mood": [
+        "优雅",
+        "安静",
+        "极简",
+        "高级"
+      ],
+      "motion": "边缘渐虚",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "卡片列表",
+        "正文",
+        "页脚",
+        "导航"
+      ],
+      "avoid": "表格、数据看板这类边缘信息也要看清的区域",
+      "zh": [
+        "渐进模糊",
+        "边缘模糊",
+        "毛玻璃",
+        "磨砂",
+        "虚化",
+        "滚动淡出",
+        "底部渐隐",
+        "遮罩",
+        "模糊过渡",
+        "内容淡出",
+        "高斯模糊",
+        "渐变模糊"
+      ],
+      "en": [
+        "gradual",
+        "blur",
+        "edge",
+        "attach",
+        "overlay",
+        "base",
+        "strength",
+        "multiplier",
+        "affects",
+        "layer",
+        "height",
+        "top",
+        "bottom",
+        "positions",
+        "width",
+        "defaults",
+        "vertical",
+        "matches",
+        "horizontal",
+        "stacked",
+        "layers",
+        "higher",
+        "smoother",
+        "gradient"
+      ]
+    },
+    {
+      "name": "ImageTrail",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "鼠标（或手指）在区域内划动时，把你自己传入的图片一张张甩到光标位置，连成一条图片尾巴。内置 8 种差别很大的变体：默认款原尺寸滑入后缩小淡出，另有从零弹出带高光的、朝运动方向飞散的、按鼠标速度控制大小明暗模糊的、旋转对齐轨迹的、带透视 3D 前后穿梭的，以及图片不消失、随机缩放旋转堆成一面照片墙的堆叠款（同屏最多 9 张）。组件自身不含任何图片，不传 items 就完全没有画面。",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "时髦"
+      ],
+      "motion": "跟随光标",
+      "palette": [
+        "取决于传入图片",
+        "无自带配色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "作品集",
+        "图片展示",
+        "品牌/工作室官网"
+      ],
+      "avoid": "表单、后台、仪表盘等需要专注操作的界面。需要自备素材：至少 6~8 张比例接近 1.1 的图，items 为空时组件完全空白。容器是 z-index:100 的绝对定位覆盖层、卡片固定 190px 宽且 overflow: visible 会溢出，压在其它 UI 上要留意层级与裁剪。触屏并非无效（源码有 touchmove，拖动能触发），但没有 hover 概念、滚动时手指划过也会误甩图，移动端建议按变体单独取舍。",
+      "zh": [
+        "图片拖尾",
+        "鼠标拖尾",
+        "光标跟随",
+        "图片跟随",
+        "尾迹",
+        "残影",
+        "照片墙",
+        "图片堆叠",
+        "图片飞散",
+        "3D 透视",
+        "鼠标特效",
+        "hover 特效",
+        "作品集",
+        "画廊",
+        "摄影展示"
+      ],
+      "en": [
+        "image",
+        "trail",
+        "urls",
+        "which",
+        "animated",
+        "all",
+        "different",
+        "animation"
+      ]
+    },
+    {
+      "name": "LaserFlow",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "紫色激光从顶部垂直射下（默认偏画面右侧），在正中横向炸开一道细长光带，束内光丝不断下涌，四周弥漫体积雾",
+      "mood": [
+        "科技",
+        "未来",
+        "神秘",
+        "暗黑"
+      ],
+      "motion": "光丝下涌",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "霓虹",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "浅色页面直接用不了：它 alpha:false 把画布清成纯黑，会在版面上戳出一块黑矩形，也叠不到已有背景图上；容器必须给明确高度，父级零高就整个不显示；依赖 three，满屏片元着色器加 5 层雾噪声，移动端吃填充率。默认交汇点在画面正中，想要「打在地面/卡片上」得自己调 verticalBeamOffset。",
+      "zh": [
+        "激光",
+        "光束",
+        "光柱",
+        "光丝流动",
+        "十字光",
+        "体积光",
+        "雾气",
+        "科幻",
+        "赛博朋克",
+        "紫色光效",
+        "全屏背景",
+        "暗色背景"
+      ],
+      "en": [
+        "laser",
+        "flow",
+        "horizontal",
+        "offset",
+        "beam",
+        "canvas",
+        "width",
+        "vertical",
+        "height",
+        "sizing",
+        "factor",
+        "footprint",
+        "density",
+        "micro",
+        "streak",
+        "wisps",
+        "speed",
+        "wisp",
+        "motion",
+        "brightness",
+        "modulation",
+        "strength",
+        "overall",
+        "volumetric"
+      ]
+    },
+    {
+      "name": "LogoLoop",
+      "category": "Animations",
+      "surface": "collection",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "一排 Logo 沿横向无缝匀速滚动，两端渐隐淡出，悬停可减速或放大",
+      "mood": [
+        "极简",
+        "安静",
+        "科技"
+      ],
+      "motion": "匀速横滚",
+      "palette": [
+        "可定制",
+        "彩色"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "落地页",
+        "产品介绍",
+        "页脚",
+        "Hero区"
+      ],
+      "avoid": "需要用户点选具体某个 Logo 的场景——一直在动不好点",
+      "zh": [
+        "跑马灯",
+        "无缝滚动",
+        "循环滚动",
+        "Logo墙",
+        "合作伙伴",
+        "客户展示",
+        "技术栈",
+        "横向滚动",
+        "走马灯",
+        "品牌墙",
+        "无限循环",
+        "图标滚动"
+      ],
+      "en": [
+        "logo",
+        "loop",
+        "items",
+        "display",
+        "item",
+        "either",
+        "react",
+        "node",
+        "image",
+        "src",
+        "animation",
+        "speed",
+        "pixels",
+        "second",
+        "positive",
+        "move",
+        "based",
+        "direction",
+        "negative",
+        "reverse",
+        "supports",
+        "horizontal",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "name": "MagicRings",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "蓝紫同心光环被竖直切开，只剩左右两簇发光圆弧（越外圈弧越短），缓慢外扩并明暗呼吸，正中空出暗区，覆一层细噪点",
+      "mood": [
+        "科技",
+        "未来",
+        "神秘",
+        "梦幻"
+      ],
+      "motion": "光弧缓慢外扩",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "蓝色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "卡片列表"
+      ],
+      "avoid": "浅色/白底页面用不了，靠暗底才出效果，噪点在亮底会显脏；亮部全压在画面左右两侧，两边有导航或按钮会打架（正中反而是放标题/Logo 的安全区）；依赖 three，且检测不到 WebGL2 时直接不渲染、无降级。",
+      "zh": [
+        "光弧",
+        "发光圆弧",
+        "同心圆",
+        "圆环",
+        "左右对称",
+        "声波",
+        "光晕",
+        "能量场",
+        "缓慢外扩",
+        "中心留白",
+        "悬停放大",
+        "颗粒噪点"
+      ],
+      "en": [
+        "magic",
+        "rings",
+        "hex",
+        "color",
+        "second",
+        "interpolate",
+        "colortwo",
+        "concentric",
+        "draw",
+        "animation",
+        "speed",
+        "multiplier",
+        "glow",
+        "falloff",
+        "higher",
+        "produce",
+        "tighter",
+        "thickness",
+        "ring",
+        "line",
+        "radius",
+        "innermost",
+        "normalized",
+        "spacing"
+      ]
+    },
+    {
+      "name": "Magnet",
+      "category": "Animations",
+      "surface": "wrapper",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [],
+      "summary": "鼠标靠近时元素被吸过去轻轻偏移，鼠标移开又弹回原位，像磁铁",
+      "mood": [
+        "活泼",
+        "优雅",
+        "科技"
+      ],
+      "motion": "靠近吸附",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "按钮",
+        "卡片列表",
+        "导航",
+        "Hero区"
+      ],
+      "avoid": "密集排列、需要精准点击的控件——元素会躲着跑；触屏端无效",
+      "zh": [
+        "磁吸",
+        "磁铁",
+        "吸附",
+        "吸引",
+        "跟随鼠标",
+        "按钮吸附",
+        "悬停位移",
+        "弹性回弹",
+        "微交互",
+        "交互反馈",
+        "靠近变形",
+        "手感"
+      ],
+      "en": [
+        "magnet",
+        "specifies",
+        "distance",
+        "pixels",
+        "around",
+        "activates",
+        "pull",
+        "disables",
+        "effect",
+        "true",
+        "strength",
+        "higher",
+        "reduce",
+        "movement",
+        "lower",
+        "increase",
+        "css",
+        "transition",
+        "applied",
+        "active",
+        "inactive",
+        "mouse",
+        "out",
+        "range"
+      ]
+    },
+    {
+      "name": "MagnetLines",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [],
+      "summary": "短线段排成网格，每根都垂直于自己到鼠标的连线，整片绕光标排成一圈圈同心圆环，圆心随鼠标走",
+      "mood": [
+        "极简",
+        "科技",
+        "硬核",
+        "冷冽"
+      ],
+      "motion": "环绕转向",
+      "palette": [
+        "黑白",
+        "单色",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "空状态",
+        "后台界面"
+      ],
+      "avoid": "触屏没有 hover，不拖手指就只是一张静态网格；containerSize 宽高同值恒为正方形，铺不满宽屏；线条数调大后每次鼠标移动都要逐根读 getBoundingClientRect，几百根会掉帧",
+      "zh": [
+        "磁场",
+        "磁力线",
+        "同心圆",
+        "涟漪",
+        "漩涡",
+        "网格",
+        "线条阵列",
+        "跟随鼠标",
+        "铁屑",
+        "矢量场",
+        "极简线条",
+        "交互背景"
+      ],
+      "en": [
+        "magnet",
+        "lines",
+        "grid",
+        "rows",
+        "columns",
+        "specifies",
+        "width",
+        "height",
+        "entire",
+        "container",
+        "color",
+        "line",
+        "span",
+        "elements",
+        "thickness",
+        "length",
+        "initial",
+        "rotation",
+        "angle",
+        "degrees",
+        "before",
+        "pointer",
+        "movement",
+        "applied"
+      ]
+    },
+    {
+      "name": "MetaBalls",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "纯黑底正中一簇白色实心圆球缓慢绕圈游动，挨近就融成一坨、拉出细颈再断开，光标位置额外挂一颗最大的；宽屏下只占中间约三分之一，四周大片空黑",
+      "mood": [
+        "极简",
+        "俏皮",
+        "神秘",
+        "现代"
+      ],
+      "motion": "绕圈融合",
+      "palette": [
+        "黑白",
+        "单色",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "加载中",
+        "空状态",
+        "Hero区",
+        "落地页"
+      ],
+      "avoid": "默认 enableTransparency=false，组件会自己刷一层不透明纯黑，浅色页面上整块盖死；宽屏下球群只占中间约三分之一、四周空黑，当全屏背景显得很空，要铺满得调大 clumpFactor 或调小 animationSize；实心白块会盖住压在上面的文字，且源码 dpr 写死 1，高分屏上硬边偏糊。",
+      "zh": [
+        "融球",
+        "元球",
+        "黏液",
+        "液态",
+        "融合",
+        "拉丝",
+        "有机形状",
+        "剪影",
+        "黑白",
+        "极简背景",
+        "跟随鼠标",
+        "熔岩灯",
+        "抽象"
+      ],
+      "en": [
+        "meta",
+        "balls",
+        "base",
+        "color",
+        "metaballs",
+        "speed",
+        "multiplier",
+        "animation",
+        "disables",
+        "ball",
+        "following",
+        "mouse",
+        "transparency",
+        "container",
+        "smoothness",
+        "factor",
+        "cursor",
+        "size",
+        "world",
+        "rendered",
+        "determines",
+        "how",
+        "close",
+        "together"
+      ]
+    },
+    {
+      "name": "MetallicPaint",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "把 Logo 剪影灌成液态铬：银白高光在鼓起的立体表面缓慢游走，明暗交界镶一道金边，暗部泛冷紫，外轮廓严格保持原图",
+      "mood": [
+        "未来",
+        "高级",
+        "华丽",
+        "科技"
+      ],
+      "motion": "高光缓慢游走",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "启动页",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "只吃「白底或透明底 + 实心剪影」的图，Logo 自身配色会被整体抹掉只剩轮廓，品牌色不能丢的场合别用（轮廓本身不变形）；imageSrc 不传就是空画面，且挂载和换图都要在主线程解 200 次迭代的厚度图，大图会明显卡顿。",
+      "zh": [
+        "液态金属",
+        "水银",
+        "镀铬",
+        "金属质感",
+        "银色",
+        "反光",
+        "光泽",
+        "高光流动",
+        "立体浮雕",
+        "图片遮罩",
+        "质感填充",
+        "Logo特效"
+      ],
+      "en": [
+        "metallic",
+        "paint",
+        "url",
+        "path",
+        "image",
+        "effect",
+        "processed",
+        "internally",
+        "random",
+        "seed",
+        "pattern",
+        "generation",
+        "different",
+        "create",
+        "variations",
+        "scale",
+        "higher",
+        "more",
+        "repetitions",
+        "amount",
+        "chromatic",
+        "aberration",
+        "color",
+        "separation"
+      ]
+    },
+    {
+      "name": "Noise",
+      "category": "Animations",
+      "surface": "element",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "铺在内容上的一层极细颗粒噪点，逐帧闪动，像老胶片的沙沙质感",
+      "mood": [
+        "复古",
+        "安静",
+        "极简"
+      ],
+      "motion": "逐帧闪动",
+      "palette": [
+        "单色",
+        "黑白"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "它本身没有画面，只是半透明颗粒层，必须叠在已有背景或图片上才看得出来",
+      "zh": [
+        "噪点",
+        "颗粒",
+        "胶片",
+        "做旧",
+        "磨砂",
+        "质感叠加",
+        "grain",
+        "杂色",
+        "纹理",
+        "复古滤镜",
+        "沙砾",
+        "底噪"
+      ],
+      "en": [
+        "noise",
+        "defines",
+        "size",
+        "grain",
+        "pattern",
+        "scaling",
+        "factor",
+        "axis",
+        "frames",
+        "before",
+        "refreshes",
+        "opacity"
+      ]
+    },
+    {
+      "name": "OrbitImages",
+      "category": "Animations",
+      "surface": "collection",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "motion"
+      ],
+      "summary": "一组图片沿椭圆轨道匀速环绕，轨道线细淡可见，可换成星形心形无限符号",
+      "mood": [
+        "优雅",
+        "活泼"
+      ],
+      "motion": "匀速绕行",
+      "palette": [
+        "可定制",
+        "彩色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "产品介绍",
+        "图片展示",
+        "落地页"
+      ],
+      "avoid": "轨道要占掉一整块版面，信息密集或需要精确对齐的区块别用",
+      "zh": [
+        "轨道",
+        "环绕",
+        "旋转",
+        "公转",
+        "图片轮播",
+        "头像墙",
+        "环形排列",
+        "路径动画",
+        "椭圆",
+        "循环滚动",
+        "logo墙",
+        "客户展示"
+      ],
+      "en": [
+        "orbit",
+        "images",
+        "image",
+        "urls",
+        "along",
+        "path",
+        "prefix",
+        "auto",
+        "generated",
+        "alt",
+        "attributes",
+        "preset",
+        "shape",
+        "ellipse",
+        "circle",
+        "square",
+        "rectangle",
+        "triangle",
+        "star",
+        "heart",
+        "infinity",
+        "wave",
+        "svg",
+        "base"
+      ]
+    },
+    {
+      "name": "PixelTrail",
+      "category": "Animations",
+      "surface": "element",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "three"
+      ],
+      "summary": "鼠标划过处逐格点亮马赛克方块，随后依次淡出，可黏连成果冻状",
+      "mood": [
+        "科技",
+        "俏皮",
+        "未来"
+      ],
+      "motion": "跟随光标",
+      "palette": [
+        "可定制",
+        "单色",
+        "暗色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "空状态"
+      ],
+      "avoid": "完全靠鼠标驱动，触屏设备上一片空白；还要拉进 three + r3f 三个依赖",
+      "zh": [
+        "鼠标拖尾",
+        "光标跟随",
+        "像素",
+        "马赛克",
+        "网格点亮",
+        "轨迹",
+        "划过消失",
+        "拖尾特效",
+        "复古像素",
+        "交互背景",
+        "果冻",
+        "黏稠"
+      ],
+      "en": [
+        "pixel",
+        "trail",
+        "pixels",
+        "grid",
+        "size",
+        "dot",
+        "duration",
+        "effect",
+        "interpolation",
+        "factor",
+        "pointer",
+        "movement",
+        "color",
+        "configuration",
+        "gooey",
+        "filter"
+      ]
+    },
+    {
+      "name": "PixelTransition",
+      "category": "Animations",
+      "surface": "element",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "悬停时一格格方块随机铺满画面再散去，把第一层内容换成第二层",
+      "mood": [
+        "复古",
+        "活泼",
+        "硬核"
+      ],
+      "motion": "逐格铺开",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "卡片列表",
+        "图片展示",
+        "产品介绍",
+        "按钮"
+      ],
+      "avoid": "必须准备正反两套内容，手上只有一张图时用不上",
+      "zh": [
+        "图片切换",
+        "悬停切换",
+        "马赛克过渡",
+        "像素转场",
+        "内容揭示",
+        "翻转卡片",
+        "前后对比",
+        "遮罩过渡",
+        "交互卡片",
+        "hover效果",
+        "转场",
+        "点击切换"
+      ],
+      "en": [
+        "pixel",
+        "transition",
+        "content",
+        "show",
+        "img",
+        "text",
+        "revealed",
+        "upon",
+        "hover",
+        "click",
+        "rows",
+        "columns",
+        "grid",
+        "background",
+        "color",
+        "block",
+        "length",
+        "reveal",
+        "hide",
+        "seconds",
+        "padding",
+        "top",
+        "aspect",
+        "ratio"
+      ]
+    },
+    {
+      "name": "Ribbons",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "跟着光标弹性甩动的纯色细带，两端收尖中段最粗，光标一停就自动收窄消失，可多条多色错开",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "优雅"
+      ],
+      "motion": "跟随光标甩尾",
+      "palette": [
+        "紫色系",
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "空状态"
+      ],
+      "avoid": "必须盖在最上层才能收到鼠标事件，会挡掉下方所有点击，正文和表单后台别用；光标停下带子就消失，静态页面和截图里等于什么都没有",
+      "zh": [
+        "鼠标拖尾",
+        "光标跟随",
+        "光标特效",
+        "飘带",
+        "丝带",
+        "弹性",
+        "甩尾",
+        "弹簧物理",
+        "曲线拖尾",
+        "触摸跟随",
+        "彩色细带",
+        "WebGL"
+      ],
+      "en": [
+        "ribbons",
+        "color",
+        "strings",
+        "base",
+        "spring",
+        "factor",
+        "physics",
+        "controlling",
+        "ribbon",
+        "motion",
+        "friction",
+        "dampens",
+        "thickness",
+        "horizontally",
+        "offset",
+        "starting",
+        "positions",
+        "delay",
+        "milliseconds",
+        "how",
+        "long",
+        "trails",
+        "extend",
+        "points"
+      ]
+    },
+    {
+      "name": "ShapeBlur",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "一圈雾化到几乎化开的圆角方框轮廓，光标靠近处被照亮，柔和跟随",
+      "mood": [
+        "柔和",
+        "高级",
+        "神秘"
+      ],
+      "motion": "跟随光标",
+      "palette": [
+        "暗色",
+        "单色",
+        "黑白"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "登录页",
+        "空状态",
+        "卡片列表"
+      ],
+      "avoid": "亮度只在光标附近浮现，静态展示和触屏上几乎看不见",
+      "zh": [
+        "光晕",
+        "柔光",
+        "模糊",
+        "磨砂",
+        "弥散",
+        "鼠标高亮",
+        "轮廓发光",
+        "朦胧",
+        "悬停光效",
+        "聚光",
+        "柔和边框",
+        "呼吸光"
+      ],
+      "en": [
+        "shape",
+        "blur",
+        "selects",
+        "variation",
+        "shader",
+        "overrides",
+        "pixel",
+        "ratio",
+        "typically",
+        "device",
+        "size",
+        "determines",
+        "roundness",
+        "corners",
+        "thickness",
+        "border",
+        "hover",
+        "circle",
+        "effect",
+        "edge",
+        "softness"
+      ]
+    },
+    {
+      "name": "SplashCursor",
+      "category": "Animations",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "鼠标划过喷出墨水般的烟雾漩涡，在深色底上缓慢卷曲扩散后消散",
+      "mood": [
+        "梦幻",
+        "神秘",
+        "暗黑"
+      ],
+      "motion": "跟随光标",
+      "palette": [
+        "暗色",
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "空状态"
+      ],
+      "avoid": "铺满全屏且持续跑流体模拟，正文阅读页和低端设备上别用",
+      "zh": [
+        "流体",
+        "液体",
+        "墨水",
+        "烟雾",
+        "漩涡",
+        "全屏背景",
+        "鼠标交互",
+        "泼溅",
+        "扩散",
+        "动态背景",
+        "丝滑",
+        "彩色晕染"
+      ],
+      "en": [
+        "splash",
+        "cursor",
+        "fluid",
+        "simulation",
+        "resolution",
+        "velocity",
+        "fields",
+        "color",
+        "dye",
+        "texture",
+        "certain",
+        "capture",
+        "operations",
+        "rarely",
+        "changed",
+        "rate",
+        "which",
+        "density",
+        "dissipates",
+        "over",
+        "time",
+        "base",
+        "pressure",
+        "jacobi"
+      ]
+    },
+    {
+      "name": "StarBorder",
+      "category": "Animations",
+      "surface": "wrapper",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "按钮上下边缘各有一道光点来回扫动，像流星沿边框划过，中间是暗底",
+      "mood": [
+        "科技",
+        "未来",
+        "暗黑"
+      ],
+      "motion": "沿边扫光",
+      "palette": [
+        "暗色",
+        "可定制",
+        "霓虹"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "按钮",
+        "导航",
+        "卡片列表",
+        "Hero区"
+      ],
+      "avoid": "内层固定是黑到深灰的渐变底，浅色界面里会像挖了个洞",
+      "zh": [
+        "边框动画",
+        "流光",
+        "扫光",
+        "光边",
+        "按钮特效",
+        "发光边框",
+        "描边",
+        "星光",
+        "跑马灯",
+        "高亮按钮",
+        "CTA",
+        "边缘光"
+      ],
+      "en": [
+        "star",
+        "border",
+        "allows",
+        "specifying",
+        "type",
+        "parent",
+        "rendered",
+        "adding",
+        "classes",
+        "changes",
+        "main",
+        "color",
+        "fades",
+        "transparent",
+        "speed",
+        "animation",
+        "thickness",
+        "effect"
+      ]
+    },
+    {
+      "name": "StickerPeel",
+      "category": "Animations",
+      "surface": "element",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "一张贴纸悬停时边角卷起翘开，露出背面白纸与投影，还能拖着挪位置",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "复古"
+      ],
+      "motion": "悬停翘边",
+      "palette": [
+        "可定制",
+        "亮色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "产品介绍",
+        "落地页",
+        "卡片列表",
+        "空状态"
+      ],
+      "avoid": "必须自备一张透明背景的贴纸图片，纯文字场景用不上",
+      "zh": [
+        "贴纸",
+        "揭开",
+        "翘边",
+        "卷起",
+        "剥离",
+        "拟物",
+        "立体质感",
+        "可拖拽",
+        "悬停交互",
+        "徽章",
+        "标签",
+        "撕开"
+      ],
+      "en": [
+        "sticker",
+        "peel",
+        "source",
+        "url",
+        "image",
+        "rotation",
+        "angle",
+        "degrees",
+        "dragging",
+        "percentage",
+        "effect",
+        "hover",
+        "active",
+        "clicked",
+        "direction",
+        "gsap",
+        "easing",
+        "animations",
+        "transitions",
+        "width",
+        "pixels",
+        "intensity",
+        "shadow",
+        "lighting"
+      ]
+    },
+    {
+      "name": "Strands",
+      "category": "Animations",
+      "surface": "element",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "几根发光彩丝横向交织成透镜状光带，粉青黄在纯黑上缓慢起伏",
+      "mood": [
+        "未来",
+        "科技",
+        "梦幻"
+      ],
+      "motion": "缓慢起伏",
+      "palette": [
+        "暗色",
+        "彩色",
+        "霓虹"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "启动页",
+        "加载中",
+        "落地页"
+      ],
+      "avoid": "靠纯黑底衬托辉光，浅色页面里会露出一块黑方块",
+      "zh": [
+        "光带",
+        "光丝",
+        "极光",
+        "霓虹光晕",
+        "AI光效",
+        "Siri",
+        "发光曲线",
+        "流动线条",
+        "黑底发光",
+        "品牌光效",
+        "波动",
+        "丝带光"
+      ],
+      "en": [
+        "strands",
+        "palette",
+        "hex",
+        "colors",
+        "cycled",
+        "across",
+        "pass",
+        "empty",
+        "built",
+        "rainbow",
+        "spectrum",
+        "woven",
+        "through",
+        "animation",
+        "how",
+        "quickly",
+        "ripple",
+        "flow",
+        "vertical",
+        "reach",
+        "strand",
+        "waves",
+        "down",
+        "density"
+      ]
+    },
+    {
+      "name": "TargetCursor",
+      "category": "Animations",
+      "surface": "cursor",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "四角括号加中心圆点的准星光标，静止时缓慢自转，悬停自动撑开框住目标元素",
+      "mood": [
+        "科技",
+        "未来",
+        "极简",
+        "硬核"
+      ],
+      "motion": "跟随光标吸附",
+      "palette": [
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "落地页",
+        "Hero区",
+        "按钮",
+        "产品介绍"
+      ],
+      "avoid": "移动端触屏没有光标，效果完全失效；表单密集的后台界面里会干扰点选。",
+      "zh": [
+        "自定义光标",
+        "鼠标指针",
+        "光标跟随",
+        "准星",
+        "取景框",
+        "四角边框",
+        "瞄准",
+        "替换鼠标",
+        "焦点框",
+        "悬停高亮",
+        "相机取景",
+        "科技感光标"
+      ],
+      "en": [
+        "target",
+        "cursor",
+        "css",
+        "selector",
+        "elements",
+        "should",
+        "trigger",
+        "targeting",
+        "effect",
+        "duration",
+        "seconds",
+        "spinning",
+        "animation",
+        "not",
+        "hide",
+        "browser",
+        "active",
+        "transition",
+        "locks",
+        "onto",
+        "subtle",
+        "parallax",
+        "corners",
+        "moving"
+      ]
+    },
+    {
+      "name": "Aurora",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "屏幕顶部一道绿蓝紫的极光光幕，边缘柔和模糊，向下渐隐入纯黑，缓慢起伏",
+      "mood": [
+        "梦幻",
+        "安静",
+        "柔和",
+        "未来"
+      ],
+      "motion": "缓慢起伏",
+      "palette": [
+        "暗色",
+        "渐变",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "启动页"
+      ],
+      "avoid": "浅色/白底页面用不了，它靠纯黑衬底才出效果。",
+      "zh": [
+        "极光",
+        "北极光",
+        "光带",
+        "顶部光晕",
+        "弥散光",
+        "渐变背景",
+        "柔光",
+        "氛围光",
+        "暗色背景",
+        "全屏背景",
+        "缓慢流动",
+        "梦幻背景"
+      ],
+      "en": [
+        "aurora",
+        "three",
+        "hex",
+        "colors",
+        "defining",
+        "gradient",
+        "animation",
+        "speed",
+        "higher",
+        "make",
+        "move",
+        "faster",
+        "blending",
+        "effect",
+        "background",
+        "height",
+        "intensity"
+      ]
+    },
+    {
+      "name": "Balatro",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "红蓝两色的液态漩涡在全屏搅拌，油彩般的高光与暗部翻卷，缓慢旋转",
+      "mood": [
+        "华丽",
+        "复古",
+        "神秘",
+        "暗黑"
+      ],
+      "motion": "旋转搅动",
+      "palette": [
+        "彩色",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "图片展示"
+      ],
+      "avoid": "上面要压大段正文时会严重抢视线，只适合放少量大字。",
+      "zh": [
+        "漩涡",
+        "旋涡",
+        "涡流",
+        "液态",
+        "流体",
+        "油彩",
+        "大理石纹",
+        "撞色",
+        "双色",
+        "搅拌",
+        "抽象背景",
+        "全屏背景"
+      ],
+      "en": [
+        "balatro",
+        "base",
+        "rotation",
+        "amount",
+        "affecting",
+        "shader",
+        "effect",
+        "speed",
+        "spin",
+        "animation",
+        "offset",
+        "primary",
+        "color",
+        "hex",
+        "format",
+        "secondary",
+        "tertiary",
+        "contrast",
+        "blending",
+        "lighting",
+        "factor",
+        "brightness",
+        "influence",
+        "based"
+      ]
+    },
+    {
+      "name": "Ballpit",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "click",
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap",
+        "three"
+      ],
+      "summary": "上百颗紫粉色光泽小球在暗底里堆叠碰撞，受重力下落、撞墙回弹，可跟手推开",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "梦幻",
+        "温暖"
+      ],
+      "motion": "碰撞弹跳",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "空状态",
+        "启动页"
+      ],
+      "avoid": "严肃的企业官网或后台界面不搭；three.js 全量物理模拟，低端设备会掉帧。",
+      "zh": [
+        "小球",
+        "球池",
+        "弹球",
+        "3D球体",
+        "物理碰撞",
+        "重力掉落",
+        "弹跳",
+        "泡泡",
+        "糖果色",
+        "玩具感",
+        "交互背景",
+        "鼠标推开"
+      ],
+      "en": [
+        "ballpit",
+        "balls",
+        "gravity",
+        "affecting",
+        "friction",
+        "applied",
+        "ball",
+        "movement",
+        "determines",
+        "how",
+        "much",
+        "bounce",
+        "off",
+        "walls",
+        "disables",
+        "sphere",
+        "following",
+        "cursor",
+        "defines",
+        "colors",
+        "ambient",
+        "light",
+        "color",
+        "intensity"
+      ]
+    },
+    {
+      "name": "Beams",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "three"
+      ],
+      "summary": "近黑背景上一排斜向宽光束条带，明暗沿条带缓慢扫过，覆一层细颗粒噪点",
+      "mood": [
+        "硬核",
+        "暗黑",
+        "极简",
+        "冷冽"
+      ],
+      "motion": "缓慢扫过",
+      "palette": [
+        "暗色",
+        "黑白",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "后台界面"
+      ],
+      "avoid": "亮色品牌或白底页面不适用；依赖 three + fiber + drei 三个包，体积不轻。",
+      "zh": [
+        "光束",
+        "光柱",
+        "条纹",
+        "斜向条带",
+        "扫光",
+        "明暗交替",
+        "体积光",
+        "颗粒噪点",
+        "磨砂质感",
+        "黑白背景",
+        "极简暗色",
+        "缓慢移动"
+      ],
+      "en": [
+        "beams",
+        "width",
+        "beam",
+        "height",
+        "display",
+        "color",
+        "directional",
+        "light",
+        "speed",
+        "animation",
+        "intensity",
+        "noise",
+        "effect",
+        "overlay",
+        "scale",
+        "pattern",
+        "rotation",
+        "entire",
+        "system",
+        "degrees"
+      ]
+    },
+    {
+      "name": "BreathingGrid",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "细线方格铺满整屏，整张网格的亮度按正弦缓慢明暗呼吸，颜色与格距可调",
+      "mood": [
+        "极简",
+        "安静",
+        "科技"
+      ],
+      "motion": "整体呼吸",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "后台界面",
+        "数据看板",
+        "空状态",
+        "加载中"
+      ],
+      "avoid": "线条网格会跟表格、图表自带的栅格打架，数据密集的区域慎用；父容器要给明确高度且 position 非 static",
+      "zh": [
+        "网格",
+        "格子",
+        "方格",
+        "呼吸",
+        "明暗",
+        "脉动",
+        "极简背景",
+        "打底",
+        "衬底",
+        "轻量背景",
+        "零依赖",
+        "后台背景"
+      ],
+      "en": [
+        "breathing",
+        "grid"
+      ]
+    },
+    {
+      "name": "ColorBends",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "纯黑底上两道弯曲的彩虹光带，边缘棱镜色散、中心白亮，带细腻颗粒感",
+      "mood": [
+        "梦幻",
+        "未来",
+        "高级",
+        "优雅"
+      ],
+      "motion": "缓慢弯折流动",
+      "palette": [
+        "暗色",
+        "彩色",
+        "霓虹"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "品牌色单一、忌讳彩虹色的场合不合适。",
+      "zh": [
+        "彩虹",
+        "光带",
+        "色散",
+        "棱镜",
+        "弧线",
+        "曲线光",
+        "丝带",
+        "光纤",
+        "霓虹",
+        "弯曲光带",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "color",
+        "bends",
+        "base",
+        "rotation",
+        "angle",
+        "degrees",
+        "automatic",
+        "speed",
+        "sec",
+        "animation",
+        "time",
+        "scale",
+        "shader",
+        "palette",
+        "hex",
+        "colors",
+        "blend",
+        "background",
+        "transparent",
+        "alpha",
+        "zoom",
+        "factor",
+        "pattern",
+        "wave"
+      ]
+    },
+    {
+      "name": "DarkVeil",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "几乎全黑的画面里漾开一团紫色光雾，像丝绒帷幕的褶皱，极缓慢地飘移变形",
+      "mood": [
+        "暗黑",
+        "神秘",
+        "高级",
+        "安静"
+      ],
+      "motion": "缓慢飘动",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "单色"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "启动页"
+      ],
+      "avoid": "浅色主题或需要明亮活泼气氛的页面不合适。",
+      "zh": [
+        "暗色背景",
+        "紫色光雾",
+        "弥散光",
+        "幽光",
+        "黑色背景",
+        "极暗",
+        "光晕",
+        "帷幕",
+        "烟雾",
+        "缓慢飘动",
+        "氛围背景",
+        "可调色相"
+      ],
+      "en": [
+        "dark",
+        "veil",
+        "shifts",
+        "hue",
+        "entire",
+        "animation",
+        "intensity",
+        "noise",
+        "grain",
+        "effect",
+        "scanline",
+        "speed",
+        "frequency",
+        "scanlines",
+        "amount",
+        "warp",
+        "distortion",
+        "applied",
+        "scale",
+        "factor",
+        "resolution"
+      ]
+    },
+    {
+      "name": "Dither",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "@react-three/fiber",
+        "@react-three/postprocessing",
+        "postprocessing",
+        "three"
+      ],
+      "summary": "黑白点阵抖动出的波纹图案，像老式单色屏幕或报纸网点，波形缓慢推移",
+      "mood": [
+        "复古",
+        "硬核",
+        "暗黑",
+        "神秘"
+      ],
+      "motion": "波纹缓慢推移",
+      "palette": [
+        "黑白",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "满屏高频点阵，正文压在上面基本无法阅读；对闪烁敏感的用户要慎用。",
+      "zh": [
+        "抖动",
+        "像素点",
+        "网点",
+        "半调",
+        "1bit",
+        "黑白",
+        "单色",
+        "像素风",
+        "复古屏幕",
+        "报纸质感",
+        "噪点",
+        "波纹"
+      ],
+      "en": [
+        "dither",
+        "speed",
+        "wave",
+        "animation",
+        "frequency",
+        "pattern",
+        "amplitude",
+        "color",
+        "defined",
+        "rgb",
+        "colors",
+        "dithering",
+        "effect",
+        "size",
+        "pixels",
+        "true",
+        "mouse",
+        "interaction",
+        "influence",
+        "radius"
+      ]
+    },
+    {
+      "name": "DotField",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "svg",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "暗底上铺满极细的蓝紫圆点阵列，光标经过处点阵鼓起隆包并亮起一圈光晕",
+      "mood": [
+        "极简",
+        "科技",
+        "安静",
+        "冷冽"
+      ],
+      "motion": "跟随光标鼓起",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "后台界面",
+        "空状态"
+      ],
+      "avoid": "效果几乎全靠鼠标驱动，移动端或静态截图里只剩一层规整点阵。",
+      "zh": [
+        "点阵",
+        "圆点网格",
+        "波点",
+        "点状背景",
+        "星点",
+        "科技点阵",
+        "鼠标交互",
+        "鼓包凸起",
+        "排斥",
+        "光晕跟随",
+        "极简背景",
+        "零依赖"
+      ],
+      "en": [
+        "dot",
+        "field",
+        "radius",
+        "individual",
+        "grid",
+        "spacing",
+        "between",
+        "dots",
+        "cursor",
+        "interaction",
+        "area",
+        "force",
+        "applied",
+        "not",
+        "bulge",
+        "mode",
+        "true",
+        "away",
+        "false",
+        "are",
+        "pushed",
+        "physics",
+        "strength",
+        "effect"
+      ]
+    },
+    {
+      "name": "DotGrid",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "黑底均匀圆点阵列，光标经过处点被推开成涟漪，中心一团亮紫高光",
+      "mood": [
+        "科技",
+        "极简",
+        "安静"
+      ],
+      "motion": "涟漪扩散",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "后台界面"
+      ],
+      "avoid": "效果全靠鼠标驱动，触屏端和纯静态展示几乎看不出来",
+      "zh": [
+        "点阵",
+        "圆点",
+        "网格背景",
+        "点阵背景",
+        "波纹",
+        "涟漪",
+        "光标互动",
+        "科技感背景",
+        "极简背景",
+        "暗色背景",
+        "点击扩散",
+        "粒子网格"
+      ],
+      "en": [
+        "dot",
+        "grid",
+        "size",
+        "pixels",
+        "gap",
+        "between",
+        "base",
+        "color",
+        "dots",
+        "hovered",
+        "activated",
+        "radius",
+        "around",
+        "mouse",
+        "pointer",
+        "within",
+        "which",
+        "react",
+        "speed",
+        "threshold",
+        "trigger",
+        "inertia",
+        "effect",
+        "shockwave"
+      ]
+    },
+    {
+      "name": "EvilEye",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "一只烈焰组成的巨眼铺满全屏，橙金火舌向外喷张，中央竖瞳跟着光标转",
+      "mood": [
+        "暗黑",
+        "神秘",
+        "华丽"
+      ],
+      "motion": "火焰翻涌",
+      "palette": [
+        "暗色",
+        "暖色系",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "启动页",
+        "落地页"
+      ],
+      "avoid": "压迫感极强，正经的企业站、后台和金融类产品别用",
+      "zh": [
+        "眼睛",
+        "魔眼",
+        "火焰",
+        "燃烧",
+        "瞳孔",
+        "索伦之眼",
+        "跟随光标",
+        "暗黑背景",
+        "神秘",
+        "恐怖",
+        "橙色",
+        "视觉冲击"
+      ],
+      "en": [
+        "evil",
+        "eye",
+        "primary",
+        "color",
+        "hex",
+        "format",
+        "brightness",
+        "hdr",
+        "intensity",
+        "size",
+        "darkness",
+        "pupil",
+        "slit",
+        "width",
+        "main",
+        "iris",
+        "ring",
+        "strength",
+        "outer",
+        "glow",
+        "zoom",
+        "level",
+        "out",
+        "scale"
+      ]
+    },
+    {
+      "name": "FaultyTerminal",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "黑底满屏绿色字符方块，像老式终端一样扫描线抖动、时不时故障闪跳",
+      "mood": [
+        "硬核",
+        "复古",
+        "暗黑",
+        "科技"
+      ],
+      "motion": "故障闪跳",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页"
+      ],
+      "avoid": "满屏字符很抢眼，上面放正文会读不清，只压得住大标题",
+      "zh": [
+        "终端",
+        "代码雨",
+        "黑客",
+        "故障",
+        "glitch",
+        "扫描线",
+        "CRT",
+        "老显示器",
+        "绿色",
+        "赛博朋克",
+        "矩阵",
+        "字符网格"
+      ],
+      "en": [
+        "faulty",
+        "terminal",
+        "zoom",
+        "scale",
+        "pattern",
+        "grid",
+        "multiplier",
+        "glyph",
+        "density",
+        "size",
+        "individual",
+        "glyphs",
+        "animation",
+        "speed",
+        "pause",
+        "resume",
+        "strength",
+        "scanline",
+        "effects",
+        "glitch",
+        "displacement",
+        "intensity",
+        "flicker",
+        "effect"
+      ]
+    },
+    {
+      "name": "Ferrofluid",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "近乎全黑的画面上游动着液态金属般的高光丝带，边缘泛白缓慢蠕动",
+      "mood": [
+        "暗黑",
+        "高级",
+        "安静",
+        "神秘"
+      ],
+      "motion": "缓慢蠕动",
+      "palette": [
+        "暗色",
+        "黑白",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "加载中"
+      ],
+      "avoid": "整体几乎全黑，亮色主题或需要明亮氛围的页面不合适",
+      "zh": [
+        "磁流体",
+        "液态金属",
+        "流体",
+        "流动",
+        "水银",
+        "油滴",
+        "高光",
+        "抽象背景",
+        "暗色背景",
+        "有机形态",
+        "缓慢流动",
+        "黑色背景"
+      ],
+      "en": [
+        "ferrofluid",
+        "hex",
+        "colors",
+        "tint",
+        "fluid",
+        "rim",
+        "are",
+        "spread",
+        "across",
+        "surface",
+        "height",
+        "single",
+        "color",
+        "makes",
+        "whole",
+        "effect",
+        "uniform",
+        "background",
+        "behind",
+        "multiplier",
+        "how",
+        "fast",
+        "churns",
+        "flows"
+      ]
+    },
+    {
+      "name": "FloatingLines",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "深紫底上几束粉蓝发光丝带交叉掠过，像光纤一样柔和弯曲流动",
+      "mood": [
+        "梦幻",
+        "未来",
+        "华丽"
+      ],
+      "motion": "柔缓摆动",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页"
+      ],
+      "avoid": "亮度高对比强，压不住上层文字，正文区别铺",
+      "zh": [
+        "光线",
+        "线条",
+        "光带",
+        "丝带",
+        "霓虹",
+        "发光线条",
+        "流动",
+        "曲线",
+        "波浪线",
+        "粉紫",
+        "光效背景",
+        "动态背景"
+      ],
+      "en": [
+        "floating",
+        "lines",
+        "hex",
+        "color",
+        "strings",
+        "gradient",
+        "coloring",
+        "max",
+        "colors",
+        "which",
+        "wave",
+        "layers",
+        "display",
+        "toggle",
+        "individual",
+        "waves",
+        "off",
+        "single",
+        "applies",
+        "all",
+        "control",
+        "spacing",
+        "between",
+        "position"
+      ]
+    },
+    {
+      "name": "Galaxy",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "纯黑深空里布满星点，中心向外拉出放射状星轨，星星缓慢闪烁旋转",
+      "mood": [
+        "神秘",
+        "安静",
+        "科技",
+        "梦幻"
+      ],
+      "motion": "星轨旋转",
+      "palette": [
+        "暗色",
+        "黑白",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页"
+      ],
+      "avoid": "除非产品真跟太空、科技沾边，否则容易显得俗套",
+      "zh": [
+        "星空",
+        "银河",
+        "宇宙",
+        "星星",
+        "深空",
+        "太空",
+        "穿梭",
+        "曲速",
+        "闪烁",
+        "粒子星点",
+        "黑色背景",
+        "科技背景"
+      ],
+      "en": [
+        "galaxy",
+        "focal",
+        "point",
+        "effect",
+        "coordinates",
+        "rotation",
+        "matrix",
+        "speed",
+        "star",
+        "movement",
+        "animation",
+        "density",
+        "stars",
+        "shifts",
+        "hue",
+        "all",
+        "specified",
+        "degrees",
+        "true",
+        "stops",
+        "time",
+        "based",
+        "animations",
+        "global"
+      ]
+    },
+    {
+      "name": "GradientBlinds",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "紫蓝渐变被切成一排斜向百叶条，亮光斑跟着光标游走，带细噪点",
+      "mood": [
+        "未来",
+        "华丽",
+        "科技"
+      ],
+      "motion": "光斑游走",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "条纹分割感强，背后放长段文字会被切碎",
+      "zh": [
+        "百叶窗",
+        "条纹",
+        "斜纹",
+        "渐变",
+        "光束",
+        "聚光",
+        "光斑跟随",
+        "紫色",
+        "竖条",
+        "切割",
+        "颗粒",
+        "视觉冲击"
+      ],
+      "en": [
+        "gradient",
+        "blinds",
+        "hex",
+        "colors",
+        "forming",
+        "animated",
+        "one",
+        "color",
+        "provided",
+        "duplicated",
+        "rotation",
+        "degrees",
+        "horizontal",
+        "left",
+        "right",
+        "strength",
+        "pixel",
+        "noise",
+        "added",
+        "final",
+        "clean",
+        "target",
+        "vertical",
+        "acts"
+      ]
+    },
+    {
+      "name": "Grainient",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "粉紫与宝蓝大面积弥散渐变，覆一层明显噪点颗粒，色块缓慢揉动",
+      "mood": [
+        "梦幻",
+        "柔和",
+        "活泼"
+      ],
+      "motion": "缓慢揉动",
+      "palette": [
+        "亮色",
+        "彩色",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页"
+      ],
+      "avoid": "饱和度高又亮，深色主题或需要克制的界面别用",
+      "zh": [
+        "渐变",
+        "噪点",
+        "颗粒",
+        "磨砂",
+        "弥散",
+        "撞色",
+        "粉紫",
+        "抽象背景",
+        "全屏背景",
+        "柔和",
+        "模糊",
+        "网格渐变"
+      ],
+      "en": [
+        "grainient",
+        "primary",
+        "light",
+        "color",
+        "gradient",
+        "blend",
+        "secondary",
+        "accent",
+        "deep",
+        "base",
+        "animation",
+        "speed",
+        "multiplier",
+        "motion",
+        "shifts",
+        "palette",
+        "balance",
+        "toward",
+        "dark",
+        "lighter",
+        "tones",
+        "strength",
+        "wave",
+        "warp"
+      ]
+    },
+    {
+      "name": "GridDistortion",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "整张图铺满屏幕，光标划过处像被水波推开般液化扭曲，随后慢慢复位",
+      "mood": [
+        "科技",
+        "未来",
+        "梦幻"
+      ],
+      "motion": "光标液化",
+      "palette": [
+        "可定制",
+        "彩色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "图片展示",
+        "产品介绍"
+      ],
+      "avoid": "必须提供一张图，纯色或没有素材图的场景用不了",
+      "zh": [
+        "图片扭曲",
+        "液化",
+        "水波",
+        "变形",
+        "折射",
+        "玻璃",
+        "鼠标扭曲",
+        "网格扭曲",
+        "交互图片",
+        "图片背景",
+        "拖尾",
+        "banner交互"
+      ],
+      "en": [
+        "grid",
+        "distortion",
+        "image",
+        "you",
+        "want",
+        "render",
+        "inside",
+        "container",
+        "cells",
+        "present",
+        "size",
+        "effect",
+        "follows",
+        "cursor",
+        "speed",
+        "which",
+        "return",
+        "their",
+        "initial",
+        "state",
+        "overall",
+        "strength",
+        "any",
+        "apply"
+      ]
+    },
+    {
+      "name": "GridMotion",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "倾斜十五度的深色圆角卡片墙，四排随鼠标左右反向滑动，格子可换成图片",
+      "mood": [
+        "科技",
+        "高级",
+        "极简"
+      ],
+      "motion": "反向滑动",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "图片展示",
+        "落地页"
+      ],
+      "avoid": "格子一直随鼠标漂移，正文阅读页别铺；还得准备约 28 个内容项",
+      "zh": [
+        "网格",
+        "卡片墙",
+        "图片墙",
+        "倾斜网格",
+        "滚动",
+        "视差",
+        "鼠标跟随",
+        "作品集",
+        "拼贴",
+        "相册",
+        "错位滑动",
+        "展示墙"
+      ],
+      "en": [
+        "grid",
+        "motion",
+        "items",
+        "display",
+        "item",
+        "jsx",
+        "image",
+        "url",
+        "color",
+        "radial",
+        "gradient",
+        "background"
+      ]
+    },
+    {
+      "name": "GridScan",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "face-api.js",
+        "postprocessing",
+        "three"
+      ],
+      "summary": "深色第一人称网格房间，暗紫线框向纵深收缩，粉色扫描光带在空间里来回推进",
+      "mood": [
+        "科技",
+        "未来",
+        "硬核",
+        "暗黑"
+      ],
+      "motion": "扫描来回推进",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "霓虹"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "后台界面"
+      ],
+      "avoid": "浅色主题别用；纵深网格线会跟表格、卡片边框互相干扰，信息密集页面上很吵。依赖 three + face-api.js，包体偏大",
+      "zh": [
+        "网格",
+        "线框",
+        "扫描",
+        "隧道",
+        "纵深",
+        "透视",
+        "赛博",
+        "科技感",
+        "3D空间",
+        "雷达",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "grid",
+        "scan",
+        "face",
+        "tracking",
+        "webcam",
+        "show",
+        "preview",
+        "debug",
+        "hud",
+        "path",
+        "url",
+        "api",
+        "models",
+        "overall",
+        "responsiveness",
+        "input",
+        "line",
+        "thickness",
+        "color",
+        "lines",
+        "spacing",
+        "scale",
+        "smaller",
+        "denser"
+      ]
+    },
+    {
+      "name": "Hyperspeed",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "postprocessing",
+        "three"
+      ],
+      "summary": "黑底夜间公路视角，粉紫与青色车灯拖成长条光轨，高速冲向远处消失点",
+      "mood": [
+        "科技",
+        "未来",
+        "暗黑",
+        "硬核"
+      ],
+      "motion": "光轨高速飞掠",
+      "palette": [
+        "暗色",
+        "霓虹",
+        "彩色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "运动感极强且持续不停，长时间停留的阅读页和后台界面别用，容易看晕；对晕动敏感的用户要留关闭开关",
+      "zh": [
+        "高速",
+        "光轨",
+        "车灯",
+        "拖尾",
+        "隧道",
+        "赛博朋克",
+        "霓虹",
+        "加速",
+        "夜间公路",
+        "冲刺",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "hyperspeed",
+        "highly",
+        "customizable",
+        "configuration",
+        "effect",
+        "things",
+        "like",
+        "colors",
+        "distortion",
+        "line",
+        "properties",
+        "etc"
+      ]
+    },
+    {
+      "name": "Iridescence",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "蓝紫青交融的全屏虹彩渐变，像丝绸或油膜表面一样缓慢起伏流动",
+      "mood": [
+        "梦幻",
+        "柔和",
+        "优雅",
+        "未来"
+      ],
+      "motion": "缓慢流动",
+      "palette": [
+        "渐变",
+        "彩色",
+        "亮色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "启动页"
+      ],
+      "avoid": "整屏都是中高明度彩色，正文直接压上去看不清，需要半透明遮罩；暗色调产品不搭",
+      "zh": [
+        "渐变",
+        "虹彩",
+        "全息",
+        "流体",
+        "丝滑",
+        "柔和",
+        "梦幻",
+        "极光",
+        "油膜",
+        "抽象",
+        "动态背景",
+        "全屏背景"
+      ],
+      "en": [
+        "iridescence",
+        "base",
+        "color",
+        "rgb",
+        "between",
+        "speed",
+        "multiplier",
+        "animation",
+        "amplitude",
+        "mouse",
+        "driven",
+        "effect",
+        "interaction",
+        "shader"
+      ]
+    },
+    {
+      "name": "LetterGlitch",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "黑底铺满随机字符方阵，绿青蓝三色字母不断刷新跳变，像黑客终端",
+      "mood": [
+        "科技",
+        "硬核",
+        "暗黑",
+        "神秘"
+      ],
+      "motion": "字符跳变闪烁",
+      "palette": [
+        "暗色",
+        "冷色系",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "登录页",
+        "启动页",
+        "加载中"
+      ],
+      "avoid": "满屏字符持续跳变，上面叠正文几乎读不了，只适合纯装饰或配大标题；对闪烁敏感的场景不要用",
+      "zh": [
+        "代码雨",
+        "数字雨",
+        "黑客",
+        "矩阵",
+        "终端",
+        "字符",
+        "乱码",
+        "故障",
+        "极客",
+        "科技感",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "letter",
+        "glitch",
+        "colors",
+        "letters",
+        "rendered",
+        "canvas",
+        "speed",
+        "which",
+        "scramble",
+        "animation",
+        "true",
+        "renders",
+        "radial",
+        "gradient",
+        "center",
+        "container",
+        "inner",
+        "around",
+        "edges",
+        "smoothens",
+        "more",
+        "subtle",
+        "feel",
+        "characters"
+      ]
+    },
+    {
+      "name": "Lightfall",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "深紫背景顶部泛出蓝色光晕，无数细光丝像流星雨般垂落并向两侧弯出",
+      "mood": [
+        "梦幻",
+        "神秘",
+        "华丽",
+        "未来"
+      ],
+      "motion": "光丝垂落",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "顶部正中有强光晕，标题居中会被冲掉；密集下落的线条不适合长时间阅读的页面",
+      "zh": [
+        "流星雨",
+        "光丝",
+        "下落",
+        "光束",
+        "粒子",
+        "星空",
+        "光晕",
+        "梦幻",
+        "极光",
+        "紫色背景",
+        "动态背景",
+        "全屏背景"
+      ],
+      "en": [
+        "lightfall",
+        "hex",
+        "colors",
+        "tint",
+        "falling",
+        "light",
+        "streaks",
+        "streak",
+        "randomly",
+        "but",
+        "evenly",
+        "assigned",
+        "one",
+        "single",
+        "color",
+        "makes",
+        "whole",
+        "effect",
+        "uniform",
+        "soft",
+        "ambient",
+        "glow",
+        "behind",
+        "multiplier"
+      ]
+    },
+    {
+      "name": "Lightning",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "纯黑画面里一道紫色闪电竖劈而下，边缘发光并不停抖动重绘",
+      "mood": [
+        "暗黑",
+        "神秘",
+        "硬核",
+        "科技"
+      ],
+      "motion": "电光抖动闪现",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "启动页",
+        "登录页",
+        "空状态"
+      ],
+      "avoid": "闪电反复闪现，光敏感人群和需要长时间专注的界面别用；画面近乎全黑，浅色主题套不上",
+      "zh": [
+        "闪电",
+        "雷电",
+        "电光",
+        "发光",
+        "能量",
+        "神秘",
+        "暗黑",
+        "闪烁",
+        "紫色",
+        "黑色背景",
+        "动态背景",
+        "全屏背景"
+      ],
+      "en": [
+        "lightning",
+        "hue",
+        "degrees",
+        "horizontal",
+        "offset",
+        "normalized",
+        "units",
+        "animation",
+        "speed",
+        "multiplier",
+        "brightness",
+        "scale",
+        "factor",
+        "bolt",
+        "size"
+      ]
+    },
+    {
+      "name": "LightPillar",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "黑底上一道紫蓝渐变的斜向光柱，内部丝状纹理缓慢扭动，像极光",
+      "mood": [
+        "神秘",
+        "未来",
+        "优雅",
+        "暗黑"
+      ],
+      "motion": "光柱缓慢旋转",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "渐变"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "产品介绍"
+      ],
+      "avoid": "光柱偏在一侧，另外半屏几乎全黑，居中对称排版会显得空；浅色界面不适用",
+      "zh": [
+        "光柱",
+        "光束",
+        "极光",
+        "探照灯",
+        "斜射光",
+        "氛围光",
+        "发光",
+        "渐变",
+        "神秘",
+        "紫色",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "light",
+        "pillar",
+        "hex",
+        "color",
+        "top",
+        "gradient",
+        "bottom",
+        "overall",
+        "brightness",
+        "intensity",
+        "effect",
+        "speed",
+        "multiplier",
+        "rotation",
+        "animation",
+        "mouse",
+        "interaction",
+        "control",
+        "glow",
+        "spread",
+        "width",
+        "radius",
+        "height",
+        "scaling"
+      ]
+    },
+    {
+      "name": "LightRays",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "近乎全黑的画面中，一束冷白光从顶部中央呈扇形洒下，边缘柔和",
+      "mood": [
+        "安静",
+        "优雅",
+        "神秘",
+        "暗黑"
+      ],
+      "motion": "光束缓慢明灭",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "空状态"
+      ],
+      "avoid": "效果很淡，要视觉冲击力的场景撑不起来；亮色背景上基本看不出来",
+      "zh": [
+        "光束",
+        "体积光",
+        "丁达尔",
+        "聚光灯",
+        "顶光",
+        "上帝之光",
+        "氛围光",
+        "打光",
+        "柔和",
+        "冷白",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "light",
+        "rays",
+        "origin",
+        "position",
+        "options",
+        "top",
+        "center",
+        "left",
+        "right",
+        "bottom",
+        "color",
+        "hex",
+        "format",
+        "animation",
+        "speed",
+        "how",
+        "wide",
+        "spread",
+        "lower",
+        "tighter",
+        "higher",
+        "wider",
+        "maximum",
+        "length"
+      ]
+    },
+    {
+      "name": "LineWaves",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "黑白细密等高线在画面里扭曲流淌，明暗交替出金属拉丝般的质感",
+      "mood": [
+        "高级",
+        "极简",
+        "优雅",
+        "冷冽"
+      ],
+      "motion": "线条扭动流淌",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍",
+        "页脚"
+      ],
+      "avoid": "高对比细线在低分辨率屏上容易起摩尔纹，压小字会糊；信息密集的后台界面别用",
+      "zh": [
+        "线条",
+        "波纹",
+        "等高线",
+        "拉丝",
+        "条纹",
+        "黑白",
+        "极简",
+        "抽象",
+        "流动",
+        "高级感",
+        "动态背景",
+        "全屏背景"
+      ],
+      "en": [
+        "line",
+        "waves",
+        "overall",
+        "animation",
+        "speed",
+        "multiplier",
+        "lines",
+        "inner",
+        "center",
+        "wave",
+        "region",
+        "outer",
+        "edge",
+        "intensity",
+        "distortion",
+        "effect",
+        "rotation",
+        "pattern",
+        "degrees",
+        "width",
+        "fade",
+        "between",
+        "regions",
+        "color"
+      ]
+    },
+    {
+      "name": "LiquidChrome",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "黑白液态金属在画面中翻卷扭转，高光带像水银一样缠绕出漩涡",
+      "mood": [
+        "高级",
+        "未来",
+        "优雅",
+        "冷冽"
+      ],
+      "motion": "缓慢翻卷流动",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "高光区域很亮且一直在移动，文字随时会被冲掉，必须加遮罩；不适合承载长文",
+      "zh": [
+        "液态金属",
+        "金属光泽",
+        "流体",
+        "液体",
+        "流动",
+        "水银",
+        "漩涡",
+        "丝滑",
+        "黑白",
+        "抽象",
+        "高级感",
+        "全屏背景"
+      ],
+      "en": [
+        "liquid",
+        "chrome",
+        "base",
+        "color",
+        "specify",
+        "rgb",
+        "animation",
+        "speed",
+        "multiplier",
+        "amplitude",
+        "distortion",
+        "frequency",
+        "modifier",
+        "mouse",
+        "touch",
+        "interaction"
+      ]
+    },
+    {
+      "name": "LiquidEther",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "近黑底上紫粉色流体像墨滴入水般缓慢翻卷晕开，光标划过会把颜色搅动开",
+      "mood": [
+        "梦幻",
+        "优雅",
+        "神秘"
+      ],
+      "motion": "缓慢翻卷",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "启动页"
+      ],
+      "avoid": "WebGL 流体解算吃 GPU，移动端和低端机慎用；浅色页面上几乎看不见",
+      "zh": [
+        "流体",
+        "液体",
+        "流动",
+        "墨水",
+        "晕染",
+        "丝滑",
+        "渐变背景",
+        "动态背景",
+        "全屏背景",
+        "抽象",
+        "紫色流动",
+        "光标搅动"
+      ],
+      "en": [
+        "liquid",
+        "ether",
+        "hex",
+        "color",
+        "stops",
+        "build",
+        "velocity",
+        "palette",
+        "strength",
+        "multiplier",
+        "applied",
+        "mouse",
+        "touch",
+        "movement",
+        "injecting",
+        "radius",
+        "pixels",
+        "base",
+        "resolution",
+        "force",
+        "brush",
+        "simulation",
+        "texture",
+        "scale"
+      ]
+    },
+    {
+      "name": "Orb",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "居中一枚发光圆球，边缘紫到青的光丝呈液态扭动，鼠标靠近变形加剧",
+      "mood": [
+        "未来",
+        "梦幻",
+        "神秘"
+      ],
+      "motion": "缓慢旋转",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "启动页",
+        "空状态",
+        "产品介绍"
+      ],
+      "avoid": "它是画面主角，别放在正文正后方跟文字抢焦点",
+      "zh": [
+        "光球",
+        "球体",
+        "能量球",
+        "发光圆环",
+        "光晕",
+        "霓虹",
+        "悬浮",
+        "扭曲",
+        "中心视觉",
+        "抽象",
+        "紫青渐变",
+        "AI感"
+      ],
+      "en": [
+        "orb",
+        "base",
+        "hue",
+        "degrees",
+        "intensity",
+        "hover",
+        "distortion",
+        "effect",
+        "toggle",
+        "continuous",
+        "rotation",
+        "force",
+        "animations",
+        "even",
+        "not",
+        "actually",
+        "hovered",
+        "background",
+        "color",
+        "container"
+      ]
+    },
+    {
+      "name": "Particles",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "纯黑底上散布细小彩色光点，像星空一样缓慢漂移，鼠标移动整片轻微偏转",
+      "mood": [
+        "安静",
+        "神秘",
+        "未来"
+      ],
+      "motion": "缓慢漂浮",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "后台界面"
+      ],
+      "avoid": "想要首屏强冲击力时不够看，它刻意很安静",
+      "zh": [
+        "粒子",
+        "星空",
+        "星点",
+        "星尘",
+        "光点",
+        "漂浮",
+        "微光",
+        "点状背景",
+        "全屏背景",
+        "深空",
+        "宇宙",
+        "安静背景"
+      ],
+      "en": [
+        "particles",
+        "generate",
+        "how",
+        "far",
+        "are",
+        "spread",
+        "center",
+        "speed",
+        "factor",
+        "controlling",
+        "animation",
+        "pace",
+        "hex",
+        "color",
+        "strings",
+        "determines",
+        "should",
+        "move",
+        "response",
+        "mouse",
+        "hover",
+        "multiplier",
+        "particle",
+        "movement"
+      ]
+    },
+    {
+      "name": "PixelBlast",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "postprocessing",
+        "three"
+      ],
+      "summary": "整屏方形像素点阵，明暗聚成云雾状团块，紫灰配色带复古抖动质感，点击泛涟漪",
+      "mood": [
+        "复古",
+        "科技",
+        "暗黑"
+      ],
+      "motion": "点阵起伏",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍",
+        "空状态"
+      ],
+      "avoid": "密集点阵在小屏上会显脏，正文区块下面不要铺",
+      "zh": [
+        "像素",
+        "点阵",
+        "马赛克",
+        "方块",
+        "抖动",
+        "dither",
+        "半调",
+        "复古像素",
+        "网格背景",
+        "全屏背景",
+        "涟漪",
+        "科技感"
+      ],
+      "en": [
+        "pixel",
+        "blast",
+        "shape",
+        "variant",
+        "base",
+        "size",
+        "auto",
+        "scaled",
+        "dpi",
+        "color",
+        "noise",
+        "pattern",
+        "scale",
+        "density",
+        "adjustment",
+        "random",
+        "jitter",
+        "applied",
+        "coverage",
+        "click",
+        "ripple",
+        "waves",
+        "propagation",
+        "speed"
+      ]
+    },
+    {
+      "name": "PixelSnow",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "three"
+      ],
+      "summary": "深黑底上白色小方块颗粒斜向飘落，疏密不一、远近有虚实层次，像在下雪",
+      "mood": [
+        "安静",
+        "复古",
+        "柔和"
+      ],
+      "motion": "斜向飘落",
+      "palette": [
+        "暗色",
+        "黑白",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "空状态"
+      ],
+      "avoid": "白色小点在浅色底上直接消失，只适合深色页面",
+      "zh": [
+        "雪",
+        "下雪",
+        "飘雪",
+        "落雪",
+        "像素雪",
+        "冬天",
+        "节日",
+        "颗粒飘落",
+        "粒子",
+        "星点",
+        "深空",
+        "安静背景"
+      ],
+      "en": [
+        "pixel",
+        "snow",
+        "color",
+        "snowflakes",
+        "hex",
+        "css",
+        "size",
+        "scene",
+        "units",
+        "minimum",
+        "flake",
+        "pixels",
+        "screen",
+        "resolution",
+        "lower",
+        "create",
+        "larger",
+        "more",
+        "retro",
+        "look",
+        "animation",
+        "speed",
+        "multiplier",
+        "depth"
+      ]
+    },
+    {
+      "name": "Plasma",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "黑底上一团淡紫烟雾般的光晕缓慢翻涌，边缘极度柔化，像熔岩灯里的流体",
+      "mood": [
+        "柔和",
+        "梦幻",
+        "优雅"
+      ],
+      "motion": "缓慢翻涌",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "产品介绍"
+      ],
+      "avoid": "大面积柔光会压低文字对比度，正文上方要加暗层",
+      "zh": [
+        "烟雾",
+        "雾气",
+        "弥散",
+        "光晕",
+        "流动",
+        "渐变",
+        "抽象",
+        "柔和背景",
+        "全屏背景",
+        "等离子",
+        "熔岩灯",
+        "紫色雾"
+      ],
+      "en": [
+        "plasma",
+        "hex",
+        "color",
+        "tint",
+        "effect",
+        "not",
+        "provided",
+        "original",
+        "colors",
+        "animation",
+        "speed",
+        "multiplier",
+        "higher",
+        "faster",
+        "direction",
+        "pingpong",
+        "oscillates",
+        "back",
+        "forth",
+        "zoom",
+        "level",
+        "pattern",
+        "overall",
+        "opacity"
+      ]
+    },
+    {
+      "name": "PlasmaWave",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "黑底上两条霓虹光带交缠扭转，一条洋红一条青蓝，像发光丝带在空中拧成一股",
+      "mood": [
+        "未来",
+        "华丽",
+        "神秘"
+      ],
+      "motion": "缓慢拧转",
+      "palette": [
+        "暗色",
+        "霓虹",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "高饱和霓虹会盖住内容，信息密集的界面别用",
+      "zh": [
+        "霓虹",
+        "光带",
+        "丝带",
+        "波浪",
+        "极光",
+        "发光曲线",
+        "双色",
+        "赛博朋克",
+        "交缠",
+        "抽象",
+        "全屏背景",
+        "动态背景"
+      ],
+      "en": [
+        "plasma",
+        "wave",
+        "two",
+        "hex",
+        "colors",
+        "one",
+        "band",
+        "speed",
+        "first",
+        "second",
+        "direction",
+        "multiplier",
+        "reverse",
+        "focal",
+        "length",
+        "camera",
+        "projection",
+        "bend",
+        "intensity",
+        "rotation",
+        "angle",
+        "scene",
+        "degrees",
+        "horizontal"
+      ]
+    },
+    {
+      "name": "Prism",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "底部一道横贯全宽的强光带，向上散出三角形光锥，边缘泛蓝青与暖橙的分光色",
+      "mood": [
+        "未来",
+        "高级",
+        "神秘"
+      ],
+      "motion": "缓慢旋转",
+      "palette": [
+        "暗色",
+        "冷色系",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "底部那道强光会吃掉页脚文字，页脚区要避开",
+      "zh": [
+        "光束",
+        "光柱",
+        "棱镜",
+        "分光",
+        "舞台灯",
+        "极光",
+        "底部辉光",
+        "三角光锥",
+        "全屏背景",
+        "科幻",
+        "高级感",
+        "发光"
+      ],
+      "en": [
+        "prism",
+        "apex",
+        "height",
+        "world",
+        "units",
+        "total",
+        "base",
+        "width",
+        "across",
+        "animation",
+        "mode",
+        "shader",
+        "wobble",
+        "pointer",
+        "hover",
+        "tilt",
+        "full",
+        "rotation",
+        "glow",
+        "bleed",
+        "intensity",
+        "multiplier",
+        "pixel",
+        "offset"
+      ]
+    },
+    {
+      "name": "PrismaticBurst",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "从画面中心向四周迸射的放射光线，玫红紫与银白交错，带颗粒感和速度冲击",
+      "mood": [
+        "未来",
+        "华丽",
+        "神秘"
+      ],
+      "motion": "中心迸射",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "启动页",
+        "加载中",
+        "产品介绍"
+      ],
+      "avoid": "放射线会把视线往外拽，中央放大段文案会看得发晕",
+      "zh": [
+        "放射",
+        "射线",
+        "光芒",
+        "爆发",
+        "中心放射",
+        "速度感",
+        "超空间",
+        "冲击",
+        "全屏背景",
+        "动态背景",
+        "抽象",
+        "紫红"
+      ],
+      "en": [
+        "prismatic",
+        "burst",
+        "overall",
+        "brightness",
+        "multiplier",
+        "applied",
+        "after",
+        "accumulation",
+        "global",
+        "time",
+        "controlling",
+        "ray",
+        "motion",
+        "distortion",
+        "core",
+        "planar",
+        "rotation",
+        "full",
+        "pointer",
+        "hover",
+        "orbit",
+        "hex",
+        "colors",
+        "gradient"
+      ]
+    },
+    {
+      "name": "Radar",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "紫色雷达图：同心圆环叠放射刻度线，一道扫描光束绕中心旋转，圆心最亮",
+      "mood": [
+        "科技",
+        "未来",
+        "硬核"
+      ],
+      "motion": "绕心扫描",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "单色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "数据看板",
+        "加载中",
+        "后台界面"
+      ],
+      "avoid": "图形语义太强（监测/搜索/定位），主题无关的页面用会跑偏",
+      "zh": [
+        "雷达",
+        "扫描",
+        "声呐",
+        "同心圆",
+        "环形",
+        "放射线",
+        "扫描线",
+        "科技感",
+        "仪表",
+        "监测",
+        "定位",
+        "网格背景"
+      ],
+      "en": [
+        "radar",
+        "overall",
+        "animation",
+        "speed",
+        "multiplier",
+        "zoom",
+        "level",
+        "pattern",
+        "concentric",
+        "rings",
+        "radial",
+        "spoke",
+        "lines",
+        "thickness",
+        "ring",
+        "rotation",
+        "sweep",
+        "beam",
+        "width",
+        "trail",
+        "higher",
+        "thinner",
+        "beams",
+        "around"
+      ]
+    },
+    {
+      "name": "RippleGrid",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "纯黑底上的紫色发光网格，涟漪从中心扩散把线条揉出弧度，四周暗角渐隐",
+      "mood": [
+        "科技",
+        "未来",
+        "暗黑"
+      ],
+      "motion": "涟漪扩散",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "启动页"
+      ],
+      "avoid": "线条会干扰上面的小字，正文密集的页面别用；WebGL 常驻渲染，低端设备慎用",
+      "zh": [
+        "网格背景",
+        "格子背景",
+        "涟漪",
+        "波纹",
+        "科技感背景",
+        "发光线条",
+        "紫色背景",
+        "暗色背景",
+        "全屏背景",
+        "赛博",
+        "鼠标交互",
+        "扭曲"
+      ],
+      "en": [
+        "ripple",
+        "grid",
+        "rainbow",
+        "color",
+        "cycling",
+        "animation",
+        "mode",
+        "disabled",
+        "intensity",
+        "effect",
+        "center",
+        "density",
+        "size",
+        "pattern",
+        "thickness",
+        "lines",
+        "how",
+        "far",
+        "fade",
+        "extends",
+        "vignette",
+        "edge",
+        "darkening",
+        "adds"
+      ]
+    },
+    {
+      "name": "ShapeGrid",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "几乎全黑的极细网格底纹，方块缓慢斜向平移，光标划过的格子会亮起一格",
+      "mood": [
+        "极简",
+        "安静",
+        "科技"
+      ],
+      "motion": "缓慢平移点亮",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "后台界面",
+        "数据看板",
+        "落地页",
+        "空状态"
+      ],
+      "avoid": "想要视觉冲击的 Hero 别指望它，静止时几乎看不见，全靠鼠标划过才有反应",
+      "zh": [
+        "网格",
+        "方格背景",
+        "格子底纹",
+        "棋盘",
+        "背景纹理",
+        "极简背景",
+        "悬停高亮",
+        "光标点亮",
+        "六边形",
+        "轻量背景",
+        "暗色底纹",
+        "拖尾"
+      ],
+      "en": [
+        "shape",
+        "grid",
+        "direction",
+        "square",
+        "animation",
+        "options",
+        "diagonal",
+        "right",
+        "down",
+        "left",
+        "speed",
+        "multiplier",
+        "color",
+        "borders",
+        "size",
+        "individual",
+        "squares",
+        "pixels",
+        "fill",
+        "hovering",
+        "over",
+        "tiles",
+        "hexagon",
+        "circle"
+      ]
+    },
+    {
+      "name": "SideRays",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "漆黑画面右上角斜射下一束冷白偏蓝的体积光，边缘柔散，像舞台侧灯缓缓摆动",
+      "mood": [
+        "冷冽",
+        "高级",
+        "神秘"
+      ],
+      "motion": "光束摆动",
+      "palette": [
+        "暗色",
+        "冷色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "启动页"
+      ],
+      "avoid": "光束覆盖区域的文字会被冲淡，亮色主题下基本无效",
+      "zh": [
+        "光束",
+        "光线",
+        "射线",
+        "体积光",
+        "丁达尔",
+        "聚光灯",
+        "斜射光",
+        "舞台光",
+        "角落打光",
+        "冷光",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "side",
+        "rays",
+        "animation",
+        "speed",
+        "color",
+        "first",
+        "ray",
+        "layer",
+        "hex",
+        "format",
+        "second",
+        "overall",
+        "brightness",
+        "angular",
+        "width",
+        "fan",
+        "higher",
+        "create",
+        "wider",
+        "spread",
+        "between",
+        "two",
+        "layers",
+        "corner"
+      ]
+    },
+    {
+      "name": "Silk",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "@react-three/fiber",
+        "three"
+      ],
+      "summary": "深蓝紫单色铺满整屏，斜向丝绸褶皱的明暗带极缓慢流动，叠一层静止的细噪点",
+      "mood": [
+        "优雅",
+        "高级",
+        "华丽"
+      ],
+      "motion": "缓慢流动",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "登录页",
+        "启动页"
+      ],
+      "avoid": "依赖 three + @react-three/fiber，frameloop 常开的全屏 shader，移动端低端机发热耗电——注意上游 propData 里 dependencies 是空的，照抄文档会漏装依赖；组件内部直接 return <Canvas>，不吃 children 也不自带高度，父容器没有显式高度画布就是 0、页面上什么都看不见，当背景必须自己套一层定位容器并给高度；uScale 在着色器里乘了两次，scale 是平方级生效，调参手感不线性。默认这套深色参数上放白字对比度是够的（最亮处约 6.8:1），但把 color 换成浅色系就会盖过内容。",
+      "zh": [
+        "丝绸",
+        "缎面",
+        "布料",
+        "织物",
+        "褶皱",
+        "丝滑",
+        "流动",
+        "波纹",
+        "噪点颗粒",
+        "暗色背景",
+        "全屏背景",
+        "动态背景"
+      ],
+      "en": [
+        "silk",
+        "animation",
+        "speed",
+        "effect",
+        "scale",
+        "pattern",
+        "hex",
+        "color",
+        "code",
+        "intensity",
+        "noise",
+        "rotation",
+        "radians"
+      ]
+    },
+    {
+      "name": "SoftAurora",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "黑底中央一条粉紫到冷蓝的弥散光带，边缘极柔，像极光那样缓慢起伏漂移",
+      "mood": [
+        "柔和",
+        "梦幻",
+        "未来"
+      ],
+      "motion": "缓慢起伏",
+      "palette": [
+        "暗色",
+        "霓虹",
+        "渐变"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "加载中"
+      ],
+      "avoid": "光带正中的文字对比度会被吃掉，标题要错开光带位置或调低亮度",
+      "zh": [
+        "极光",
+        "光带",
+        "光晕",
+        "弥散光",
+        "柔光",
+        "霓虹",
+        "渐变光带",
+        "发光条",
+        "梦幻背景",
+        "缓慢流动",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "soft",
+        "aurora",
+        "overall",
+        "animation",
+        "speed",
+        "multiplier",
+        "scale",
+        "noise",
+        "pattern",
+        "brightness",
+        "tint",
+        "color",
+        "first",
+        "layer",
+        "second",
+        "base",
+        "frequency",
+        "perlin",
+        "amplitude",
+        "vertical",
+        "position",
+        "band",
+        "spread",
+        "glow"
+      ]
+    },
+    {
+      "name": "Threads",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "黑底上一束白色细线横贯画面，在一侧隆起成波峰并散开，像被风吹动的丝线",
+      "mood": [
+        "极简",
+        "优雅",
+        "安静"
+      ],
+      "motion": "线束波动",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "页脚",
+        "产品介绍"
+      ],
+      "avoid": "亮色背景下白线看不见；细线在低分屏容易发虚",
+      "zh": [
+        "线条背景",
+        "丝线",
+        "线束",
+        "波形",
+        "声波",
+        "曲线",
+        "极简线条",
+        "黑白背景",
+        "流线",
+        "鼠标扰动",
+        "暗色背景",
+        "全屏背景"
+      ],
+      "en": [
+        "threads",
+        "customizes",
+        "color",
+        "lines",
+        "rgb",
+        "adjusts",
+        "intensity",
+        "wave",
+        "effect",
+        "spacing",
+        "between",
+        "means",
+        "offset",
+        "smooth",
+        "mouse",
+        "hover",
+        "effects",
+        "modulate",
+        "line",
+        "movement",
+        "amplitude"
+      ]
+    },
+    {
+      "name": "Waves",
+      "category": "Backgrounds",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "满屏密集的白色竖线在黑底上起伏，光标经过处被吸出一道漩涡状的扭曲收束",
+      "mood": [
+        "极简",
+        "硬核",
+        "冷冽"
+      ],
+      "motion": "跟随光标扭曲",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "页脚"
+      ],
+      "avoid": "密集竖线容易出摩尔纹、小屏发糊；上面压文字必须加遮罩",
+      "zh": [
+        "波浪",
+        "波纹",
+        "密集线条",
+        "条纹背景",
+        "等高线",
+        "扭曲",
+        "磁场",
+        "引力",
+        "跟随鼠标",
+        "光标交互",
+        "黑白背景",
+        "全屏背景"
+      ],
+      "en": [
+        "waves",
+        "defines",
+        "color",
+        "wave",
+        "lines",
+        "drawn",
+        "canvas",
+        "background",
+        "container",
+        "horizontal",
+        "speed",
+        "factor",
+        "animation",
+        "vertical",
+        "amplitude",
+        "gap",
+        "between",
+        "individual",
+        "points",
+        "line",
+        "how",
+        "quickly",
+        "cursor",
+        "effect"
+      ]
+    },
+    {
+      "name": "AnimatedList",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "click",
+        "hover",
+        "scroll"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "暗色可滚动列表，条目随滚动逐条缩放淡入，选中项变亮，上下边缘渐隐遮罩",
+      "mood": [
+        "安静",
+        "高级",
+        "极简"
+      ],
+      "motion": "逐条淡入",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "卡片列表",
+        "后台界面",
+        "导航",
+        "数据看板"
+      ],
+      "avoid": "只吃字符串数组，行内要放图标或多列信息得改源码；长列表没有虚拟滚动",
+      "zh": [
+        "列表动画",
+        "逐条出现",
+        "滚动淡入",
+        "选项列表",
+        "可选列表",
+        "键盘导航",
+        "上下键",
+        "渐隐遮罩",
+        "滚动列表",
+        "菜单",
+        "选择器",
+        "卡片列表"
+      ],
+      "en": [
+        "animated",
+        "list",
+        "items",
+        "display",
+        "scrollable",
+        "triggered",
+        "item",
+        "selected",
+        "receives",
+        "index",
+        "toggle",
+        "top",
+        "bottom",
+        "gradient",
+        "overlays",
+        "keyboard",
+        "navigation",
+        "arrow",
+        "tab",
+        "keys",
+        "css",
+        "main",
+        "container",
+        "hide"
+      ]
+    },
+    {
+      "name": "BorderGlow",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "暗色圆角卡片，鼠标靠近哪条边，那条边就渗出一道柔和彩色光晕并跟着走",
+      "mood": [
+        "高级",
+        "柔和",
+        "科技"
+      ],
+      "motion": "悬停扫光",
+      "palette": [
+        "暗色",
+        "可定制",
+        "彩色"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "卡片列表",
+        "产品介绍",
+        "数据看板",
+        "后台界面"
+      ],
+      "avoid": "浅色背景上几乎看不出效果；卡片底色由组件接管，外部样式会被盖掉",
+      "zh": [
+        "边框发光",
+        "描边光",
+        "卡片悬停",
+        "悬停发光",
+        "光晕边框",
+        "跟随光标",
+        "鼠标靠近",
+        "霓虹边框",
+        "卡片容器",
+        "包裹容器",
+        "定价卡",
+        "扫光"
+      ],
+      "en": [
+        "border",
+        "glow",
+        "content",
+        "rendered",
+        "inside",
+        "card",
+        "css",
+        "classes",
+        "outer",
+        "wrapper",
+        "how",
+        "close",
+        "pointer",
+        "must",
+        "edge",
+        "appear",
+        "hsl",
+        "color",
+        "background",
+        "corner",
+        "radius",
+        "pixels",
+        "far",
+        "extends"
+      ]
+    },
+    {
+      "name": "BounceCards",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "一排白边彩色方卡呈扇形叠放，入场时逐张弹跳落位，悬停会把其余卡片推开",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "温暖"
+      ],
+      "motion": "弹跳落位",
+      "palette": [
+        "彩色",
+        "亮色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "产品介绍",
+        "图片展示",
+        "落地页"
+      ],
+      "avoid": "位置靠 transformStyles 手写，超过 5 张要自己补排布；窄屏容易溢出",
+      "zh": [
+        "卡片堆叠",
+        "图片堆叠",
+        "扇形展开",
+        "弹跳入场",
+        "回弹动画",
+        "弹性动画",
+        "相册",
+        "照片墙",
+        "图集展示",
+        "悬停展开",
+        "卡片推开",
+        "作品展示"
+      ],
+      "en": [
+        "bounce",
+        "cards",
+        "css",
+        "classes",
+        "container",
+        "image",
+        "urls",
+        "display",
+        "width",
+        "height",
+        "delay",
+        "seconds",
+        "before",
+        "animation",
+        "starts",
+        "time",
+        "between",
+        "card",
+        "easing",
+        "transforms",
+        "position",
+        "true",
+        "hovering",
+        "pushes"
+      ]
+    },
+    {
+      "name": "BubbleMenu",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "黑底上一枚白色胶囊 logo 加汉堡按钮，点开后彩色气泡药丸逐个回弹弹出",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "极简"
+      ],
+      "motion": "逐个弹出",
+      "palette": [
+        "可定制",
+        "黑白",
+        "彩色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "导航",
+        "落地页",
+        "Hero区",
+        "产品介绍"
+      ],
+      "avoid": "导航项多或有多级子菜单时装不下，气泡会挤成一团",
+      "zh": [
+        "导航",
+        "导航栏",
+        "菜单",
+        "汉堡菜单",
+        "气泡菜单",
+        "胶囊按钮",
+        "药丸",
+        "全屏菜单",
+        "弹出菜单",
+        "顶部导航",
+        "移动端菜单",
+        "弹跳动画"
+      ],
+      "en": [
+        "bubble",
+        "menu",
+        "logo",
+        "content",
+        "shown",
+        "central",
+        "src",
+        "jsx",
+        "fired",
+        "whenever",
+        "toggle",
+        "changes",
+        "receives",
+        "open",
+        "state",
+        "root",
+        "nav",
+        "wrapper",
+        "inline",
+        "applied",
+        "accessible",
+        "aria",
+        "label",
+        "button"
+      ]
+    },
+    {
+      "name": "CardNav",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap",
+        "react-icons"
+      ],
+      "summary": "白色圆角胶囊导航条，点击向下展开成几张深色卡片，每张卡里列一组链接",
+      "mood": [
+        "优雅",
+        "极简",
+        "高级"
+      ],
+      "motion": "下拉展开",
+      "palette": [
+        "亮色",
+        "可定制",
+        "黑白"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "导航",
+        "落地页",
+        "Hero区",
+        "产品介绍"
+      ],
+      "avoid": "后台密集导航不适用，只放得下三四组分类",
+      "zh": [
+        "导航",
+        "导航栏",
+        "顶部导航",
+        "菜单",
+        "展开菜单",
+        "下拉菜单",
+        "卡片导航",
+        "汉堡菜单",
+        "圆角胶囊",
+        "落地页导航",
+        "行动按钮",
+        "header"
+      ],
+      "en": [
+        "card",
+        "nav",
+        "url",
+        "logo",
+        "image",
+        "alt",
+        "text",
+        "navigation",
+        "items",
+        "label",
+        "bgcolor",
+        "textcolor",
+        "links",
+        "css",
+        "classes",
+        "container",
+        "gsap",
+        "easing",
+        "animations",
+        "background",
+        "color",
+        "hamburger",
+        "menu",
+        "lines"
+      ]
+    },
+    {
+      "name": "CardSwap",
+      "category": "Components",
+      "surface": "element",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "一叠卡片斜向堆在角落，定时把最前一张甩下去绕到底部，弹性循环换位",
+      "mood": [
+        "科技",
+        "高级",
+        "未来"
+      ],
+      "motion": "循环掉落换位",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "产品介绍",
+        "落地页",
+        "卡片列表"
+      ],
+      "avoid": "内容要逐条细读或横向对比时不合适，卡片会自己跑掉",
+      "zh": [
+        "卡片堆叠",
+        "卡片轮播",
+        "层叠卡片",
+        "洗牌",
+        "换牌",
+        "循环切换",
+        "3D卡片",
+        "立体堆叠",
+        "自动轮播",
+        "产品特性展示",
+        "斜切",
+        "错位排列"
+      ],
+      "en": [
+        "card",
+        "swap",
+        "width",
+        "container",
+        "height",
+        "axis",
+        "spacing",
+        "between",
+        "cards",
+        "milliseconds",
+        "swaps",
+        "pause",
+        "animation",
+        "hover",
+        "clicked",
+        "degree",
+        "slope",
+        "top",
+        "bottom",
+        "edges",
+        "easing",
+        "type",
+        "components",
+        "display"
+      ]
+    },
+    {
+      "name": "Carousel",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "motion",
+        "react-icons"
+      ],
+      "summary": "单张图文卡片横向滑动切换，可拖拽，底部圆点指示，回弹带轻微倾斜",
+      "mood": [
+        "极简",
+        "优雅",
+        "安静"
+      ],
+      "motion": "弹簧滑动",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "产品介绍",
+        "卡片列表",
+        "落地页",
+        "图片展示"
+      ],
+      "avoid": "需要一屏同时看到多项做对比时别用",
+      "zh": [
+        "轮播",
+        "走马灯",
+        "卡片轮播",
+        "滑动切换",
+        "拖拽滑动",
+        "左右切换",
+        "圆点指示器",
+        "分页指示",
+        "自动播放",
+        "图文卡片",
+        "移动端轮播",
+        "循环播放"
+      ],
+      "en": [
+        "carousel",
+        "items",
+        "item",
+        "must",
+        "include",
+        "title",
+        "description",
+        "icon",
+        "total",
+        "width",
+        "container",
+        "effective",
+        "basewidth",
+        "minus",
+        "padding",
+        "automatic",
+        "scrolling",
+        "next",
+        "fixed",
+        "interval",
+        "delay",
+        "milliseconds",
+        "between",
+        "scrolls"
+      ]
+    },
+    {
+      "name": "ChromaGrid",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "深色卡片网格，鼠标周围一圈聚光灯把彩色渐变照亮，圈外保持灰暗",
+      "mood": [
+        "科技",
+        "暗黑",
+        "高级"
+      ],
+      "motion": "光斑跟随",
+      "palette": [
+        "暗色",
+        "彩色",
+        "渐变"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "卡片列表",
+        "图片展示",
+        "产品介绍",
+        "落地页"
+      ],
+      "avoid": "触屏端没有鼠标，聚光灯照不出来只剩一片灰",
+      "zh": [
+        "网格",
+        "卡片网格",
+        "聚光灯",
+        "光斑跟随",
+        "鼠标跟随",
+        "探照灯",
+        "高亮",
+        "彩色渐变",
+        "灰度变彩色",
+        "人物卡片",
+        "团队介绍",
+        "作品集"
+      ],
+      "en": [
+        "chroma",
+        "grid",
+        "chromaitem",
+        "objects",
+        "display",
+        "css",
+        "classes",
+        "apply",
+        "container",
+        "size",
+        "spotlight",
+        "effect",
+        "pixels",
+        "cursor",
+        "follow",
+        "animation",
+        "duration",
+        "seconds",
+        "fade",
+        "out",
+        "mouse",
+        "leaves",
+        "gsap",
+        "easing"
+      ]
+    },
+    {
+      "name": "CircularGallery",
+      "category": "Components",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "图片沿一道圆弧排开并向两侧倾斜，滚轮或拖拽让整条弧无限横向转动",
+      "mood": [
+        "未来",
+        "科技",
+        "优雅"
+      ],
+      "motion": "弧形横滚",
+      "palette": [
+        "可定制",
+        "暗色",
+        "彩色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "图片展示",
+        "Hero区",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "低端设备或大量高清图时 WebGL 开销大；需要精确点选某一项的场景别用",
+      "zh": [
+        "图片画廊",
+        "弧形",
+        "圆弧",
+        "曲面排列",
+        "走马灯",
+        "横向滚动",
+        "无限循环",
+        "拖拽滚动",
+        "滚轮滚动",
+        "3D画廊",
+        "相册",
+        "图片展示"
+      ],
+      "en": [
+        "circular",
+        "gallery",
+        "list",
+        "items",
+        "display",
+        "item",
+        "should",
+        "have",
+        "image",
+        "url",
+        "text",
+        "label",
+        "determines",
+        "curvature",
+        "layout",
+        "negative",
+        "bends",
+        "one",
+        "direction",
+        "positive",
+        "opposite",
+        "specifies",
+        "color",
+        "labels"
+      ]
+    },
+    {
+      "name": "Counter",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "motion"
+      ],
+      "summary": "数字按位分格显示，每一位在窄窗里上下翻滚到目标值，上下缘渐变淡出",
+      "mood": [
+        "科技",
+        "极简",
+        "硬核"
+      ],
+      "motion": "逐位翻滚",
+      "palette": [
+        "暗色",
+        "黑白",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "数据看板",
+        "产品介绍",
+        "落地页",
+        "后台界面"
+      ],
+      "avoid": "只吃数字，非数字内容或长文本用不了",
+      "zh": [
+        "数字滚动",
+        "数字动画",
+        "计数器",
+        "翻牌",
+        "里程表",
+        "老虎机",
+        "数字跳动",
+        "统计数字",
+        "数据递增",
+        "KPI",
+        "倒计时",
+        "数值展示"
+      ],
+      "en": [
+        "counter",
+        "numeric",
+        "display",
+        "base",
+        "font",
+        "size",
+        "digits",
+        "padding",
+        "added",
+        "digit",
+        "height",
+        "defines",
+        "which",
+        "positions",
+        "include",
+        "whole",
+        "decimal",
+        "place",
+        "point",
+        "omitted",
+        "detected",
+        "automatically",
+        "gap",
+        "pixels"
+      ]
+    },
+    {
+      "name": "CurvedInput",
+      "category": "Components",
+      "surface": "element",
+      "triggers": [
+        "click"
+      ],
+      "tech": "svg",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [],
+      "summary": "输入框整体弯成一道上凸弧线，左侧信封图标右侧紫色按钮，暗底紫描边",
+      "mood": [
+        "未来",
+        "优雅",
+        "极简"
+      ],
+      "motion": "聚焦高亮",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "落地页",
+        "Hero区",
+        "登录页",
+        "页脚"
+      ],
+      "avoid": "严肃表单和后台录入界面别用，弧形影响对齐和可读性",
+      "zh": [
+        "输入框",
+        "表单",
+        "邮箱订阅",
+        "订阅框",
+        "搜索框",
+        "弧形",
+        "弯曲",
+        "曲面控件",
+        "异形按钮",
+        "注册入口",
+        "行动号召",
+        "紫色系"
+      ],
+      "en": [
+        "curved",
+        "input",
+        "controlled",
+        "leave",
+        "undefined",
+        "uncontrolled",
+        "usage",
+        "initial",
+        "called",
+        "new",
+        "every",
+        "keystroke",
+        "button",
+        "pressed",
+        "enter",
+        "hit",
+        "placeholder",
+        "text",
+        "rendered",
+        "along",
+        "curve",
+        "empty",
+        "label",
+        "submit"
+      ]
+    },
+    {
+      "name": "DecayCard",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "鼠标划过时整张图像被水波般拉扯变形，离开后缓缓回弹复原",
+      "mood": [
+        "梦幻",
+        "神秘",
+        "未来"
+      ],
+      "motion": "跟随光标扭曲",
+      "palette": [
+        "可定制",
+        "暗色",
+        "渐变"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "图片展示",
+        "Hero区",
+        "卡片列表",
+        "产品介绍"
+      ],
+      "avoid": "承载正文或要看清细节的图别套，文字会被拉花",
+      "zh": [
+        "图片扭曲",
+        "液态",
+        "融化",
+        "溶解",
+        "水波",
+        "变形",
+        "拉扯",
+        "置换扭曲",
+        "鼠标跟随",
+        "悬停特效",
+        "图片卡片",
+        "流体质感"
+      ],
+      "en": [
+        "decay",
+        "card",
+        "content",
+        "jsx",
+        "rendered",
+        "inside",
+        "width",
+        "pixels",
+        "height",
+        "allows",
+        "setting",
+        "background",
+        "image",
+        "base",
+        "frequency",
+        "turbulence",
+        "filter",
+        "lower",
+        "create",
+        "larger",
+        "smoother",
+        "patterns",
+        "octaves",
+        "higher"
+      ]
+    },
+    {
+      "name": "Dock",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "click",
+        "hover"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "一排圆形图标悬浮条，鼠标靠近的图标弹簧放大，邻居按远近依次隆起",
+      "mood": [
+        "优雅",
+        "极简",
+        "高级"
+      ],
+      "motion": "邻近放大",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "导航",
+        "后台界面",
+        "落地页",
+        "按钮"
+      ],
+      "avoid": "触屏端没有 hover，放大效果完全拿不到",
+      "zh": [
+        "程序坞",
+        "dock",
+        "底部导航",
+        "图标栏",
+        "悬浮工具条",
+        "放大",
+        "鼠标靠近放大",
+        "mac风格",
+        "快捷入口",
+        "工具栏",
+        "图标菜单",
+        "弹簧动画"
+      ],
+      "en": [
+        "dock",
+        "items",
+        "item",
+        "should",
+        "include",
+        "icon",
+        "label",
+        "onclick",
+        "handler",
+        "classname",
+        "css",
+        "classes",
+        "panel",
+        "pixel",
+        "distance",
+        "calculate",
+        "magnification",
+        "effect",
+        "based",
+        "mouse",
+        "proximity",
+        "height",
+        "pixels",
+        "base"
+      ]
+    },
+    {
+      "name": "DomeGallery",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "@use-gesture/react"
+      ],
+      "summary": "图片贴成穹顶内壁，拖拽转动浏览，点一张就放大铺到中央",
+      "mood": [
+        "未来",
+        "华丽",
+        "科技"
+      ],
+      "motion": "拖拽旋转",
+      "palette": [
+        "暗色",
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "图片展示",
+        "Hero区",
+        "产品介绍",
+        "落地页"
+      ],
+      "avoid": "图片少于十几张时穹顶排不满；需要快速扫读或密集信息的列表页别用",
+      "zh": [
+        "图片墙",
+        "相册",
+        "画廊",
+        "球面",
+        "穹顶",
+        "3D展廊",
+        "拖拽浏览",
+        "作品集",
+        "图片展示",
+        "弧形排列",
+        "点击放大",
+        "沉浸浏览"
+      ],
+      "en": [
+        "dome",
+        "gallery",
+        "image",
+        "urls",
+        "strings",
+        "objects",
+        "src",
+        "alt",
+        "text",
+        "size",
+        "factor",
+        "radius",
+        "based",
+        "container",
+        "dimensions",
+        "basis",
+        "calculating",
+        "minimum",
+        "pixels",
+        "maximum",
+        "padding",
+        "viewer",
+        "area",
+        "color"
+      ]
+    },
+    {
+      "name": "ElasticSlider",
+      "category": "Components",
+      "surface": "element",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "极简数值滑杆，拖到头时轨道像橡皮筋被拉长，松手弹回原位",
+      "mood": [
+        "极简",
+        "优雅",
+        "俏皮"
+      ],
+      "motion": "拖拽拉伸回弹",
+      "palette": [
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "后台界面",
+        "数据看板",
+        "正文"
+      ],
+      "avoid": "需要精确填数字的场景不如输入框直接",
+      "zh": [
+        "滑块",
+        "滑杆",
+        "进度条",
+        "音量条",
+        "数值调节",
+        "拖动",
+        "弹性",
+        "回弹",
+        "橡皮筋",
+        "表单控件",
+        "设置项",
+        "range"
+      ],
+      "en": [
+        "elastic",
+        "slider",
+        "initial",
+        "less",
+        "than",
+        "startingvalue",
+        "greater",
+        "maxvalue",
+        "starting",
+        "point",
+        "range",
+        "allows",
+        "start",
+        "maximum",
+        "reach",
+        "passing",
+        "disables",
+        "stepped",
+        "increments",
+        "size",
+        "isstepped",
+        "enabled",
+        "jsx",
+        "html"
+      ]
+    },
+    {
+      "name": "FlowingMenu",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "竖排大字菜单，划过哪行就滑入一条白色横幅，里面文字和图片循环跑动",
+      "mood": [
+        "极简",
+        "活泼",
+        "硬核"
+      ],
+      "motion": "悬停滑入跑马灯",
+      "palette": [
+        "黑白",
+        "可定制",
+        "暗色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "导航",
+        "落地页",
+        "卡片列表",
+        "页脚"
+      ],
+      "avoid": "条目多、行高受限的后台导航塞不下；纯触屏端没有 hover 就失效",
+      "zh": [
+        "菜单",
+        "导航",
+        "列表",
+        "悬停效果",
+        "跑马灯",
+        "循环滚动",
+        "文字滚动",
+        "大字排版",
+        "全屏导航",
+        "分栏菜单",
+        "作品导航",
+        "hover"
+      ],
+      "en": [
+        "flowing",
+        "menu",
+        "objects",
+        "containing",
+        "link",
+        "text",
+        "image",
+        "duration",
+        "marquee",
+        "animation",
+        "seconds",
+        "lower",
+        "faster",
+        "color",
+        "static",
+        "background",
+        "container",
+        "overlay",
+        "inside",
+        "dividing",
+        "lines",
+        "between",
+        "items"
+      ]
+    },
+    {
+      "name": "FluidGlass",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "maath",
+        "three"
+      ],
+      "summary": "一块真实玻璃透镜跟着鼠标走，底下的图文被它折射扭曲、边缘泛出彩边",
+      "mood": [
+        "未来",
+        "高级",
+        "优雅"
+      ],
+      "motion": "跟随光标",
+      "palette": [
+        "可定制",
+        "暗色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍",
+        "导航"
+      ],
+      "avoid": "要装 three 全家桶还要带 glb 模型，集成重；低端机和移动端吃不消",
+      "zh": [
+        "玻璃",
+        "液态玻璃",
+        "透镜",
+        "折射",
+        "扭曲",
+        "放大镜",
+        "光标跟随",
+        "毛玻璃",
+        "高级质感",
+        "苹果风",
+        "3D玻璃",
+        "色散"
+      ],
+      "en": [
+        "fluid",
+        "glass",
+        "display",
+        "mode",
+        "effect",
+        "options",
+        "lens",
+        "bar",
+        "cube",
+        "specific",
+        "including",
+        "material",
+        "properties",
+        "like",
+        "ior",
+        "thickness",
+        "transmission",
+        "navitems",
+        "interaction",
+        "settings"
+      ]
+    },
+    {
+      "name": "FlyingPosters",
+      "category": "Components",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "海报随滚轮上下流动，滑动时整张被弯折扭曲成梯形，停下才回正",
+      "mood": [
+        "科技",
+        "未来",
+        "活泼"
+      ],
+      "motion": "滚动弯折",
+      "palette": [
+        "暗色",
+        "彩色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "图片展示",
+        "Hero区",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "完全靠滚轮驱动，静止时几乎不动；小尺寸容器和移动端体验差",
+      "zh": [
+        "图片流",
+        "滚动画廊",
+        "海报",
+        "图片轮播",
+        "扭曲",
+        "弯曲",
+        "弹性变形",
+        "滚轮驱动",
+        "作品集",
+        "全屏画廊",
+        "3D透视",
+        "图片列表"
+      ],
+      "en": [
+        "flying",
+        "posters",
+        "image",
+        "urls",
+        "displayed",
+        "width",
+        "poster",
+        "plane",
+        "pixels",
+        "height",
+        "amount",
+        "distortion",
+        "applied",
+        "movement",
+        "easing",
+        "factor",
+        "smooth",
+        "scrolling",
+        "interactions",
+        "field",
+        "view",
+        "camera",
+        "degrees",
+        "position"
+      ]
+    },
+    {
+      "name": "Folder",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "hover"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [],
+      "summary": "一枚彩色文件夹，鼠标移上去掀开盖子，三张卡片扇形弹出悬在上方",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "温暖"
+      ],
+      "motion": "掀盖弹出",
+      "palette": [
+        "可定制",
+        "彩色",
+        "暗色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "空状态",
+        "卡片列表",
+        "产品介绍",
+        "按钮"
+      ],
+      "avoid": "最多只放得下 3 张纸片，别拿它当真正的文件列表",
+      "zh": [
+        "文件夹",
+        "图标动效",
+        "卡片弹出",
+        "展开收起",
+        "收纳",
+        "悬停动效",
+        "微交互",
+        "扇形展开",
+        "点击展开",
+        "拟物",
+        "装饰图标",
+        "空状态插图"
+      ],
+      "en": [
+        "folder",
+        "primary",
+        "color",
+        "scale",
+        "factor",
+        "size",
+        "items",
+        "rendered",
+        "papers",
+        "css",
+        "classes",
+        "container"
+      ]
+    },
+    {
+      "name": "GlassIcons",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [],
+      "summary": "磨砂玻璃圆角方块图标，背后错位压着一块高饱和彩块，悬停会翻转错开",
+      "mood": [
+        "活泼",
+        "未来",
+        "华丽"
+      ],
+      "motion": "悬停翻转",
+      "palette": [
+        "彩色",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "产品介绍",
+        "导航",
+        "卡片列表",
+        "落地页"
+      ],
+      "avoid": "一屏超过六八个就显花；克制单色的后台界面不搭",
+      "zh": [
+        "图标组",
+        "图标网格",
+        "宫格",
+        "功能入口",
+        "快捷入口",
+        "玻璃拟物",
+        "磨砂",
+        "毛玻璃",
+        "彩色图标",
+        "iOS风",
+        "悬停翻转",
+        "按钮组"
+      ],
+      "en": [
+        "glass",
+        "icons",
+        "items",
+        "render",
+        "item",
+        "should",
+        "include",
+        "icon",
+        "react",
+        "reactelement",
+        "color",
+        "label",
+        "customclass",
+        "css",
+        "added",
+        "container"
+      ]
+    },
+    {
+      "name": "GlassSurface",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "svg",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [],
+      "summary": "给内容套一块真玻璃面板，背景在边缘被弯折折射，还透出细微彩色边",
+      "mood": [
+        "高级",
+        "优雅",
+        "安静"
+      ],
+      "motion": "背景折射",
+      "palette": [
+        "可定制",
+        "暗色",
+        "亮色"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "卡片列表",
+        "导航",
+        "后台界面",
+        "落地页"
+      ],
+      "avoid": "背后是纯色时几乎看不出效果；SVG 滤镜在各浏览器表现有差异",
+      "zh": [
+        "毛玻璃",
+        "玻璃拟态",
+        "液态玻璃",
+        "磨砂",
+        "卡片容器",
+        "面板",
+        "折射",
+        "背景虚化",
+        "高级质感",
+        "苹果风",
+        "弹窗背景",
+        "导航条背景"
+      ],
+      "en": [
+        "glass",
+        "surface",
+        "content",
+        "display",
+        "inside",
+        "width",
+        "pixels",
+        "css",
+        "like",
+        "height",
+        "border",
+        "radius",
+        "factor",
+        "displacement",
+        "map",
+        "brightness",
+        "percentage",
+        "opacity",
+        "elements",
+        "input",
+        "blur",
+        "amount",
+        "output",
+        "stddeviation"
+      ]
+    },
+    {
+      "name": "GooeyNav",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "导航条切换时白色药丸滑到新项，同时炸开一圈粘连的果冻小球再收回",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "未来"
+      ],
+      "motion": "点击迸发粒子",
+      "palette": [
+        "黑白",
+        "可定制",
+        "暗色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "导航",
+        "落地页",
+        "后台界面",
+        "按钮"
+      ],
+      "avoid": "条目一多粒子就吵；严肃克制的管理后台别用",
+      "zh": [
+        "导航",
+        "菜单",
+        "标签栏",
+        "tab切换",
+        "选中态",
+        "药丸高亮",
+        "粘稠",
+        "果冻",
+        "液态",
+        "粒子迸发",
+        "高亮滑动",
+        "顶部导航"
+      ],
+      "en": [
+        "gooey",
+        "nav",
+        "navigation",
+        "items",
+        "duration",
+        "main",
+        "animation",
+        "bubble",
+        "particles",
+        "transition",
+        "outer",
+        "inner",
+        "distances",
+        "spread",
+        "radius",
+        "factor",
+        "influencing",
+        "random",
+        "particle",
+        "rotation",
+        "time",
+        "variance",
+        "animations",
+        "color"
+      ]
+    },
+    {
+      "name": "InfiniteMenu",
+      "category": "Components",
+      "surface": "fullscreen-bg",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gl-matrix"
+      ],
+      "summary": "图片贴在球面上像转地球一样拖着滚，松手吸附到正中并显出标题按钮",
+      "mood": [
+        "未来",
+        "科技",
+        "神秘"
+      ],
+      "motion": "拖拽惯性转动",
+      "palette": [
+        "暗色",
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "图片展示",
+        "导航",
+        "启动页"
+      ],
+      "avoid": "要占满整屏且必须手动拖，塞不进普通页面区块；条目要有图才好看",
+      "zh": [
+        "球体菜单",
+        "无限滚动",
+        "拖拽转动",
+        "图片导航",
+        "全屏菜单",
+        "作品集",
+        "图片网格",
+        "惯性滚动",
+        "沉浸导航",
+        "探索页",
+        "3D球面",
+        "首屏导航"
+      ],
+      "en": [
+        "infinite",
+        "menu",
+        "list",
+        "items",
+        "containing",
+        "image",
+        "link",
+        "title",
+        "description",
+        "just",
+        "add",
+        "what",
+        "you",
+        "need",
+        "camera",
+        "zoom"
+      ]
+    },
+    {
+      "name": "Lanyard",
+      "category": "Components",
+      "surface": "element",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "@react-three/rapier",
+        "meshline",
+        "three"
+      ],
+      "summary": "一张证件卡挂在织带上垂下来，可以拖拽甩动，松手后带物理惯性摆回原位",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "科技"
+      ],
+      "motion": "拖拽摆动",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "需要 three + rapier 物理引擎和 .glb 模型文件，移动端和低端设备负担重，同页放多个会掉帧",
+      "zh": [
+        "挂绳",
+        "工牌",
+        "吊牌",
+        "证件卡",
+        "会员卡",
+        "物理摆动",
+        "拖拽",
+        "甩动",
+        "3D立体卡片",
+        "悬挂",
+        "名片",
+        "惯性"
+      ],
+      "en": [
+        "lanyard",
+        "initial",
+        "camera",
+        "position",
+        "canvas",
+        "gravity",
+        "vector",
+        "physics",
+        "simulation",
+        "field",
+        "view",
+        "transparent",
+        "background",
+        "image",
+        "url",
+        "card",
+        "front",
+        "face",
+        "falls",
+        "back",
+        "model",
+        "built",
+        "texture",
+        "not"
+      ]
+    },
+    {
+      "name": "LineSidebar",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "竖排编号目录，每条前面带刻度短线；光标靠近的条目向右滑出并染成紫色",
+      "mood": [
+        "极简",
+        "科技",
+        "安静"
+      ],
+      "motion": "靠近滑出",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "导航",
+        "落地页",
+        "产品介绍",
+        "后台界面"
+      ],
+      "avoid": "条目密集且需要精确点击时不合适——位移会让目标跑掉；移动端没有光标，会退化成普通列表",
+      "zh": [
+        "侧边栏",
+        "目录",
+        "章节导航",
+        "索引",
+        "编号列表",
+        "刻度线",
+        "磁吸",
+        "光标靠近",
+        "悬停高亮",
+        "锚点",
+        "极简导航",
+        "竖排菜单"
+      ],
+      "en": [
+        "line",
+        "sidebar",
+        "labels",
+        "rendered",
+        "list",
+        "entries",
+        "color",
+        "items",
+        "markers",
+        "shift",
+        "toward",
+        "cursor",
+        "gets",
+        "close",
+        "resting",
+        "item",
+        "leading",
+        "marker",
+        "lines",
+        "show",
+        "zero",
+        "padded",
+        "index",
+        "before"
+      ]
+    },
+    {
+      "name": "MagicBento",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "暗色宫格卡片墙，光标扫过时紫色描边亮起、光斑在卡内游走，点击泛起涟漪",
+      "mood": [
+        "科技",
+        "未来",
+        "暗黑"
+      ],
+      "motion": "追光扫过",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "霓虹"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "落地页",
+        "产品介绍",
+        "卡片列表",
+        "数据看板"
+      ],
+      "avoid": "自带一整套暗色卡片样式和示例内容，要套进自己的设计体系改造量不小；浅色页面里不成立",
+      "zh": [
+        "宫格",
+        "bento",
+        "卡片墙",
+        "功能介绍",
+        "网格布局",
+        "紫色辉光",
+        "描边发光",
+        "追光",
+        "聚光灯",
+        "粒子",
+        "点击涟漪",
+        "悬停发光"
+      ],
+      "en": [
+        "magic",
+        "bento",
+        "text",
+        "content",
+        "should",
+        "auto",
+        "hide",
+        "hover",
+        "particle",
+        "star",
+        "animation",
+        "effect",
+        "spotlight",
+        "cursor",
+        "following",
+        "border",
+        "glow",
+        "follows",
+        "all",
+        "animations",
+        "automatically",
+        "enabled",
+        "mobile",
+        "radius"
+      ]
+    },
+    {
+      "name": "Masonry",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "高低不齐的瀑布流方块，加载时从下方错峰浮起、由模糊转清晰，悬停轻微缩放",
+      "mood": [
+        "活泼",
+        "极简"
+      ],
+      "motion": "错峰浮起",
+      "palette": [
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "图片展示",
+        "卡片列表",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "每一项必须预先给定高度，图片尺寸未知或异步加载时布局会算错",
+      "zh": [
+        "瀑布流",
+        "masonry",
+        "图片墙",
+        "相册",
+        "参差网格",
+        "错落",
+        "依次浮现",
+        "错峰",
+        "模糊转清晰",
+        "作品集",
+        "图片列表",
+        "入场动画"
+      ],
+      "en": [
+        "masonry",
+        "items",
+        "display",
+        "layout",
+        "item",
+        "should",
+        "have",
+        "img",
+        "url",
+        "height",
+        "properties",
+        "gsap",
+        "easing",
+        "animations",
+        "duration",
+        "transition",
+        "seconds",
+        "delay",
+        "between",
+        "animation",
+        "direction",
+        "which",
+        "animate",
+        "options"
+      ]
+    },
+    {
+      "name": "ModelViewer",
+      "category": "Components",
+      "surface": "cursor",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "three"
+      ],
+      "summary": "一个灰白 3D 模型悬在纯空场景里（画布透明、不自带背景），可拖拽 360° 转动、松手带惯性继续转，滚轮缩放，光标移动时模型微微侧倾并做小幅视差位移；右上角自带 Take Screenshot 按钮，一键把当前视角导成 PNG",
+      "mood": [
+        "科技",
+        "极简",
+        "高级"
+      ],
+      "motion": "拖拽旋转带惯性",
+      "palette": [
+        "可定制",
+        "取决于模型材质"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "产品介绍",
+        "Hero区",
+        "落地页",
+        "作品集"
+      ],
+      "avoid": "url 是唯一必填 prop，不传直接崩（url.split of undefined）；environmentPreset 默认 'forest'，drei 会去 raw.githack.com 拉 HDR 环境贴图，离线或内网必须显式设成 'none'；默认 autoFrame=false 配 defaultZoom=0.5 时相机落在模型包围球内部，开箱就是糊满画面，得开 autoFrame 或把 defaultZoom 调到 2 上下；注意 defaultRotationX 控的是 Y 轴偏航、defaultRotationY 控的是 X 轴俯仰，源码里名字是反的，模型摆不正就很难看。模型文件、朝向、灯光都要自己备自己调；three + drei + GLTF 首屏加载偏重。",
+      "zh": [
+        "3D模型",
+        "模型展示",
+        "glb",
+        "gltf",
+        "fbx",
+        "三维预览",
+        "旋转查看",
+        "360度",
+        "产品展示",
+        "可拖拽",
+        "自动旋转",
+        "截图导出"
+      ],
+      "en": [
+        "model",
+        "viewer",
+        "url",
+        "file",
+        "glb",
+        "gltf",
+        "fbx",
+        "obj",
+        "width",
+        "canvas",
+        "container",
+        "height",
+        "horizontal",
+        "offset",
+        "vertical",
+        "initial",
+        "rotation",
+        "axis",
+        "degrees",
+        "zoom",
+        "distance",
+        "factor",
+        "minimum",
+        "maximum"
+      ]
+    },
+    {
+      "name": "OptionWheel",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "贴着屏幕边缘弧形排开的选项转盘，中间一条清晰亮白，上下逐渐模糊淡出",
+      "mood": [
+        "优雅",
+        "高级",
+        "极简"
+      ],
+      "motion": "弧形滚动",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "导航",
+        "落地页",
+        "后台界面"
+      ],
+      "avoid": "选项超过十几条时翻找很累；默认带点击音效，安静场景要手动关掉",
+      "zh": [
+        "滚轮选择",
+        "转盘",
+        "拨轮",
+        "选择器",
+        "picker",
+        "弧形列表",
+        "曲面排布",
+        "iOS选择器",
+        "上下滚动",
+        "模糊虚化",
+        "单选",
+        "筛选切换"
+      ],
+      "en": [
+        "option",
+        "wheel",
+        "labels",
+        "rendered",
+        "options",
+        "index",
+        "selected",
+        "mount",
+        "called",
+        "whenever",
+        "settles",
+        "new",
+        "resting",
+        "color",
+        "blends",
+        "toward",
+        "reaches",
+        "middle",
+        "edge",
+        "container",
+        "curves",
+        "around",
+        "font",
+        "size"
+      ]
+    },
+    {
+      "name": "PillNav",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap",
+        "react-router-dom"
+      ],
+      "summary": "胶囊形导航条，白色圆角药丸横排、圆形 Logo 在左，悬停时底色上浮换色",
+      "mood": [
+        "极简",
+        "活泼"
+      ],
+      "motion": "悬停上浮",
+      "palette": [
+        "黑白",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "导航",
+        "落地页",
+        "Hero区",
+        "页脚"
+      ],
+      "avoid": "条目多或中文标签长会把这排胶囊挤爆，适合 4~6 项短标签",
+      "zh": [
+        "导航栏",
+        "顶部导航",
+        "胶囊",
+        "药丸",
+        "圆角按钮",
+        "菜单",
+        "nav",
+        "悬停填充",
+        "移动端菜单",
+        "官网头部",
+        "Logo",
+        "切换高亮"
+      ],
+      "en": [
+        "pill",
+        "nav",
+        "url",
+        "logo",
+        "image",
+        "alt",
+        "text",
+        "navigation",
+        "items",
+        "label",
+        "href",
+        "arialabel",
+        "currently",
+        "active",
+        "item",
+        "css",
+        "classes",
+        "container",
+        "gsap",
+        "easing",
+        "animations",
+        "base",
+        "background",
+        "color"
+      ]
+    },
+    {
+      "name": "PixelCard",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "卡片表面铺满细密像素点阵，鼠标进入时从边缘逐格点亮，移开后再逐格熄灭",
+      "mood": [
+        "科技",
+        "复古",
+        "暗黑"
+      ],
+      "motion": "逐格点亮",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "卡片列表",
+        "产品介绍",
+        "落地页",
+        "按钮"
+      ],
+      "avoid": "截图里的文字是预览占位内容；卡片尺寸大或同屏很多张时 canvas 重绘吃性能",
+      "zh": [
+        "像素",
+        "点阵",
+        "网格闪烁",
+        "马赛克",
+        "卡片悬停",
+        "逐格点亮",
+        "科技感卡片",
+        "8bit",
+        "复古像素",
+        "数字感",
+        "卡片特效",
+        "包裹容器"
+      ],
+      "en": [
+        "pixel",
+        "card",
+        "defines",
+        "color",
+        "scheme",
+        "animation",
+        "grid",
+        "gap",
+        "size",
+        "pixels",
+        "speed",
+        "modifier",
+        "lower",
+        "slower",
+        "comma",
+        "separated",
+        "list",
+        "colors",
+        "effect",
+        "true",
+        "prevents",
+        "triggering",
+        "focus",
+        "css"
+      ]
+    },
+    {
+      "name": "ProfileCard",
+      "category": "Components",
+      "surface": "cursor",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "深色人物名片卡，蓝紫全息光泽随光标流转，整卡 3D 倾斜，人像被去色成单色剪影嵌在卡面",
+      "mood": [
+        "梦幻",
+        "高级",
+        "冷冽"
+      ],
+      "motion": "倾斜跟随",
+      "palette": [
+        "暗色",
+        "冷色系",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "卡片列表",
+        "落地页",
+        "Hero区"
+      ],
+      "avoid": "人像层是 mix-blend-mode:luminosity —— 彩色写真会被抽成明暗剪影、颜色全由卡面渐变决定，而且必须是抠好背景的透明 PNG；底部信息栏在同一个容器里，头像亮的地方 @handle 和按钮会糊成白底白字读不出来。avatarUrl / iconUrl 的默认值是占位字符串不是地址：avatar 加载失败被 onError 直接 display:none，iconUrl 是全息层的 mask-image，缺了整层不显示，不传这两个就是一张空卡。behindGlowEnabled / behindGlowColor / behindGlowSize 和 grainUrl 都是死参数（--card-opacity 写死 0，辉光算下来永远不出现），别指望靠它们做卡片外发光。",
+      "zh": [
+        "名片",
+        "个人卡片",
+        "头像卡",
+        "3D倾斜",
+        "跟随鼠标",
+        "全息",
+        "镭射",
+        "闪卡",
+        "毛玻璃",
+        "陀螺仪",
+        "个人主页",
+        "团队介绍"
+      ],
+      "en": [
+        "profile",
+        "card",
+        "url",
+        "main",
+        "avatar",
+        "image",
+        "displayed",
+        "icon",
+        "pattern",
+        "overlay",
+        "background",
+        "grain",
+        "texture",
+        "effect",
+        "css",
+        "gradient",
+        "inner",
+        "toggle",
+        "smooth",
+        "radial",
+        "glow",
+        "follows",
+        "cursor",
+        "behind"
+      ]
+    },
+    {
+      "name": "ReflectiveCard",
+      "category": "Components",
+      "surface": "element",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "svg",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "lucide-react"
+      ],
+      "summary": "整张卡覆着熔化般的金属玻璃纹理，光泽随噪波起伏折射，卡面文字若隐若现",
+      "mood": [
+        "未来",
+        "高级",
+        "神秘",
+        "冷冽"
+      ],
+      "motion": "折射流动",
+      "palette": [
+        "可定制",
+        "冷色系",
+        "单色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "卡片列表",
+        "产品介绍",
+        "Hero区",
+        "登录页"
+      ],
+      "avoid": "挂载即申请摄像头权限、拿实时画面当反射源——不想弹权限框就得先换掉那段；卡面是写死的证件卡版式，不接受自定义内容",
+      "zh": [
+        "液态金属",
+        "熔融",
+        "毛玻璃",
+        "玻璃拟态",
+        "折射",
+        "反光",
+        "镜面",
+        "金属质感",
+        "会员卡",
+        "银行卡",
+        "证件卡",
+        "纹理起伏"
+      ],
+      "en": [
+        "reflective",
+        "card",
+        "intensity",
+        "blur",
+        "effect",
+        "opacity",
+        "metallic",
+        "sheen",
+        "noise",
+        "texture",
+        "strength",
+        "displacement",
+        "how",
+        "much",
+        "warps",
+        "scale",
+        "size",
+        "ripples",
+        "specular",
+        "constant",
+        "lighting",
+        "shininess",
+        "grayscale",
+        "glass"
+      ]
+    },
+    {
+      "name": "ScrollStack",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "lenis"
+      ],
+      "summary": "滚动时卡片一张张吸附到顶部叠成一摞，后面的逐渐缩小并轻微模糊",
+      "mood": [
+        "高级",
+        "优雅",
+        "极简"
+      ],
+      "motion": "滚动吸附堆叠",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "产品介绍",
+        "落地页",
+        "卡片列表"
+      ],
+      "avoid": "它会接管页面滚动（lenis），页面上已有别的滚动动画或需要快速扫读的长列表时别用",
+      "zh": [
+        "滚动堆叠",
+        "卡片堆叠",
+        "层叠卡片",
+        "滚动吸附",
+        "卡片吸顶",
+        "滚动动画",
+        "滚动叙事",
+        "分步展示",
+        "长页面",
+        "苹果风滚动",
+        "叠层",
+        "滚动触发"
+      ],
+      "en": [
+        "scroll",
+        "stack",
+        "content",
+        "displayed",
+        "should",
+        "contain",
+        "scrollstackitem",
+        "components",
+        "css",
+        "classes",
+        "apply",
+        "container",
+        "distance",
+        "between",
+        "stacked",
+        "items",
+        "pixels",
+        "scale",
+        "increment",
+        "item",
+        "they",
+        "start",
+        "stacking",
+        "position"
+      ]
+    },
+    {
+      "name": "SpecularButton",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "webgl-ogl",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "ogl"
+      ],
+      "summary": "深色玻璃药丸按钮，一道细亮镜面高光沿圆角边框滑动，方向跟着鼠标转",
+      "mood": [
+        "高级",
+        "未来",
+        "优雅"
+      ],
+      "motion": "高光随光标绕边",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "按钮",
+        "Hero区",
+        "落地页",
+        "登录页"
+      ],
+      "avoid": "每个按钮吃一个 WebGL 上下文，一屏里放好几个会明显掉帧；亮色背景上高光看不出来",
+      "zh": [
+        "按钮",
+        "发光按钮",
+        "玻璃按钮",
+        "液态玻璃",
+        "边框流光",
+        "描边发光",
+        "镜面高光",
+        "光泽质感",
+        "主按钮",
+        "CTA",
+        "立即开始",
+        "悬停发光"
+      ],
+      "en": [
+        "specular",
+        "button",
+        "label",
+        "any",
+        "content",
+        "preset",
+        "padding",
+        "font",
+        "size",
+        "corner",
+        "radius",
+        "pixels",
+        "clamps",
+        "pill",
+        "automatically",
+        "color",
+        "glass",
+        "background",
+        "tint",
+        "strength",
+        "backdrop",
+        "blur",
+        "behind",
+        "moving"
+      ]
+    },
+    {
+      "name": "SpotlightCard",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [],
+      "summary": "深色卡片上一团柔和白色光晕跟着鼠标在卡面上游走，像手电筒扫过",
+      "mood": [
+        "安静",
+        "高级",
+        "暗黑"
+      ],
+      "motion": "光晕跟随光标",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "卡片列表",
+        "产品介绍",
+        "数据看板",
+        "后台界面"
+      ],
+      "avoid": "亮色/白底背景上几乎看不见；触屏没有 hover 会完全失效",
+      "zh": [
+        "卡片",
+        "聚光",
+        "光晕",
+        "光斑",
+        "鼠标跟随",
+        "悬停发光",
+        "卡片悬停",
+        "高亮",
+        "hover效果",
+        "定价卡",
+        "功能卡",
+        "暗色卡片"
+      ],
+      "en": [
+        "spotlight",
+        "card",
+        "color",
+        "radial",
+        "gradient",
+        "effect",
+        "allows",
+        "adding",
+        "classes"
+      ]
+    },
+    {
+      "name": "Stack",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "一叠彩色卡片错落压着，拖拽或点击把最上面一张甩走，下一张弹簧回弹上来",
+      "mood": [
+        "活泼",
+        "俏皮"
+      ],
+      "motion": "拖拽甩卡回弹",
+      "palette": [
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "图片展示",
+        "卡片列表",
+        "Hero区",
+        "产品介绍"
+      ],
+      "avoid": "一次只看得见一张，需要一眼扫完全部内容或超过五六张时不合适",
+      "zh": [
+        "卡片堆",
+        "叠放卡片",
+        "扑克牌",
+        "抽卡",
+        "甩卡",
+        "拖拽切换",
+        "滑动切换",
+        "图片轮播",
+        "相册",
+        "照片堆",
+        "弹簧回弹",
+        "Tinder"
+      ],
+      "en": [
+        "stack",
+        "applies",
+        "random",
+        "rotation",
+        "card",
+        "messy",
+        "look",
+        "drag",
+        "sensitivity",
+        "sending",
+        "back",
+        "enabled",
+        "also",
+        "shifts",
+        "next",
+        "click",
+        "elements",
+        "display",
+        "configures",
+        "spring",
+        "animation",
+        "stiffness",
+        "damping",
+        "automatically"
+      ]
+    },
+    {
+      "name": "StaggeredMenu",
+      "category": "Components",
+      "surface": "collection",
+      "triggers": [
+        "click",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "点右上角 Menu 加号，多层彩色色块从侧边依次推入盖满，菜单项逐条上滑翻正",
+      "mood": [
+        "高级",
+        "优雅",
+        "华丽"
+      ],
+      "motion": "逐条错落推入",
+      "palette": [
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "导航",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "打开时盖住整页，导航项超过六七条或需要多级子菜单时撑不住",
+      "zh": [
+        "菜单",
+        "导航",
+        "汉堡菜单",
+        "全屏菜单",
+        "侧边抽屉",
+        "抽屉导航",
+        "展开菜单",
+        "逐条弹出",
+        "交错动画",
+        "遮罩菜单",
+        "移动端导航",
+        "官网导航"
+      ],
+      "en": [
+        "staggered",
+        "menu",
+        "anchor",
+        "position",
+        "panel",
+        "left",
+        "right",
+        "side",
+        "colors",
+        "underlay",
+        "layers",
+        "items",
+        "rendered",
+        "inside",
+        "social",
+        "links",
+        "displayed",
+        "display",
+        "section",
+        "show",
+        "numbering",
+        "extra",
+        "path",
+        "logo"
+      ]
+    },
+    {
+      "name": "Stepper",
+      "category": "Components",
+      "surface": "wrapper",
+      "triggers": [
+        "click"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "顶部圆点连线的步骤指示器，内容区在步骤间横向滑动切换，容器高度跟着变",
+      "mood": [
+        "极简",
+        "安静"
+      ],
+      "motion": "左右滑动换步",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "登录页",
+        "后台界面",
+        "启动页",
+        "产品介绍"
+      ],
+      "avoid": "只能一步步走，步骤超过五六步或用户需要随意跳到任意一步时别用",
+      "zh": [
+        "步骤条",
+        "分步表单",
+        "多步表单",
+        "流程",
+        "向导",
+        "引导",
+        "新手引导",
+        "注册流程",
+        "进度指示",
+        "步骤指示器",
+        "下一步",
+        "上一步"
+      ],
+      "en": [
+        "stepper",
+        "step",
+        "components",
+        "any",
+        "content",
+        "rendered",
+        "inside",
+        "first",
+        "display",
+        "initialized",
+        "fired",
+        "whenever",
+        "changes",
+        "completes",
+        "final",
+        "container",
+        "holding",
+        "indicators",
+        "row",
+        "circles",
+        "connectors",
+        "main",
+        "footer",
+        "area"
+      ]
+    },
+    {
+      "name": "TiltedCard",
+      "category": "Components",
+      "surface": "element",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "鼠标悬停时卡片按光标位置做 3D 透视倾斜并轻微放大，旁边跟一条歪着的小提示",
+      "mood": [
+        "高级",
+        "活泼",
+        "未来"
+      ],
+      "motion": "随光标3D倾斜",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "图片展示",
+        "卡片列表",
+        "Hero区",
+        "产品介绍"
+      ],
+      "avoid": "移动端没有 hover 会退化成静态图；密集网格里每张都倾斜会显得很乱",
+      "zh": [
+        "3D倾斜",
+        "立体卡片",
+        "卡片倾斜",
+        "透视翻转",
+        "视差",
+        "悬停倾斜",
+        "鼠标跟随",
+        "悬停放大",
+        "图片卡片",
+        "专辑封面",
+        "悬浮卡片",
+        "tilt"
+      ],
+      "en": [
+        "tilted",
+        "card",
+        "source",
+        "url",
+        "image",
+        "alternative",
+        "text",
+        "tooltip",
+        "caption",
+        "height",
+        "overall",
+        "container",
+        "width",
+        "inner",
+        "scaling",
+        "factor",
+        "applied",
+        "hover",
+        "how",
+        "much",
+        "tilts",
+        "mouse",
+        "movement",
+        "show"
+      ]
+    },
+    {
+      "name": "ASCIIText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "webgl-three",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "three"
+      ],
+      "summary": "文字被拆成一片密密麻麻的 ASCII 字符点阵拼出字形，整体像水面一样起伏抖动",
+      "mood": [
+        "硬核",
+        "复古",
+        "科技"
+      ],
+      "motion": "波浪起伏抖动",
+      "palette": [
+        "暗色",
+        "黑白"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "标题",
+        "启动页",
+        "落地页"
+      ],
+      "avoid": "只认得出短词，稍长的句子就糊成一团；正文和任何要被读懂的信息都别用",
+      "zh": [
+        "ASCII",
+        "字符画",
+        "字符文字",
+        "点阵文字",
+        "像素文字",
+        "代码风",
+        "终端风",
+        "极客",
+        "黑客",
+        "故障风",
+        "波浪文字",
+        "抖动文字"
+      ],
+      "en": [
+        "asciitext",
+        "text",
+        "displayed",
+        "plane",
+        "ascii",
+        "scene",
+        "false",
+        "disables",
+        "wavy",
+        "animation",
+        "size",
+        "glyphs",
+        "overlay",
+        "pixel",
+        "drawn",
+        "onto",
+        "texture",
+        "how",
+        "tall",
+        "width",
+        "auto",
+        "based",
+        "aspect",
+        "color"
+      ]
+    },
+    {
+      "name": "BlurText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "scroll"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "motion"
+      ],
+      "summary": "文字一词一词从模糊虚影中浮现聚焦，同时从上方轻轻落到位，滚到才播",
+      "mood": [
+        "优雅",
+        "安静",
+        "柔和"
+      ],
+      "motion": "逐词模糊浮现",
+      "palette": [
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "标题",
+        "Hero区",
+        "落地页",
+        "正文"
+      ],
+      "avoid": "一屏里多处同时播会让人干等着读完；长段落正文慎用",
+      "zh": [
+        "文字浮现",
+        "逐字出现",
+        "逐词出现",
+        "模糊渐显",
+        "虚化浮现",
+        "淡入",
+        "标题动画",
+        "入场动画",
+        "文字动画",
+        "出现动画",
+        "滚动触发",
+        "聚焦"
+      ],
+      "en": [
+        "blur",
+        "text",
+        "content",
+        "animate",
+        "determines",
+        "words",
+        "letters",
+        "direction",
+        "which",
+        "appear",
+        "top",
+        "bottom",
+        "delay",
+        "between",
+        "animations",
+        "word",
+        "letter",
+        "time",
+        "taken",
+        "seconds",
+        "intersection",
+        "threshold",
+        "triggering",
+        "animation"
+      ]
+    },
+    {
+      "name": "CircularText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "一句话沿圆环排成一圈匀速转动，像转动的贴纸徽章，悬停可加速或停住",
+      "mood": [
+        "俏皮",
+        "活泼",
+        "极简"
+      ],
+      "motion": "匀速绕圈旋转",
+      "palette": [
+        "黑白",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "Hero区",
+        "页脚",
+        "加载中",
+        "标题"
+      ],
+      "avoid": "文字太长会挤成一圈认不清；中间空圈别再塞重要内容，转动会抢视线",
+      "zh": [
+        "圆形文字",
+        "环形文字",
+        "文字绕圈",
+        "旋转文字",
+        "环绕排版",
+        "徽章",
+        "印章",
+        "贴纸",
+        "圆环",
+        "转圈",
+        "slogan",
+        "品牌标语"
+      ],
+      "en": [
+        "circular",
+        "text",
+        "display",
+        "layout",
+        "duration",
+        "seconds",
+        "one",
+        "full",
+        "rotation",
+        "specifies",
+        "hover",
+        "behavior",
+        "variant",
+        "options",
+        "include",
+        "slowdown",
+        "speedup",
+        "pause",
+        "gobonkers",
+        "css",
+        "classes",
+        "apply"
+      ]
+    },
+    {
+      "name": "CountUp",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "scroll"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "motion"
+      ],
+      "summary": "白色大数字从起点弹性滚动到目标值，停下时轻微回弹，纯数字无装饰",
+      "mood": [
+        "科技",
+        "极简",
+        "安静"
+      ],
+      "motion": "数字递增滚动",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "数据看板",
+        "产品介绍",
+        "Hero区",
+        "后台界面"
+      ],
+      "avoid": "只能作用在数字上；一屏同时放好几个会互相抢注意力",
+      "zh": [
+        "数字滚动",
+        "数字跳动",
+        "计数动画",
+        "数字增长",
+        "滚动数字",
+        "计数器",
+        "数据统计",
+        "递增数字",
+        "统计数字动画",
+        "KPI数字",
+        "数字上滚"
+      ],
+      "en": [
+        "count",
+        "target",
+        "initial",
+        "which",
+        "starts",
+        "direction",
+        "down",
+        "become",
+        "reversed",
+        "order",
+        "delay",
+        "seconds",
+        "before",
+        "counting",
+        "duration",
+        "animation",
+        "based",
+        "damping",
+        "stiffness",
+        "configured",
+        "inside",
+        "css",
+        "apply",
+        "styling"
+      ]
+    },
+    {
+      "name": "CurvedLoop",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "svg",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "白色大写文字沿一条下凹弧线无限横向滚动，✦ 符号做词间分隔",
+      "mood": [
+        "活泼",
+        "复古",
+        "极简"
+      ],
+      "motion": "沿弧线循环滚动",
+      "palette": [
+        "黑白",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "页脚",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "正文或需要精准阅读的信息别用，弯曲会牺牲可读性",
+      "zh": [
+        "弧形跑马灯",
+        "曲线文字",
+        "弯曲文字",
+        "文字沿路径",
+        "走马灯",
+        "无限滚动文字",
+        "循环滚动",
+        "装饰文字带",
+        "波浪文字",
+        "路径文字",
+        "横向滚动条幅"
+      ],
+      "en": [
+        "curved",
+        "loop",
+        "text",
+        "display",
+        "marquee",
+        "animation",
+        "speed",
+        "css",
+        "styling",
+        "amount",
+        "curve",
+        "path",
+        "initial",
+        "direction",
+        "dragged",
+        "user"
+      ]
+    },
+    {
+      "name": "DecryptedText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "click",
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "文字先是一片随机乱码，再从左到右逐字解出真实内容，终端解密感",
+      "mood": [
+        "科技",
+        "神秘",
+        "硬核",
+        "未来"
+      ],
+      "motion": "乱码逐字解出",
+      "palette": [
+        "暗色",
+        "单色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "启动页",
+        "加载中",
+        "标题"
+      ],
+      "avoid": "长段正文不合适，解密过程中整段完全不可读",
+      "zh": [
+        "解密文字",
+        "乱码文字",
+        "字符打乱",
+        "黑客风",
+        "矩阵效果",
+        "加密解码",
+        "逐字揭示",
+        "终端风",
+        "代码风",
+        "赛博朋克",
+        "字符随机跳动",
+        "打字机效果"
+      ],
+      "en": [
+        "decrypted",
+        "text",
+        "content",
+        "decrypt",
+        "time",
+        "between",
+        "iteration",
+        "max",
+        "random",
+        "iterations",
+        "non",
+        "sequential",
+        "mode",
+        "reveal",
+        "one",
+        "character",
+        "sequence",
+        "which",
+        "position",
+        "characters",
+        "begin",
+        "restrict",
+        "scrambling",
+        "only"
+      ]
+    },
+    {
+      "name": "FallingText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "click",
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "physics",
+      "heavy": true,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "matter-js"
+      ],
+      "summary": "整句文字散成一个个词块受重力砸落堆在底部，可用鼠标拖拽推开",
+      "mood": [
+        "活泼",
+        "俏皮",
+        "自然"
+      ],
+      "motion": "逐词坠落堆叠",
+      "palette": [
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "空状态",
+        "落地页",
+        "产品介绍"
+      ],
+      "avoid": "承载正式信息的文字别用，落地后语序全乱；移动端长句会堆成一坨",
+      "zh": [
+        "文字掉落",
+        "掉字效果",
+        "重力效果",
+        "物理动画",
+        "文字堆叠",
+        "可拖拽文字",
+        "文字散落",
+        "弹跳碰撞",
+        "趣味交互",
+        "打散文字",
+        "词块下落",
+        "互动文字"
+      ],
+      "en": [
+        "falling",
+        "text",
+        "content",
+        "display",
+        "eventually",
+        "animate",
+        "list",
+        "words",
+        "substrings",
+        "apply",
+        "highlight",
+        "css",
+        "highlighted",
+        "defines",
+        "how",
+        "effect",
+        "activated",
+        "canvas",
+        "background",
+        "color",
+        "physics",
+        "world",
+        "render",
+        "bodies"
+      ]
+    },
+    {
+      "name": "FuzzyText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "canvas-2d",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "白色粗体字被逐行横向撕裂成雪花噪点，像信号不良的电视静电",
+      "mood": [
+        "硬核",
+        "复古",
+        "暗黑",
+        "神秘"
+      ],
+      "motion": "横向抖动噪化",
+      "palette": [
+        "黑白",
+        "暗色",
+        "单色"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "空状态",
+        "标题",
+        "Hero区",
+        "启动页"
+      ],
+      "avoid": "正文和小字号不能用，字形会糊到认不出来",
+      "zh": [
+        "毛刺文字",
+        "噪点文字",
+        "雪花效果",
+        "静电干扰",
+        "信号干扰",
+        "抖动文字",
+        "撕裂文字",
+        "模糊字",
+        "故障感",
+        "扫描线",
+        "电视雪花",
+        "404大字"
+      ],
+      "en": [
+        "fuzzy",
+        "text",
+        "content",
+        "display",
+        "inside",
+        "specifies",
+        "font",
+        "size",
+        "accepts",
+        "any",
+        "valid",
+        "css",
+        "interpreted",
+        "pixels",
+        "weight",
+        "family",
+        "inherit",
+        "computed",
+        "parent",
+        "color",
+        "hover",
+        "effect",
+        "fuzz",
+        "intensity"
+      ]
+    },
+    {
+      "name": "GlitchText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [],
+      "summary": "白色粗黑标题不断错位抖动，边缘甩出红蓝重影，电子故障质感",
+      "mood": [
+        "硬核",
+        "未来",
+        "暗黑",
+        "活泼"
+      ],
+      "motion": "错位闪跳",
+      "palette": [
+        "暗色",
+        "黑白",
+        "霓虹"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "标题",
+        "Hero区",
+        "启动页",
+        "落地页"
+      ],
+      "avoid": "金融医疗等严肃界面别用；持续循环闪动看久了刺眼",
+      "zh": [
+        "故障文字",
+        "glitch",
+        "错位抖动",
+        "红蓝重影",
+        "色差分离",
+        "撕裂标题",
+        "闪烁文字",
+        "赛博朋克",
+        "电子故障",
+        "潮流标题",
+        "RGB分离",
+        "抖动标题"
+      ],
+      "en": [
+        "glitch",
+        "text",
+        "content",
+        "display",
+        "effect",
+        "multiplier",
+        "animation",
+        "speed",
+        "higher",
+        "slow",
+        "down",
+        "toggle",
+        "colored",
+        "shadows",
+        "pseudo",
+        "elements",
+        "true",
+        "only",
+        "activated",
+        "hover",
+        "classes",
+        "apply"
+      ]
+    },
+    {
+      "name": "GradientText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "文字填充紫粉渐变并缓慢流动，可选一圈同色渐变胶囊描边",
+      "mood": [
+        "优雅",
+        "高级",
+        "梦幻",
+        "未来"
+      ],
+      "motion": "渐变缓慢流动",
+      "palette": [
+        "渐变",
+        "紫色系",
+        "彩色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "标题",
+        "落地页",
+        "按钮"
+      ],
+      "avoid": "与背景明度接近时可读性差；正文段落不要用",
+      "zh": [
+        "渐变文字",
+        "彩色文字",
+        "流光文字",
+        "渐变标题",
+        "紫色渐变",
+        "文字流动",
+        "高光扫过",
+        "渐变描边",
+        "彩虹字",
+        "品牌标题",
+        "发光文字",
+        "变色文字"
+      ],
+      "en": [
+        "gradient",
+        "text",
+        "content",
+        "displayed",
+        "inside",
+        "adds",
+        "classes",
+        "root",
+        "styling",
+        "colors",
+        "effect",
+        "duration",
+        "one",
+        "animation",
+        "cycle",
+        "seconds",
+        "direction",
+        "pauses",
+        "hovering",
+        "over",
+        "reverses",
+        "end",
+        "instead",
+        "looping"
+      ]
+    },
+    {
+      "name": "RotatingText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "ambient"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "motion"
+      ],
+      "summary": "一行文案里的关键词整体上下翻页替换，字符依次弹入弹出",
+      "mood": [
+        "活泼",
+        "科技",
+        "优雅"
+      ],
+      "motion": "逐字弹入弹出",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "标题",
+        "产品介绍"
+      ],
+      "avoid": "备选词长度差太多时会把整行布局撑得来回跳",
+      "zh": [
+        "文字轮播",
+        "词语切换",
+        "单词轮换",
+        "文案轮播",
+        "上下滚动文字",
+        "逐字弹入",
+        "slogan轮播",
+        "关键词替换",
+        "文字翻滚",
+        "动态标题",
+        "循环切换文字"
+      ],
+      "en": [
+        "rotating",
+        "text",
+        "strings",
+        "rotated",
+        "interval",
+        "milliseconds",
+        "between",
+        "rotations",
+        "initial",
+        "animation",
+        "state",
+        "elements",
+        "enter",
+        "exit",
+        "mode",
+        "animatepresence",
+        "example",
+        "wait",
+        "finish",
+        "animations",
+        "before",
+        "entering",
+        "determines",
+        "should"
+      ]
+    },
+    {
+      "name": "ScrambledText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "鼠标划过的字临时变成符号再复原，光标周围一圈文字持续扰动",
+      "mood": [
+        "神秘",
+        "科技",
+        "安静",
+        "极简"
+      ],
+      "motion": "跟随光标乱码",
+      "palette": [
+        "黑白",
+        "暗色",
+        "单色"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "正文",
+        "标题",
+        "Hero区",
+        "产品介绍"
+      ],
+      "avoid": "要求一眼读完的关键信息别用；触屏没鼠标就完全没效果",
+      "zh": [
+        "鼠标乱码",
+        "字符打散",
+        "跟随光标",
+        "悬停乱码",
+        "文字扰动",
+        "符号替换",
+        "交互文字",
+        "光标周围变化",
+        "hover特效",
+        "段落交互",
+        "文字骚动"
+      ],
+      "en": [
+        "scrambled",
+        "text",
+        "radius",
+        "around",
+        "mouse",
+        "pointer",
+        "within",
+        "which",
+        "characters",
+        "scramble",
+        "duration",
+        "effect",
+        "character",
+        "speed",
+        "animation",
+        "scrambling",
+        "content",
+        "css",
+        "classes",
+        "inline"
+      ]
+    },
+    {
+      "name": "ScrollFloat",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "scroll"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "页面滚到时标题按字逐个从下方浮起放大归位，带回弹缓动",
+      "mood": [
+        "优雅",
+        "高级",
+        "安静"
+      ],
+      "motion": "滚动中逐字上浮",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "标题",
+        "落地页",
+        "产品介绍",
+        "Hero区"
+      ],
+      "avoid": "首屏一进来就可见的内容用不上，它必须靠滚动触发",
+      "zh": [
+        "滚动浮现",
+        "逐字上浮",
+        "滚动触发",
+        "入场动画",
+        "文字浮出",
+        "逐字显现",
+        "滚动出现",
+        "标题入场",
+        "渐显动画",
+        "分段揭示",
+        "向上飘入"
+      ],
+      "en": [
+        "scroll",
+        "float",
+        "content",
+        "animate",
+        "split",
+        "individual",
+        "characters",
+        "ref",
+        "container",
+        "defaults",
+        "window",
+        "not",
+        "provided",
+        "tailwind",
+        "classes",
+        "text",
+        "duration",
+        "seconds",
+        "animation",
+        "easing",
+        "trigger",
+        "start",
+        "position",
+        "end"
+      ]
+    },
+    {
+      "name": "ScrollReveal",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "scroll"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "滚动到视口时段落逐词从模糊与半透明中浮出，整块还带一点旋转扶正",
+      "mood": [
+        "优雅",
+        "安静",
+        "高级"
+      ],
+      "motion": "逐词浮现",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "产品介绍",
+        "落地页",
+        "正文",
+        "标题"
+      ],
+      "avoid": "首屏一进来就该看清的关键信息，或只有几个字的短标题，滚动触发和逐词延迟都白费",
+      "zh": [
+        "滚动显现",
+        "滚动触发",
+        "逐词浮现",
+        "模糊淡入",
+        "段落动画",
+        "长文案",
+        "进场动画",
+        "渐显",
+        "文字浮出",
+        "滚动动画"
+      ],
+      "en": [
+        "scroll",
+        "reveal",
+        "text",
+        "elements",
+        "animated",
+        "provided",
+        "split",
+        "words",
+        "ref",
+        "container",
+        "gsap",
+        "triggers",
+        "otherwise",
+        "defaults",
+        "window",
+        "blur",
+        "animation",
+        "effect",
+        "initial",
+        "opacity",
+        "before",
+        "starting",
+        "rotation",
+        "degrees"
+      ]
+    },
+    {
+      "name": "ScrollVelocity",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "mount"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "motion"
+      ],
+      "summary": "两行超大粗体字横向反向跑动的跑马灯，滚动越快跑得越快，方向也随之翻转",
+      "mood": [
+        "活泼",
+        "硬核",
+        "极简"
+      ],
+      "motion": "横向跑动",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "落地页",
+        "页脚",
+        "产品介绍",
+        "Hero区"
+      ],
+      "avoid": "需要逐字读懂的正文，以及页面已有多处动态元素时会互相打架",
+      "zh": [
+        "跑马灯",
+        "走马灯",
+        "横向滚动",
+        "无限循环",
+        "滚动文字",
+        "marquee",
+        "滚动条幅",
+        "大字滚动",
+        "品牌词循环",
+        "视差滚动"
+      ],
+      "en": [
+        "scroll",
+        "velocity",
+        "ref",
+        "container",
+        "track",
+        "position",
+        "items",
+        "display",
+        "scrolling",
+        "content",
+        "accepts",
+        "strings",
+        "jsx",
+        "elements",
+        "icons",
+        "any",
+        "valid",
+        "react",
+        "node",
+        "base",
+        "sign",
+        "flipped",
+        "odd",
+        "indexed"
+      ]
+    },
+    {
+      "name": "ShinyText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "灰色文字上一道白色高光反复横扫，像金属表面的反光流过字面",
+      "mood": [
+        "高级",
+        "优雅",
+        "安静",
+        "科技"
+      ],
+      "motion": "高光横扫",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "subtle",
+      "scenes": [
+        "按钮",
+        "标题",
+        "导航",
+        "Hero区"
+      ],
+      "avoid": "浅色背景上高光和底色对比不够，效果几乎看不出来",
+      "zh": [
+        "流光",
+        "扫光",
+        "高光扫过",
+        "闪光文字",
+        "金属光泽",
+        "光泽文字",
+        "微光",
+        "渐变扫过",
+        "呼吸微光",
+        "按钮文字"
+      ],
+      "en": [
+        "shiny",
+        "text",
+        "displayed",
+        "effect",
+        "base",
+        "color",
+        "shine",
+        "highlight",
+        "duration",
+        "one",
+        "animation",
+        "cycle",
+        "seconds",
+        "pause",
+        "between",
+        "cycles",
+        "angle",
+        "degrees",
+        "gradient",
+        "spread",
+        "true",
+        "reverses",
+        "direction",
+        "instead"
+      ]
+    },
+    {
+      "name": "Shuffle",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover",
+        "scroll",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "@gsap/react",
+        "gsap"
+      ],
+      "summary": "每个字母像老虎机字条一样翻滚，乱码闪过后逐字错开定格成最终文字",
+      "mood": [
+        "硬核",
+        "科技",
+        "活泼"
+      ],
+      "motion": "字符翻滚",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "标题",
+        "Hero区",
+        "导航",
+        "按钮"
+      ],
+      "avoid": "大段正文，乱码阶段整段不可读，也容易显得吵",
+      "zh": [
+        "乱码",
+        "字符翻滚",
+        "老虎机",
+        "随机字符",
+        "解码",
+        "打乱",
+        "逐字切换",
+        "故障感",
+        "翻牌",
+        "悬停重播",
+        "标题动画"
+      ],
+      "en": [
+        "shuffle",
+        "text",
+        "content",
+        "css",
+        "wrapper",
+        "inline",
+        "applied",
+        "direction",
+        "letter",
+        "strip",
+        "slides",
+        "reveal",
+        "final",
+        "character",
+        "duration",
+        "slide",
+        "max",
+        "random",
+        "delay",
+        "animationmode",
+        "gsap",
+        "ease",
+        "sliding",
+        "color"
+      ]
+    },
+    {
+      "name": "SplitText",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "scroll"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": false,
+      "interactive": false,
+      "deps": [
+        "@gsap/react",
+        "gsap"
+      ],
+      "summary": "标题按字符拆开，进入视口时逐字从下方上浮淡入，依次错开落位",
+      "mood": [
+        "优雅",
+        "极简",
+        "安静"
+      ],
+      "motion": "逐字上浮",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "标题",
+        "落地页",
+        "启动页"
+      ],
+      "avoid": "大段正文，拆成上百个字符节点既卡又碎",
+      "zh": [
+        "逐字浮现",
+        "逐字淡入",
+        "拆字",
+        "标题进场",
+        "上浮淡入",
+        "错峰出现",
+        "文字入场",
+        "滚动触发",
+        "依次出现",
+        "打散动画"
+      ],
+      "en": [
+        "split",
+        "text",
+        "html",
+        "tag",
+        "render",
+        "content",
+        "animate",
+        "delay",
+        "between",
+        "animations",
+        "letter",
+        "duration",
+        "animation",
+        "seconds",
+        "gsap",
+        "easing",
+        "type",
+        "chars",
+        "words",
+        "lines",
+        "initial",
+        "properties",
+        "word",
+        "target"
+      ]
+    },
+    {
+      "name": "TextCursor",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "鼠标划过时沿轨迹撒下一串文字或表情，跟随移动方向转向，停手后逐个淡散",
+      "mood": [
+        "活泼",
+        "俏皮"
+      ],
+      "motion": "跟随光标",
+      "palette": [
+        "可定制",
+        "单色"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "空状态",
+        "启动页"
+      ],
+      "avoid": "移动端触屏没有鼠标就完全不出效果；严肃的后台工具页会显得轻浮",
+      "zh": [
+        "光标跟随",
+        "鼠标拖尾",
+        "跟随鼠标",
+        "尾迹",
+        "拖影",
+        "鼠标特效",
+        "emoji跟随",
+        "指针特效",
+        "趣味交互",
+        "彩蛋效果",
+        "轨迹文字"
+      ],
+      "en": [
+        "text",
+        "cursor",
+        "display",
+        "trail",
+        "spacing",
+        "pixels",
+        "between",
+        "point",
+        "true",
+        "rotates",
+        "follow",
+        "mouse",
+        "direction",
+        "random",
+        "floating",
+        "offsets",
+        "position",
+        "rotation",
+        "dynamic",
+        "effect",
+        "duration",
+        "seconds",
+        "exit",
+        "animation"
+      ]
+    },
+    {
+      "name": "TextPressure",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "css",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [],
+      "summary": "撑满容器的巨型标题，字符随鼠标靠近实时变粗变宽变斜，像被手推挤压",
+      "mood": [
+        "硬核",
+        "极简",
+        "活泼"
+      ],
+      "motion": "鼠标挤压",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "落地页",
+        "启动页",
+        "标题"
+      ],
+      "avoid": "必须自备支持 wght/wdth/opsz 轴的可变字体文件，普通字体完全没变化；小字号下也看不出来",
+      "zh": [
+        "可变字体",
+        "压感文字",
+        "巨型标题",
+        "鼠标变形",
+        "字重变化",
+        "挤压拉伸",
+        "弹性排版",
+        "大标题",
+        "海报字",
+        "悬停变形",
+        "排版实验"
+      ],
+      "en": [
+        "text",
+        "pressure",
+        "content",
+        "displayed",
+        "animated",
+        "variable",
+        "font",
+        "family",
+        "url",
+        "file",
+        "needed",
+        "characters",
+        "are",
+        "spaced",
+        "using",
+        "flex",
+        "layout",
+        "true",
+        "vertically",
+        "scales",
+        "fill",
+        "container",
+        "height",
+        "applies"
+      ]
+    },
+    {
+      "name": "TextType",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "scroll",
+        "ambient"
+      ],
+      "tech": "dom-gsap",
+      "heavy": false,
+      "continuous": true,
+      "interactive": false,
+      "deps": [
+        "gsap"
+      ],
+      "summary": "文字逐字敲出并带闪烁光标，打完停顿后回删，再换下一句循环",
+      "mood": [
+        "极简",
+        "科技",
+        "安静"
+      ],
+      "motion": "逐字敲出",
+      "palette": [
+        "暗色",
+        "单色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "Hero区",
+        "标题",
+        "落地页",
+        "加载中",
+        "空状态"
+      ],
+      "avoid": "需要一眼读完的关键信息，等它敲完太慢；同屏放多个会显得很闹",
+      "zh": [
+        "打字机",
+        "逐字打出",
+        "光标闪烁",
+        "typewriter",
+        "文案轮播",
+        "一句句切换",
+        "敲字",
+        "终端感",
+        "slogan",
+        "循环播放",
+        "副标题动画"
+      ],
+      "en": [
+        "text",
+        "type",
+        "texts",
+        "out",
+        "html",
+        "tag",
+        "render",
+        "speed",
+        "typing",
+        "milliseconds",
+        "initial",
+        "delay",
+        "before",
+        "starts",
+        "time",
+        "wait",
+        "between",
+        "deleting",
+        "characters",
+        "loop",
+        "through",
+        "styling",
+        "show",
+        "cursor"
+      ]
+    },
+    {
+      "name": "TrueFocus",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": false,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "整句保持模糊，只有一个词清晰并被紫色四角取景框套住，焦点逐词移动",
+      "mood": [
+        "科技",
+        "神秘",
+        "高级"
+      ],
+      "motion": "焦点移动",
+      "palette": [
+        "暗色",
+        "紫色系",
+        "霓虹",
+        "可定制"
+      ],
+      "intensity": "bold",
+      "scenes": [
+        "Hero区",
+        "标题",
+        "产品介绍",
+        "落地页"
+      ],
+      "avoid": "长句子，大部分词长期处于模糊态，根本读不了",
+      "zh": [
+        "聚焦",
+        "对焦",
+        "模糊",
+        "逐词高亮",
+        "取景框",
+        "相机对焦",
+        "焦点移动",
+        "单词强调",
+        "景深",
+        "扫描框",
+        "模糊清晰"
+      ],
+      "en": [
+        "true",
+        "focus",
+        "text",
+        "display",
+        "animation",
+        "separate",
+        "words",
+        "sentence",
+        "disables",
+        "automatic",
+        "amount",
+        "blur",
+        "applied",
+        "non",
+        "active",
+        "color",
+        "borders",
+        "glowing",
+        "effect",
+        "duration",
+        "word",
+        "time",
+        "pause",
+        "between"
+      ]
+    },
+    {
+      "name": "VariableProximity",
+      "category": "TextAnimations",
+      "surface": "text",
+      "triggers": [
+        "click",
+        "hover",
+        "ambient"
+      ],
+      "tech": "dom-motion",
+      "heavy": false,
+      "continuous": true,
+      "interactive": true,
+      "deps": [
+        "motion"
+      ],
+      "summary": "鼠标经过时附近字符渐渐变粗放大，像光标拖着一圈重力波扫过整行文字",
+      "mood": [
+        "优雅",
+        "高级",
+        "科技",
+        "安静"
+      ],
+      "motion": "跟随光标",
+      "palette": [
+        "黑白",
+        "暗色",
+        "可定制"
+      ],
+      "intensity": "moderate",
+      "scenes": [
+        "标题",
+        "Hero区",
+        "正文",
+        "导航"
+      ],
+      "avoid": "需要可变字体文件才有效；触屏无鼠标时完全静止",
+      "zh": [
+        "跟随光标",
+        "鼠标靠近",
+        "字重变化",
+        "可变字体",
+        "局部加粗",
+        "邻近感应",
+        "悬停文字",
+        "光标吸引",
+        "弹性排版",
+        "交互文字"
+      ],
+      "en": [
+        "variable",
+        "proximity",
+        "text",
+        "content",
+        "display",
+        "starting",
+        "variation",
+        "settings",
+        "reach",
+        "cursor",
+        "reference",
+        "container",
+        "relative",
+        "calculations",
+        "radius",
+        "influence",
+        "effect",
+        "type",
+        "falloff"
+      ]
+    }
+  ]
+}

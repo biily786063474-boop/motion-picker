@@ -155,6 +155,26 @@ check('索引里的组件文件都真实存在', () => {
   return `${idx.components.length}/${idx.components.length}`;
 });
 
+check('语义检索零依赖可用', () => {
+  // --find 跟 --list 一样属于「clone 下来就能跑」的路径：semantic.json 是预计算好的，
+  // search.mjs 是纯 JS。这条守的是别往这条路上引第三方依赖。
+  const r = JSON.parse(run('scripts/add.mjs', ['--find', '暗色流动的背景', '--json']));
+  assert(r.results.length > 0, '「暗色流动的背景」一个都没匹配到');
+  const top = r.results[0];
+  assert(top.surface === 'fullscreen-bg', `排第一的 ${top.name} 作用面是 ${top.surface}，不是背景`);
+  assert(top.summary, `排第一的 ${top.name} 没有中文摘要`);
+  return `${r.results.length} 个候选，首位 ${top.name}`;
+});
+
+check('语义索引覆盖全部组件', () => {
+  const idx = JSON.parse(fs.readFileSync(path.join(LIB, 'prompts/index.json'), 'utf8'));
+  const sem = JSON.parse(fs.readFileSync(path.join(LIB, 'prompts/semantic.json'), 'utf8'));
+  assert(sem.total === idx.components.length, `语义 ${sem.total} 个 / 组件 ${idx.components.length} 个，跑 npm run semantic`);
+  // 标注不全只警告不失败 —— 新同步进来的组件本来就还没标注
+  const gap = sem.total - sem.annotated;
+  return gap ? `${sem.annotated}/${sem.total}（${gap} 个待标注）` : `${sem.total} 个全有语义`;
+});
+
 console.log('\nskill 安装');
 
 check('install.mjs 能装能卸', () => {

@@ -65,6 +65,24 @@ try {
 const hasNodeModules = fs.existsSync(path.join(LIB, 'node_modules'));
 add('core', '取用是否需要 node_modules', true, hasNodeModules ? '已装（但取用其实用不上）' : '未装（取用照样能跑）', null);
 
+/* ---------- 第一层半：语义检索（--find / --catalog） ----------
+ * 单独一层是因为它坏了不影响取用 —— 归进 core 会让 doctor 退 1 并报「取用会失败」，那是撒谎。 */
+try {
+  const sem = JSON.parse(fs.readFileSync(path.join(LIB, 'prompts/semantic.json'), 'utf8'));
+  const ratio = sem.total ? sem.annotated / sem.total : 0;
+  add(
+    'search',
+    '语义索引',
+    ratio >= 0.9,
+    `${sem.annotated}/${sem.total} 个有中文语义`,
+    ratio >= 0.9 ? null : '标注不全，--find 会命不中。补法见 docs/运维手册.md「补语义标注」'
+  );
+  if (idx && sem.total !== idx.components.length)
+    add('search', '索引与组件表同步', false, `语义 ${sem.total} 个 / 组件 ${idx.components.length} 个`, 'npm run semantic 重建');
+} catch {
+  add('search', '语义索引', false, '缺失', 'npm run semantic 生成（不影响 --list 和取用）');
+}
+
 /* ---------- 第二层：选型台（本地可视化预览） ---------- */
 
 add(
@@ -127,6 +145,7 @@ if (JSON_MODE) {
 } else {
   const LAYERS = {
     core: ['取用组件', '把组件代码拷进你的项目 —— 这层几乎不需要任何环境'],
+    search: ['语义检索', '让 AI 能按「暗色流动的背景」这类需求找到组件'],
     playground: ['选型台', '本地可视化预览 139 个组件 —— 只有想看效果时才需要'],
     skill: ['skill 接线', '让 AI 能自动找到这个库']
   };

@@ -1,6 +1,6 @@
 ---
 name: motion-picker
-description: 需要网页/应用的视觉动效、背景特效、文字动画、交互效果时使用 —— 用户说「加个动效」「要个背景效果」「找个动效参考」「文字动画」「这个页面太素了」「加点交互效果」「炫一点的背景」「过渡效果」，或在做落地页/启动页/登录页/Hero 区/空状态时想要视觉冲击力。打开本地 139 个组件的可视化选型台，人在里面挑效果、调参数看实时预览，选定后把「组件源码 + 调好的参数 + 依赖清单 + 宿主兼容性诊断」交回给 AI，由 AI 按当前项目的技术栈适配并集成。**离线可用，不联网、不生图。**
+description: 需要网页/应用的视觉动效、背景特效、文字动画、交互效果时使用 —— 用户说「加个动效」「要个背景效果」「找个动效参考」「文字动画」「这个页面太素了」「加点交互效果」「炫一点的背景」「过渡效果」，或在做落地页/启动页/登录页/Hero 区/空状态时想要视觉冲击力。先用中文语义检索把 139 个候选收窄到几个（组件名如 Silk / DarkVeil 没有语义，必须查索引不能猜），再打开可视化选型台让人挑效果、调参数看实时预览，选定后把「组件源码 + 调好的参数 + 依赖清单 + 宿主兼容性诊断」交回给 AI，由 AI 按当前项目的技术栈适配并集成。**离线可用，不联网、不生图。**
 ---
 
 # 动效选型
@@ -21,7 +21,7 @@ LIB=$(cat ~/.claude/skills/motion-picker/lib-path)
 
 用户想要视觉动效但**说不清具体要哪个**的时候。典型信号：「加个动效」「太素了」「要点视觉冲击」「背景效果」「文字动画」「过渡效果」。
 
-如果用户已经点名了具体组件（「用 Orb」「加个 SplitText」），可以跳过选型台，直接走 §4 的取用。
+如果用户已经点名了具体组件（「用 Orb」「加个 SplitText」），可以跳过选型台，直接走 §5 的取用。
 
 ## 流程
 
@@ -29,7 +29,39 @@ LIB=$(cat ~/.claude/skills/motion-picker/lib-path)
 
 读目标项目的 `package.json`，拿到 React 版本、有没有 Tailwind、three 版本。这决定了哪些组件能用 —— **不要跳过这步**，否则会推荐用户根本装不上的组件。
 
-### 2. 写上下文 + 起选型台
+### 2. 按需求语义缩小候选
+
+139 个里让人一个个翻是不合理的。用户的话通常已经带了足够信息（「暗色流动的背景」「标题逐字浮现」「鼠标划过发光」），
+先把范围收到 3~8 个，人只在这几个里挑。
+
+```bash
+node "$LIB"/scripts/add.mjs --find "暗色流动的背景"           # 直接问
+node "$LIB"/scripts/add.mjs --find "标题动画" --light          # 只要不吃性能的
+node "$LIB"/scripts/add.mjs --find "鼠标跟随" --json           # 给程序解析
+```
+
+每条结果带**中文摘要（它长什么样）· 作用面 · 触发方式 · 性能量级 · 依赖**，
+够你判断要不要推荐，也够你跟用户复述。
+
+**需求含糊或者你想自己做判断时，改用 `--catalog`：**
+
+```bash
+node "$LIB"/scripts/add.mjs --catalog
+```
+
+它把 140 条压成十几 KB 的精简全表（名字 / 长什么样 / 作用面 / 气质 / 场景 / 强度 / 依赖），
+**整个塞进上下文自己做语义匹配**。这比上面的关键词打分准 —— `--find` 是给不方便调模型的场合用的，
+你既然在读这段话，就说明你能读全表。拿不准的时候用 `--catalog`。
+
+匹配时优先考虑这几件事，比「哪个好看」重要：
+
+- **作用面对不对**：要背景就别推 `wrapper`，要文字动画就别推 `fullscreen-bg`
+- **宿主装得上吗**：`heavy: true` 的都要 WebGL；React 18 宿主直接排掉 `@react-three/fiber` 那批（见 §6）
+- **强度别过头**：后台界面配 `intensity: bold` 的满屏粒子是灾难，默认往 `subtle` 靠
+
+选出候选后**告诉用户你为什么选这几个**，然后开选型台让他定。别自己拍板。
+
+### 3. 写上下文 + 起选型台
 
 ```bash
 LIB=$(cat ~/.claude/skills/motion-picker/lib-path)
@@ -42,13 +74,13 @@ npm run dev            # http://localhost:5180
 
 **选型台需要依赖**（约 500MB）。第一次用如果 `node_modules` 不在，先 `npm install`。
 端口被占就 `PORT=5199 npm run dev`。
-不想装依赖的话跳过选型台，直接走 §6 的命令行路径 —— 那条路零依赖。
+不想装依赖的话跳过选型台，直接走 §7 的命令行路径 —— 那条路零依赖。
 
 `.rb-context.json` 让选型台顶部实时显示「这个组件在你的项目里能不能用」。没有它选型台照样能开，只是没有兼容性提示。
 
 服务起来后告诉用户地址。如果在 eas-term 里，用 `canvas_open_url` 直接开到画布上。
 
-### 3. 让用户挑
+### 4. 让用户挑
 
 告诉用户：
 
@@ -58,7 +90,7 @@ npm run dev            # http://localhost:5180
 
 **等用户回话，不要自己替他选。** 这一步的全部价值就在于人眼判断。
 
-### 4. 接收选择并集成
+### 5. 接收选择并集成
 
 用户说选好了之后，读 `"$LIB"/.rb-selection.json`，里面有：
 
@@ -82,7 +114,7 @@ node "$LIB"/scripts/add.mjs <组件名> --to <目标目录>             # 确认
 它会带走同目录资源、把 public 资源拷进宿主、盖出处戳、打印要装的依赖、跑一遍体检。
 Electron 项目加 `--asset-prefix`（打包后走 `file://`，根绝对路径必挂）。
 
-### 5. 按宿主适配 —— 这才是 AI 该干的活
+### 6. 按宿主适配 —— 这才是 AI 该干的活
 
 组件源码是按 React 19 + Tailwind 4 写的，宿主往往不是。逐条处理 `hostWarnings`：
 
@@ -107,20 +139,24 @@ Electron 项目加 `--asset-prefix`（打包后走 `file://`，根绝对路径�
 
 集成完**按项目规矩构建并打开亲眼看**，别只看编译过了。
 
-## 6. 不用选型台的快捷路径（零依赖）
+## 7. 不用选型台的快捷路径（零依赖）
 
 用户已经点名组件，或者只是想知道有什么：
 
 这条路**不需要 npm install**，克隆下来就能用（依赖信息已预计算进 index.json）：
 
 ```bash
+node "$LIB"/scripts/add.mjs --find "<需求描述>"  # 语义检索，见 §2
+node "$LIB"/scripts/add.mjs --catalog           # 精简全表，自己做匹配
 node "$LIB"/scripts/add.mjs --list              # 全部 139 个
 node "$LIB"/scripts/add.mjs --list three        # 按关键字/依赖筛
 node "$LIB"/scripts/add.mjs --list --no-deps    # 只看零依赖的
 node "$LIB"/scripts/add.mjs --list --json       # 给程序解析
 ```
 
-组件名几乎零语义（Silk / Balatro / DarkVeil / Ferrofluid / Prism），从名字猜不出效果。想知道长什么样就开选型台，或看 `$LIB/.cache/shots/all/<名字>.png`（如果跑过巡检）。
+组件名几乎零语义（Silk / Balatro / DarkVeil / Ferrofluid / Prism），**从名字猜不出效果，也别猜** ——
+`--find` 和 `--catalog` 带的中文摘要就是为这个存在的。想亲眼看就开选型台，
+或读 `$LIB/.cache/shots/all/<名字>.png`（如果跑过巡检）。
 
 ## 程序化调用
 
@@ -137,11 +173,12 @@ const r = await addComponent({ name: 'Silk', to: '/abs/path', dryRun: true });
 node "$LIB"/scripts/doctor.mjs
 ```
 
-它分三层报告：**取用组件**（几乎不需要环境）、**选型台**（需要 npm install）、**skill 接线**。
-核心层没过才是真问题；选型台没就绪不影响取用。
+它分四层报告：**取用组件**（几乎不需要环境）、**语义检索**、**选型台**（需要 npm install）、**skill 接线**。
+只有取用层没过才是真问题（那层挂了 doctor 才退非零）；其余各层没就绪都不影响拷代码进项目。
 
 常见情况：
-- **没装依赖** → 取用照常，选型台不可用。想要选型台就 `npm install`
+- **没装依赖** → 取用和 `--find` 照常，选型台不可用。想要选型台就 `npm install`
+- **语义索引不全**（doctor 报 `70/140`）→ `--find` 会命不中，用 `--list` 兜底；补法见 `$LIB/docs/运维手册.md`
 - **端口被占** → `PORT=5199 npm run dev`
 - **Node 太老** → 需要 18+
 - **Windows** → 取用和选型台都能跑；只有 `npm run sync`（同步上游）依赖 bash，用 `node scripts/fetch-repo.mjs` 代替
