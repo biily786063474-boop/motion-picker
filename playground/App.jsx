@@ -144,6 +144,28 @@ export default function App() {
   // 这次选型是给哪个项目做的（由 skill 在启动前写进 .rb-context.json）
   const [hostCtx, setHostCtx] = useState(null);
   const [hostWarnings, setHostWarnings] = useState([]);
+
+  /**
+   * 提示条收起状态。存 localStorage 而不是 useState 初值 —— 否则每换一个组件
+   * 都要再关一次，比不给关还烦。
+   * 收起后不是丢掉，顶栏会留一个徽标（✗1 ⚠2）点回来：
+   * 「React 18 装不了 @react-three/fiber」这种硬阻塞信息丢了，人会选到装不上的组件。
+   */
+  const [tipsCollapsed, setTipsCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem('pg-tips-collapsed') === '1';
+    } catch {
+      return false;
+    }
+  });
+  const toggleTips = () =>
+    setTipsCollapsed(v => {
+      const next = !v;
+      try {
+        localStorage.setItem('pg-tips-collapsed', next ? '1' : '0');
+      } catch {}
+      return next;
+    });
   useEffect(() => {
     fetch('/api/context')
       .then(r => r.json())
@@ -307,6 +329,27 @@ export default function App() {
           <span className="pg-stage-meta">
             {meta?.category} · {controls.filter(c => c.kind !== 'unsupported').length}/{controls.length} 个参数可调
           </span>
+          {/* 提示条收起后的入口：只占几十像素，不挡预览，但信息还在够得着的地方 */}
+          {hostCtx?.project && hostWarnings.length > 0 && tipsCollapsed && (
+            <button
+              className="pg-tip-badge"
+              onClick={toggleTips}
+              title="展开目标项目的兼容性诊断"
+            >
+              {/* 前缀不能省：只写「✗2」会被读成乘号 */}
+              <span className="pg-tip-badge__label">宿主</span>
+              {hostWarnings.filter(w => w.level === 'error').length > 0 && (
+                <span data-level="error">✗{hostWarnings.filter(w => w.level === 'error').length}</span>
+              )}
+              {hostWarnings.filter(w => w.level === 'warn').length > 0 && (
+                <span data-level="warn">⚠{hostWarnings.filter(w => w.level === 'warn').length}</span>
+              )}
+              {hostWarnings.every(w => w.level !== 'error' && w.level !== 'warn') && (
+                <span data-level="info">·{hostWarnings.length}</span>
+              )}
+            </button>
+          )}
+
           <div className="pg-stage-actions">
             <HandoffButton
               name={selected}
@@ -322,14 +365,21 @@ export default function App() {
         </div>
 
         {/* 选型时就告诉你这个组件在目标项目里能不能用，别等拷进去才发现 */}
-        {hostCtx?.project && hostWarnings.length > 0 && (
-          <div className="pg-host-check">
-            <b>目标项目 {hostCtx.projectName || hostCtx.project}</b>
-            {hostWarnings.map((w, i) => (
-              <div key={i} className="pg-host-check__item" data-level={w.level}>
-                {w.level === 'error' ? '✗' : w.level === 'warn' ? '⚠' : '·'} {w.message}
-              </div>
-            ))}
+        {hostCtx?.project && hostWarnings.length > 0 && !tipsCollapsed && (
+          // 外面这层不滚动，只负责给关闭按钮一个稳定的定位参照 ——
+          // 按钮放在会滚动的那层里会跟着内容滚走
+          <div className="pg-host-check-wrap">
+            <div className="pg-host-check">
+              <b>目标项目 {hostCtx.projectName || hostCtx.project}</b>
+              {hostWarnings.map((w, i) => (
+                <div key={i} className="pg-host-check__item" data-level={w.level}>
+                  {w.level === 'error' ? '✗' : w.level === 'warn' ? '⚠' : '·'} {w.message}
+                </div>
+              ))}
+            </div>
+            <button className="pg-tip-close" onClick={toggleTips} title="收起（顶栏会留一个徽标）">
+              ×
+            </button>
           </div>
         )}
 

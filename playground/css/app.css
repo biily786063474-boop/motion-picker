@@ -53,7 +53,7 @@ body {
 }
 
 .pg-pane-head {
-  padding: 14px 16px 10px;
+  padding: 8px 14px 7px;
   border-bottom: 1px solid var(--border-primary);
   flex: 0 0 auto;
 }
@@ -124,26 +124,33 @@ body {
 }
 
 /* ---------- 预览区 ---------- */
+/* 顶栏尽量矮 —— 它每一像素都是从预览区里抠出来的 */
 .pg-stage-head {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 18px;
+  gap: 10px;
+  padding: 6px 14px;
   border-bottom: 1px solid var(--border-primary);
   flex: 0 0 auto;
+  min-height: 0;
 }
 .pg-stage-name {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
 }
 .pg-stage-meta {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--text-muted);
 }
 .pg-stage-actions {
   margin-left: auto;
   display: flex;
-  gap: 8px;
+  gap: 6px;
+}
+/* 顶栏里的按钮跟着一起收窄，否则 padding 会把顶栏重新撑高 */
+.pg-stage-head .pg-btn {
+  font-size: 11.5px;
+  padding: 4px 9px;
 }
 
 .pg-btn {
@@ -167,7 +174,7 @@ body {
 .pg-stage {
   flex: 1 1 auto;
   overflow: auto;
-  padding: 24px;
+  padding: 14px 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,14 +209,24 @@ body {
   background: linear-gradient(135deg, #5f35ff, #8a5cff);
 }
 
-/* 目标项目的兼容性诊断：选型时就看到，别等拷进去才发现用不了 */
-.pg-host-check {
-  padding: 9px 18px;
+/* 目标项目的兼容性诊断：选型时就看到，别等拷进去才发现用不了。
+ * 可以收起（右上角 ×），收起后顶栏留一个 .pg-tip-badge 点回来。
+ * 组件警告多的时候这条会堆得很高，所以给它封顶 + 自己滚，绝不吃掉半个预览区。 */
+.pg-host-check-wrap {
+  position: relative;
+  flex: 0 0 auto;
   border-bottom: 1px solid var(--border-primary);
   background: rgba(82, 39, 255, 0.06);
-  font-size: 11.5px;
-  line-height: 1.7;
-  flex: 0 0 auto;
+}
+.pg-host-check {
+  padding: 6px 34px 6px 14px;
+  font-size: 11px;
+  line-height: 1.65;
+  /* box-sizing 是 border-box，max-height 含 padding —— 只写 3.3em 会把第二行切一半。
+   * 第 3 行会露出几个像素，这是有意的：不留这点缝隙，人就不知道下面还有警告可以滚。 */
+  max-height: calc(3.3em + 12px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .pg-host-check b {
   color: #c4b5fd;
@@ -219,7 +236,56 @@ body {
 .pg-host-check__item {
   color: var(--text-muted);
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 14px;
+}
+
+/* 收起按钮：钉在右上角，不随内容滚走 */
+.pg-tip-close {
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  background: transparent;
+  border: 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.pg-tip-close:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* 收起后的徽标：只占几十像素，信息还够得着 */
+.pg-tip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(82, 39, 255, 0.12);
+  border: 1px solid rgba(124, 77, 255, 0.35);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11px;
+  line-height: 1.6;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pg-tip-badge:hover {
+  background: rgba(82, 39, 255, 0.22);
+}
+.pg-tip-badge__label {
+  color: #c4b5fd;
+}
+.pg-tip-badge span[data-level='error'] {
+  color: #fda4af;
+}
+.pg-tip-badge span[data-level='warn'] {
+  color: #fcd34d;
+}
+.pg-tip-badge span[data-level='info'] {
+  color: var(--text-muted);
 }
 .pg-host-check__item[data-level='error'] {
   color: #fda4af;
@@ -233,13 +299,16 @@ body {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  padding: 10px 18px;
+  padding: 6px 14px;
   background: rgba(244, 63, 94, 0.08);
   border-bottom: 1px solid rgba(244, 63, 94, 0.3);
   color: #fda4af;
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 11.5px;
+  line-height: 1.55;
   flex: 0 0 auto;
+  max-height: 4.6em;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .pg-runtime-error b {
   color: #fecdd3;
